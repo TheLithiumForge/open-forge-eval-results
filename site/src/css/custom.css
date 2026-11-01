@@ -1,0 +1,14 @@
+:root { --ifm-color-primary: #3157c8; --ifm-heading-font-weight: 650; --ifm-background-color: #f6f8fc; }
+[data-theme='dark'] { --ifm-color-primary: #99b0ff; --ifm-background-color: #141a27; }
+.results { max-width: 1200px; padding: 3rem 1.5rem 5rem; }
+.results h1 { letter-spacing: -.035em; font-size: clamp(2rem, 5vw, 3.4rem); }
+.limits, .result-panel { border: 1px solid var(--ifm-color-emphasis-300); border-radius: 12px; padding: 1.25rem; margin: 1rem 0 1.5rem; background: var(--ifm-background-surface-color); }
+.limits { border-left: 5px solid #b97a11; }
+.result-panel { overflow-x: auto; }
+.result-panel table { width: 100%; font-size: .88rem; }
+.result-panel td, .result-panel th { vertical-align: top; }
+.stamp { font-size: .78rem; color: var(--ifm-color-emphasis-700); overflow-wrap: anywhere; }
+.results code { overflow-wrap: anywhere; }
+.result-panel pre { white-space: pre-wrap; overflow-wrap: anywhere; }
+.batch-list { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+.badge { display: inline-block; font-size: .75rem; background: var(--ifm-color-emphasis-200); padding: .15rem .45rem; border-radius: 5px; }

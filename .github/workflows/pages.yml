@@ -1,0 +1,61 @@
+name: Results
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: results-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+env:
+  PUBLISH: ${{ github.event_name != 'pull_request' && github.ref == 'refs/heads/main' }}
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: read
+      pages: read
+    steps:
+      - uses: actions/checkout@v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v7.0.0
+        with:
+          node-version: "24.19.0"
+          package-manager-cache: false
+      - name: Read the Pages address
+        id: pages
+        if: env.PUBLISH == 'true'
+        uses: actions/configure-pages@v6.0.0
+      - run: npm ci
+      - run: npm run validate
+      - run: npm run typecheck
+      - run: npm test
+      - run: npm run build
+        env:
+          RESULTS_SITE_ORIGIN: ${{ steps.pages.outputs.origin }}
+          RESULTS_SITE_BASE_PATH: ${{ steps.pages.outputs.base_path }}
+          RESULTS_DATA_COMMIT: ${{ github.sha }}
+      - name: Upload the site for Pages
+        if: env.PUBLISH == 'true'
+        uses: actions/upload-pages-artifact@v5.0.0
+        with:
+          path: site/build
+  deploy:
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+    needs: build
+    runs-on: ubuntu-24.04
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    concurrency:
+      group: pages
+      cancel-in-progress: false
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v5.0.1
