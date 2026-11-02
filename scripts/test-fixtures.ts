@@ -1,9 +1,9 @@
 import { createHash, randomUUID } from "node:crypto";
 import { mkdir, writeFile } from "node:fs/promises";
 import { join } from "node:path";
-import type { Batch } from "../site/data/records.types.ts";
+import type { Batch } from "./records.types.ts";
 import { SchemaVersion } from "./schema-values.ts";
-import { RecordFiles, AssessmentKinds } from "./read.ts";
+import { RecordFiles, AssessmentKinds } from "./catalogue.ts";
 
 export const FixtureCheck = "opens";
 export const FixtureVersion = "0.0.0-fixture";

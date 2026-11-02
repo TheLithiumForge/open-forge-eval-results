@@ -1,8 +1,11 @@
 export interface Choice { readonly tool: string; readonly model: string | null; readonly effort: string | null }
+export interface ReferenceVersion { readonly commit: string; readonly contentHash: string; readonly specHash: string; readonly specVersion: number }
+export interface GradingVersions { readonly checker: string | null; readonly rubric: string | null; readonly judge: string | null; readonly spec?: string | null; readonly specVersion?: number | null }
 export interface Experiment {
+  readonly reference?: ReferenceVersion;
   readonly schemaVersion: 2; readonly id: string; readonly suite: string; readonly cliVersion: string | null; readonly candidateLabel: string | null;
   readonly createdAt: string; readonly status: string; readonly legacy: boolean; readonly runs: readonly string[];
-  readonly config: { readonly isolation: string; readonly setups: readonly string[]; readonly runsPerSetup: number; readonly agents: readonly Choice[] };
+  readonly config: { readonly layer?: number; readonly judges?: readonly Choice[]; readonly judge?: Choice; readonly isolation: string; readonly setups: readonly string[]; readonly runsPerSetup: number; readonly agents: readonly Choice[] };
   readonly fingerprints: Readonly<Record<string, string | null>>; readonly versions: Readonly<Record<string, string>>;
 }
 export interface Outcome { readonly id: string; readonly area: string; readonly status: string; readonly evidence: string }
@@ -11,6 +14,7 @@ export interface Functional {
   readonly workingGate: boolean | null; readonly statedSuccess: boolean | null;
 }
 export interface Run {
+  readonly implementer?: "reference"; readonly reference?: ReferenceVersion;
   readonly schemaVersion: 2; readonly id: string; readonly batchId: string; readonly setup: string; readonly agent: Choice; readonly repeat: number;
   readonly pipelineStatus: string; readonly failureKind: string | null; readonly replacesRunId: string | null; readonly replacementReason: string | null;
   readonly artifactHash: string | null; readonly requestedModel: string | null; readonly reportedModel: string | null;
@@ -30,7 +34,7 @@ export interface Artifact {
 export interface Ballot { readonly id: string; readonly area: string; readonly question: string; readonly yes: number; readonly no: number; readonly unsure: number; readonly evidence: readonly string[] }
 interface AssessmentBase {
   readonly schemaVersion: 2; readonly id: string; readonly experimentId: string; readonly createdAt: string | null;
-  readonly versions: { readonly checker: string | null; readonly rubric: string | null; readonly judge: string | null };
+  readonly versions: GradingVersions;
   readonly replacesAssessmentId: string | null; readonly error: string | null;
 }
 export interface Checks extends AssessmentBase {
@@ -39,7 +43,7 @@ export interface Checks extends AssessmentBase {
   readonly build: { readonly passed: boolean; readonly typecheck: boolean | null; readonly seconds: number; readonly packages: number | null; readonly html: string | null; readonly bytes: number | null; readonly log: string } | null;
   readonly performance: { readonly firstRenderMs: number | null; readonly largeBoardTapP95Ms: number | null } | null; readonly shots: readonly string[];
 }
-export interface Judge extends AssessmentBase { readonly kind: "judge"; readonly runId: string; readonly answers: readonly Ballot[]; readonly requestedModel: Choice | null; readonly reportedModel: string | null }
+export interface Judge extends AssessmentBase { readonly ballots?: number; readonly kind: "judge"; readonly runId: string; readonly answers: readonly Ballot[]; readonly requestedModel: Choice | null; readonly reportedModel: string | null }
 export interface Pick extends AssessmentBase {
   readonly kind: "pick"; readonly left: { readonly runId: string; readonly artifactHash: string | null; readonly side: "left" };
   readonly right: { readonly runId: string; readonly artifactHash: string | null; readonly side: "right" };

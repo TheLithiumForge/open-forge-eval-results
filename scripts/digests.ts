@@ -1,5 +1,5 @@
 import { createHash } from "node:crypto";
-import type { Artifact } from "../site/data/records.types.ts";
+import type { Artifact } from "./records.types.ts";
 function stableJson(value: unknown): string {
   if (Array.isArray(value)) return `[${value.map(stableJson).join(",")}]`;
   if (value !== null && typeof value === "object") return `{${Object.entries(value).sort(([a], [b]) => a.localeCompare(b)).map(([key, child]) => `${JSON.stringify(key)}:${stableJson(child)}`).join(",")}}`;

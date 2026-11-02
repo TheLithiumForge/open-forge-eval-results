@@ -1,6 +1,25 @@
 {
-  "extends": "@docusaurus/tsconfig",
-  "compilerOptions": { "strict": true, "exactOptionalPropertyTypes": true, "noUncheckedIndexedAccess": true, "noUnusedLocals": true, "noUnusedParameters": true, "erasableSyntaxOnly": true, "verbatimModuleSyntax": true, "allowImportingTsExtensions": true, "types": ["node", "@docusaurus/module-type-aliases"], "jsx": "react-jsx", "noEmit": true },
-  "include": ["scripts/**/*.ts", "site/**/*.ts", "site/**/*.tsx"],
-  "exclude": ["node_modules", "site/build", "site/.docusaurus"]
+  "compilerOptions": {
+    "strict": true,
+    "exactOptionalPropertyTypes": true,
+    "noUncheckedIndexedAccess": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "erasableSyntaxOnly": true,
+    "verbatimModuleSyntax": true,
+    "allowImportingTsExtensions": true,
+    "types": [
+      "node"
+    ],
+    "noEmit": true,
+    "target": "ES2023",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext"
+  },
+  "include": [
+    "scripts/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }

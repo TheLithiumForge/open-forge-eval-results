@@ -6,6 +6,9 @@
     "schemaVersion": {
       "const": 2
     },
+    "reference": {
+      "$ref": "common.json#/$defs/reference"
+    },
     "id": {
       "$ref": "common.json#/$defs/id"
     },

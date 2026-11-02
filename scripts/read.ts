@@ -1,16 +1,17 @@
 import { join, resolve } from "node:path";
 import { Ajv2020 } from "ajv/dist/2020.js";
 import type { ValidateFunction } from "ajv";
-import type { Artifact, Assessment, Batch, Experiment, Run, Setup } from "../site/data/records.types.ts";
+import type { Artifact, Assessment, Batch, Experiment, Run, Setup } from "./records.types.ts";
 import { plainBytes, folders } from "./files.ts";
+import { fileURLToPath } from "node:url";
 import { SchemaKinds } from "./schema-values.ts";
 
 export const RepositoryRoot = resolve(process.cwd());
-export const RecordFiles = { experiment: "experiment.json", setups: "setups.jsonl", runs: "runs.jsonl", artifacts: "artifacts.json" } as const;
-export const AssessmentKinds = ["checks", "judge", "pick"] as const;
+import { RecordFiles, AssessmentKinds } from "./catalogue.ts";
+export { RecordFiles, AssessmentKinds } from "./catalogue.ts";
 async function schemaValidator() {
   const ajv = new Ajv2020({ allErrors: true, strict: true });
-  const schemaRoot = join(RepositoryRoot, "schemas", "v2");
+  const schemaRoot = fileURLToPath(new URL("../schemas/v2/", import.meta.url));
   for (const name of ["common", ...SchemaKinds]) ajv.addSchema(JSON.parse((await plainBytes(schemaRoot, `${name}.json`)).toString()));
   return ajv;
 }

@@ -5,7 +5,8 @@ import { join } from "node:path";
 import { readBatch, RepositoryRoot, RecordFiles, AssessmentKinds } from "./read.ts";
 import { plainBytes } from "./files.ts";
 import { validateReferences } from "./references.ts";
-import type { Batch } from "../site/data/records.types.ts";
+import type { Batch } from "./records.types.ts";
+import { writeIndex } from "./index.ts";
 import { manifestHash } from "./digests.ts";
 
 export async function verifyArtifacts(batch: Batch, evidenceRoot?: string): Promise<void> {
@@ -39,6 +40,7 @@ export async function stageBatch(source: string, evidenceRoot?: string, destinat
     await mkdir(join(destination, "versions", version, "batches"), { recursive: true });
     await rename(scratch, target);
   } finally { await rm(scratch, { recursive: true, force: true }); }
+  await writeIndex(destination);
   return target;
 }
 if (import.meta.main) {

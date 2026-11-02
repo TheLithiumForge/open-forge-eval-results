@@ -56,6 +56,27 @@
                   "type": "null"
                 }
               ]
+            },
+            "spec": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "specVersion": {
+              "anyOf": [
+                {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                {
+                  "type": "null"
+                }
+              ]
             }
           },
           "required": [
@@ -199,6 +220,27 @@
                   "type": "null"
                 }
               ]
+            },
+            "spec": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "specVersion": {
+              "anyOf": [
+                {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                {
+                  "type": "null"
+                }
+              ]
             }
           },
           "required": [
@@ -230,6 +272,9 @@
         },
         "kind": {
           "const": "judge"
+        },
+        "ballots": {
+          "$ref": "common.json#/$defs/count"
         },
         "runId": {
           "$ref": "common.json#/$defs/id"
@@ -326,6 +371,27 @@
               "anyOf": [
                 {
                   "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "spec": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "specVersion": {
+              "anyOf": [
+                {
+                  "type": "integer",
+                  "minimum": 0
                 },
                 {
                   "type": "null"

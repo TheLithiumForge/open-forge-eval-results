@@ -1,5 +1,4 @@
 node_modules/
 .npm-cache/
-site/.docusaurus/
-site/build/
 .staging/
+index.json.tmp

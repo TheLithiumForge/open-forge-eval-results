@@ -1,4 +1,4 @@
-import type { Batch } from "../site/data/records.types.ts";
+import type { Batch } from "./records.types.ts";
 
 function unique(ids: readonly string[], kind: string): void {
   if (new Set(ids).size !== ids.length) throw new Error(`Duplicate ${kind}.`);
