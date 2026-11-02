@@ -14,9 +14,9 @@ const choice = object({ tool: { enum: ["claude", "codex", "mock"] }, model: mayb
 const selection = object({ applicable: strings, working: strings, stated: strings });
 const answer = object({ id: text, area: text, question: text, yes: count, no: count, unsure: count, evidence: strings });
 const assessment = { id: ref("id"), experimentId: ref("id"), createdAt: maybeText,
-  versions: object({ checker: maybeText, rubric: maybeText, judge: maybeText, spec: maybeText, specVersion: nullable(count) }, ["spec", "specVersion"]), replacesAssessmentId: maybeText, error: maybeText };
+  versions: object({ checker: maybeText, rubric: maybeText, judge: maybeText, spec: maybeText, specVersion: maybeNumber }, ["spec", "specVersion"]), replacesAssessmentId: maybeText, error: maybeText };
 const definitions = {
-  reference: object({ commit: text, contentHash: text, specHash: text, specVersion: count }),
+  reference: object({ commit: text, contentHash: text, specHash: text, specVersion: numeric }),
   id: { type: "string", pattern: "^[A-Za-z0-9][A-Za-z0-9_.-]*$" }, digest: { type: "string", pattern: "^[a-f0-9]{64}$" }, count, number: numeric,
   relativePath: { type: "string", minLength: 1, pattern: "^(?!/|[A-Za-z]:|.*\\\\|.*(?:^|/)\\.\\.(?:/|$)).+$" }, choice, selection, answer,
   config: object({ layer: { type: "integer", minimum: 1, maximum: 4 }, judges: list(choice), suite: text, runsPerSetup: count, parallelRuns: count, setups: strings, agents: list(choice),
