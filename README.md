@@ -13,17 +13,17 @@ Run `npm ci --cache .npm-cache` to install the locked dependencies. Then run `np
 
 ## Stage results
 
-Export a finished batch with Open Forge Evals first. Then run `npm run stage -- <exported-batch-folder> --artifacts <plain-evidence-folder>` to import it.
+From the Open Forge repository root, run `npm run evals -- results add <batch>`. It exports a finished batch, stages it here and validates this repository. To stage an exported batch by hand, run `npm run stage -- <exported-batch-folder> --artifacts <plain-evidence-folder>`.
 
-The evidence folder holds original files at `runs/<run>/<path>` and assessment files at `assessments/<assessment>/<path>`. These paths come from `artifacts.json`. Staging checks every byte size and SHA-256 before writing records to `versions/<cli-version>/batches/<batch>/`. Existing batches are immutable. Staging regenerates `index.json` after importing a batch.
+The evidence folder holds original files at `runs/<run>/<path>` and assessment files at `assessments/<assessment>/<path>`. These paths come from `artifacts.json`. Staging checks every byte size and SHA-256, then writes the records and a copy of the evidence to `versions/<cli-version>/batches/<batch>/`. Staging a batch again replaces it, because saved runs can rebuild this repository. Staging regenerates `index.json` after importing a batch.
 
-Keep evidence in checksummed release assets instead of committing agent code or games here.
+Evidence is committed here: agent code without installed packages, the built game, screenshots, the conversation and the tool's event log.
 
 ## Records
 
 The five record schemas and their shared definitions live in `schemas/v2/`. Run `npm run schemas` to regenerate them from `scripts/schema-source.ts` and `scripts/schema-definitions.ts`. Public records accept the exporter's omission of the private `telemetry.sessionId` field. Other fields follow the v2 history records.
 
-The validator checks schema shapes, identities, references, replacements and pick hashes. Missing values stay `null`. Recheck and rejudge assessments stay in append order.
+The validator checks schema shapes, identities, references, replacements, pick hashes and the size and hash of every evidence file. Missing values stay `null`. Recheck and rejudge assessments stay in append order.
 
 ## Catalogue
 
@@ -38,6 +38,7 @@ Each batch entry gives its ID, layer, CLI version, creation time, implementer mo
 - `assessments/judge.jsonl` - Judge assessments.
 - `assessments/pick.jsonl` - Blind and revealed picks.
 - `artifacts.json` - Evidence paths, sizes and hashes.
+- `evidence/` - The evidence files at the paths `artifacts.json` lists.
 
 ## Read results
 

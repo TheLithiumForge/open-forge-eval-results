@@ -1,14 +1,20 @@
 import { plainBytes } from "./files.ts";
 import { fileURLToPath } from "node:url";
 import { createValidator } from "./validate-data.ts";
-import { SchemaNames } from "./catalogue.ts";
+import { join } from "node:path";
+import { EvidenceFolder, SchemaNames } from "./catalogue.ts";
 import { RepositoryRoot, readRepository } from "./read.ts";
 import { validateReferences } from "./references.ts";
+import { verifyArtifacts } from "./stage.ts";
 
 export async function validateRepository(root?: string): Promise<number> {
   const batches = await readRepository(root);
-  for (const batch of batches) validateReferences(batch);
   const repository = root ?? RepositoryRoot;
+  for (const batch of batches) {
+    validateReferences(batch);
+    // readRepository already matched each batch to its version and batch folder.
+    await verifyArtifacts(batch, join(repository, "versions", batch.experiment.cliVersion ?? "", "batches", batch.experiment.id, EvidenceFolder));
+  }
   const schemaRoot = fileURLToPath(new URL("../schemas/", import.meta.url));
   const schemas: object[] = await Promise.all(SchemaNames.map(async (name): Promise<object> => JSON.parse((await plainBytes(schemaRoot, `v2/${name}.json`)).toString())));
   const indexSchema: object = JSON.parse((await plainBytes(schemaRoot, "index.json")).toString());

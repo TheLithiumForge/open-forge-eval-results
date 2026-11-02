@@ -1,6 +1,8 @@
 import assert from "node:assert/strict";
 import { createHash } from "node:crypto";
-import { mkdtemp, mkdir, rm, writeFile } from "node:fs/promises";
+import { mkdtemp, mkdir, readFile, rm, writeFile } from "node:fs/promises";
+import { EvidenceFolder } from "./catalogue.ts";
+import { validateRepository } from "./validate.ts";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { test } from "node:test";
@@ -22,7 +24,7 @@ test("schema validation and references accept a complete batch and reject a brok
     assert.throws(() => validateReferences({ ...data, artifacts: [{ schemaVersion: 2, runId: "unknown", assessmentId: null, path: "evidence.txt", bytes: 0, sha256: "" }] }));
   } finally { await rm(root, { recursive: true, force: true }); }
 });
-test("staging verifies artifact bytes, refuses changes and keeps existing batches", async () => {
+test("staging verifies artifact bytes, copies them beside the records, refuses changes and replaces a restaged batch", async () => {
   const root = await mkdtemp(join(tmpdir(), "results-stage-"));
   try {
     const source = join(root, "exported");
@@ -42,8 +44,14 @@ test("staging verifies artifact bytes, refuses changes and keeps existing batche
     const staged = await stageBatch(source, evidence, destination);
     assert.equal(staged, join(destination, "versions", FixtureVersion, "batches", data.experiment.id));
     assert.equal((await readRepository(destination)).length, 1);
-    await assert.rejects(stageBatch(source, evidence, destination));
+    assert.deepEqual(await readFile(join(staged, EvidenceFolder, "runs", run.id, artifact.path)), bytes);
+    assert.equal(await validateRepository(destination), 1);
+    assert.equal(await stageBatch(source, evidence, destination), staged);
+    assert.equal((await readRepository(destination)).length, 1);
+    await writeFile(join(staged, EvidenceFolder, "runs", run.id, artifact.path), "changed evidence");
+    await assert.rejects(validateRepository(destination));
     await writeFile(join(evidence, "runs", run.id, artifact.path), "changed evidence");
     await assert.rejects(verifyArtifacts(batch, evidence));
+    await assert.rejects(stageBatch(source, evidence, destination));
   } finally { await rm(root, { recursive: true, force: true }); }
 });
