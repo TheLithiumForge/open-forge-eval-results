@@ -105,7 +105,7 @@ jobs:
         working-directory: open-forge
         env:
           BATCH: ${{ matrix.batch }}
-        run: npm run --silent evals -- results add "$BATCH" --repository ../results
+        run: npm run --silent evals -- results add "$BATCH" --imported --repository ../results
       - uses: actions/upload-artifact@v4
         with:
           name: graded-${{ matrix.batch }}
