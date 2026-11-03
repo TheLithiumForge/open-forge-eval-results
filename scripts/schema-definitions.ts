@@ -1,4 +1,4 @@
-import { AnalysisMethods, ThreadRoles } from "./schema-values.ts";
+import { AnalysisMethods, PacketWorkModes, ThreadRoles } from "./schema-values.ts";
 export const text = { type: "string" };
 export const list = (items: object) => ({ type: "array", items });
 export const nullable = (schema: object) => ({ anyOf: [schema, { type: "null" }] });
@@ -23,8 +23,9 @@ const definitions = {
   id: { type: "string", pattern: "^[A-Za-z0-9][A-Za-z0-9_.-]*$" }, digest: { type: "string", pattern: "^[a-f0-9]{64}$" }, count, number: numeric,
   relativePath: { type: "string", minLength: 1, pattern: "^(?!/|[A-Za-z]:|.*\\\\|.*(?:^|/)\\.\\.(?:/|$)).+$" }, choice, selection, answer,
   config: object({ layer: { type: "integer", minimum: 1, maximum: 4 }, judges: list(choice), suite: text, runsPerSetup: count, parallelRuns: count, setups: strings, agents: list(choice),
-    judge: object({ ...choice.properties, repeats: count }, ["team"]), judging: { enum: ["run", "later"] }, simulatedUser: choice, isolation: { enum: ["docker", "local"] },
-    containers: object({ cpus: numeric, memory: text, processes: count }), limits: object({ runMinutes: numeric, questionRounds: count, checkMinutes: numeric }) }, ["containers", "layer", "judges", "judging"]),
+    judge: object({ ...choice.properties, repeats: count }, ["team"]), judging: { enum: ["run", "later"] }, checking: { enum: ["run", "later"] }, packet: text, workMode: { enum: PacketWorkModes },
+    chain: object({ id: text, milestone: count, parentBatchId: text }, ["parentBatchId"]), simulatedUser: choice, isolation: { enum: ["docker", "local"] },
+    containers: object({ cpus: numeric, memory: text, processes: count }), limits: object({ runMinutes: numeric, questionRounds: count, checkMinutes: numeric }) }, ["containers", "layer", "judges", "judging", "checking", "packet", "workMode", "chain"]),
   build: object({ passed: { type: "boolean" }, typecheck: nullable({ type: "boolean" }), seconds: numeric, packages: nullable(count), html: maybeText, bytes: nullable(count), log: text }),
   performance: object({ firstRenderMs: maybeNumber, largeBoardTapP95Ms: maybeNumber }),
   telemetry: object({ tokens: nullable(object({ input: numeric, cachedInput: numeric, cacheWrite: numeric, output: numeric, reasoning: numeric })),
