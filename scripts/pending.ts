@@ -9,6 +9,8 @@ export interface PendingBatch { readonly batch: string; readonly folder: string;
 interface PublishedRun { readonly id: string; readonly pipelineStatus: string; readonly build: { readonly passed: boolean } | null }
 interface PublishedCheck { readonly runId: string; readonly error: string | null; readonly outcomes: readonly { readonly status: string }[] }
 
+const RecordId = /^[A-Za-z0-9][A-Za-z0-9_.-]*$/;
+
 async function lines<T>(path: string): Promise<T[]> {
   if (!existsSync(path)) return [];
   return (await readFile(path, "utf8")).split("\n").filter((line) => line.trim() !== "").map((line) => JSON.parse(line) as T);
@@ -28,7 +30,8 @@ export async function pendingBatches(root: string, runners: readonly unknown[]):
   for (const version of existsSync(versions) ? (await readdir(versions, { withFileTypes: true })).filter((entry) => entry.isDirectory()).map((entry) => entry.name).sort() : []) {
     const batches = join(versions, version, "batches");
     if (!existsSync(batches)) continue;
-    for (const batch of (await readdir(batches)).sort()) {
+    // Batch names reach runner commands and artifact names, so only names in the records' ID form count.
+    for (const batch of (await readdir(batches)).sort().filter((name) => RecordId.test(name))) {
       const folder = join(batches, batch);
       const latest = new Map<string, PublishedCheck>();
       for (const check of await lines<PublishedCheck>(join(folder, "assessments", "checks.jsonl"))) latest.set(check.runId, check);
