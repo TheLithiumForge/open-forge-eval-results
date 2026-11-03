@@ -2,7 +2,7 @@ import { createHash, randomUUID } from "node:crypto";
 import { mkdir, rename, rm, writeFile } from "node:fs/promises";
 import { existsSync } from "node:fs";
 import { dirname, join } from "node:path";
-import { readBatch, RepositoryRoot, RecordFiles, AssessmentKinds } from "./read.ts";
+import { readBatch, RepositoryRoot, RecordFiles, AssessmentKinds, AnalysisFile } from "./read.ts";
 import { plainBytes } from "./files.ts";
 import { validateReferences } from "./references.ts";
 import type { Artifact, Batch } from "./records.types.ts";
@@ -49,6 +49,7 @@ export async function stageBatch(source: string, evidenceRoot?: string, destinat
     await writeFile(join(scratch, RecordFiles.runs), jsonl(batch.runs));
     await writeFile(join(scratch, RecordFiles.artifacts), JSON.stringify(batch.artifacts, null, 2) + "\n");
     for (const kind of AssessmentKinds) await writeFile(join(scratch, "assessments", `${kind}.jsonl`), jsonl(batch.assessments.filter((assessment) => assessment.kind === kind)));
+    await writeFile(join(scratch, AnalysisFile), jsonl(batch.analyses ?? []));
     await mkdir(join(destination, "versions", version, "batches"), { recursive: true });
     if (existsSync(target)) await rename(target, replaced);
     await rename(scratch, target);

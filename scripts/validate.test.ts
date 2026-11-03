@@ -7,7 +7,7 @@ import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { test } from "node:test";
 import { fixture, FixtureVersion, writeBatch } from "./test-fixtures.ts";
-import { readBatch, readRepository, RecordFiles } from "./read.ts";
+import { AnalysisFile, readBatch, readRepository, RecordFiles } from "./read.ts";
 import { validateReferences } from "./references.ts";
 import { stageBatch, verifyArtifacts } from "./stage.ts";
 import { manifestHash } from "./digests.ts";
@@ -53,5 +53,22 @@ test("staging verifies artifact bytes, copies them beside the records, refuses c
     await writeFile(join(evidence, "runs", run.id, artifact.path), "changed evidence");
     await assert.rejects(verifyArtifacts(batch, evidence));
     await assert.rejects(stageBatch(source, evidence, destination));
+  } finally { await rm(root, { recursive: true, force: true }); }
+});
+test("analyses are optional for older batches, validated when present and must name the batch's runs", async () => {
+  const root = await mkdtemp(join(tmpdir(), "results-analyses-"));
+  try {
+    const data = fixture();
+    const { analyses, ...older } = data;
+    await writeBatch(root, older);
+    assert.equal((await readBatch(root)).analyses?.length, 0);
+    await writeBatch(root, data);
+    assert.equal((await readBatch(root)).analyses?.length, analyses?.length);
+    const analysis = analyses?.[0];
+    assert.ok(analysis !== undefined);
+    assert.throws(() => validateReferences({ ...data, analyses: [{ ...analysis, runId: "unknown" }] }));
+    assert.throws(() => validateReferences({ ...data, analyses: [{ ...analysis, replacesAnalysisId: "unknown" }] }));
+    await writeFile(join(root, AnalysisFile), JSON.stringify({ ...analysis, method: "guessed" }) + "\n");
+    await assert.rejects(readBatch(root));
   } finally { await rm(root, { recursive: true, force: true }); }
 });

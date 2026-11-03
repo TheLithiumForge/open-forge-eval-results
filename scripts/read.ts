@@ -1,14 +1,15 @@
 import { join, resolve } from "node:path";
 import { Ajv2020 } from "ajv/dist/2020.js";
 import type { ValidateFunction } from "ajv";
-import type { Artifact, Assessment, Batch, Experiment, Run, Setup } from "./records.types.ts";
+import { existsSync } from "node:fs";
+import type { Analysis, Artifact, Assessment, Batch, Experiment, Run, Setup } from "./records.types.ts";
 import { plainBytes, folders } from "./files.ts";
 import { fileURLToPath } from "node:url";
 import { SchemaKinds } from "./schema-values.ts";
 
 export const RepositoryRoot = resolve(process.cwd());
-import { RecordFiles, AssessmentKinds } from "./catalogue.ts";
-export { RecordFiles, AssessmentKinds } from "./catalogue.ts";
+import { RecordFiles, AssessmentKinds, AnalysisFile } from "./catalogue.ts";
+export { RecordFiles, AssessmentKinds, AnalysisFile } from "./catalogue.ts";
 async function schemaValidator() {
   const ajv = new Ajv2020({ allErrors: true, strict: true });
   const schemaRoot = fileURLToPath(new URL("../schemas/v2/", import.meta.url));
@@ -32,7 +33,7 @@ async function lines<T>(root: string, name: string, check: ValidateFunction<T>):
   return input.split("\n").filter((line) => line.trim() !== "").map((line, index) => validated(JSON.parse(line), check, `${name}:${index + 1}`));
 }
 export async function readBatch(root: string): Promise<Batch> {
-  const validators = { experiment: await validator<Experiment>("experiment"), setup: await validator<Setup>("setup"), run: await validator<Run>("run"), assessment: await validator<Assessment>("assessment"), artifact: await validator<Artifact>("artifact") };
+  const validators = { experiment: await validator<Experiment>("experiment"), setup: await validator<Setup>("setup"), run: await validator<Run>("run"), assessment: await validator<Assessment>("assessment"), artifact: await validator<Artifact>("artifact"), analysis: await validator<Analysis>("analysis") };
   const experiment = validated(JSON.parse((await plainBytes(root, RecordFiles.experiment)).toString()), validators.experiment, RecordFiles.experiment);
   const artifacts: unknown = JSON.parse((await plainBytes(root, RecordFiles.artifacts)).toString());
   if (!Array.isArray(artifacts)) throw new Error("artifacts.json must be an array.");
@@ -42,7 +43,8 @@ export async function readBatch(root: string): Promise<Batch> {
       if (records.some((record) => record.kind !== kind)) throw new Error("Assessment kind differs from its file.");
       return records;
     }))).flat(),
-    artifacts: artifacts.map((artifact) => validated(artifact, validators.artifact, RecordFiles.artifacts)) };
+    artifacts: artifacts.map((artifact) => validated(artifact, validators.artifact, RecordFiles.artifacts)),
+    analyses: existsSync(join(root, AnalysisFile)) ? await lines(root, AnalysisFile, validators.analysis) : [] };
 }
 
 export async function readRepository(root = RepositoryRoot): Promise<Batch[]> {
