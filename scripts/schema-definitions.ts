@@ -11,7 +11,7 @@ const count = { type: "integer", minimum: 0 };
 const strings = list(text);
 const maybeNumber = nullable(numeric);
 const maybeText = nullable(text);
-const choice = object({ tool: { enum: ["claude", "codex", "mock"] }, model: maybeText, effort: maybeText });
+const choice = object({ tool: { enum: ["claude", "codex", "mock"] }, model: maybeText, effort: maybeText, team: object({ model: maybeText, effort: maybeText }) }, ["team"]);
 const selection = object({ applicable: strings, working: strings, stated: strings });
 const answer = object({ id: text, area: text, question: text, yes: count, no: count, unsure: count, evidence: strings });
 const assessment = { id: ref("id"), experimentId: ref("id"), createdAt: maybeText,
@@ -23,7 +23,7 @@ const definitions = {
   id: { type: "string", pattern: "^[A-Za-z0-9][A-Za-z0-9_.-]*$" }, digest: { type: "string", pattern: "^[a-f0-9]{64}$" }, count, number: numeric,
   relativePath: { type: "string", minLength: 1, pattern: "^(?!/|[A-Za-z]:|.*\\\\|.*(?:^|/)\\.\\.(?:/|$)).+$" }, choice, selection, answer,
   config: object({ layer: { type: "integer", minimum: 1, maximum: 4 }, judges: list(choice), suite: text, runsPerSetup: count, parallelRuns: count, setups: strings, agents: list(choice),
-    judge: object({ ...choice.properties, repeats: count }), judging: { enum: ["run", "later"] }, simulatedUser: choice, isolation: { enum: ["docker", "local"] },
+    judge: object({ ...choice.properties, repeats: count }, ["team"]), judging: { enum: ["run", "later"] }, simulatedUser: choice, isolation: { enum: ["docker", "local"] },
     containers: object({ cpus: numeric, memory: text, processes: count }), limits: object({ runMinutes: numeric, questionRounds: count, checkMinutes: numeric }) }, ["containers", "layer", "judges", "judging"]),
   build: object({ passed: { type: "boolean" }, typecheck: nullable({ type: "boolean" }), seconds: numeric, packages: nullable(count), html: maybeText, bytes: nullable(count), log: text }),
   performance: object({ firstRenderMs: maybeNumber, largeBoardTapP95Ms: maybeNumber }),
