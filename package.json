@@ -12,7 +12,8 @@
     "stage": "node scripts/stage.ts",
     "typecheck": "tsc --noEmit",
     "test": "node --test scripts/*.test.ts",
-    "index": "node scripts/index.ts"
+    "index": "node scripts/index.ts",
+    "pending": "node scripts/pending.ts"
   },
   "dependencies": {
     "ajv": "8.17.1"

@@ -19,6 +19,19 @@ The evidence folder holds original files at `runs/<run>/<path>` and assessment f
 
 Evidence is committed here: agent code without installed packages, the built game, screenshots, the conversation and the tool's event log.
 
+## Grade in CI
+
+A plan can leave its checks for later, so a batch can be published with runs that wait for them. On every push to `main` that changes `versions/`, the Grade published runs workflow finds those batches with `npm run pending`. Each one gets a job that imports the batch into an Open Forge checkout, runs `check --missing`, publishes the batch again and packs it. A last job unpacks every graded batch, validates this repository and opens one pull request.
+
+| Setting | Kind | Use |
+| --- | --- | --- |
+| `GRADE_RUNNERS` | Variable | A JSON list of runs-on values that take the batches in turn, such as `["ubuntu-latest", ["self-hosted", "Windows"], ["self-hosted", "macOS"]]`. Self-hosted runners need Docker with Linux containers. |
+| `OPEN_FORGE_REPOSITORY` | Variable | The repository whose graders run, `TheLithiumForge/open-forge` by default |
+| `OPEN_FORGE_REF` | Variable | Its branch, tag or commit, `develop` by default |
+| `CLAUDE_CODE_OAUTH_TOKEN` | Secret | Claude judging, when a manual run names `claude` judges |
+
+Judging is opt-in on a manual run. Codex judging needs a sign-in of its own, since Codex replaces its refresh token on use and a shared sign-in would sign every other copy out.
+
 ## Records
 
 The five record schemas and their shared definitions live in `schemas/v2/`. Run `npm run schemas` to regenerate them from `scripts/schema-source.ts` and `scripts/schema-definitions.ts`. Public records accept the exporter's omission of the private `telemetry.sessionId` field. Other fields follow the v2 history records.

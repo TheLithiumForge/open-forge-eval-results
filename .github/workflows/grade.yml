@@ -1,0 +1,143 @@
+# Grades published runs whose checks were left for later, then opens one pull request with the new grades.
+# Every batch with waiting runs gets a job on one of the runners in the GRADE_RUNNERS variable, in turn, so
+# GitHub's runners and self-hosted ones share the work. Self-hosted runners need Docker with Linux containers.
+name: Grade published runs
+
+on:
+  push:
+    branches: [main]
+    paths: ["versions/**"]
+  workflow_dispatch:
+    inputs:
+      open-forge-ref:
+        description: The Open Forge branch, tag or commit whose graders run
+        required: false
+        default: ""
+      judges:
+        description: Judges for judge --missing after the checks, such as claude, or none
+        required: false
+        default: none
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: grade-published-runs
+  cancel-in-progress: false
+
+env:
+  OPEN_FORGE_REPOSITORY: ${{ vars.OPEN_FORGE_REPOSITORY || 'TheLithiumForge/open-forge' }}
+  OPEN_FORGE_REF: ${{ inputs.open-forge-ref || vars.OPEN_FORGE_REF || 'develop' }}
+  NODE_VERSION: "24.19.0"
+
+jobs:
+  plan:
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.pending.outputs.matrix }}
+      any: ${{ steps.pending.outputs.any }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+      - id: pending
+        run: npm run --silent pending
+        env:
+          GRADE_RUNNERS: ${{ vars.GRADE_RUNNERS || '["ubuntu-latest"]' }}
+
+  grade:
+    needs: plan
+    if: needs.plan.outputs.any == 'true'
+    strategy:
+      fail-fast: false
+      matrix:
+        include: ${{ fromJSON(needs.plan.outputs.matrix) }}
+    runs-on: ${{ matrix.runner }}
+    timeout-minutes: 360
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          path: results
+      - uses: actions/checkout@v4
+        with:
+          repository: ${{ env.OPEN_FORGE_REPOSITORY }}
+          ref: ${{ env.OPEN_FORGE_REF }}
+          path: open-forge
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+      - name: Install the graders and the results scripts
+        run: |
+          npm ci --prefix open-forge/src/evals
+          npm ci --prefix results
+      - name: Build the verifier images
+        working-directory: open-forge
+        run: npm run --silent evals -- images
+      - name: Import the published batch
+        working-directory: open-forge
+        run: npm run --silent evals -- results import "../results/${{ matrix.folder }}"
+      # Each check holds a slot and about one core, and its verifier container takes two more.
+      - name: Run the waiting checks
+        working-directory: open-forge
+        run: |
+          cores="$(nproc 2>/dev/null || getconf _NPROCESSORS_ONLN)"
+          npm run --silent evals -- check "${{ matrix.batch }}" --missing --check-slots "$(( cores / 3 > 0 ? cores / 3 : 1 ))"
+      - name: Run the waiting judges
+        if: inputs.judges != '' && inputs.judges != 'none'
+        working-directory: open-forge
+        env:
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+        run: npm run --silent evals -- judge "${{ matrix.batch }}" --judges "${{ inputs.judges }}" --missing
+      - name: Publish the batch again with its new grades
+        working-directory: open-forge
+        run: npm run --silent evals -- results add "${{ matrix.batch }}" --repository ../results
+      - name: Pack the graded batch
+        run: tar -czf "graded-${{ matrix.batch }}.tgz" -C results "${{ matrix.folder }}"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: graded-${{ matrix.batch }}
+          path: graded-${{ matrix.batch }}.tgz
+          retention-days: 7
+
+  publish:
+    needs: grade
+    if: ${{ !cancelled() && needs.grade.result != 'skipped' }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: graded-*
+          path: graded
+          merge-multiple: true
+      - name: Unpack every graded batch and validate the repository
+        run: |
+          shopt -s nullglob
+          packs=(graded/*.tgz)
+          if [ ${#packs[@]} -eq 0 ]; then echo "No batch was graded."; exit 0; fi
+          for pack in "${packs[@]}"; do tar -xzf "$pack"; done
+          npm ci
+          npm run index
+          npm run validate
+      - name: Open a pull request with the new grades
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if git diff --quiet && [ -z "$(git ls-files --others --exclude-standard versions)" ]; then echo "Nothing changed."; exit 0; fi
+          branch="grade/${{ github.run_id }}"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git switch -c "$branch"
+          git add versions index.json
+          git commit -m "Grade published runs from run ${{ github.run_id }}"
+          git push origin "$branch"
+          gh pr create --base main --head "$branch" --title "Grade published runs" \
+            --body "Checks$( [ "${{ inputs.judges }}" != "" ] && [ "${{ inputs.judges }}" != "none" ] && echo " and ${{ inputs.judges }} judges") for the published runs that waited for them, from workflow run ${{ github.run_id }}."
