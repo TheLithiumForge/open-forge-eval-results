@@ -27,7 +27,7 @@ export async function pendingBatches(root: string, runners: readonly unknown[]):
   if (runners.length === 0) throw new Error("Name at least one runner.");
   const found: Omit<PendingBatch, "runner">[] = [];
   const versions = join(root, "versions");
-  for (const version of existsSync(versions) ? (await readdir(versions, { withFileTypes: true })).filter((entry) => entry.isDirectory()).map((entry) => entry.name).sort() : []) {
+  for (const version of existsSync(versions) ? (await readdir(versions, { withFileTypes: true })).filter((entry) => entry.isDirectory() && RecordId.test(entry.name)).map((entry) => entry.name).sort() : []) {
     const batches = join(versions, version, "batches");
     if (!existsSync(batches)) continue;
     // Batch names reach runner commands and artifact names, so only names in the records' ID form count.
