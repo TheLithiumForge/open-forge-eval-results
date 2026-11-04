@@ -1,0 +1,163 @@
+diff --git a/src/game/board/Board.tsx b/src/game/board/Board.tsx
+index 48b16ac..462948a 100644
+--- a/src/game/board/Board.tsx
++++ b/src/game/board/Board.tsx
+@@ -27,8 +27,8 @@ function cardClicked(card: HTMLElement): void {
+ 
+ export function Board({ game, ref, activate }: BoardProps) {
+   const { size, deck, matched, selection } = game;
+-  const { viewport, element, focused, focusRemembered, cardFocused } =
+-    useBoardFocus();
++  const { viewport, element, focused, focusRemembered, cardFocused, arrowPressed } =
++    useBoardFocus(size);
+   useImperativeHandle(ref, () => ({ focusRemembered }), [focusRemembered]);
+   // A clock tick keeps both arrays, so the cards' props stay equal and no card renders again.
+   const faceUp = useMemo(() => faceUpCards({ matched, selection }), [matched, selection]);
+@@ -48,7 +48,7 @@ export function Board({ game, ref, activate }: BoardProps) {
+       aria-label="Game board"
+       aria-describedby="board-help"
+     >
+-      <div className="board" ref={element} style={style}>
++      <div className="board" ref={element} style={style} onKeyDown={arrowPressed}>
+         {deck.map((face, index) => (
+           <Card
+             key={index}
+diff --git a/src/game/board/card.css b/src/game/board/card.css
+index 9aa81f7..de2939b 100644
+--- a/src/game/board/card.css
++++ b/src/game/board/card.css
+@@ -46,3 +46,8 @@
+   height: 16%;
+   color: var(--green);
+ }
++@media (prefers-reduced-motion: reduce) {
++  .card {
++    transition: none;
++  }
++}
+diff --git a/src/game/board/use-board-focus.ts b/src/game/board/use-board-focus.ts
+index 10e8f6b..f014a15 100644
+--- a/src/game/board/use-board-focus.ts
++++ b/src/game/board/use-board-focus.ts
+@@ -1,11 +1,19 @@
+ import { useCallback, useRef, useState } from 'react';
++import type { KeyboardEvent } from 'react';
+ import { useNearestScroll } from './nearest-scroll.ts';
+ 
+ const KEYBOARD_FOCUS = ':focus-visible';
++// Row and column steps for each arrow key.
++const ARROW_STEPS: Readonly<Record<string, readonly [number, number]>> = {
++  ArrowUp: [-1, 0],
++  ArrowDown: [1, 0],
++  ArrowLeft: [0, -1],
++  ArrowRight: [0, 1],
++};
+ 
+ // Keeps the board's remembered tab stop and scrolls keyboard focus into view with nearest
+-// alignment.
+-export function useBoardFocus() {
++// alignment. Arrow keys move focus one row or column and stop at the board edges.
++export function useBoardFocus(size: number) {
+   const viewport = useRef<HTMLDivElement>(null);
+   const element = useRef<HTMLDivElement>(null);
+   const [focused, setFocused] = useState(0);
+@@ -24,5 +32,22 @@ export function useBoardFocus() {
+     },
+     [scrollToNearest],
+   );
+-  return { viewport, element, focused, focusRemembered, cardFocused };
++  const arrowPressed = useCallback(
++    (event: KeyboardEvent<HTMLElement>): void => {
++      const step = ARROW_STEPS[event.key];
++      if (!step || event.altKey || event.ctrlKey || event.metaKey || event.shiftKey) return;
++      const cards = element.current?.querySelectorAll('button');
++      const from = [...(cards ?? [])].findIndex((card) => card === event.target);
++      if (!cards || from < 0) return;
++      event.preventDefault();
++      const row = Math.min(Math.max(Math.floor(from / size) + step[0], 0), size - 1);
++      const column = Math.min(Math.max((from % size) + step[1], 0), size - 1);
++      const card = cards.item(row * size + column);
++      if (card === event.target) return;
++      card.focus({ preventScroll: true });
++      scrollToNearest(card);
++    },
++    [size, scrollToNearest],
++  );
++  return { viewport, element, focused, focusRemembered, cardFocused, arrowPressed };
+ }
+diff --git a/src/game/session/storage.ts b/src/game/session/storage.ts
+index 9bae659..b7bb2f7 100644
+--- a/src/game/session/storage.ts
++++ b/src/game/session/storage.ts
+@@ -58,5 +58,7 @@ export function writePreferences(store: PreferenceStore | null, preferences: Pre
+ }
+ 
+ export function rememberBest(preferences: Preferences, size: number, moves: number): Preferences {
++  const best = preferences.bestMoves[String(size)];
++  if (best !== undefined && best <= moves) return preferences;
+   return { ...preferences, bestMoves: { ...preferences.bestMoves, [size]: moves } };
+ }
+diff --git a/src/game/session/use-game.ts b/src/game/session/use-game.ts
+index e90bacf..b8bf7cd 100644
+--- a/src/game/session/use-game.ts
++++ b/src/game/session/use-game.ts
+@@ -9,23 +9,6 @@ import { browserStore, useSavedPreferences } from './use-saved-preferences.ts';
+ import { useSessionClock } from './use-session-clock.ts';
+ import type { Session } from './session.ts';
+ 
+-const MatchTone = 660;
+-const WinTone = 880;
+-
+-function chime(frequency: number): void {
+-  const Context = window.AudioContext as typeof AudioContext | undefined;
+-  if (!Context) return;
+-  const audio = new Context();
+-  const tone = audio.createOscillator();
+-  const level = audio.createGain();
+-  tone.frequency.value = frequency;
+-  level.gain.value = 0.05;
+-  tone.connect(level).connect(audio.destination);
+-  tone.onended = () => void audio.close();
+-  tone.start();
+-  tone.stop(audio.currentTime + 0.12);
+-}
+-
+ export function useGame() {
+   const [store] = useState(browserStore);
+   const [session, setSession] = useState(() => {
+@@ -94,9 +77,7 @@ export function useGame() {
+ 
+   function activate(index: number): void {
+     clock.synchronize();
+-    const matched = current.current.game.matched.length;
+     commit(activateSession(current.current, index));
+-    if (current.current.game.matched.length > matched) chime(current.current.celebration ? WinTone : MatchTone);
+   }
+ 
+   function resume(): void {
+diff --git a/src/game/status/GameStatus.tsx b/src/game/status/GameStatus.tsx
+index ab26aa0..db14b27 100644
+--- a/src/game/status/GameStatus.tsx
++++ b/src/game/status/GameStatus.tsx
+@@ -27,7 +27,7 @@ export function GameStatus({ game, best, celebration }: GameStatusProps) {
+           <dt>{StatusLabel.time}</dt> <dd>{formatElapsed(game.elapsedMs)}</dd>
+         </div>
+         <div>
+-          <dt>{StatusLabel.best}</dt> <dd>{best ?? 0}</dd>
++          <dt>{StatusLabel.best}</dt> <dd>{best ?? 'none'}</dd>
+         </div>
+       </dl>
+       {isWon(game) && (
+diff --git a/src/game/status/status.css b/src/game/status/status.css
+index e7b5097..154fb22 100644
+--- a/src/game/status/status.css
++++ b/src/game/status/status.css
+@@ -35,3 +35,8 @@ dd {
+     opacity: 0.75;
+   }
+ }
++@media (prefers-reduced-motion: reduce) {
++  .celebrate {
++    animation: none;
++  }
++}
