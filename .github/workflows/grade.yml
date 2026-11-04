@@ -1,24 +1,16 @@
-# Grades published runs whose checks were left for later, then opens one pull request with the new grades.
+# Grades published runs whose checks were left for later and pushes the new grades to main. The Open Forge
+# repository starts it with npm run evals -- results grade, which names the Open Forge commit whose graders run.
 # Every batch with waiting runs gets a job on one of the runners in the GRADE_RUNNERS variable, in turn, so
 # GitHub's runners and self-hosted ones share the work. Self-hosted runners need Docker with Linux containers.
 # AI judges never run here: these jobs build agent-written code, so a sign-in would share a host with it.
 name: Grade published runs
 
 on:
-  push:
-    branches: [main]
-    # A merged grade pull request only adds assessments, so it starts no new grading.
-    paths:
-      - "versions/**"
-      - "!versions/**/assessments/**"
-      - "!versions/**/evidence/assessments/**"
-      - "!versions/**/artifacts.json"
   workflow_dispatch:
     inputs:
       open-forge-ref:
-        description: The Open Forge commit whose graders run, instead of the OPEN_FORGE_REF variable
-        required: false
-        default: ""
+        description: The Open Forge commit whose graders run
+        required: true
 
 # The grading jobs build agent-written code, so only the publish job gets a token that can write.
 permissions:
@@ -31,7 +23,7 @@ concurrency:
 env:
   OPEN_FORGE_REPOSITORY: ${{ vars.OPEN_FORGE_REPOSITORY || 'TheLithiumForge/open-forge' }}
   # Every grader change makes a new grading version, so the graders come from one pinned commit.
-  OPEN_FORGE_REF: ${{ inputs.open-forge-ref || vars.OPEN_FORGE_REF }}
+  OPEN_FORGE_REF: ${{ inputs.open-forge-ref }}
   NODE_VERSION: "24.19.0"
 
 jobs:
@@ -42,7 +34,7 @@ jobs:
       any: ${{ steps.pending.outputs.any }}
     steps:
       - name: Require a pinned Open Forge commit
-        run: test -n "$OPEN_FORGE_REF" || { echo "Set the OPEN_FORGE_REF variable to the Open Forge commit whose graders run."; exit 1; }
+        run: test -n "$OPEN_FORGE_REF" || { echo "Name the Open Forge commit whose graders run."; exit 1; }
       - uses: actions/checkout@v7.0.1
         with:
           persist-credentials: false
@@ -121,13 +113,12 @@ jobs:
     if: ${{ !cancelled() && needs.grade.result != 'skipped' }}
     runs-on: ubuntu-24.04
     permissions:
-      actions: write
       contents: write
-      pull-requests: write
     steps:
       - uses: actions/checkout@v7.0.1
         with:
           persist-credentials: false
+          fetch-depth: 0
       - uses: actions/setup-node@v7.0.0
         with:
           node-version: ${{ env.NODE_VERSION }}
@@ -144,8 +135,9 @@ jobs:
           npm run --silent publish-graded -- "$RUNNER_TEMP/graded"
           npm run index
           npm run validate
-      # Agent-written .gitignore files sit inside the evidence, so the evidence is added by force.
-      - name: Open a pull request with the new grades
+      # Agent-written .gitignore files sit inside the evidence, so the evidence is added by force. Batches
+      # published while grading ran touch other folders, so a rebase replays the grades on top of them.
+      - name: Push the new grades to main
         env:
           GH_TOKEN: ${{ github.token }}
           REPOSITORY: ${{ github.repository }}
@@ -153,13 +145,14 @@ jobs:
         run: |
           git add --force versions index.json
           if git diff --cached --quiet; then echo "Nothing changed."; exit 0; fi
-          branch="grade/$RUN_ID"
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git switch -c "$branch"
           git commit -m "Grade published runs from run $RUN_ID"
-          git push "https://x-access-token:$GH_TOKEN@github.com/$REPOSITORY.git" "$branch"
-          gh pr create --repo "$REPOSITORY" --base main --head "$branch" --title "Grade published runs" \
-            --body "Grades for the published runs that waited for them, from workflow run $RUN_ID."
-          # A pull request opened with this token starts no workflow, so validation runs on the branch by dispatch.
-          gh workflow run validate.yml --repo "$REPOSITORY" --ref "$branch"
+          remote="https://x-access-token:$GH_TOKEN@github.com/$REPOSITORY.git"
+          for attempt in 1 2 3; do
+            if git pull --rebase "$remote" main && git push "$remote" HEAD:main; then exit 0; fi
+            git rebase --abort 2>/dev/null || true
+            sleep $((attempt * 15))
+          done
+          echo "main kept moving, so the grades weren't pushed."
+          exit 1

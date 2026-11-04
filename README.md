@@ -21,17 +21,14 @@ Evidence is committed here: agent code without installed packages, the built gam
 
 ## Grade in CI
 
-A plan can leave its checks for later, so a batch can be published with runs that wait for them. On every push to `main` that changes `versions/`, the Grade published runs workflow finds those batches with `npm run pending`. Each one gets a job that imports the batch into an Open Forge checkout, runs `check --missing`, publishes the batch again and packs it. A last job unpacks every graded batch, validates this repository and opens one pull request.
+A plan can leave its checks for later, so a batch can be published with runs that wait for them. From the Open Forge repository, `npm run evals -- results grade` starts the Grade published runs workflow with the graders of Open Forge's current commit, which must be pushed. The workflow finds the waiting batches with `npm run pending` and gives each one a job that imports the batch, runs `check --missing` and publishes it again. A last job copies only the grades the plan expected, validates this repository and pushes the grades to `main`, with no pull request.
 
 | Setting | Kind | Use |
 | --- | --- | --- |
-| `GRADE_RUNNERS` | Variable | A JSON list of runs-on values that take the batches in turn, such as `["ubuntu-latest", ["self-hosted", "Windows"], ["self-hosted", "macOS"]]`. Self-hosted runners need Docker with Linux containers. |
+| `GRADE_RUNNERS` | Variable | A JSON list of runs-on values that take the batches in turn, such as `["ubuntu-24.04", ["self-hosted", "Windows"], ["self-hosted", "macOS"]]`. Self-hosted runners need Docker with Linux containers. |
 | `OPEN_FORGE_REPOSITORY` | Variable | The repository whose graders run, `TheLithiumForge/open-forge` by default |
-| `OPEN_FORGE_REF` | Variable | The commit whose graders run. It's required, since every grader change makes a new grading version. |
 
-AI judges never run in these jobs, since they build agent-written code and a sign-in would share a host with it. Judge on your own machine with `judge <batch> --missing`, then publish the batch again.
-
-In the repository settings, allow GitHub Actions to create pull requests, and turn GitHub Pages off: the results show on the main Open Forge site, and an earlier Pages deployment from this repository stays online until Pages is off.
+The publish job asks for `contents: write` itself, so the default token permission stays read only. If `main` is protected, let GitHub Actions push to it. AI judges never run in these jobs, since they build agent-written code and a sign-in would share a host with it. Judge on your own machine with `judge <batch> --missing`, then publish the batch again. Turn GitHub Pages off in the repository settings: the results show on the main Open Forge site, and an earlier Pages deployment from this repository stays online until Pages is off.
 
 ## Records
 
