@@ -1,0 +1,24 @@
+---
+open-forge:
+  description: Future possibilities, experiments, open questions, and options to explore later
+  tags: [Extension, Memory, Idea, Exploration, Contextual, Candidate]
+---
+
+# Ideas
+
+## What possibility is worth exploring?
+
+Ideas preserve possibilities, experiments, open questions, and options worth exploring later.
+
+## Axioms
+
+- Check `Entries` when the work explores possibilities, plans future work, revisits postponed options, or needs earlier exploration.
+- Record a requested idea or exploration here.
+- Keep the problem, opportunity, or motivation clear enough to revisit later.
+
+## Entries
+
+- [Idea for light and color vision themes, parked](color-themes.md) - #Game #Idea #Visuals
+- [Idea for a shared daily board, not adopted](daily-challenge.md) - #Game #Idea
+- [Idea for a chime on each match, rejected](match-chime.md) - #Game #Idea #Sound
+- [Idea for a countdown mode, parked](timed-mode.md) - #Game #Idea
