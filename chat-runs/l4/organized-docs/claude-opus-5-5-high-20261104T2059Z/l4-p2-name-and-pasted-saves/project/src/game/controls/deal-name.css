@@ -1,0 +1,7 @@
+.reproduction .deal-name {
+  display: grid;
+  gap: 6px;
+}
+.reproduction .deal-name input {
+  width: 100%;
+}
