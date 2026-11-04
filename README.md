@@ -21,14 +21,14 @@ Evidence is committed here: agent code without installed packages, the built gam
 
 ## Grade in CI
 
-A plan can leave its checks for later, so a batch can be published with runs that wait for them. From the Open Forge repository, `npm run evals -- results grade` starts the Grade published runs workflow with the graders of Open Forge's current commit, which must be pushed. The workflow finds the waiting batches with `npm run pending` and gives each one a job that imports the batch, runs `check --missing` and publishes it again. A last job copies only the grades the plan expected, validates this repository and pushes the grades to `main`, with no pull request.
+A plan can leave its checks for later, so a batch can be published with runs that wait for them. From the Open Forge repository, `npm run evals -- results grade` starts the Grade published runs workflow with the graders of Open Forge's current commit, which must be pushed.
 
-| Setting | Kind | Use |
-| --- | --- | --- |
-| `GRADE_RUNNERS` | Variable | A JSON list of runs-on values that take the batches in turn, such as `["ubuntu-24.04", ["self-hosted", "Windows"], ["self-hosted", "macOS"]]`. Self-hosted runners need Docker with Linux containers. |
-| `OPEN_FORGE_REPOSITORY` | Variable | The repository whose graders run, `TheLithiumForge/open-forge` by default |
+1. The plan job lists every waiting run with `npm run pending`, up to 256 per workflow run.
+2. The image job builds the verifier image from Open Forge's Dockerfiles, or reuses the copy in GitHub's container registry when those files haven't changed.
+3. One job per run checks it on GitHub's Ubuntu runners, up to 20 at a time, and uploads its batch with the new grades.
+4. The publish job merges only the expected grades, validates this repository and pushes them to `main`, with no pull request.
 
-The publish job asks for `contents: write` itself, so the default token permission stays read only. If `main` is protected, let GitHub Actions push to it. AI judges never run in these jobs, since they build agent-written code and a sign-in would share a host with it. Judge on your own machine with `judge <batch> --missing`, then publish the batch again. Turn GitHub Pages off in the repository settings: the results show on the main Open Forge site, and an earlier Pages deployment from this repository stays online until Pages is off.
+Runs past the first 256 wait for the next grading. The registry keeps the image at `ghcr.io/thelithiumforge/open-forge-eval-verifier`. Make that package public in its settings after the first run, since public packages cost nothing. The publish job asks for `contents: write` itself, so the default token permission stays read only. AI judges never run in these jobs, since they build agent-written code and a sign-in would share a host with it. Judge on your own machine with `judge <batch> --missing`, then publish the batch again.
 
 ## Records
 
