@@ -1,0 +1,22 @@
+---
+open-forge:
+  description: Specialized capabilities provided through native SKILL.md packages
+  tags: [Core, Skill]
+---
+
+# Skills
+
+## Which specialized capability would help with this work?
+
+This folder holds native capability packages, each entered through its `SKILL.md`.
+
+## Axioms
+
+- Check these Entries when the work may benefit from a capability.
+- Read the matching `SKILL.md` before using a capability, and follow it for metadata, use, instructions and resource loading. Your agent runtime controls activation, invocation, installation and execution.
+- When `open-forge-cli/SKILL.md` is present, read it before running `open-forge` commands other than `context`.
+
+## Entries
+
+- [Use the open-forge CLI to load workspace context, find sources, maintain routes and links, and preview installation changes. Use when the command is available and the task needs Open Forge context, navigation, diagnosis, or workspace maintenance.](open-forge-cli/SKILL.md) - #Skill
+- [Select and follow an installed workflow for project vision, architecture, planning, implementation, debugging, review, or coordinated delivery. Use when the user requests a workflow or an installed recipe would materially improve the task. Recipes can combine the workspace's configured Skills, tools, and agents. This Skill does not supply their runtime.](use-workflow/SKILL.md) - #Skill

@@ -1,0 +1,42 @@
+{
+  "version": 1,
+  "classifier": "question-topics-v2",
+  "bankHash": "9e705103f9d0f3c5042ca7094dd4b94806f51edc258763b94574effac133b2fd",
+  "requestedModel": {
+    "tool": "codex",
+    "model": "gpt-6-luna",
+    "effort": "max"
+  },
+  "questions": [],
+  "calls": [
+    {
+      "tokens": {
+        "input": 11869,
+        "cachedInput": 7680,
+        "cacheWrite": 0,
+        "output": 49,
+        "reasoning": 39
+      },
+      "model": null,
+      "tools": "restricted",
+      "seconds": 10.666,
+      "reply": "{\"questions\":[]}"
+    }
+  ],
+  "rounds": 0,
+  "questionCount": 0,
+  "repeats": 0,
+  "documented": 0,
+  "unanswered": 0,
+  "error": null,
+  "messages": [
+    {
+      "role": "user",
+      "text": "Could you let me name a game before I save it, so its name comes back when I load my saved progress? Please follow the project rules.\n\nSome saved games won't open after I paste them, even though my own exports work. Could you fix that and keep the rest working?"
+    },
+    {
+      "role": "agent",
+      "text": "Added **Game name** under **Reproduce a game**. Names now save and restore with progress.\n\nFixed pasted saves being rejected when JSON fields appear in a different order. Existing unnamed saves still work.\n\nAll 146 unit/static tests and 80 browser tests pass, along with type, build, and formatting checks."
+    }
+  ]
+}

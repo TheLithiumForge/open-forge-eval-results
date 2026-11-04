@@ -1,0 +1,42 @@
+{
+  "version": 1,
+  "classifier": "question-topics-v2",
+  "bankHash": "9e705103f9d0f3c5042ca7094dd4b94806f51edc258763b94574effac133b2fd",
+  "requestedModel": {
+    "tool": "codex",
+    "model": "gpt-6-luna",
+    "effort": "max"
+  },
+  "questions": [],
+  "calls": [
+    {
+      "tokens": {
+        "input": 226,
+        "cachedInput": 19328,
+        "cacheWrite": 0,
+        "output": 52,
+        "reasoning": 42
+      },
+      "model": null,
+      "tools": "restricted",
+      "seconds": 10.407,
+      "reply": "{\"questions\":[]}"
+    }
+  ],
+  "rounds": 0,
+  "questionCount": 0,
+  "repeats": 0,
+  "documented": 0,
+  "unanswered": 0,
+  "error": null,
+  "messages": [
+    {
+      "role": "user",
+      "text": "Could you let me name a game before I save it, so its name comes back when I load my saved progress? Please follow the project rules.\n\nSome saved games won't open after I paste them, even though my own exports work. Could you fix that and keep the rest working?\n\nRead docs/README.md and follow its linked requirements for this project."
+    },
+    {
+      "role": "agent",
+      "text": "Added **Deal name** under **Reproduce a game**. Names now save and return with loaded progress.\n\nFixed valid pasted saves failing because their JSON fields appeared in a different order. Older saves remain compatible.\n\nVerified 147 unit/static checks and all 83 browser journeys, including focused reruns. Type checking, build, and formatting pass."
+    }
+  ]
+}
