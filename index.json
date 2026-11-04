@@ -32,7 +32,15 @@
         }
       ],
       "judges": [],
-      "gradingVersions": [],
+      "gradingVersions": [
+        {
+          "spec": "b66ec23031ae9d4c1e173aa5daedd06ae6afe34e06feb294a1fe9a08d2b8a158",
+          "specVersion": 2.2,
+          "checker": "611aca885c71e88a9c08251b6cb1e21aeaf67148cc12f5e02ff401c02bb55248",
+          "rubric": "915bbf39455f954d5761744deb45c330d2adc639b1d77fc8c01dbd46ff127e8e",
+          "judge": "6211a72e63940c3d612013a32ee1d7353509cf922f77de5b8fc57efef65b9f29"
+        }
+      ],
       "path": "versions/0.9.0-beta.18/batches/2026-11-04T07-41-33-716Z-6aa777f4b348"
     },
     {
