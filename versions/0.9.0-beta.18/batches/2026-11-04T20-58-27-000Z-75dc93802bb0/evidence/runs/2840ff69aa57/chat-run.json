@@ -1,0 +1,22 @@
+{
+  "scenario": "code-only",
+  "packet": "l4-p1-four-bugs",
+  "workMode": "whole-packet",
+  "harness": "cloud chat, one subagent",
+  "model": {
+    "configured": "claude-opus-5-5",
+    "lastServed": "claude-opus-5-5"
+  },
+  "effort": "high",
+  "openForgeCommit": "98864191af0037c386c4e5c723afd79a95646cad",
+  "startedAt": "2026-11-04T20:58:27Z",
+  "finishedAt": "2026-11-04T21:02:30Z",
+  "timeLimitMinutes": 60,
+  "implementer": {
+    "totalTokens": 112085,
+    "toolUses": 26,
+    "durationMs": 235434
+  },
+  "questionsAnswered": 0,
+  "notes": "Finished within the limit. The subagent was requested in the foreground but launched in the background. The harness waited for it and did nothing else meanwhile. lastServed was read from get_session after the runs, since it was absent at session start."
+}

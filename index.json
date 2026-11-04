@@ -287,6 +287,22 @@
       "judges": [],
       "gradingVersions": [],
       "path": "versions/0.9.0-beta.18/batches/2026-11-04T20-43-19-789Z-12d96b257d4c"
+    },
+    {
+      "id": "2026-11-04T20-58-27-000Z-75dc93802bb0",
+      "layer": 4,
+      "cliVersion": "0.9.0-beta.18",
+      "createdAt": "2026-11-04T20:58:27Z",
+      "implementers": [
+        {
+          "tool": "claude",
+          "model": "claude-opus-5-5",
+          "effort": "high"
+        }
+      ],
+      "judges": [],
+      "gradingVersions": [],
+      "path": "versions/0.9.0-beta.18/batches/2026-11-04T20-58-27-000Z-75dc93802bb0"
     }
   ]
 }
