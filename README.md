@@ -17,7 +17,7 @@ From the Open Forge repository root, run `npm run evals -- results add <batch>`.
 
 The evidence folder holds original files at `runs/<run>/<path>` and assessment files at `assessments/<assessment>/<path>`. These paths come from `artifacts.json`. Staging checks every byte size and SHA-256, then writes the records and a copy of the evidence to `versions/<cli-version>/batches/<batch>/`. Staging a batch again replaces it, because saved runs can rebuild this repository. Staging regenerates `index.json` after importing a batch.
 
-Evidence is committed here: agent code without installed packages, the built game, screenshots, the conversation and the tool's event log.
+Evidence is committed here: agent code without installed packages or downloaded tools, the built game, screenshots, the conversation and the tool's event log. A run's manifest and hash cover what is published, since a browser an agent downloaded stays in the run store.
 
 ## Grade in CI
 

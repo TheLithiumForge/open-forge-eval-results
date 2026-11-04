@@ -4,12 +4,13 @@ import { join } from "node:path";
 import { waitingRuns, type PendingRun } from "./pending.ts";
 
 /**
- * Merges grades from CI artifacts into published batches. Each grading job checks one run and uploads its whole batch
- * folder. The jobs built agent-written code, so nothing in an artifact is trusted. Only the runs the plan job expected
- * are read, and each artifact is compared with the batch already published here: records and run evidence stay byte
- * for byte, the checks file only grows with checks of that artifact's own waiting run, new evidence belongs to those
- * checks and is listed in artifacts.json, and nothing is deleted. The new checks, evidence and artifact entries of
- * every run of a batch are then merged into it. The repository's validator checks every record before anything is pushed.
+ * Merges grades from CI artifacts into published batches. Each grading job checks one run and uploads only what a
+ * check can add: the checks file, artifacts.json and the checks' evidence. The jobs built agent-written code, so
+ * nothing in an artifact is trusted. Only the runs the plan job expected are read, and each artifact is compared with
+ * the batch already published here: the checks file only grows with checks of that artifact's own waiting run, new
+ * evidence belongs to those checks and is listed in artifacts.json, and any other file refuses the artifact. The merge
+ * only appends, so published records and evidence stay byte for byte. The repository's validator checks every record
+ * before anything is pushed.
  */
 export const GradedArtifactPrefix = "graded-";
 const BatchFolder = /^versions\/[A-Za-z0-9][A-Za-z0-9_.-]*\/batches\/([A-Za-z0-9][A-Za-z0-9_.-]*)$/;
@@ -50,15 +51,14 @@ interface Grades { readonly lines: string; readonly ids: readonly string[]; read
 
 /** Checks one run's artifact against the published batch and returns what it adds, refusing anything else. */
 async function runGrades(source: string, target: string, batch: string, run: string): Promise<Grades> {
-  const graded = await plainFiles(source), published = await plainFiles(target);
-  for (const file of published) if (!graded.includes(file)) throw new Error(`A graded batch may not delete ${file}.`);
+  const graded = await plainFiles(source);
   const read = async (folder: string, file: string) => readFile(join(folder, ...file.split("/")));
   const runs = new Set(parsed((await read(target, "runs.jsonl")).toString("utf8")).map((entry) => entry["id"]));
   if (!(await waitingRuns(target)).has(run) || !runs.has(run)) throw new Error(`Run ${run} isn't waiting in ${batch}.`);
   const known = new Map<unknown, unknown>(), added: string[] = [];
   let lines = "";
   if (graded.includes(ChecksFile)) {
-    const after = await read(source, ChecksFile), before = published.includes(ChecksFile) ? await read(target, ChecksFile) : Buffer.alloc(0);
+    const after = await read(source, ChecksFile), before = existsSync(join(target, ...ChecksFile.split("/"))) ? await read(target, ChecksFile) : Buffer.alloc(0);
     if (!after.subarray(0, before.length).equals(before)) throw new Error(`${ChecksFile} may only grow.`);
     for (const entry of parsed(before.toString("utf8"))) known.set(entry["id"], entry["runId"]);
     lines = after.subarray(before.length).toString("utf8");
@@ -76,19 +76,14 @@ async function runGrades(source: string, target: string, batch: string, run: str
   let artifacts: Entry[] = [];
   const evidence: string[] = [];
   for (const file of graded.filter((path) => path !== ChecksFile)) {
-    const after = await read(source, file), before = published.includes(file) ? await read(target, file) : null;
-    if (file === ArtifactsFile && before !== null) {
-      const earlier = new Set((JSON.parse(before.toString("utf8")) as unknown[]).map((item) => JSON.stringify(item)));
-      const later = JSON.parse(after.toString("utf8")) as Entry[];
+    if (file === ArtifactsFile) {
+      const earlier = new Set((JSON.parse((await read(target, file)).toString("utf8")) as unknown[]).map((item) => JSON.stringify(item)));
+      const later = JSON.parse((await read(source, file)).toString("utf8")) as Entry[];
       const kept = new Set(later.map((item) => JSON.stringify(item)));
       artifacts = later.filter((item) => !earlier.has(JSON.stringify(item)));
       if ([...earlier].some((item) => !kept.has(item)) || artifacts.some((item) => typeof item["assessmentId"] !== "string" || !added.includes(item["assessmentId"]))) {
         throw new Error(`${ArtifactsFile} may only add entries of new checks.`);
       }
-      continue;
-    }
-    if (before !== null) {
-      if (!after.equals(before)) throw new Error(`A graded batch may not change ${file}.`);
       continue;
     }
     const owner = AssessmentEvidence.exec(file)?.[1];

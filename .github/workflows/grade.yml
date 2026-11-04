@@ -145,10 +145,14 @@ jobs:
         env:
           BATCH: ${{ matrix.batch }}
         run: npm run --silent evals -- results add "$BATCH" --imported --repository ../results
+      # Only what a check can add, so the publish job doesn't download a whole batch once per run.
       - uses: actions/upload-artifact@v4
         with:
           name: graded-${{ matrix.batch }}-${{ matrix.run }}
-          path: results/${{ matrix.folder }}
+          path: |
+            results/${{ matrix.folder }}/assessments/checks.jsonl
+            results/${{ matrix.folder }}/artifacts.json
+            results/${{ matrix.folder }}/evidence/assessments
           include-hidden-files: true
           retention-days: 7
 
