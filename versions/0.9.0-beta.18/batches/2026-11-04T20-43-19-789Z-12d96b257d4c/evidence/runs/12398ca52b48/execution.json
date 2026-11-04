@@ -1,0 +1,4 @@
+{
+  "isolation": "docker",
+  "fitForScoredResults": true
+}

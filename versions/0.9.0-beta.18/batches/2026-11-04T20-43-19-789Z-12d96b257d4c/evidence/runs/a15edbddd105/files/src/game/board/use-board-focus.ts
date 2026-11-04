@@ -1,0 +1,35 @@
+import { useCallback, useRef, useState } from 'react';
+import { useNearestScroll } from './nearest-scroll.ts';
+
+const KEYBOARD_FOCUS = ':focus-visible';
+
+// Keeps the board's remembered tab stop and scrolls keyboard focus into view with nearest
+// alignment.
+export function useBoardFocus() {
+  const viewport = useRef<HTMLDivElement>(null);
+  const element = useRef<HTMLDivElement>(null);
+  const [focused, setFocused] = useState(0);
+  const scrollToNearest = useNearestScroll(viewport);
+  const focusIndex = useCallback(
+    (index: number): void => {
+      const card = element.current?.querySelectorAll('button').item(index);
+      if (!card) return;
+      card.focus({ preventScroll: true });
+      scrollToNearest(card);
+    },
+    [scrollToNearest],
+  );
+  // Focus calls skip the browser's centering scroll and then scroll with nearest alignment.
+  const focusRemembered = useCallback(() => {
+    focusIndex(focused);
+  }, [focusIndex, focused]);
+  const cardFocused = useCallback(
+    (index: number, card: HTMLElement): void => {
+      setFocused(index);
+      // Moving a card under a pressed pointer would send the release elsewhere and lose the click.
+      if (card.matches(KEYBOARD_FOCUS)) scrollToNearest(card);
+    },
+    [scrollToNearest],
+  );
+  return { viewport, element, focused, focusRemembered, focusIndex, cardFocused };
+}
