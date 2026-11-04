@@ -1,0 +1,42 @@
+{
+  "version": 1,
+  "classifier": "question-topics-v2",
+  "bankHash": "cfaddf84137fd3ae7337c9b4b13457741ac2809c7296e68cd2414c6a119156bd",
+  "requestedModel": {
+    "tool": "codex",
+    "model": "gpt-6-luna",
+    "effort": "max"
+  },
+  "questions": [],
+  "calls": [
+    {
+      "tokens": {
+        "input": 19145,
+        "cachedInput": 0,
+        "cacheWrite": 0,
+        "output": 33,
+        "reasoning": 23
+      },
+      "model": null,
+      "tools": "restricted",
+      "seconds": 19.285,
+      "reply": "{\"questions\":[]}"
+    }
+  ],
+  "rounds": 0,
+  "questionCount": 0,
+  "repeats": 0,
+  "documented": 0,
+  "unanswered": 0,
+  "error": null,
+  "messages": [
+    {
+      "role": "user",
+      "text": "The best score acts strangely. A worse game can replace it, and a size I've never finished shows 0. Could you fix that and keep the rest working? Please follow the project rules."
+    },
+    {
+      "role": "agent",
+      "text": "Fixed both issues: equal or worse games preserve the best score, and unfinished sizes show `none`. Added regression coverage for size switching and reloads.\n\nAll 140 unit/static tests and 77 browser tests pass on the specified versions. Type checks and builds pass.\n\nChanged files pass formatting. The full formatting check flags pre-existing issues in [replay.test.ts](/work/scripts/replay.test.ts), [accessibility.e2e.test.ts](/work/tests/accessibility.e2e.test.ts), and [layout.e2e.test.ts](/work/tests/layout.e2e.test.ts)."
+    }
+  ]
+}
