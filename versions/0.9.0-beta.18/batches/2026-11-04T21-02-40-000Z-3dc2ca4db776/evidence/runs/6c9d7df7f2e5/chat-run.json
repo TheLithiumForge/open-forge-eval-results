@@ -1,0 +1,22 @@
+{
+  "scenario": "organized-docs",
+  "packet": "l4-p2-name-and-pasted-saves",
+  "workMode": "whole-packet",
+  "harness": "cloud chat, one subagent",
+  "model": {
+    "configured": "claude-opus-5-5",
+    "lastServed": "claude-opus-5-5"
+  },
+  "effort": "high",
+  "openForgeCommit": "98864191af0037c386c4e5c723afd79a95646cad",
+  "startedAt": "2026-11-04T21:03:54Z",
+  "finishedAt": "2026-11-04T21:11:01Z",
+  "timeLimitMinutes": 90,
+  "implementer": {
+    "totalTokens": 155943,
+    "toolUses": 43,
+    "durationMs": 417993
+  },
+  "questionsAnswered": 0,
+  "notes": "Completed within the time limit with no questions. The Agent tool ran the subagent in the background although the call asked for the foreground. The harness waited for its completion notification before moving on, and the usage figures come from that notification."
+}

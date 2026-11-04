@@ -1,0 +1,15 @@
+{
+  "scenario": "full-core-scoped",
+  "packet": "l4-p2-name-and-pasted-saves",
+  "workMode": "whole-packet",
+  "harness": "cloud chat, one subagent",
+  "model": {"configured": "claude-opus-5-5", "lastServed": null},
+  "effort": "high",
+  "openForgeCommit": "98864191af0037c386c4e5c723afd79a95646cad",
+  "startedAt": "2026-11-04T21:05:32Z",
+  "finishedAt": "2026-11-04T21:13:35Z",
+  "timeLimitMinutes": 90,
+  "implementer": {"totalTokens": 159926, "toolUses": 34, "durationMs": 445274},
+  "questionsAnswered": 0,
+  "notes": "Finished within the limit. The Agent call was asked for the foreground but it returned at once and the subagent ran in the background. finishedAt is when its hand-back arrived, and durationMs comes from its usage figures. get_session gave no last served model. The subagent reported Node 22.23.4 instead of the required 24.19 or later, and installed Playwright's Chromium into the git-ignored .playwright-browsers/ folder to run the e2e tests."
+}
