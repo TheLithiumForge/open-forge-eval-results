@@ -208,7 +208,15 @@
         }
       ],
       "judges": [],
-      "gradingVersions": [],
+      "gradingVersions": [
+        {
+          "spec": "8e0df5e7699c7c1df2720f6b0ec8f1cecdc2e1ebf94a0078c013e7e018f8e3fd",
+          "specVersion": 2.2,
+          "checker": "be2aa8f0089cdc8aa335beb99a92d5ce8b35ead1084fca18afb1b59fc6937311",
+          "rubric": "5ff911db7cc3349c51c109955fbea920a7ae2de226d6cdbb56299754610f2778",
+          "judge": "6211a72e63940c3d612013a32ee1d7353509cf922f77de5b8fc57efef65b9f29"
+        }
+      ],
       "path": "versions/0.9.0-beta.18/batches/2026-11-04T11-10-05-678Z-1fa0c2eb079d"
     }
   ]
