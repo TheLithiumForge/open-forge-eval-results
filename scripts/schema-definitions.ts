@@ -17,7 +17,7 @@ const answer = object({ id: text, area: text, question: text, yes: count, no: co
 const assessment = { id: ref("id"), experimentId: ref("id"), createdAt: maybeText,
   versions: object({ checker: maybeText, rubric: maybeText, judge: maybeText, spec: maybeText, specVersion: maybeNumber }, ["spec", "specVersion"]), replacesAssessmentId: maybeText, error: maybeText };
 const tokenTotals = object({ newInput: numeric, cachedInput: numeric, cacheWrite: numeric, output: numeric, reasoning: maybeNumber });
-const thread = object({ id: text, parentId: maybeText, role: { enum: ThreadRoles }, requests: count, tokens: tokenTotals, peakContext: maybeNumber, toolCalls: count });
+const thread = object({ id: text, parentId: maybeText, role: { enum: ThreadRoles }, requests: count, tokens: tokenTotals, peakContext: maybeNumber, toolCalls: count, model: maybeText }, ["model"]);
 const definitions = {
   reference: object({ commit: text, contentHash: text, specHash: text, specVersion: numeric }),
   id: { type: "string", pattern: "^[A-Za-z0-9][A-Za-z0-9_.-]*$" }, digest: { type: "string", pattern: "^[a-f0-9]{64}$" }, count, number: numeric,
