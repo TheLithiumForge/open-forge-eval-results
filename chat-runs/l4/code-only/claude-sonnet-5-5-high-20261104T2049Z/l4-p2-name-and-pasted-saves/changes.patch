@@ -1,0 +1,343 @@
+diff --git a/README.md b/README.md
+index deb8533..bf25bb9 100644
+--- a/README.md
++++ b/README.md
+@@ -27,7 +27,7 @@ Run `npm run build`, then open `dist/index.html` from disk. The game makes no ne
+ 
+ Use Grid size to choose a board. Reveal two cards with a click, tap, Enter or Space. Arrow keys move board focus. Other keys stay with the browser. Tab leaves the board. New Game gives another deal. Restart repeats the current deal.
+ 
+-Open Reproduce a game to load a board code or export progress. Loading an unfinished snapshot pauses it. Resume returns focus to the remembered card and continues the remaining mismatch interval. A completed snapshot loads as completed without Resume. Elapsed time stops at 359999999ms while play continues. The minutes and seconds display reaches 5999:59. Moves stop at 999999. Matching and victory continue at that count. Saved bests use the same move limit.
++Open Reproduce a game to load a board code or export progress. Game name sits above the snapshot box. Type a name before you export, and Load snapshot brings the name back. A name has at most 40 characters and Restart keeps it. Snapshots without a name still load, and so do snapshots whose fields come in a different order or start with a byte order mark. Loading an unfinished snapshot pauses it. Resume returns focus to the remembered card and continues the remaining mismatch interval. A completed snapshot loads as completed without Resume. Elapsed time stops at 359999999ms while play continues. The minutes and seconds display reaches 5999:59. Moves stop at 999999. Matching and victory continue at that count. Saved bests use the same move limit.
+ 
+ ## Replay
+ 
+diff --git a/src/game/Game.tsx b/src/game/Game.tsx
+index e965799..d77004c 100644
+--- a/src/game/Game.tsx
++++ b/src/game/Game.tsx
+@@ -43,6 +43,7 @@ export function Game() {
+         game={game}
+         generation={session.generation}
+         exportSnapshot={controller.exportSnapshot}
++        rename={controller.rename}
+         loadBoard={controller.loadBoard}
+         loadSnapshot={controller.loadSnapshot}
+         notice={session.loadNotice}
+diff --git a/src/game/controls/Reproduction.tsx b/src/game/controls/Reproduction.tsx
+index e3d1d4c..f051ccd 100644
+--- a/src/game/controls/Reproduction.tsx
++++ b/src/game/controls/Reproduction.tsx
+@@ -1,6 +1,7 @@
+ import { useState } from 'react';
+ import { BoardCodeForm } from './BoardCodeForm.tsx';
+ import { ReproductionControl } from './control-labels.ts';
++import { SNAPSHOT_NAME_MAX_CHARACTERS } from '../snapshot.ts';
+ import type { GameState } from '../game.ts';
+ import './control.css';
+ import './reproduction.css';
+@@ -12,6 +13,7 @@ interface ReproductionProps {
+   generation: number;
+   exportSnapshot(): string;
+   loadBoard(code: string): boolean;
++  rename(name: string): void;
+   loadSnapshot(text: string): boolean;
+   notice: string;
+   paused: boolean;
+@@ -23,6 +25,7 @@ export function Reproduction({
+   generation,
+   exportSnapshot,
+   loadBoard,
++  rename,
+   loadSnapshot,
+   notice,
+   paused,
+@@ -35,6 +38,16 @@ export function Reproduction({
+         <summary>{ReproductionControl.summary}</summary>
+         <div className="reproduction-body">
+           <BoardCodeForm code={game.boardCode} generation={generation} loadBoard={loadBoard} />
++          <label htmlFor="game-name">{ReproductionControl.name}</label>
++          <input
++            id="game-name"
++            className="control"
++            value={game.name ?? ''}
++            maxLength={SNAPSHOT_NAME_MAX_CHARACTERS}
++            spellCheck={false}
++            autoComplete="off"
++            onChange={(event) => rename(event.currentTarget.value)}
++          />
+           <label htmlFor="snapshot-json">{ReproductionControl.snapshot}</label>
+           <textarea
+             id="snapshot-json"
+diff --git a/src/game/controls/control-labels.ts b/src/game/controls/control-labels.ts
+index c00ef62..be197f6 100644
+--- a/src/game/controls/control-labels.ts
++++ b/src/game/controls/control-labels.ts
+@@ -3,6 +3,7 @@ export const ReproductionControl = {
+   summary: 'Reproduce a game',
+   board: 'Board code',
+   loadBoard: 'Load board',
++  name: 'Game name',
+   snapshot: 'Snapshot JSON',
+   exportSnapshot: 'Export snapshot',
+   loadSnapshot: 'Load snapshot',
+diff --git a/src/game/game.ts b/src/game/game.ts
+index acafdf0..9e9cabd 100644
+--- a/src/game/game.ts
++++ b/src/game/game.ts
+@@ -13,6 +13,8 @@ export interface GameState extends Board {
+   readonly moves: number;
+   readonly elapsedMs: number;
+   readonly started: boolean;
++  // The player's label for this game. It is saved with a snapshot and absent until one is set.
++  readonly name?: string;
+ }
+ 
+ export function createGame(boardCode: string): GameState {
+diff --git a/src/game/session/use-game.ts b/src/game/session/use-game.ts
+index b8bf7cd..8a430fb 100644
+--- a/src/game/session/use-game.ts
++++ b/src/game/session/use-game.ts
+@@ -34,8 +34,18 @@ export function useGame() {
+   }
+ 
+   function restart(): void {
++    const { boardCode, name } = current.current.game;
+     clock.reset();
+-    commit(replaceGame(current.current, createGame(current.current.game.boardCode), false));
++    // Repeating a deal keeps the name the player gave the game.
++    commit(
++      replaceGame(current.current, { ...createGame(boardCode), ...(name ? { name } : {}) }, false),
++    );
++  }
++
++  function rename(name: string): void {
++    const { name: previous, ...game } = current.current.game;
++    if ((previous ?? '') === name) return;
++    commit({ ...current.current, game: name ? { ...game, name } : game });
+   }
+ 
+   function notice(feedback: string): void {
+@@ -90,5 +100,15 @@ export function useGame() {
+     });
+   }
+ 
+-  return { session, newGame, restart, loadBoard, loadSnapshot, exportSnapshot, activate, resume };
++  return {
++    session,
++    newGame,
++    restart,
++    rename,
++    loadBoard,
++    loadSnapshot,
++    exportSnapshot,
++    activate,
++    resume,
++  };
+ }
+diff --git a/src/game/snapshot-name.test.ts b/src/game/snapshot-name.test.ts
+new file mode 100644
+index 0000000..4afac52
+--- /dev/null
++++ b/src/game/snapshot-name.test.ts
+@@ -0,0 +1,69 @@
++import assert from 'node:assert/strict';
++import { test } from 'vitest';
++import { activateCard, createGame } from './game.ts';
++import {
++  decodeSnapshot,
++  encodeSnapshot,
++  SNAPSHOT_NAME_MAX_CHARACTERS,
++  SNAPSHOT_VERSION,
++} from './snapshot.ts';
++import { SelectionKind } from './selection.ts';
++import { EXAMPLE_CODE } from './game.fixture.ts';
++
++function fields(overrides: Record<string, unknown> = {}): Record<string, unknown> {
++  return {
++    version: SNAPSHOT_VERSION,
++    boardCode: EXAMPLE_CODE,
++    matched: [],
++    selection: { kind: SelectionKind.closed },
++    moves: 0,
++    elapsedMs: 0,
++    started: false,
++    ...overrides,
++  };
++}
++
++function snapshot(overrides: Record<string, unknown> = {}): string {
++  return JSON.stringify(fields(overrides));
++}
++
++test('a named snapshot returns its name and an unnamed one has none', () => {
++  const state = { ...activateCard(createGame(EXAMPLE_CODE), 0), name: 'Friday warm-up' };
++  const exported: unknown = JSON.parse(encodeSnapshot(state));
++  assert.deepEqual(
++    exported && typeof exported === 'object' && 'name' in exported && exported.name,
++    'Friday warm-up',
++  );
++  assert.deepEqual(decodeSnapshot(encodeSnapshot(state)), state);
++  const unnamed = createGame(EXAMPLE_CODE);
++  assert.equal(snapshot().includes('name'), false);
++  assert.equal(encodeSnapshot(unnamed).includes('"name"'), false);
++  assert.equal(encodeSnapshot({ ...unnamed, name: '   ' }).includes('"name"'), false);
++  assert.deepEqual(decodeSnapshot(snapshot()), unnamed);
++  assert.deepEqual(decodeSnapshot(snapshot({ name: '' })), unnamed);
++});
++
++test('snapshot names trim, fit the limit and must be text', () => {
++  assert.equal(decodeSnapshot(snapshot({ name: '  Rematch ' }))?.name, 'Rematch');
++  const longest = 'n'.repeat(SNAPSHOT_NAME_MAX_CHARACTERS);
++  assert.equal(decodeSnapshot(snapshot({ name: longest }))?.name, longest);
++  assert.equal(decodeSnapshot(snapshot({ name: `${longest}n` })), null);
++  for (const name of [1, null, ['a'], { a: 1 }, true])
++    assert.equal(decodeSnapshot(snapshot({ name })), null);
++});
++
++test('pasted snapshots load with their fields reordered or a leading byte order mark', () => {
++  const state = { ...activateCard(createGame(EXAMPLE_CODE), 0), name: 'Mixed' };
++  const reversed = JSON.stringify(
++    Object.fromEntries(
++      Object.entries(
++        fields({ name: 'Mixed', started: true, selection: { kind: SelectionKind.one, index: 0 } }),
++      ).reverse(),
++    ),
++  );
++  assert.deepEqual(decodeSnapshot(reversed), state);
++  assert.deepEqual(decodeSnapshot(`﻿${encodeSnapshot(state)}`), state);
++  const { moves: _moves, ...missing } = fields();
++  assert.equal(decodeSnapshot(JSON.stringify(missing)), null);
++  assert.equal(decodeSnapshot(snapshot({ extra: true, name: 'Extra' })), null);
++});
+diff --git a/src/game/snapshot.ts b/src/game/snapshot.ts
+index 7ec77cd..1fd0c3c 100644
+--- a/src/game/snapshot.ts
++++ b/src/game/snapshot.ts
+@@ -12,6 +12,7 @@ import type { GameState } from './game.ts';
+ 
+ export const SNAPSHOT_VERSION = 1;
+ export const SNAPSHOT_MAX_BYTES = 65_536;
++export const SNAPSHOT_NAME_MAX_CHARACTERS = 40;
+ export const SNAPSHOT_KEYS = [
+   'version',
+   'boardCode',
+@@ -21,11 +22,17 @@ export const SNAPSHOT_KEYS = [
+   'elapsedMs',
+   'started',
+ ] as const;
++// A snapshot may also carry a name. Saves made before names existed have none.
++const SNAPSHOT_NAME_KEY = 'name';
++// Pasting a saved file can bring a leading byte order mark that JSON text must not have.
++const BYTE_ORDER_MARK = '\uFEFF';
+ 
+ export function encodeSnapshot(state: GameState): string {
++  const name = state.name?.trim();
+   return JSON.stringify(
+     {
+       version: SNAPSHOT_VERSION,
++      ...(name ? { name } : {}),
+       boardCode: state.boardCode,
+       matched: [...state.matched].sort((left, right) => left - right),
+       // Active time keeps its fractions in play. Export writes whole milliseconds, and rounding
+@@ -44,16 +51,20 @@ export function encodeSnapshot(state: GameState): string {
+ }
+ 
+ export function decodeSnapshot(text: string): GameState | null {
+-  const value = isWithinBytes(text, SNAPSHOT_MAX_BYTES) ? parseJson(text) : undefined;
++  const source = text.startsWith(BYTE_ORDER_MARK) ? text.slice(BYTE_ORDER_MARK.length) : text;
++  const value = isWithinBytes(source, SNAPSHOT_MAX_BYTES) ? parseJson(source) : undefined;
++  // Pasted saves may list their fields in a different order. Each required field must appear once.
+   if (
+     !isJsonObject(value) ||
+-    !Object.keys(value).every((key, index) =>
+-      index === 0 ? key === SNAPSHOT_KEYS[0] : SNAPSHOT_KEYS.some((field) => field === key),
++    !SNAPSHOT_KEYS.every((key) => Object.hasOwn(value, key)) ||
++    !Object.keys(value).every(
++      (key) => key === SNAPSHOT_NAME_KEY || SNAPSHOT_KEYS.some((field) => field === key),
+     ) ||
+-    Object.keys(value).length !== SNAPSHOT_KEYS.length ||
+     value.version !== SNAPSHOT_VERSION
+   )
+     return null;
++  const name = readName(value[SNAPSHOT_NAME_KEY]);
++  if (name === null) return null;
+   if (typeof value.boardCode !== 'string' || !parseBoardCode(value.boardCode)) return null;
+   if (
+     !isNonnegativeSafeInteger(value.moves) ||
+@@ -70,6 +81,7 @@ export function decodeSnapshot(text: string): GameState | null {
+   if (!selection) return null;
+   const state: GameState = {
+     ...initial,
++    ...(name ? { name } : {}),
+     matched,
+     selection,
+     moves: value.moves,
+@@ -89,3 +101,11 @@ export function decodeSnapshot(text: string): GameState | null {
+   if (state.started && state.moves === 0 && selection.kind === SelectionKind.closed) return null;
+   return state;
+ }
++
++// An absent name is allowed. A present one must be text that fits the name field.
++function readName(value: unknown): string | null {
++  if (value === undefined) return '';
++  if (typeof value !== 'string') return null;
++  const name = value.trim();
++  return name.length <= SNAPSHOT_NAME_MAX_CHARACTERS ? name : null;
++}
+diff --git a/tests/game-name.e2e.test.ts b/tests/game-name.e2e.test.ts
+new file mode 100644
+index 0000000..5fd02b3
+--- /dev/null
++++ b/tests/game-name.e2e.test.ts
+@@ -0,0 +1,51 @@
++import { expect, test } from './browser-test.ts';
++import { ReproductionControl } from '../src/game/controls/control-labels.ts';
++import { SelectionKind } from '../src/game/selection.ts';
++import { SNAPSHOT_VERSION } from '../src/game/snapshot.ts';
++import { exportedSnapshot, loadFixedBoard } from './game-fixture.ts';
++import { EXAMPLE_CODE } from '../src/game/game.fixture.ts';
++
++test('a game name is saved with the snapshot and returns when the snapshot is loaded', async ({
++  page,
++}) => {
++  await loadFixedBoard(page);
++  await page.locator('.card').first().click();
++  await page.locator('summary').click();
++  const name = page.getByLabel(ReproductionControl.name, { exact: true });
++  await name.fill('Friday warm-up');
++  await page.getByRole('button', { name: ReproductionControl.exportSnapshot, exact: true }).click();
++  const field = page.getByLabel(ReproductionControl.snapshot, { exact: true });
++  const saved = await field.inputValue();
++  expect(JSON.parse(saved)).toMatchObject({ name: 'Friday warm-up' });
++  await page.getByRole('button', { name: 'Restart', exact: true }).click();
++  await expect(name).toHaveValue('Friday warm-up');
++  await page.getByRole('combobox', { name: 'Grid size', exact: true }).selectOption('6');
++  await expect(name).toHaveValue('');
++  await field.fill(saved);
++  await page.getByRole('button', { name: ReproductionControl.loadSnapshot, exact: true }).click();
++  await expect(name).toHaveValue('Friday warm-up');
++  await page.locator('summary').click();
++  expect((await exportedSnapshot(page)).name).toBe('Friday warm-up');
++});
++
++test('a pasted snapshot loads with reordered fields and without a name', async ({ page }) => {
++  await loadFixedBoard(page);
++  await page.locator('summary').click();
++  const pasted = {
++    started: true,
++    selection: { kind: SelectionKind.one, index: 0 },
++    moves: 0,
++    elapsedMs: 250,
++    matched: [],
++    boardCode: EXAMPLE_CODE,
++    version: SNAPSHOT_VERSION,
++  };
++  await page.getByLabel(ReproductionControl.snapshot, { exact: true }).fill(JSON.stringify(pasted));
++  await page.getByRole('button', { name: ReproductionControl.loadSnapshot, exact: true }).click();
++  await expect(page.locator('.load-notice')).toHaveText(
++    'Loaded snapshot. Select Resume to continue.',
++  );
++  await expect(page.getByLabel(ReproductionControl.name, { exact: true })).toHaveValue('');
++  await page.locator('summary').click();
++  expect((await exportedSnapshot(page)).elapsedMs).toBe(pasted.elapsedMs);
++});
