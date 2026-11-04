@@ -1,22 +1,24 @@
 # Grades published runs whose checks were left for later, then opens one pull request with the new grades.
 # Every batch with waiting runs gets a job on one of the runners in the GRADE_RUNNERS variable, in turn, so
 # GitHub's runners and self-hosted ones share the work. Self-hosted runners need Docker with Linux containers.
+# AI judges never run here: these jobs build agent-written code, so a sign-in would share a host with it.
 name: Grade published runs
 
 on:
   push:
     branches: [main]
-    paths: ["versions/**"]
+    # A merged grade pull request only adds assessments, so it starts no new grading.
+    paths:
+      - "versions/**"
+      - "!versions/**/assessments/**"
+      - "!versions/**/evidence/assessments/**"
+      - "!versions/**/artifacts.json"
   workflow_dispatch:
     inputs:
       open-forge-ref:
-        description: The Open Forge branch, tag or commit whose graders run
+        description: The Open Forge commit whose graders run, instead of the OPEN_FORGE_REF variable
         required: false
         default: ""
-      judges:
-        description: Judges for judge --missing after the checks, such as claude, or none
-        required: false
-        default: none
 
 # The grading jobs build agent-written code, so only the publish job gets a token that can write.
 permissions:
@@ -28,24 +30,30 @@ concurrency:
 
 env:
   OPEN_FORGE_REPOSITORY: ${{ vars.OPEN_FORGE_REPOSITORY || 'TheLithiumForge/open-forge' }}
-  OPEN_FORGE_REF: ${{ inputs.open-forge-ref || vars.OPEN_FORGE_REF || 'develop' }}
+  # Every grader change makes a new grading version, so the graders come from one pinned commit.
+  OPEN_FORGE_REF: ${{ inputs.open-forge-ref || vars.OPEN_FORGE_REF }}
   NODE_VERSION: "24.19.0"
 
 jobs:
   plan:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     outputs:
       matrix: ${{ steps.pending.outputs.matrix }}
       any: ${{ steps.pending.outputs.any }}
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - name: Require a pinned Open Forge commit
+        run: test -n "$OPEN_FORGE_REF" || { echo "Set the OPEN_FORGE_REF variable to the Open Forge commit whose graders run."; exit 1; }
+      - uses: actions/checkout@v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v7.0.0
         with:
           node-version: ${{ env.NODE_VERSION }}
+          package-manager-cache: false
       - id: pending
         run: npm run --silent pending
         env:
-          GRADE_RUNNERS: ${{ vars.GRADE_RUNNERS || '["ubuntu-latest"]' }}
+          GRADE_RUNNERS: ${{ vars.GRADE_RUNNERS || '["ubuntu-24.04"]' }}
 
   grade:
     needs: plan
@@ -60,23 +68,24 @@ jobs:
       run:
         shell: bash
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7.0.1
         with:
           path: results
           persist-credentials: false
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7.0.1
         with:
           repository: ${{ env.OPEN_FORGE_REPOSITORY }}
           ref: ${{ env.OPEN_FORGE_REF }}
           path: open-forge
           persist-credentials: false
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v7.0.0
         with:
           node-version: ${{ env.NODE_VERSION }}
+          package-manager-cache: false
       - name: Install the graders and the results scripts
         run: |
           npm ci --prefix open-forge/src/evals
-          npm ci --prefix results
+          npm ci --prefix results --cache results/.npm-cache
       - name: Build the verifier images
         working-directory: open-forge
         run: npm run --silent evals -- images
@@ -93,14 +102,6 @@ jobs:
         run: |
           cores="$(nproc 2>/dev/null || getconf _NPROCESSORS_ONLN)"
           npm run --silent evals -- check "$BATCH" --missing --check-slots "$(( cores / 3 > 0 ? cores / 3 : 1 ))"
-      - name: Run the waiting judges
-        if: inputs.judges != '' && inputs.judges != 'none'
-        working-directory: open-forge
-        env:
-          BATCH: ${{ matrix.batch }}
-          JUDGES: ${{ inputs.judges }}
-          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
-        run: npm run --silent evals -- judge "$BATCH" --judges "$JUDGES" --missing
       - name: Publish the batch again with its new grades
         working-directory: open-forge
         env:
@@ -110,6 +111,7 @@ jobs:
         with:
           name: graded-${{ matrix.batch }}
           path: results/${{ matrix.folder }}
+          include-hidden-files: true
           retention-days: 7
 
   # The grading jobs ran agent-written code, so this job treats their artifacts as data: it copies only the batch
@@ -117,18 +119,20 @@ jobs:
   publish:
     needs: [plan, grade]
     if: ${{ !cancelled() && needs.grade.result != 'skipped' }}
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     permissions:
+      actions: write
       contents: write
       pull-requests: write
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7.0.1
         with:
           persist-credentials: false
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v7.0.0
         with:
           node-version: ${{ env.NODE_VERSION }}
-      - run: npm ci --ignore-scripts
+          package-manager-cache: false
+      - run: npm ci --ignore-scripts --cache .npm-cache
       - uses: actions/download-artifact@v4
         with:
           pattern: graded-*
@@ -140,18 +144,22 @@ jobs:
           npm run --silent publish-graded -- "$RUNNER_TEMP/graded"
           npm run index
           npm run validate
+      # Agent-written .gitignore files sit inside the evidence, so the evidence is added by force.
       - name: Open a pull request with the new grades
         env:
           GH_TOKEN: ${{ github.token }}
           REPOSITORY: ${{ github.repository }}
           RUN_ID: ${{ github.run_id }}
         run: |
-          if git diff --quiet && [ -z "$(git ls-files --others --exclude-standard versions)" ]; then echo "Nothing changed."; exit 0; fi
+          git add --force versions index.json
+          if git diff --cached --quiet; then echo "Nothing changed."; exit 0; fi
           branch="grade/$RUN_ID"
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git switch -c "$branch"
-          git add versions index.json
           git commit -m "Grade published runs from run $RUN_ID"
           git push "https://x-access-token:$GH_TOKEN@github.com/$REPOSITORY.git" "$branch"
-          gh pr create --repo "$REPOSITORY" --base main --head "$branch" --title "Grade published runs"             --body "Grades for the published runs that waited for them, from workflow run $RUN_ID."
+          gh pr create --repo "$REPOSITORY" --base main --head "$branch" --title "Grade published runs" \
+            --body "Grades for the published runs that waited for them, from workflow run $RUN_ID."
+          # A pull request opened with this token starts no workflow, so validation runs on the branch by dispatch.
+          gh workflow run validate.yml --repo "$REPOSITORY" --ref "$branch"

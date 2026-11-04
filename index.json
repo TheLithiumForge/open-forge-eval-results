@@ -1,33 +1,4 @@
 {
   "schemaVersion": 1,
-  "batches": [
-    {
-      "id": "2026-11-02T11-03-15-785Z-bea6fbbb5258",
-      "layer": 1,
-      "cliVersion": "0.9.0-beta.18",
-      "createdAt": "2026-11-02T11:03:15.918Z",
-      "implementers": [
-        {
-          "tool": "codex",
-          "model": "gpt-6.1-sol",
-          "effort": "high"
-        }
-      ],
-      "judges": [
-        {
-          "tool": "codex",
-          "model": "gpt-6.1-sol",
-          "effort": "xhigh"
-        }
-      ],
-      "gradingVersions": [
-        {
-          "checker": "b73cf515d6baac0e204090efc8a4594cddbb4531169a63794e7471391b426e94",
-          "rubric": "95ec87906b37e01c358c418c167b88d37ef3d4c990e68d5a50d592f713d58687",
-          "judge": "ec0dba5a15c4b8450a471a547f8451ecb8bbbf63797e4dfbc80ba6722364cae0"
-        }
-      ],
-      "path": "versions/0.9.0-beta.18/batches/2026-11-02T11-03-15-785Z-bea6fbbb5258"
-    }
-  ]
+  "batches": []
 }

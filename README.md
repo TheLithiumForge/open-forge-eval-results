@@ -27,10 +27,11 @@ A plan can leave its checks for later, so a batch can be published with runs tha
 | --- | --- | --- |
 | `GRADE_RUNNERS` | Variable | A JSON list of runs-on values that take the batches in turn, such as `["ubuntu-latest", ["self-hosted", "Windows"], ["self-hosted", "macOS"]]`. Self-hosted runners need Docker with Linux containers. |
 | `OPEN_FORGE_REPOSITORY` | Variable | The repository whose graders run, `TheLithiumForge/open-forge` by default |
-| `OPEN_FORGE_REF` | Variable | Its branch, tag or commit, `develop` by default |
-| `CLAUDE_CODE_OAUTH_TOKEN` | Secret | Claude judging, when a manual run names `claude` judges |
+| `OPEN_FORGE_REF` | Variable | The commit whose graders run. It's required, since every grader change makes a new grading version. |
 
-Judging is opt-in on a manual run. Codex judging needs a sign-in of its own, since Codex replaces its refresh token on use and a shared sign-in would sign every other copy out.
+AI judges never run in these jobs, since they build agent-written code and a sign-in would share a host with it. Judge on your own machine with `judge <batch> --missing`, then publish the batch again.
+
+In the repository settings, allow GitHub Actions to create pull requests, and turn GitHub Pages off: the results show on the main Open Forge site, and an earlier Pages deployment from this repository stays online until Pages is off.
 
 ## Records
 
