@@ -1,0 +1,364 @@
+diff --git a/README.md b/README.md
+index 3ea5b00..56eee53 100644
+--- a/README.md
++++ b/README.md
+@@ -4,7 +4,7 @@ Neon Pairs is a memory game that runs offline from one HTML file and keeps local
+ 
+ You can repeat a deal with its board code, save progress as a snapshot or run timed actions through the replay command.
+ 
+-Status: implements product spec version 2.2.
++Status: implements product spec version 3.
+ 
+ ## Install
+ 
+@@ -27,7 +27,7 @@ Run `npm run build`, then open `dist/index.html` from disk. The game makes no ne
+ 
+ Use Grid size to choose a board. Reveal two cards with a click, tap, Enter or Space. Arrow keys move board focus. Other keys stay with the browser. Tab leaves the board. New Game gives another deal. Restart repeats the current deal.
+ 
+-Open Reproduce a game to load a board code or export progress. Loading an unfinished snapshot pauses it. Resume returns focus to the remembered card and continues the remaining mismatch interval. A completed snapshot loads as completed without Resume. Elapsed time stops at 359999999ms while play continues. The minutes and seconds display reaches 5999:59. Moves stop at 999999. Matching and victory continue at that count. Saved bests use the same move limit.
++Open Reproduce a game to name a deal, load a board code or export progress. A named deal exports as a version 2 snapshot and its name returns when you load it. Unnamed deals keep version 1. Snapshot fields can come in any order when you paste one. Loading an unfinished snapshot pauses it. Resume returns focus to the remembered card and continues the remaining mismatch interval. A completed snapshot loads as completed without Resume. Elapsed time stops at 359999999ms while play continues. The minutes and seconds display reaches 5999:59. Moves stop at 999999. Matching and victory continue at that count. Saved bests use the same move limit.
+ 
+ ## Replay
+ 
+diff --git a/src/game/Game.tsx b/src/game/Game.tsx
+index e965799..9f516e1 100644
+--- a/src/game/Game.tsx
++++ b/src/game/Game.tsx
+@@ -45,6 +45,7 @@ export function Game() {
+         exportSnapshot={controller.exportSnapshot}
+         loadBoard={controller.loadBoard}
+         loadSnapshot={controller.loadSnapshot}
++        setName={controller.setName}
+         notice={session.loadNotice}
+         paused={session.paused}
+         resume={resume}
+diff --git a/src/game/controls/Reproduction.tsx b/src/game/controls/Reproduction.tsx
+index e3d1d4c..50a2241 100644
+--- a/src/game/controls/Reproduction.tsx
++++ b/src/game/controls/Reproduction.tsx
+@@ -1,5 +1,6 @@
+ import { useState } from 'react';
+ import { BoardCodeForm } from './BoardCodeForm.tsx';
++import { cleanDealName, DEAL_NAME_MAX_UNITS } from '../deal-name.ts';
+ import { ReproductionControl } from './control-labels.ts';
+ import type { GameState } from '../game.ts';
+ import './control.css';
+@@ -13,6 +14,7 @@ interface ReproductionProps {
+   exportSnapshot(): string;
+   loadBoard(code: string): boolean;
+   loadSnapshot(text: string): boolean;
++  setName(name: string): void;
+   notice: string;
+   paused: boolean;
+   resume(): void;
+@@ -24,6 +26,7 @@ export function Reproduction({
+   exportSnapshot,
+   loadBoard,
+   loadSnapshot,
++  setName,
+   notice,
+   paused,
+   resume,
+@@ -35,6 +38,17 @@ export function Reproduction({
+         <summary>{ReproductionControl.summary}</summary>
+         <div className="reproduction-body">
+           <BoardCodeForm code={game.boardCode} generation={generation} loadBoard={loadBoard} />
++          <label htmlFor="deal-name">{ReproductionControl.dealName}</label>
++          <input
++            id="deal-name"
++            className="control"
++            type="text"
++            value={game.name ?? ''}
++            maxLength={DEAL_NAME_MAX_UNITS}
++            spellCheck={false}
++            autoComplete="off"
++            onChange={(event) => setName(cleanDealName(event.currentTarget.value))}
++          />
+           <label htmlFor="snapshot-json">{ReproductionControl.snapshot}</label>
+           <textarea
+             id="snapshot-json"
+diff --git a/src/game/controls/control-labels.ts b/src/game/controls/control-labels.ts
+index c00ef62..a985c73 100644
+--- a/src/game/controls/control-labels.ts
++++ b/src/game/controls/control-labels.ts
+@@ -2,6 +2,7 @@ export const DealControl = { size: 'Grid size', newGame: 'New Game', restart: 'R
+ export const ReproductionControl = {
+   summary: 'Reproduce a game',
+   board: 'Board code',
++  dealName: 'Deal name',
+   loadBoard: 'Load board',
+   snapshot: 'Snapshot JSON',
+   exportSnapshot: 'Export snapshot',
+diff --git a/src/game/deal-name.ts b/src/game/deal-name.ts
+new file mode 100644
+index 0000000..e78bc3c
+--- /dev/null
++++ b/src/game/deal-name.ts
+@@ -0,0 +1,28 @@
++import type { GameState } from './game.ts';
++
++export const DEAL_NAME_MAX_UNITS = 40;
++
++const LINE_BREAKS = /[\r\n]/g;
++
++// A name is nonempty, at most 40 UTF-16 code units long and has no line breaks.
++export function isDealName(value: unknown): value is string {
++  return (
++    typeof value === 'string' &&
++    value.length > 0 &&
++    value.length <= DEAL_NAME_MAX_UNITS &&
++    !value.includes('\r') &&
++    !value.includes('\n')
++  );
++}
++
++// Typing or pasting keeps every other character, including surrounding spaces.
++export function cleanDealName(draft: string): string {
++  return draft.replace(LINE_BREAKS, '').slice(0, DEAL_NAME_MAX_UNITS);
++}
++
++// An empty name makes the game unnamed, so the field is absent instead of empty.
++export function withDealName(state: GameState, name: string): GameState {
++  const { name: previous, ...unnamed } = state;
++  if (previous === undefined && name === '') return state;
++  return name === '' ? unnamed : { ...unnamed, name };
++}
+diff --git a/src/game/game.ts b/src/game/game.ts
+index acafdf0..bb0f719 100644
+--- a/src/game/game.ts
++++ b/src/game/game.ts
+@@ -13,6 +13,8 @@ export interface GameState extends Board {
+   readonly moves: number;
+   readonly elapsedMs: number;
+   readonly started: boolean;
++  // Present only on a named game. An unnamed game has no name field.
++  readonly name?: string;
+ }
+ 
+ export function createGame(boardCode: string): GameState {
+diff --git a/src/game/session/use-game.ts b/src/game/session/use-game.ts
+index b8bf7cd..c6049dd 100644
+--- a/src/game/session/use-game.ts
++++ b/src/game/session/use-game.ts
+@@ -1,4 +1,5 @@
+ import { useRef, useState } from 'react';
++import { withDealName } from '../deal-name.ts';
+ import { createGame } from '../game.ts';
+ import { parseBoardCode, isValidSize } from '../deck.ts';
+ import { decodeSnapshot, encodeSnapshot } from '../snapshot.ts';
+@@ -69,6 +70,11 @@ export function useGame() {
+     return true;
+   }
+ 
++  function setName(name: string): void {
++    // Only the name changes. The board, counts, clock and pause stay as they are.
++    commit({ ...current.current, game: withDealName(current.current.game, name) });
++  }
++
+   function exportSnapshot(): string {
+     // Rendered state can trail the active clock by a tick.
+     clock.synchronize();
+@@ -90,5 +96,15 @@ export function useGame() {
+     });
+   }
+ 
+-  return { session, newGame, restart, loadBoard, loadSnapshot, exportSnapshot, activate, resume };
++  return {
++    session,
++    newGame,
++    restart,
++    loadBoard,
++    loadSnapshot,
++    setName,
++    exportSnapshot,
++    activate,
++    resume,
++  };
+ }
+diff --git a/src/game/snapshot-name.test.ts b/src/game/snapshot-name.test.ts
+new file mode 100644
+index 0000000..d97e897
+--- /dev/null
++++ b/src/game/snapshot-name.test.ts
+@@ -0,0 +1,60 @@
++import assert from 'node:assert/strict';
++import { test } from 'vitest';
++import { cleanDealName, DEAL_NAME_MAX_UNITS, withDealName } from './deal-name.ts';
++import { activateCard, createGame } from './game.ts';
++import { isJsonObject } from './saved-format.ts';
++import { decodeSnapshot, encodeSnapshot, NAMED_SNAPSHOT_VERSION } from './snapshot.ts';
++import { EXAMPLE_CODE } from './game.fixture.ts';
++
++function record(text: string): Record<string, unknown> {
++  const value: unknown = JSON.parse(text);
++  if (!isJsonObject(value)) throw new Error('Expected an object.');
++  return value;
++}
++
++const started = activateCard(createGame(EXAMPLE_CODE), 2);
++const NAMED = `{"version":2,"name":"Café","boardCode":"np1-4-1","matched":[],"selection":{"kind":"one","index":2},"moves":0,"elapsedMs":0,"started":true}`;
++
++test('a named game exports version 2 and round trips with its name', () => {
++  const named = withDealName(started, ' Café  ');
++  assert.equal(NAMED_SNAPSHOT_VERSION, 2);
++  assert.deepEqual(record(encodeSnapshot(named)), { ...record(NAMED), name: ' Café  ' });
++  assert.deepEqual(decodeSnapshot(encodeSnapshot(named)), named);
++  assert.equal(decodeSnapshot(NAMED)?.name, 'Café');
++});
++
++test('an unnamed game exports version 1 without a name field', () => {
++  const { name: _name, ...unnamed } = record(NAMED);
++  assert.deepEqual(record(encodeSnapshot(started)), { ...unnamed, version: 1 });
++  assert.equal(decodeSnapshot(encodeSnapshot(started))?.name, undefined);
++  assert.deepEqual(withDealName(withDealName(started, 'x'), ''), started);
++  assert.equal(withDealName(started, ''), started);
++});
++
++test('pasted snapshots open whatever order their fields come in', () => {
++  const fields = Object.entries(record(NAMED));
++  for (const ordered of [fields.toReversed(), [...fields.slice(3), ...fields.slice(0, 3)]])
++    assert.equal(decodeSnapshot(JSON.stringify(Object.fromEntries(ordered)))?.name, 'Café');
++  const unnamed = Object.entries({ ...record(NAMED), version: 1 })
++    .filter(([key]) => key !== 'name')
++    .toReversed();
++  assert.ok(decodeSnapshot(JSON.stringify(Object.fromEntries(unnamed))));
++});
++
++test('name rules reject bad names and mismatched versions', () => {
++  const base = record(NAMED);
++  const { name: _name, ...noName } = base;
++  const bad: unknown[] = ['', 'a\nb', 'a\rb', 'x'.repeat(DEAL_NAME_MAX_UNITS + 1), 7, null];
++  for (const name of bad)
++    assert.equal(decodeSnapshot(JSON.stringify({ ...base, name })), null, String(name));
++  assert.ok(decodeSnapshot(JSON.stringify({ ...base, name: 'x'.repeat(DEAL_NAME_MAX_UNITS) })));
++  assert.equal(decodeSnapshot(JSON.stringify(noName)), null, 'version 2 needs a name');
++  assert.equal(decodeSnapshot(JSON.stringify({ ...base, version: 1 })), null, 'version 1 has none');
++  assert.equal(decodeSnapshot(JSON.stringify({ ...base, version: 3 })), null);
++  assert.equal(decodeSnapshot(JSON.stringify({ ...base, extra: 1 })), null);
++});
++
++test('typed names drop line breaks and keep spaces', () => {
++  assert.equal(cleanDealName(' a\r\nb '), ' ab ');
++  assert.equal(cleanDealName('x'.repeat(50)).length, DEAL_NAME_MAX_UNITS);
++});
+diff --git a/src/game/snapshot.ts b/src/game/snapshot.ts
+index 7ec77cd..88204a2 100644
+--- a/src/game/snapshot.ts
++++ b/src/game/snapshot.ts
+@@ -1,6 +1,8 @@
+ import { createGame, MOVES_MAX, ELAPSED_MAX_MS } from './game.ts';
++import { isDealName } from './deal-name.ts';
+ import { parseBoardCode } from './deck.ts';
+ import {
++  hasExactKeys,
+   isJsonObject,
+   isNonnegativeSafeInteger,
+   isWithinBytes,
+@@ -11,6 +13,7 @@ import { SelectionKind } from './selection.ts';
+ import type { GameState } from './game.ts';
+ 
+ export const SNAPSHOT_VERSION = 1;
++export const NAMED_SNAPSHOT_VERSION = 2;
+ export const SNAPSHOT_MAX_BYTES = 65_536;
+ export const SNAPSHOT_KEYS = [
+   'version',
+@@ -25,7 +28,9 @@ export const SNAPSHOT_KEYS = [
+ export function encodeSnapshot(state: GameState): string {
+   return JSON.stringify(
+     {
+-      version: SNAPSHOT_VERSION,
++      ...(state.name === undefined
++        ? { version: SNAPSHOT_VERSION }
++        : { version: NAMED_SNAPSHOT_VERSION, name: state.name }),
+       boardCode: state.boardCode,
+       matched: [...state.matched].sort((left, right) => left - right),
+       // Active time keeps its fractions in play. Export writes whole milliseconds, and rounding
+@@ -45,15 +50,12 @@ export function encodeSnapshot(state: GameState): string {
+ 
+ export function decodeSnapshot(text: string): GameState | null {
+   const value = isWithinBytes(text, SNAPSHOT_MAX_BYTES) ? parseJson(text) : undefined;
+-  if (
+-    !isJsonObject(value) ||
+-    !Object.keys(value).every((key, index) =>
+-      index === 0 ? key === SNAPSHOT_KEYS[0] : SNAPSHOT_KEYS.some((field) => field === key),
+-    ) ||
+-    Object.keys(value).length !== SNAPSHOT_KEYS.length ||
+-    value.version !== SNAPSHOT_VERSION
+-  )
+-    return null;
++  if (!isJsonObject(value)) return null;
++  // Key order is free in pasted JSON. Version 2 adds exactly one field, the name.
++  const named = value.version === NAMED_SNAPSHOT_VERSION;
++  if (!named && value.version !== SNAPSHOT_VERSION) return null;
++  if (!hasExactKeys(value, named ? [...SNAPSHOT_KEYS, 'name'] : SNAPSHOT_KEYS)) return null;
++  if (named && !isDealName(value.name)) return null;
+   if (typeof value.boardCode !== 'string' || !parseBoardCode(value.boardCode)) return null;
+   if (
+     !isNonnegativeSafeInteger(value.moves) ||
+@@ -75,6 +77,7 @@ export function decodeSnapshot(text: string): GameState | null {
+     moves: value.moves,
+     elapsedMs: value.elapsedMs,
+     started: value.started,
++    ...(named && typeof value.name === 'string' ? { name: value.name } : {}),
+   };
+   const minimumMoves = matched.length / 2 + (selection.kind === SelectionKind.mismatch ? 1 : 0);
+   if (state.moves < minimumMoves) return null;
+diff --git a/tests/deal-name.e2e.test.ts b/tests/deal-name.e2e.test.ts
+new file mode 100644
+index 0000000..d104188
+--- /dev/null
++++ b/tests/deal-name.e2e.test.ts
+@@ -0,0 +1,53 @@
++import { expect, test } from './browser-test.ts';
++import { ReproductionControl } from '../src/game/controls/control-labels.ts';
++import { exportedSnapshot, loadTimedBoard } from './game-fixture.ts';
++
++const NAMED = {
++  version: 2,
++  name: 'Café',
++  boardCode: 'np1-4-1',
++  matched: [],
++  selection: { kind: 'one', index: 2 },
++  moves: 0,
++  elapsedMs: 0,
++  started: true,
++};
++
++test('a name exports as version 2, survives import, and resets with new deals', async ({
++  page,
++}) => {
++  await loadTimedBoard(page);
++  await page.locator('.card').nth(2).click();
++  await page.locator('summary').click();
++  const name = page.getByLabel(ReproductionControl.dealName, { exact: true });
++  await expect(name).toHaveValue('');
++  await expect(name).toHaveAttribute('maxlength', '40');
++  await page.locator('summary').click();
++  expect((await exportedSnapshot(page))['version']).toBe(1);
++  await page.locator('summary').click();
++  await name.fill(' Café ');
++  await page.locator('summary').click();
++  expect(await exportedSnapshot(page)).toMatchObject({ version: 2, name: ' Café ', moves: 0 });
++  await page.locator('summary').click();
++  await page.getByRole('button', { name: 'Restart', exact: true }).click();
++  await expect(name).toHaveValue('');
++});
++
++test('a pasted snapshot restores its name even when its fields are reordered', async ({ page }) => {
++  await loadTimedBoard(page);
++  const reordered = Object.fromEntries(Object.entries(NAMED).toReversed());
++  await page.locator('summary').click();
++  await page
++    .getByLabel(ReproductionControl.snapshot, { exact: true })
++    .fill(JSON.stringify(reordered));
++  await page.getByRole('button', { name: ReproductionControl.loadSnapshot, exact: true }).click();
++  await expect(page.locator('.load-notice')).toHaveText(
++    'Loaded snapshot. Select Resume to continue.',
++  );
++  const name = page.getByLabel(ReproductionControl.dealName, { exact: true });
++  await expect(name).toHaveValue('Café');
++  await name.fill('');
++  await page.locator('summary').click();
++  await expect(page.getByRole('button', { name: 'Resume', exact: true })).toBeVisible();
++  expect((await exportedSnapshot(page))['version']).toBe(1);
++});

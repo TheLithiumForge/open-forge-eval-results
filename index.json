@@ -305,6 +305,22 @@
       "path": "versions/0.9.0-beta.18/batches/2026-11-04T20-48-28-000Z-2f2bb1e1a825"
     },
     {
+      "id": "2026-11-04T20-51-01-000Z-e6e415f65337",
+      "layer": 4,
+      "cliVersion": "0.9.0-beta.18",
+      "createdAt": "2026-11-04T20:51:01Z",
+      "implementers": [
+        {
+          "tool": "claude",
+          "model": "claude-sonnet-5-5",
+          "effort": "high"
+        }
+      ],
+      "judges": [],
+      "gradingVersions": [],
+      "path": "versions/0.9.0-beta.18/batches/2026-11-04T20-51-01-000Z-e6e415f65337"
+    },
+    {
       "id": "2026-11-04T20-58-27-000Z-75dc93802bb0",
       "layer": 4,
       "cliVersion": "0.9.0-beta.18",
