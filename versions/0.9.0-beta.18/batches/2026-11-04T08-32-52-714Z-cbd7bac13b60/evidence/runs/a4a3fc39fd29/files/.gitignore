@@ -1,0 +1,10 @@
+node_modules/
+dist/
+.art/
+.session/
+test-results/
+playwright-report/
+.npm-cache/
+.playwright-browsers/
+.browser-work/
+.test-work/

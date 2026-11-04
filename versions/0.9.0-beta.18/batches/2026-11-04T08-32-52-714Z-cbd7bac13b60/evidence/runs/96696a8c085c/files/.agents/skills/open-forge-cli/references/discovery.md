@@ -1,0 +1,156 @@
+---
+open-forge:
+  description: Read workspace context and find related sources through tags and references
+  tags: [Skill, CLI, Reference]
+---
+
+# Reading And Discovery
+
+Use these read-only commands to select context before opening many files. All accept the [shared global flags](common.md#global-flags).
+
+## Discover Connected Sources
+
+Use `find --tag` to discover related topics and `references` to inspect authored relationships.
+
+For example, discover applicable Directives, inspect one returned source's impact, then read its chain and one level of linked explanation:
+
+```sh
+open-forge find --tag Directive --for src/Order.cs --content metadata,headings
+open-forge references directives/order-rules --direction both
+open-forge context directives/order-rules --for src/Order.cs --follow-links 1
+```
+
+`directives/order-rules` is an example ID. Use an ID from the search result. Before creating a record, search for its subject and category, such as `find --tag Decision`.
+
+## Included Workspace Files
+
+Registered outside directories also supply inventory, including unlisted Markdown. Find searches it and References includes it in incoming impact scans. Context follows authored loading rows and conditions rather than activating inventory. Use an exact source reference with filename, such as `./docs/team/_team.md`. File-only included catalogues keep retained-edge traversal without scanning siblings. A registered entrypoint instead selects its bounded inventory scope. An outside `SKILL.md` has ordinary Markdown form.
+
+The loader can list an existing workspace file where it lives. Context follows
+those rows with their tags and conditions. Select a file outside the primary content locations by
+exact path, such as `context ./CONTRIBUTING.md`. It has no short source ID.
+An exact `./...` path to an unrouted file, such as `context ./.agents/README.md`,
+reads it and its overwrite without making them startup reads.
+
+Find searches included leaves and the listed descendants of included catalogues
+by row metadata and Markdown headings and tags. It never scans an included leaf's
+folder. References counts authored links in active included Markdown files. Other
+text formats are opaque, and Entries rows remain navigation. Route List includes
+these root rows and labels a registration with no loader row as not in the
+loader, without children.
+
+## `context [<source-reference>...]`
+
+Load startup context or selected sources with their required route context. No operands returns the loading-tag closure. The default content is `frontmatter,body`, which includes instructions. Explicit prose instructions still require their named reads.
+
+Both root and scoped frontmatter are read. An `open-forge` mapping supplies ordinary Open Forge metadata without merging root fields.
+
+| Flag                                   | Meaning                                                                                                                                                     |
+| -------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `--for <path>`                         | Evaluate `applyTo` against a workspace-relative working file. Repeat for the complete set, including planned files                                          |
+| `--additions-only`                     | Omit the startup closure. Requires an explicit source. Does not track every file read earlier                                                               |
+| `--content <part[,part...]>`           | Select `metadata`, `paths`, `frontmatter`, `headings`, `body`, or `section:<heading>`. Supply one value. Escape commas and backslashes within section names |
+| `--follow-links <positive-depth\|all>` | Follow contained local Markdown links breadth-first to a positive depth or all reachable links. Reports broken edges and never fetches external URLs        |
+
+Select the scope, then apply file conditions. One supplied path must satisfy all conditions inherited along that source's route. `--for` alone does not select a hidden scope. Reading a Markdown source for context does not make its path a working file or grant edit permission.
+
+Without known working files, exposed conditioned `#LoadNow` and `#KeepInMind` sources remain pending and return `incomplete` (exit 3). Other conditioned sources stay on demand. Resolve pending conditions before relying on those rules.
+
+If Context cannot resolve a source, read its explanation and use the reported Route List command to find valid IDs. It includes `--depth all` and the selected `--workspace` when supplied. Text and JSON report the same workspace-aware action. Unavailable counts are explained once. An error result does not provide usable context for that source.
+
+Batch related selections and use bounded links when their explanations matter:
+
+```sh
+open-forge context skills/open-forge-cli --for src/Order.cs --for web/order.ts
+open-forge context directives/backend memory/crystallized --additions-only --for src/Order.cs
+```
+
+Avoid `--follow-links all` for ordinary startup. It may load related content the task does not need.
+
+## `find`
+
+Search Markdown tags and complete headings to find candidates, including applicable rules below unselected scopes. Search results do not load their ancestor rules. Use `context <source>` before relying on a candidate.
+
+| Flag                           | Meaning                                                                                         |
+| ------------------------------ | ----------------------------------------------------------------------------------------------- |
+| `--include <source-reference>` | Bound the source inventory. Repeat to combine includes                                          |
+| `--exclude <source-reference>` | Omit selected sources. Repeat as needed. Exclusions win                                         |
+| `--tag <tag>`                  | Match an authored tag value. Repeat for more tags                                               |
+| `--heading <heading>`          | Match a complete Markdown heading. Repeat for more headings                                     |
+| `--require <all\|any>`         | Combine tag and heading predicates. Default: `all`                                              |
+| `--within <part[,part...]>`    | Match within `document`, `frontmatter`, `body`, or `section:<heading>`                          |
+| `--content <part[,part...]>`   | Return `metadata`, `frontmatter`, `headings`, `body`, or `section:<heading>`                    |
+| `--for <path>`                 | Filter for applicable working paths. Repeat as needed. This filter is separate from `--require` |
+
+Include and exclude each take one exact source reference per occurrence. Unresolved references prevent the search. `--within` and `--content` each take one comma-separated list. Metadata and headings help triage, but read the body before relying on a rule.
+
+## `references <source-reference>`
+
+Show direct incoming impact and outgoing dependencies before changing a source.
+
+| Flag                           | Meaning                                                                                 |
+| ------------------------------ | --------------------------------------------------------------------------------------- |
+| `--direction <in\|out\|both>`  | Select incoming, outgoing, or both sections. Default: `both`. Values are case-sensitive |
+| `--include <source-reference>` | Bound the incoming scan. Repeat to combine includes                                     |
+| `--exclude <source-reference>` | Omit incoming scan sources. Repeat as needed. Exclusions win                            |
+
+Incoming filters cannot be used with `--direction out`. References does not read target bodies, follow multiple hops, fetch URLs, or repair destinations. Use bounded `context --follow-links` to read related content.
+
+## `route list [<source-reference>]`
+
+List source IDs and paths to orient scope selection. `--depth <non-negative-integer|all>` is its only command flag. Default: `1`. Use `--depth=0` for selected roots, `--depth=2` for a bounded subtree, or `--depth=all` for all descendants. Both space-separated and equals forms are accepted.
+
+Select a registered outside catalogue or descendant by exact source reference, such as `route list ./docs/team/_team.md --depth all`. This works without a Loader row. Bare `route list` keeps its Loader-root selection and does not add unlisted directories as roots.
+
+Applicable List rows and Inspect source data include optional `maintenanceRoot` at every JSON detail. It names the canonical workspace-relative registered directory, such as `docs/team`, without `./` or a trailing slash. Standard, full and debug text may show `Maintenance root`. The fact is omitted when inapplicable and does not imply loading, direct Loader listing, ownership or package permission. Exact source identities still keep `./` and the filename.
+
+## `route inspect <source-reference>`
+
+Explain one source's route, loading, and conditions without returning its body.
+
+Explicit selection also works for registered-but-unlisted sources, such as `route inspect ./docs/team/_team.md`, without activating them. See the maintenance-root fact under [Route List](#route-list-source-reference).
+
+| Flag               | Meaning                                                                                                                              |
+| ------------------ | ------------------------------------------------------------------------------------------------------------------------------------ |
+| `--for <path>`     | Explain applicability to a working path. Repeat for more paths                                                                       |
+| `--matching-files` | List up to 100 existing workspace files satisfying the complete condition chain. Does not supply working paths or activate the scope |
+
+An unrestricted source reports all files without scanning. Restricted scans use existing tracked and untracked Git files, excluding ignored untracked files, or the workspace's ignore rules when Git inventory is unavailable. They remain inside the workspace and skip symbolic links and submodules.
+
+## `status`
+
+Get a quick summary of installation, startup and continuity context, generated navigation, lifecycle, managed content, and recovery candidates. It has no command-specific flags and writes nothing.
+
+Included files registered in settings `roots` are counted as listed, unlisted
+when no loader row lists them, or missing when no file exists. Missing takes precedence.
+Hand-written loader rows outside `.agents/` are counted separately. Startup
+includes required files outside `.agents/` and their required catalogue children,
+each physical file once. The report names that contribution and keeps conditioned
+required files pending, with an incomplete result. Supply working files to
+`context` to resolve them.
+
+Registered directories appear separately from included files. JSON adds optional `data.outsideRoutes` at every detail in settings declaration order, with directory `path`, `state` and optional `listed`. States are `available`, `missing`, `unsafe` or `unavailable`. Listing requires a direct logical Loader row to the declared canonical catalogue or an actual recognized entrypoint at that directory. A stale canonical row can establish listing without loading a compatibility anchor. Descendant rows and physical aliases do not establish it. Unknown listing omits `listed`. Known-empty and unknown registration inventories omit the collection, with unknown coverage retaining its cause. Standard, full and debug text distinguish listed, unlisted and unknown outside routes. These facts grant no loading, ownership or package permission.
+
+## `doctor`
+
+Diagnose workspace, routes, references, recovery, Framework files, and managed Extensions without changes. It has no command-specific flags. Use `--detail standard` for reasons or `--format json --detail full` for evidence. Run after routed changes and resolve or report findings within the task.
+
+For file includes, a missing target is an error. An unlisted registration is information.
+A registered path that Include would now reject is a warning. Restore or exclude
+missing targets and update or remove rejected registrations. Doctor never repairs
+these conditions.
+
+Outside directories retain separate diagnoses for missing directories, missing or competing anchors, unsafe boundaries, physical aliases and unavailable coverage. Doctor uses existing finding codes and typed outside conditions. Unlisted alone is information and does not mean that no other edge can load the content. Init or Index advice requires the existing safe maintenance, ownership and physical prerequisites. Unknown or unsafe observations supply no automatic restoration authority. Use `--format json --detail full` to include informational findings and their evidence.
+
+Existing workspace folders are valid link targets, with or without a trailing
+slash. Folder links cannot have heading fragments. A missing folder named with
+a trailing slash requires a manual edit, and Repair never substitutes a file.
+Web URLs remain unchecked.
+
+Doctor and Repair use the same rename evidence and protected-source rules. Doctor gives one next step and none when clean. A Git timeout marks reference coverage incomplete without manual-removal advice and repeats the complete request, including its workspace.
+
+Continue with [route maintenance](routes.md) for edits or [Framework and packages](packages.md) for lifecycle changes.
+
+In `.agents/open-forge.json`, `ignoreLinksFrom` skips links written inside listed paths and `ignoreLinksTo` skips links whose resolved targets lie inside them. Entries are workspace-relative paths, not patterns. Files match exactly and folders cover descendants, using the same comparison as `allowInstallPaths`. Missing lists mean no exclusions. Doctor names ignored counts and stale entries. Context omits ignored link expansion edges. References lists every link.
+
+A beta14 CLI ignores both ignore lists. Doctor reports an unrecognized settings version as information and continues with the keys it understands. Older CLIs do not support custom roots or maintain directory registrations. Unknown-property preservation does not make them compatible with those workspaces.

@@ -1,0 +1,11 @@
+{
+  "$schema": "https://raw.githubusercontent.com/TheLithiumForge/open-forge/main/schemas/v5/open-forge.schema.json",
+  "schemaVersion": 5,
+  "frontmatter": "scoped",
+  "ignoreLinksFrom": [
+    ".agents/memory/archived"
+  ],
+  "outsideRoutes": [
+    "docs"
+  ]
+}
