@@ -1,0 +1,244 @@
+diff --git a/src/game/board/Board.tsx b/src/game/board/Board.tsx
+index 48b16ac..5d5240a 100644
+--- a/src/game/board/Board.tsx
++++ b/src/game/board/Board.tsx
+@@ -27,8 +27,8 @@ function cardClicked(card: HTMLElement): void {
+ 
+ export function Board({ game, ref, activate }: BoardProps) {
+   const { size, deck, matched, selection } = game;
+-  const { viewport, element, focused, focusRemembered, cardFocused } =
+-    useBoardFocus();
++  const { viewport, element, focused, focusRemembered, cardFocused, moveFocus } =
++    useBoardFocus(size);
+   useImperativeHandle(ref, () => ({ focusRemembered }), [focusRemembered]);
+   // A clock tick keeps both arrays, so the cards' props stay equal and no card renders again.
+   const faceUp = useMemo(() => faceUpCards({ matched, selection }), [matched, selection]);
+@@ -48,7 +48,7 @@ export function Board({ game, ref, activate }: BoardProps) {
+       aria-label="Game board"
+       aria-describedby="board-help"
+     >
+-      <div className="board" ref={element} style={style}>
++      <div className="board" ref={element} style={style} onKeyDown={moveFocus}>
+         {deck.map((face, index) => (
+           <Card
+             key={index}
+diff --git a/src/game/board/board-keys.test.ts b/src/game/board/board-keys.test.ts
+new file mode 100644
+index 0000000..06e0dc4
+--- /dev/null
++++ b/src/game/board/board-keys.test.ts
+@@ -0,0 +1,31 @@
++import assert from 'node:assert/strict';
++import { test } from 'vitest';
++import { arrowDestination } from './board-keys.ts';
++
++const PLAIN = { altKey: false, ctrlKey: false, metaKey: false, shiftKey: false };
++
++function press(key: string, index: number, size = 4) {
++  return arrowDestination({ ...PLAIN, key }, index, size);
++}
++
++test('arrow keys move one card along the row or column', () => {
++  assert.equal(press('ArrowRight', 5), 6);
++  assert.equal(press('ArrowLeft', 5), 4);
++  assert.equal(press('ArrowDown', 5), 9);
++  assert.equal(press('ArrowUp', 5), 1);
++  assert.equal(press('ArrowDown', 17, 16), 33);
++});
++
++test('arrow keys stop at every board edge on the same card', () => {
++  assert.equal(press('ArrowLeft', 4), 4);
++  assert.equal(press('ArrowRight', 3), 3);
++  assert.equal(press('ArrowUp', 2), 2);
++  assert.equal(press('ArrowDown', 13), 13);
++  assert.equal(press('ArrowRight', 255, 16), 255);
++});
++
++test('other keys and modified arrows stay with the browser', () => {
++  for (const key of ['Enter', ' ', 'Tab', 'Home', 'a']) assert.equal(press(key, 5), null);
++  for (const modifier of ['altKey', 'ctrlKey', 'metaKey', 'shiftKey'])
++    assert.equal(arrowDestination({ ...PLAIN, [modifier]: true, key: 'ArrowRight' }, 5, 4), null);
++});
+diff --git a/src/game/board/board-keys.ts b/src/game/board/board-keys.ts
+new file mode 100644
+index 0000000..686bacf
+--- /dev/null
++++ b/src/game/board/board-keys.ts
+@@ -0,0 +1,27 @@
++// Each arrow key moves one row or column. A move past the board edge keeps the same card.
++const ROW_STEPS = { ArrowUp: -1, ArrowDown: 1 } as const;
++const COLUMN_STEPS = { ArrowLeft: -1, ArrowRight: 1 } as const;
++
++interface BoardKey {
++  readonly key: string;
++  readonly altKey: boolean;
++  readonly ctrlKey: boolean;
++  readonly metaKey: boolean;
++  readonly shiftKey: boolean;
++}
++
++// The focus destination for an unmodified arrow key, or null for keys the browser keeps.
++export function arrowDestination(event: BoardKey, index: number, size: number): number | null {
++  if (event.altKey || event.ctrlKey || event.metaKey || event.shiftKey) return null;
++  const row = Math.floor(index / size);
++  const column = index % size;
++  if (event.key === 'ArrowUp' || event.key === 'ArrowDown') {
++    const next = row + ROW_STEPS[event.key];
++    return next < 0 || next >= size ? index : next * size + column;
++  }
++  if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
++    const next = column + COLUMN_STEPS[event.key];
++    return next < 0 || next >= size ? index : row * size + next;
++  }
++  return null;
++}
+diff --git a/src/game/board/card.css b/src/game/board/card.css
+index 9aa81f7..de2939b 100644
+--- a/src/game/board/card.css
++++ b/src/game/board/card.css
+@@ -46,3 +46,8 @@
+   height: 16%;
+   color: var(--green);
+ }
++@media (prefers-reduced-motion: reduce) {
++  .card {
++    transition: none;
++  }
++}
+diff --git a/src/game/board/use-board-focus.ts b/src/game/board/use-board-focus.ts
+index 10e8f6b..2a85ef8 100644
+--- a/src/game/board/use-board-focus.ts
++++ b/src/game/board/use-board-focus.ts
+@@ -1,11 +1,13 @@
+ import { useCallback, useRef, useState } from 'react';
++import { arrowDestination } from './board-keys.ts';
+ import { useNearestScroll } from './nearest-scroll.ts';
++import type { KeyboardEvent } from 'react';
+ 
+ const KEYBOARD_FOCUS = ':focus-visible';
+ 
+ // Keeps the board's remembered tab stop and scrolls keyboard focus into view with nearest
+ // alignment.
+-export function useBoardFocus() {
++export function useBoardFocus(size: number) {
+   const viewport = useRef<HTMLDivElement>(null);
+   const element = useRef<HTMLDivElement>(null);
+   const [focused, setFocused] = useState(0);
+@@ -24,5 +26,19 @@ export function useBoardFocus() {
+     },
+     [scrollToNearest],
+   );
+-  return { viewport, element, focused, focusRemembered, cardFocused };
++  // Arrow keys move focus between cards without activating one. Other keys stay with the browser.
++  const moveFocus = useCallback(
++    (event: KeyboardEvent<HTMLDivElement>): void => {
++      const cards = [...(element.current?.querySelectorAll('button') ?? [])];
++      const index = cards.findIndex((card) => card === event.target);
++      if (index < 0) return;
++      const destination = arrowDestination(event, index, size);
++      if (destination === null) return;
++      event.preventDefault();
++      // The focus handler scrolls the card with nearest alignment.
++      cards[destination]?.focus({ preventScroll: true });
++    },
++    [size],
++  );
++  return { viewport, element, focused, focusRemembered, cardFocused, moveFocus };
+ }
+diff --git a/src/game/session/storage.ts b/src/game/session/storage.ts
+index 9bae659..2b811f1 100644
+--- a/src/game/session/storage.ts
++++ b/src/game/session/storage.ts
+@@ -57,6 +57,9 @@ export function writePreferences(store: PreferenceStore | null, preferences: Pre
+   }
+ }
+ 
++// Only a strictly better result replaces a size's saved best.
+ export function rememberBest(preferences: Preferences, size: number, moves: number): Preferences {
++  const best = preferences.bestMoves[String(size)];
++  if (best !== undefined && best <= moves) return preferences;
+   return { ...preferences, bestMoves: { ...preferences.bestMoves, [size]: moves } };
+ }
+diff --git a/src/game/session/use-game.ts b/src/game/session/use-game.ts
+index e90bacf..b8bf7cd 100644
+--- a/src/game/session/use-game.ts
++++ b/src/game/session/use-game.ts
+@@ -9,23 +9,6 @@ import { browserStore, useSavedPreferences } from './use-saved-preferences.ts';
+ import { useSessionClock } from './use-session-clock.ts';
+ import type { Session } from './session.ts';
+ 
+-const MatchTone = 660;
+-const WinTone = 880;
+-
+-function chime(frequency: number): void {
+-  const Context = window.AudioContext as typeof AudioContext | undefined;
+-  if (!Context) return;
+-  const audio = new Context();
+-  const tone = audio.createOscillator();
+-  const level = audio.createGain();
+-  tone.frequency.value = frequency;
+-  level.gain.value = 0.05;
+-  tone.connect(level).connect(audio.destination);
+-  tone.onended = () => void audio.close();
+-  tone.start();
+-  tone.stop(audio.currentTime + 0.12);
+-}
+-
+ export function useGame() {
+   const [store] = useState(browserStore);
+   const [session, setSession] = useState(() => {
+@@ -94,9 +77,7 @@ export function useGame() {
+ 
+   function activate(index: number): void {
+     clock.synchronize();
+-    const matched = current.current.game.matched.length;
+     commit(activateSession(current.current, index));
+-    if (current.current.game.matched.length > matched) chime(current.current.celebration ? WinTone : MatchTone);
+   }
+ 
+   function resume(): void {
+diff --git a/src/game/status/GameStatus.tsx b/src/game/status/GameStatus.tsx
+index ab26aa0..8817732 100644
+--- a/src/game/status/GameStatus.tsx
++++ b/src/game/status/GameStatus.tsx
+@@ -1,6 +1,6 @@
+ import { isWon } from '../game.ts';
+ import { formatElapsed } from '../elapsed-time.ts';
+-import { StatusLabel } from './status-labels.ts';
++import { NO_BEST, StatusLabel } from './status-labels.ts';
+ import type { GameState } from '../game.ts';
+ import './status.css';
+ 
+@@ -27,7 +27,7 @@ export function GameStatus({ game, best, celebration }: GameStatusProps) {
+           <dt>{StatusLabel.time}</dt> <dd>{formatElapsed(game.elapsedMs)}</dd>
+         </div>
+         <div>
+-          <dt>{StatusLabel.best}</dt> <dd>{best ?? 0}</dd>
++          <dt>{StatusLabel.best}</dt> <dd>{best ?? NO_BEST}</dd>
+         </div>
+       </dl>
+       {isWon(game) && (
+diff --git a/src/game/status/status-labels.ts b/src/game/status/status-labels.ts
+index 6801ef6..472734f 100644
+--- a/src/game/status/status-labels.ts
++++ b/src/game/status/status-labels.ts
+@@ -4,3 +4,6 @@ export const StatusLabel = {
+   time: 'Time:',
+   best: 'Best:',
+ } as const;
++
++// Shown as the best before the current size has a record.
++export const NO_BEST = 'none';
+diff --git a/src/game/status/status.css b/src/game/status/status.css
+index e7b5097..154fb22 100644
+--- a/src/game/status/status.css
++++ b/src/game/status/status.css
+@@ -35,3 +35,8 @@ dd {
+     opacity: 0.75;
+   }
+ }
++@media (prefers-reduced-motion: reduce) {
++  .celebrate {
++    animation: none;
++  }
++}

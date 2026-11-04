@@ -1,0 +1,22 @@
+{
+  "scenario": "code-only",
+  "packet": "l4-p2-name-and-pasted-saves",
+  "workMode": "whole-packet",
+  "harness": "cloud chat, one subagent",
+  "model": {
+    "configured": "claude-sonnet-5-5",
+    "lastServed": "claude-sonnet-5-5"
+  },
+  "effort": "high",
+  "openForgeCommit": "98864191af0037c386c4e5c723afd79a95646cad",
+  "startedAt": "2026-11-04T20:51:05Z",
+  "finishedAt": "2026-11-04T20:57:51Z",
+  "timeLimitMinutes": 90,
+  "implementer": {
+    "totalTokens": 117493,
+    "toolUses": 25,
+    "durationMs": 394068
+  },
+  "questionsAnswered": 0,
+  "notes": "Finished well inside the limit and ended with a report, not a question. The agent launched in the background, so finishedAt is the time the harness saw the report, a few seconds after the agent stopped. The project has no CLAUDE.md, so the prompt carried no instruction files. The implementer ran the browser tests (79 passed) and added two test files and one README sentence. It also added a byte order mark fix that the request did not ask for. format:check flags three files the implementer did not touch. The first get_session call had no last_served_model, so lastServed comes from a later call."
+}

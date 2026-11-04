@@ -1,0 +1,396 @@
+diff --git a/README.md b/README.md
+index 3ea5b00..d457e4f 100644
+--- a/README.md
++++ b/README.md
+@@ -4,7 +4,7 @@ Neon Pairs is a memory game that runs offline from one HTML file and keeps local
+ 
+ You can repeat a deal with its board code, save progress as a snapshot or run timed actions through the replay command.
+ 
+-Status: implements product spec version 2.2.
++Status: implements product spec version 3.
+ 
+ ## Install
+ 
+@@ -27,7 +27,7 @@ Run `npm run build`, then open `dist/index.html` from disk. The game makes no ne
+ 
+ Use Grid size to choose a board. Reveal two cards with a click, tap, Enter or Space. Arrow keys move board focus. Other keys stay with the browser. Tab leaves the board. New Game gives another deal. Restart repeats the current deal.
+ 
+-Open Reproduce a game to load a board code or export progress. Loading an unfinished snapshot pauses it. Resume returns focus to the remembered card and continues the remaining mismatch interval. A completed snapshot loads as completed without Resume. Elapsed time stops at 359999999ms while play continues. The minutes and seconds display reaches 5999:59. Moves stop at 999999. Matching and victory continue at that count. Saved bests use the same move limit.
++Open Reproduce a game to load a board code, name the deal or export progress. Deal name takes up to 40 characters on one line. A named game exports as a version 2 snapshot and an unnamed game as version 1. Loading a version 2 snapshot restores the name, and New Game, Restart, size changes, board codes and reload clear it. Snapshot fields can appear in any order when you paste one. Loading an unfinished snapshot pauses it. Resume returns focus to the remembered card and continues the remaining mismatch interval. A completed snapshot loads as completed without Resume. Elapsed time stops at 359999999ms while play continues. The minutes and seconds display reaches 5999:59. Moves stop at 999999. Matching and victory continue at that count. Saved bests use the same move limit.
+ 
+ ## Replay
+ 
+diff --git a/src/game/Game.tsx b/src/game/Game.tsx
+index e965799..56604be 100644
+--- a/src/game/Game.tsx
++++ b/src/game/Game.tsx
+@@ -45,6 +45,7 @@ export function Game() {
+         exportSnapshot={controller.exportSnapshot}
+         loadBoard={controller.loadBoard}
+         loadSnapshot={controller.loadSnapshot}
++        rename={controller.rename}
+         notice={session.loadNotice}
+         paused={session.paused}
+         resume={resume}
+diff --git a/src/game/controls/Reproduction.tsx b/src/game/controls/Reproduction.tsx
+index e3d1d4c..72e4fdb 100644
+--- a/src/game/controls/Reproduction.tsx
++++ b/src/game/controls/Reproduction.tsx
+@@ -1,5 +1,6 @@
+ import { useState } from 'react';
+ import { BoardCodeForm } from './BoardCodeForm.tsx';
++import { DEAL_NAME_MAX_LENGTH } from '../deal-name.ts';
+ import { ReproductionControl } from './control-labels.ts';
+ import type { GameState } from '../game.ts';
+ import './control.css';
+@@ -13,6 +14,7 @@ interface ReproductionProps {
+   exportSnapshot(): string;
+   loadBoard(code: string): boolean;
+   loadSnapshot(text: string): boolean;
++  rename(name: string): void;
+   notice: string;
+   paused: boolean;
+   resume(): void;
+@@ -24,6 +26,7 @@ export function Reproduction({
+   exportSnapshot,
+   loadBoard,
+   loadSnapshot,
++  rename,
+   notice,
+   paused,
+   resume,
+@@ -35,6 +38,16 @@ export function Reproduction({
+         <summary>{ReproductionControl.summary}</summary>
+         <div className="reproduction-body">
+           <BoardCodeForm code={game.boardCode} generation={generation} loadBoard={loadBoard} />
++          <label htmlFor="deal-name">{ReproductionControl.dealName}</label>
++          <input
++            id="deal-name"
++            className="control"
++            value={game.name}
++            maxLength={DEAL_NAME_MAX_LENGTH}
++            spellCheck={false}
++            autoComplete="off"
++            onChange={(event) => rename(event.currentTarget.value)}
++          />
+           <label htmlFor="snapshot-json">{ReproductionControl.snapshot}</label>
+           <textarea
+             id="snapshot-json"
+diff --git a/src/game/controls/control-labels.ts b/src/game/controls/control-labels.ts
+index c00ef62..47fc6e1 100644
+--- a/src/game/controls/control-labels.ts
++++ b/src/game/controls/control-labels.ts
+@@ -3,6 +3,7 @@ export const ReproductionControl = {
+   summary: 'Reproduce a game',
+   board: 'Board code',
+   loadBoard: 'Load board',
++  dealName: 'Deal name',
+   snapshot: 'Snapshot JSON',
+   exportSnapshot: 'Export snapshot',
+   loadSnapshot: 'Load snapshot',
+diff --git a/src/game/deal-name.ts b/src/game/deal-name.ts
+new file mode 100644
+index 0000000..c81c0d0
+--- /dev/null
++++ b/src/game/deal-name.ts
+@@ -0,0 +1,7 @@
++export const DEAL_NAME_MAX_LENGTH = 40;
++export const UNNAMED_DEAL = '';
++
++// Length counts UTF-16 code units. Every other character and surrounding space stays as typed.
++export function isDealName(value: string): boolean {
++  return value.length <= DEAL_NAME_MAX_LENGTH && !/[\r\n]/.test(value);
++}
+diff --git a/src/game/game.ts b/src/game/game.ts
+index acafdf0..c3f5c5c 100644
+--- a/src/game/game.ts
++++ b/src/game/game.ts
+@@ -1,3 +1,4 @@
++import { UNNAMED_DEAL } from './deal-name.ts';
+ import { generateBoard } from './deck.ts';
+ import { SelectionKind } from './selection.ts';
+ import type { Board } from './deck.ts';
+@@ -13,6 +14,7 @@ export interface GameState extends Board {
+   readonly moves: number;
+   readonly elapsedMs: number;
+   readonly started: boolean;
++  readonly name: string;
+ }
+ 
+ export function createGame(boardCode: string): GameState {
+@@ -23,6 +25,7 @@ export function createGame(boardCode: string): GameState {
+     moves: 0,
+     elapsedMs: 0,
+     started: false,
++    name: UNNAMED_DEAL,
+   };
+ }
+ 
+diff --git a/src/game/session/session.test.ts b/src/game/session/session.test.ts
+index 796e992..b5bdb63 100644
+--- a/src/game/session/session.test.ts
++++ b/src/game/session/session.test.ts
+@@ -6,6 +6,7 @@ import { boardCode } from '../deck.ts';
+ import {
+   activateSession,
+   initialSession,
++  renameGame,
+   replaceGame,
+   tickSession,
+   SessionNotice,
+@@ -120,3 +121,25 @@ test('turn feedback matches the reviewed message snapshot', async () => {
+     expected,
+   );
+ });
++
++test('renaming a deal leaves its cards, clock, pause and announcements alone', () => {
++  const played = activateSession(
++    activateSession(initialSession(EXAMPLE_CODE, EMPTY_PREFERENCES), 0),
++    1,
++  );
++  for (const base of [played, replaceGame(played, played.game, true)]) {
++    const renamed = renameGame(base, 'Café');
++    assert.equal(renamed.game.name, 'Café');
++    assert.deepEqual({ ...renamed, game: { ...renamed.game, name: '' } }, base);
++    assert.equal(renameGame(renamed, '').game.name, '');
++    assert.equal(renameGame(base, 'two\nlines'), base);
++    assert.equal(renameGame(base, 'x'.repeat(41)), base);
++  }
++});
++
++test('new deals, restarts and board loads clear the name while imports restore it', () => {
++  const named = renameGame(initialSession(EXAMPLE_CODE, EMPTY_PREFERENCES), 'Café');
++  assert.equal(replaceGame(named, createGame(EXAMPLE_CODE), false).game.name, '');
++  assert.equal(replaceGame(named, createGame(boardCode(6, 1)), false).game.name, '');
++  assert.equal(replaceGame(named, named.game, true).game.name, 'Café');
++});
+diff --git a/src/game/session/session.ts b/src/game/session/session.ts
+index 3252363..c5e2631 100644
+--- a/src/game/session/session.ts
++++ b/src/game/session/session.ts
+@@ -1,4 +1,5 @@
+ import { activateCard, advanceGame, createGame, isWon } from '../game.ts';
++import { isDealName } from '../deal-name.ts';
+ import { SelectionKind } from '../selection.ts';
+ import { formatElapsed } from '../elapsed-time.ts';
+ import { rememberBest } from './storage.ts';
+@@ -57,6 +58,12 @@ export function replaceGame(session: Session, game: GameState, imported: boolean
+   };
+ }
+ 
++// A name is a label only. It leaves the deal, clock, pause and announcements untouched.
++export function renameGame(session: Session, name: string): Session {
++  if (name === session.game.name || !isDealName(name)) return session;
++  return { ...session, game: { ...session.game, name } };
++}
++
+ export function tickSession(session: Session, generation: number, milliseconds: number): Session {
+   if (session.generation !== generation || session.paused) return session;
+   const game = advanceGame(session.game, milliseconds);
+diff --git a/src/game/session/use-game.ts b/src/game/session/use-game.ts
+index b8bf7cd..8eeb6ed 100644
+--- a/src/game/session/use-game.ts
++++ b/src/game/session/use-game.ts
+@@ -3,7 +3,13 @@ import { createGame } from '../game.ts';
+ import { parseBoardCode, isValidSize } from '../deck.ts';
+ import { decodeSnapshot, encodeSnapshot } from '../snapshot.ts';
+ import { freshBoardCode } from './fresh-board.ts';
+-import { activateSession, initialSession, replaceGame, SessionNotice } from './session.ts';
++import {
++  activateSession,
++  initialSession,
++  renameGame,
++  replaceGame,
++  SessionNotice,
++} from './session.ts';
+ import { readPreferences } from './storage.ts';
+ import { browserStore, useSavedPreferences } from './use-saved-preferences.ts';
+ import { useSessionClock } from './use-session-clock.ts';
+@@ -69,6 +75,10 @@ export function useGame() {
+     return true;
+   }
+ 
++  function rename(name: string): void {
++    commit(renameGame(current.current, name));
++  }
++
+   function exportSnapshot(): string {
+     // Rendered state can trail the active clock by a tick.
+     clock.synchronize();
+@@ -90,5 +100,15 @@ export function useGame() {
+     });
+   }
+ 
+-  return { session, newGame, restart, loadBoard, loadSnapshot, exportSnapshot, activate, resume };
++  return {
++    session,
++    newGame,
++    restart,
++    loadBoard,
++    loadSnapshot,
++    exportSnapshot,
++    rename,
++    activate,
++    resume,
++  };
+ }
+diff --git a/src/game/snapshot-name.test.ts b/src/game/snapshot-name.test.ts
+new file mode 100644
+index 0000000..537cb06
+--- /dev/null
++++ b/src/game/snapshot-name.test.ts
+@@ -0,0 +1,77 @@
++import assert from 'node:assert/strict';
++import { test } from 'vitest';
++import { activateCard, createGame } from './game.ts';
++import { DEAL_NAME_MAX_LENGTH } from './deal-name.ts';
++import { decodeSnapshot, encodeSnapshot, NAMED_SNAPSHOT_VERSION } from './snapshot.ts';
++import { SelectionKind } from './selection.ts';
++import { EXAMPLE_CODE } from './game.fixture.ts';
++
++const NAMED = {
++  version: NAMED_SNAPSHOT_VERSION,
++  name: 'Café',
++  boardCode: EXAMPLE_CODE,
++  matched: [],
++  selection: { kind: SelectionKind.one, index: 2 },
++  moves: 0,
++  elapsedMs: 0,
++  started: true,
++};
++
++function named(name: string) {
++  return { ...createGame(EXAMPLE_CODE), name };
++}
++
++test('a named snapshot round trips as version 2 and an unnamed one stays version 1', () => {
++  const state = { ...activateCard(createGame(EXAMPLE_CODE), 2), name: ' Café  ' };
++  const exported: unknown = JSON.parse(encodeSnapshot(state));
++  assert.deepEqual(exported, { ...NAMED, name: ' Café  ' });
++  assert.deepEqual(decodeSnapshot(encodeSnapshot(state)), state);
++  const unnamed: unknown = JSON.parse(encodeSnapshot(createGame(EXAMPLE_CODE)));
++  assert.ok(unnamed && typeof unnamed === 'object' && !('name' in unnamed));
++  assert.equal(Reflect.get(unnamed, 'version'), 1);
++});
++
++test('the documented named example restores its name and revealed card', () => {
++  const restored = decodeSnapshot(JSON.stringify(NAMED));
++  assert.equal(restored?.name, 'Café');
++  assert.deepEqual(restored?.selection, NAMED.selection);
++});
++
++test('a version 1 snapshot restores unnamed', () => {
++  const { name: _name, ...rest } = NAMED;
++  assert.equal(decodeSnapshot(JSON.stringify({ ...rest, version: 1 }))?.name, '');
++});
++
++test('saved snapshots open whatever order their fields are written in', () => {
++  const fields = Object.entries({ ...NAMED, selection: { index: 2, kind: 'one' } });
++  const expected = decodeSnapshot(JSON.stringify(NAMED));
++  assert.ok(expected);
++  for (const order of [fields.toReversed(), [...fields.slice(3), ...fields.slice(0, 3)]])
++    assert.deepEqual(decodeSnapshot(JSON.stringify(Object.fromEntries(order))), expected);
++  const plain = createGame(EXAMPLE_CODE);
++  const reversed = Object.entries(JSON.parse(encodeSnapshot(plain))).toReversed();
++  assert.deepEqual(decodeSnapshot(JSON.stringify(Object.fromEntries(reversed))), plain);
++});
++
++test('version 2 needs a valid nonempty name and version 1 allows none', () => {
++  const rejected: unknown[] = [
++    '',
++    'x'.repeat(DEAL_NAME_MAX_LENGTH + 1),
++    'two\nlines',
++    'two\rlines',
++    7,
++    null,
++  ];
++  for (const name of rejected)
++    assert.equal(decodeSnapshot(JSON.stringify({ ...NAMED, name })), null, String(name));
++  const { name: _name, ...missing } = NAMED;
++  assert.equal(decodeSnapshot(JSON.stringify(missing)), null);
++  assert.equal(decodeSnapshot(JSON.stringify({ ...NAMED, version: 1 })), null);
++  assert.equal(decodeSnapshot(JSON.stringify({ ...NAMED, version: 3 })), null);
++  assert.equal(decodeSnapshot(JSON.stringify({ ...NAMED, extra: true })), null);
++});
++
++test('a name may use the full 40 code units and keeps its spaces', () => {
++  const longest = ` ${'a'.repeat(DEAL_NAME_MAX_LENGTH - 2)} `;
++  assert.equal(decodeSnapshot(encodeSnapshot(named(longest)))?.name, longest);
++});
+diff --git a/src/game/snapshot.ts b/src/game/snapshot.ts
+index 7ec77cd..9e9c871 100644
+--- a/src/game/snapshot.ts
++++ b/src/game/snapshot.ts
+@@ -1,6 +1,8 @@
+ import { createGame, MOVES_MAX, ELAPSED_MAX_MS } from './game.ts';
++import { isDealName, UNNAMED_DEAL } from './deal-name.ts';
+ import { parseBoardCode } from './deck.ts';
+ import {
++  hasExactKeys,
+   isJsonObject,
+   isNonnegativeSafeInteger,
+   isWithinBytes,
+@@ -11,6 +13,7 @@ import { SelectionKind } from './selection.ts';
+ import type { GameState } from './game.ts';
+ 
+ export const SNAPSHOT_VERSION = 1;
++export const NAMED_SNAPSHOT_VERSION = 2;
+ export const SNAPSHOT_MAX_BYTES = 65_536;
+ export const SNAPSHOT_KEYS = [
+   'version',
+@@ -21,11 +24,14 @@ export const SNAPSHOT_KEYS = [
+   'elapsedMs',
+   'started',
+ ] as const;
++const NAMED_SNAPSHOT_KEYS = [...SNAPSHOT_KEYS, 'name'];
+ 
+ export function encodeSnapshot(state: GameState): string {
++  const named = state.name !== UNNAMED_DEAL;
+   return JSON.stringify(
+     {
+-      version: SNAPSHOT_VERSION,
++      version: named ? NAMED_SNAPSHOT_VERSION : SNAPSHOT_VERSION,
++      ...(named ? { name: state.name } : {}),
+       boardCode: state.boardCode,
+       matched: [...state.matched].sort((left, right) => left - right),
+       // Active time keeps its fractions in play. Export writes whole milliseconds, and rounding
+@@ -43,17 +49,22 @@ export function encodeSnapshot(state: GameState): string {
+   );
+ }
+ 
++// Saved files may order their fields freely, so only the field set and versions matter.
++// A version 1 snapshot is unnamed. A version 2 snapshot needs a nonempty valid name.
++function readName(value: Record<string, unknown>): string | null {
++  if (value.version === SNAPSHOT_VERSION)
++    return hasExactKeys(value, SNAPSHOT_KEYS) ? UNNAMED_DEAL : null;
++  if (value.version !== NAMED_SNAPSHOT_VERSION || !hasExactKeys(value, NAMED_SNAPSHOT_KEYS))
++    return null;
++  const { name } = value;
++  return typeof name === 'string' && name !== UNNAMED_DEAL && isDealName(name) ? name : null;
++}
++
+ export function decodeSnapshot(text: string): GameState | null {
+   const value = isWithinBytes(text, SNAPSHOT_MAX_BYTES) ? parseJson(text) : undefined;
+-  if (
+-    !isJsonObject(value) ||
+-    !Object.keys(value).every((key, index) =>
+-      index === 0 ? key === SNAPSHOT_KEYS[0] : SNAPSHOT_KEYS.some((field) => field === key),
+-    ) ||
+-    Object.keys(value).length !== SNAPSHOT_KEYS.length ||
+-    value.version !== SNAPSHOT_VERSION
+-  )
+-    return null;
++  if (!isJsonObject(value)) return null;
++  const name = readName(value);
++  if (name === null) return null;
+   if (typeof value.boardCode !== 'string' || !parseBoardCode(value.boardCode)) return null;
+   if (
+     !isNonnegativeSafeInteger(value.moves) ||
+@@ -75,6 +86,7 @@ export function decodeSnapshot(text: string): GameState | null {
+     moves: value.moves,
+     elapsedMs: value.elapsedMs,
+     started: value.started,
++    name,
+   };
+   const minimumMoves = matched.length / 2 + (selection.kind === SelectionKind.mismatch ? 1 : 0);
+   if (state.moves < minimumMoves) return null;

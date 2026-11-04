@@ -1,0 +1,22 @@
+{
+  "scenario": "code-only",
+  "packet": "l4-p1-four-bugs",
+  "workMode": "whole-packet",
+  "harness": "cloud chat, one subagent",
+  "model": {
+    "configured": "claude-sonnet-5-5",
+    "lastServed": "claude-sonnet-5-5"
+  },
+  "effort": "high",
+  "openForgeCommit": "98864191af0037c386c4e5c723afd79a95646cad",
+  "startedAt": "2026-11-04T20:49:05Z",
+  "finishedAt": "2026-11-04T20:51:05Z",
+  "timeLimitMinutes": 60,
+  "implementer": {
+    "totalTokens": 93767,
+    "toolUses": 17,
+    "durationMs": 110176
+  },
+  "questionsAnswered": 0,
+  "notes": "Finished well inside the limit and ended with a report, not a question. The implementer ran npm ci in the project (node_modules and .npm-cache are git-ignored, so they are not in the saved copy). It could not run the browser tests because Chromium isn't installed in the environment. The machine runs Node 22 while the README names Node 26. format:check flags three files the implementer did not touch. The case's own case.json lists runMinutes 90 for this packet, but this run used the 60 minute limit set by the harness instructions. The first get_session call had no last_served_model, so lastServed comes from a later call."
+}

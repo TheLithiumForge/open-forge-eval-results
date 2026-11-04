@@ -1,0 +1,22 @@
+{
+  "scenario": "plain-docs",
+  "packet": "l4-p1-four-bugs",
+  "workMode": "whole-packet",
+  "harness": "cloud chat, one subagent",
+  "model": {
+    "configured": "claude-sonnet-5-5",
+    "lastServed": "claude-sonnet-5-5"
+  },
+  "effort": "high",
+  "openForgeCommit": "98864191af0037c386c4e5c723afd79a95646cad",
+  "startedAt": "2026-11-04T20:48:56Z",
+  "finishedAt": "2026-11-04T20:50:59Z",
+  "timeLimitMinutes": 60,
+  "implementer": {
+    "totalTokens": 98384,
+    "toolUses": 14,
+    "durationMs": 106103
+  },
+  "questionsAnswered": 0,
+  "notes": "Subagent ran in the foreground and finished inside the limit without asking a question. It reported that npm run test:e2e failed at launch (Playwright Chromium not installed in the container), so the browser tests did not run. The harness ran no checks or judges."
+}

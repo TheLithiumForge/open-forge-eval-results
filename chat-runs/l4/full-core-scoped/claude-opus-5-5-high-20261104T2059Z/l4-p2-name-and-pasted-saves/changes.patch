@@ -1,0 +1,570 @@
+diff --git a/README.md b/README.md
+index 3ea5b00..83d0d23 100644
+--- a/README.md
++++ b/README.md
+@@ -4,7 +4,7 @@ Neon Pairs is a memory game that runs offline from one HTML file and keeps local
+ 
+ You can repeat a deal with its board code, save progress as a snapshot or run timed actions through the replay command.
+ 
+-Status: implements product spec version 2.2.
++Status: implements product spec version 3.
+ 
+ ## Install
+ 
+@@ -27,7 +27,7 @@ Run `npm run build`, then open `dist/index.html` from disk. The game makes no ne
+ 
+ Use Grid size to choose a board. Reveal two cards with a click, tap, Enter or Space. Arrow keys move board focus. Other keys stay with the browser. Tab leaves the board. New Game gives another deal. Restart repeats the current deal.
+ 
+-Open Reproduce a game to load a board code or export progress. Loading an unfinished snapshot pauses it. Resume returns focus to the remembered card and continues the remaining mismatch interval. A completed snapshot loads as completed without Resume. Elapsed time stops at 359999999ms while play continues. The minutes and seconds display reaches 5999:59. Moves stop at 999999. Matching and victory continue at that count. Saved bests use the same move limit.
++Open Reproduce a game to load a board code or export progress. Type a Deal name to name the game. A named game exports a version 2 snapshot, and loading it restores the name. New Game, Restart, size changes, board-code loads and reload clear the name. Pasted snapshots load whatever order their fields use. Loading an unfinished snapshot pauses it. Resume returns focus to the remembered card and continues the remaining mismatch interval. A completed snapshot loads as completed without Resume. Elapsed time stops at 359999999ms while play continues. The minutes and seconds display reaches 5999:59. Moves stop at 999999. Matching and victory continue at that count. Saved bests use the same move limit.
+ 
+ ## Replay
+ 
+@@ -49,7 +49,7 @@ npm run format:check
+ 
+ The browser command writes the Node, npm, Playwright and Chromium versions it ran on to `test-results/browser-runtime.json`. With `NEON_PAIRS_NAMED_COMBINATION` set to `1`, it also fails unless they match the named combination. Use the flag for named-combination evidence. Other supported runtimes, such as Node 24.19, run without it.
+ 
+-The locked install, type check, Vitest unit tests, build from current source and Chromium journeys have passed on the named combination with the flag set. Other versions have no test record here.
++The locked install, type check, Vitest unit tests, build from current source and Chromium journeys passed on the named combination with the flag set for spec version 2.2. Spec version 3 has no named-combination record yet. Its type check, unit tests, build and Chromium journeys passed without the flag on Node 22.23.4 and npm 10.9.9, below the supported Node 24.19, with Playwright 1.64.1 and Chromium 156.0.8078.4. Other versions have no test record here.
+ 
+ ## Accessibility
+ 
+diff --git a/src/game/Game.tsx b/src/game/Game.tsx
+index e965799..56604be 100644
+--- a/src/game/Game.tsx
++++ b/src/game/Game.tsx
+@@ -45,6 +45,7 @@ export function Game() {
+         exportSnapshot={controller.exportSnapshot}
+         loadBoard={controller.loadBoard}
+         loadSnapshot={controller.loadSnapshot}
++        rename={controller.rename}
+         notice={session.loadNotice}
+         paused={session.paused}
+         resume={resume}
+diff --git a/src/game/controls/Reproduction.tsx b/src/game/controls/Reproduction.tsx
+index e3d1d4c..6847427 100644
+--- a/src/game/controls/Reproduction.tsx
++++ b/src/game/controls/Reproduction.tsx
+@@ -1,6 +1,7 @@
+ import { useState } from 'react';
+ import { BoardCodeForm } from './BoardCodeForm.tsx';
+ import { ReproductionControl } from './control-labels.ts';
++import { DEAL_NAME_MAX_LENGTH } from '../deal-name.ts';
+ import type { GameState } from '../game.ts';
+ import './control.css';
+ import './reproduction.css';
+@@ -13,6 +14,7 @@ interface ReproductionProps {
+   exportSnapshot(): string;
+   loadBoard(code: string): boolean;
+   loadSnapshot(text: string): boolean;
++  rename(name: string): void;
+   notice: string;
+   paused: boolean;
+   resume(): void;
+@@ -24,6 +26,7 @@ export function Reproduction({
+   exportSnapshot,
+   loadBoard,
+   loadSnapshot,
++  rename,
+   notice,
+   paused,
+   resume,
+@@ -35,6 +38,16 @@ export function Reproduction({
+         <summary>{ReproductionControl.summary}</summary>
+         <div className="reproduction-body">
+           <BoardCodeForm code={game.boardCode} generation={generation} loadBoard={loadBoard} />
++          <label htmlFor="deal-name">{ReproductionControl.dealName}</label>
++          <input
++            id="deal-name"
++            className="control deal-name"
++            value={game.name}
++            maxLength={DEAL_NAME_MAX_LENGTH}
++            spellCheck={false}
++            autoComplete="off"
++            onChange={(event) => rename(event.currentTarget.value)}
++          />
+           <label htmlFor="snapshot-json">{ReproductionControl.snapshot}</label>
+           <textarea
+             id="snapshot-json"
+diff --git a/src/game/controls/control-labels.ts b/src/game/controls/control-labels.ts
+index c00ef62..a985c73 100644
+--- a/src/game/controls/control-labels.ts
++++ b/src/game/controls/control-labels.ts
+@@ -2,6 +2,7 @@ export const DealControl = { size: 'Grid size', newGame: 'New Game', restart: 'R
+ export const ReproductionControl = {
+   summary: 'Reproduce a game',
+   board: 'Board code',
++  dealName: 'Deal name',
+   loadBoard: 'Load board',
+   snapshot: 'Snapshot JSON',
+   exportSnapshot: 'Export snapshot',
+diff --git a/src/game/controls/reproduction.css b/src/game/controls/reproduction.css
+index 836469b..b5d5dee 100644
+--- a/src/game/controls/reproduction.css
++++ b/src/game/controls/reproduction.css
+@@ -29,6 +29,7 @@
+   flex: 1;
+   width: 16ch;
+ }
++.reproduction .deal-name,
+ .reproduction textarea {
+   width: 100%;
+   resize: vertical;
+diff --git a/src/game/deal-name.ts b/src/game/deal-name.ts
+new file mode 100644
+index 0000000..29d2ca3
+--- /dev/null
++++ b/src/game/deal-name.ts
+@@ -0,0 +1,12 @@
++export const DEAL_NAME_MAX_LENGTH = 40;
++
++// An empty name means an unnamed game. A name keeps its spaces and every character except
++// line breaks. String length counts UTF-16 code units, as the limit does.
++export function isDealName(value: unknown): value is string {
++  return (
++    typeof value === 'string' &&
++    value.length > 0 &&
++    value.length <= DEAL_NAME_MAX_LENGTH &&
++    !/[\r\n]/.test(value)
++  );
++}
+diff --git a/src/game/game.ts b/src/game/game.ts
+index acafdf0..9f654b0 100644
+--- a/src/game/game.ts
++++ b/src/game/game.ts
+@@ -8,6 +8,8 @@ export const MISMATCH_MS = 800;
+ export const MOVES_MAX = 999_999;
+ 
+ export interface GameState extends Board {
++  // An empty name means an unnamed game. A new deal starts unnamed.
++  readonly name: string;
+   readonly matched: readonly number[];
+   readonly selection: Selection;
+   readonly moves: number;
+@@ -18,6 +20,7 @@ export interface GameState extends Board {
+ export function createGame(boardCode: string): GameState {
+   return {
+     ...generateBoard(boardCode),
++    name: '',
+     matched: [],
+     selection: { kind: SelectionKind.closed },
+     moves: 0,
+diff --git a/src/game/named-snapshot.test.ts b/src/game/named-snapshot.test.ts
+new file mode 100644
+index 0000000..bdfa3b1
+--- /dev/null
++++ b/src/game/named-snapshot.test.ts
+@@ -0,0 +1,112 @@
++import assert from 'node:assert/strict';
++import { test } from 'vitest';
++import { activateCard, advanceGame, createGame } from './game.ts';
++import { DEAL_NAME_MAX_LENGTH, isDealName } from './deal-name.ts';
++import {
++  decodeSnapshot,
++  encodeSnapshot,
++  NAMED_SNAPSHOT_VERSION,
++  SNAPSHOT_KEYS,
++  SNAPSHOT_VERSION,
++} from './snapshot.ts';
++import { SelectionKind } from './selection.ts';
++import { EXAMPLE_CODE } from './game.fixture.ts';
++
++const NAMED = {
++  version: NAMED_SNAPSHOT_VERSION,
++  name: 'Café',
++  boardCode: EXAMPLE_CODE,
++  matched: [],
++  selection: { kind: SelectionKind.one, index: 2 },
++  moves: 0,
++  elapsedMs: 0,
++  started: true,
++};
++
++function reordered(value: Record<string, unknown>, order: (keys: string[]) => string[]): string {
++  return JSON.stringify(
++    Object.fromEntries(order(Object.keys(value)).map((key) => [key, value[key]])),
++  );
++}
++
++test('a named game exports version 2 with its name and restores it on import', () => {
++  const state = {
++    ...advanceGame(activateCard(activateCard(createGame(EXAMPLE_CODE), 0), 1), 175),
++    name: ' Café ',
++  };
++  const exported: unknown = JSON.parse(encodeSnapshot(state));
++  assert.ok(exported && typeof exported === 'object');
++  assert.deepEqual(Object.keys(exported).sort(), [...SNAPSHOT_KEYS, 'name'].sort());
++  assert.deepEqual(exported, {
++    ...JSON.parse(encodeSnapshot({ ...state, name: '' })),
++    version: 2,
++    name: ' Café ',
++  });
++  assert.deepEqual(decodeSnapshot(encodeSnapshot(state)), state);
++  assert.equal(decodeSnapshot(JSON.stringify(NAMED))?.name, 'Café');
++});
++
++test('an unnamed game exports version 1 without a name field and imports unnamed', () => {
++  const state = activateCard(createGame(EXAMPLE_CODE), 3);
++  const exported: unknown = JSON.parse(encodeSnapshot(state));
++  assert.ok(exported && typeof exported === 'object');
++  assert.deepEqual(Object.keys(exported).sort(), [...SNAPSHOT_KEYS].sort());
++  assert.equal(decodeSnapshot(encodeSnapshot(state))?.name, '');
++});
++
++test('pasted snapshots load whatever order their fields use', () => {
++  const { name: _name, ...rest } = NAMED;
++  const unnamed = { ...rest, version: SNAPSHOT_VERSION };
++  for (const value of [NAMED, unnamed])
++    for (const order of [
++      (keys: string[]) => [...keys].sort(),
++      (keys: string[]) => [...keys].reverse(),
++      (keys: string[]) => [...keys.slice(1), keys[0] ?? ''],
++    ]) {
++      const decoded = decodeSnapshot(reordered(value, order));
++      assert.ok(decoded, `D05 field order ${reordered(value, order)}`);
++      assert.deepEqual(decoded, decodeSnapshot(JSON.stringify(value)));
++    }
++  const sorted: unknown = JSON.parse(reordered(NAMED, (keys) => [...keys].sort()));
++  const pretty = JSON.stringify(sorted, null, '\t').replaceAll('\n', '\r\n');
++  assert.equal(decodeSnapshot(`\r\n  ${pretty}\r\n`)?.name, 'Café', 'D10 whitespace is JSON');
++});
++
++test('names keep every character except line breaks up to 40 UTF-16 code units', () => {
++  const longest = '😀'.repeat(DEAL_NAME_MAX_LENGTH / 2);
++  for (const name of [' ', '  spaced  ', 'Tab\there', longest, 'x'.repeat(DEAL_NAME_MAX_LENGTH)]) {
++    assert.ok(isDealName(name), `C15 accepts ${JSON.stringify(name)}`);
++    assert.equal(decodeSnapshot(JSON.stringify({ ...NAMED, name }))?.name, name);
++  }
++  for (const name of [
++    '',
++    'a\nb',
++    'a\rb',
++    'x'.repeat(DEAL_NAME_MAX_LENGTH + 1),
++    `${longest}😀`,
++    7,
++    null,
++  ])
++    assert.equal(
++      decodeSnapshot(JSON.stringify({ ...NAMED, name })),
++      null,
++      `C15 rejects ${JSON.stringify(name)}`,
++    );
++});
++
++test('a name must match its version and other versions are rejected', () => {
++  const { name: _name, ...withoutName } = NAMED;
++  for (const value of [
++    withoutName,
++    { ...NAMED, version: SNAPSHOT_VERSION },
++    { ...NAMED, version: 3 },
++    { ...withoutName, version: 3 },
++    { ...NAMED, version: '2' },
++    { ...NAMED, extra: true },
++  ])
++    assert.equal(
++      decodeSnapshot(JSON.stringify(value)),
++      null,
++      `D05 rejects ${JSON.stringify(value)}`,
++    );
++});
+diff --git a/src/game/session/session.test.ts b/src/game/session/session.test.ts
+index 796e992..b8da417 100644
+--- a/src/game/session/session.test.ts
++++ b/src/game/session/session.test.ts
+@@ -6,6 +6,7 @@ import { boardCode } from '../deck.ts';
+ import {
+   activateSession,
+   initialSession,
++  renameSession,
+   replaceGame,
+   tickSession,
+   SessionNotice,
+@@ -101,6 +102,26 @@ test('an imported game at the move cap records the capped count as its best', ()
+   assert.equal(session.preferences.bestMoves['4'], MOVES_MAX);
+ });
+ 
++test('renaming changes only the name, works while paused or completed and clears on a new deal', () => {
++  const mismatch = activateSession(
++    activateSession(initialSession(EXAMPLE_CODE, EMPTY_PREFERENCES), 0),
++    1,
++  );
++  const paused = replaceGame(mismatch, mismatch.game, true);
++  const named = renameSession(paused, ' Café ');
++  assert.deepEqual(named, { ...paused, game: { ...paused.game, name: ' Café ' } });
++  assert.equal(renameSession(named, 'a\nb'), named, 'C15 rejects line breaks');
++  assert.equal(renameSession(named, 'x'.repeat(41)), named, 'C15 rejects 41 code units');
++  assert.equal(renameSession(named, '').game.name, '', 'C15 clearing makes the game unnamed');
++  let won = initialSession(EXAMPLE_CODE, EMPTY_PREFERENCES);
++  for (const pair of EXAMPLE_PAIRS) for (const index of pair) won = activateSession(won, index);
++  const renamed = renameSession(won, 'Done');
++  assert.deepEqual(renamed, { ...won, game: { ...won.game, name: 'Done' } });
++  const restarted = replaceGame(named, createGame(named.game.boardCode), false);
++  assert.equal(restarted.game.name, '', 'C15 a new deal starts unnamed');
++  assert.equal(replaceGame(paused, named.game, true).game.name, ' Café ');
++});
++
+ test('turn feedback matches the reviewed message snapshot', async () => {
+   const initial = initialSession(EXAMPLE_CODE, EMPTY_PREFERENCES);
+   const mismatch = activateSession(activateSession(initial, 0), 1);
+diff --git a/src/game/session/session.ts b/src/game/session/session.ts
+index 3252363..85277fa 100644
+--- a/src/game/session/session.ts
++++ b/src/game/session/session.ts
+@@ -1,6 +1,7 @@
+ import { activateCard, advanceGame, createGame, isWon } from '../game.ts';
+ import { SelectionKind } from '../selection.ts';
+ import { formatElapsed } from '../elapsed-time.ts';
++import { isDealName } from '../deal-name.ts';
+ import { rememberBest } from './storage.ts';
+ import type { GameState } from '../game.ts';
+ import type { Preferences } from './storage.ts';
+@@ -57,6 +58,13 @@ export function replaceGame(session: Session, game: GameState, imported: boolean
+   };
+ }
+ 
++// A name labels the deal only. Cards, moves, the clock and a pause keep their values, so
++// renaming works while paused or completed. An empty name makes the game unnamed.
++export function renameSession(session: Session, name: string): Session {
++  if (name === session.game.name || (name !== '' && !isDealName(name))) return session;
++  return { ...session, game: { ...session.game, name } };
++}
++
+ export function tickSession(session: Session, generation: number, milliseconds: number): Session {
+   if (session.generation !== generation || session.paused) return session;
+   const game = advanceGame(session.game, milliseconds);
+diff --git a/src/game/session/use-game.ts b/src/game/session/use-game.ts
+index b8bf7cd..afc214a 100644
+--- a/src/game/session/use-game.ts
++++ b/src/game/session/use-game.ts
+@@ -3,7 +3,13 @@ import { createGame } from '../game.ts';
+ import { parseBoardCode, isValidSize } from '../deck.ts';
+ import { decodeSnapshot, encodeSnapshot } from '../snapshot.ts';
+ import { freshBoardCode } from './fresh-board.ts';
+-import { activateSession, initialSession, replaceGame, SessionNotice } from './session.ts';
++import {
++  activateSession,
++  initialSession,
++  renameSession,
++  replaceGame,
++  SessionNotice,
++} from './session.ts';
+ import { readPreferences } from './storage.ts';
+ import { browserStore, useSavedPreferences } from './use-saved-preferences.ts';
+ import { useSessionClock } from './use-session-clock.ts';
+@@ -80,6 +86,10 @@ export function useGame() {
+     commit(activateSession(current.current, index));
+   }
+ 
++  function rename(name: string): void {
++    commit(renameSession(current.current, name));
++  }
++
+   function resume(): void {
+     clock.reset();
+     commit({
+@@ -90,5 +100,15 @@ export function useGame() {
+     });
+   }
+ 
+-  return { session, newGame, restart, loadBoard, loadSnapshot, exportSnapshot, activate, resume };
++  return {
++    session,
++    newGame,
++    restart,
++    loadBoard,
++    loadSnapshot,
++    exportSnapshot,
++    activate,
++    rename,
++    resume,
++  };
+ }
+diff --git a/src/game/snapshot.ts b/src/game/snapshot.ts
+index 7ec77cd..41bcf73 100644
+--- a/src/game/snapshot.ts
++++ b/src/game/snapshot.ts
+@@ -1,6 +1,8 @@
+ import { createGame, MOVES_MAX, ELAPSED_MAX_MS } from './game.ts';
+ import { parseBoardCode } from './deck.ts';
++import { isDealName } from './deal-name.ts';
+ import {
++  hasExactKeys,
+   isJsonObject,
+   isNonnegativeSafeInteger,
+   isWithinBytes,
+@@ -11,6 +13,7 @@ import { SelectionKind } from './selection.ts';
+ import type { GameState } from './game.ts';
+ 
+ export const SNAPSHOT_VERSION = 1;
++export const NAMED_SNAPSHOT_VERSION = 2;
+ export const SNAPSHOT_MAX_BYTES = 65_536;
+ export const SNAPSHOT_KEYS = [
+   'version',
+@@ -21,11 +24,15 @@ export const SNAPSHOT_KEYS = [
+   'elapsedMs',
+   'started',
+ ] as const;
++const NAMED_SNAPSHOT_KEYS = [...SNAPSHOT_KEYS, 'name'];
+ 
+ export function encodeSnapshot(state: GameState): string {
++  const version = state.name
++    ? { version: NAMED_SNAPSHOT_VERSION, name: state.name }
++    : { version: SNAPSHOT_VERSION };
+   return JSON.stringify(
+     {
+-      version: SNAPSHOT_VERSION,
++      ...version,
+       boardCode: state.boardCode,
+       matched: [...state.matched].sort((left, right) => left - right),
+       // Active time keeps its fractions in play. Export writes whole milliseconds, and rounding
+@@ -43,17 +50,19 @@ export function encodeSnapshot(state: GameState): string {
+   );
+ }
+ 
++// JSON objects are unordered, so a pasted snapshot can list its fields in another order.
++function readName(value: Record<string, unknown>): string | null {
++  if (value.version === SNAPSHOT_VERSION) return hasExactKeys(value, SNAPSHOT_KEYS) ? '' : null;
++  if (value.version !== NAMED_SNAPSHOT_VERSION || !hasExactKeys(value, NAMED_SNAPSHOT_KEYS))
++    return null;
++  return isDealName(value.name) ? value.name : null;
++}
++
+ export function decodeSnapshot(text: string): GameState | null {
+   const value = isWithinBytes(text, SNAPSHOT_MAX_BYTES) ? parseJson(text) : undefined;
+-  if (
+-    !isJsonObject(value) ||
+-    !Object.keys(value).every((key, index) =>
+-      index === 0 ? key === SNAPSHOT_KEYS[0] : SNAPSHOT_KEYS.some((field) => field === key),
+-    ) ||
+-    Object.keys(value).length !== SNAPSHOT_KEYS.length ||
+-    value.version !== SNAPSHOT_VERSION
+-  )
+-    return null;
++  if (!isJsonObject(value)) return null;
++  const name = readName(value);
++  if (name === null) return null;
+   if (typeof value.boardCode !== 'string' || !parseBoardCode(value.boardCode)) return null;
+   if (
+     !isNonnegativeSafeInteger(value.moves) ||
+@@ -70,6 +79,7 @@ export function decodeSnapshot(text: string): GameState | null {
+   if (!selection) return null;
+   const state: GameState = {
+     ...initial,
++    name,
+     matched,
+     selection,
+     moves: value.moves,
+diff --git a/tests/deal-name.e2e.test.ts b/tests/deal-name.e2e.test.ts
+new file mode 100644
+index 0000000..3646d23
+--- /dev/null
++++ b/tests/deal-name.e2e.test.ts
+@@ -0,0 +1,108 @@
++import { expect, test } from './browser-test.ts';
++import { EXAMPLE_CODE } from '../src/game/game.fixture.ts';
++import { DealControl, ReproductionControl } from '../src/game/controls/control-labels.ts';
++import { SelectionKind } from '../src/game/selection.ts';
++import { SessionNotice } from '../src/game/session/session.ts';
++import { NAMED_SNAPSHOT_VERSION, SNAPSHOT_VERSION } from '../src/game/snapshot.ts';
++import { finishBoard, loadTimedBoard } from './game-fixture.ts';
++import type { Page } from '@playwright/test';
++
++// The published name limit, kept apart from the component that sets it.
++const DEAL_NAME_MAX_CHARACTERS = 40;
++
++// Each helper expects the reproduction panel to be open.
++async function exported(page: Page): Promise<unknown> {
++  await page.getByRole('button', { name: ReproductionControl.exportSnapshot, exact: true }).click();
++  return JSON.parse(
++    await page.getByLabel(ReproductionControl.snapshot, { exact: true }).inputValue(),
++  );
++}
++
++async function load(page: Page, value: Record<string, unknown>): Promise<void> {
++  // Sorted keys put version last, like a snapshot formatted by another tool.
++  const sorted = Object.fromEntries(
++    Object.entries(value).sort(([left], [right]) => (left < right ? -1 : 1)),
++  );
++  await page
++    .getByLabel(ReproductionControl.snapshot, { exact: true })
++    .fill(JSON.stringify(sorted, null, 2));
++  await page.getByRole('button', { name: ReproductionControl.loadSnapshot, exact: true }).click();
++}
++
++test('a deal name exports as version 2 and returns with paused progress pasted in another field order', async ({
++  page,
++}) => {
++  await loadTimedBoard(page);
++  await page.locator('.card').nth(2).click();
++  await page.clock.runFor(1000);
++  await page.locator('summary').click();
++  const name = page.getByLabel(ReproductionControl.dealName, { exact: true });
++  await expect(name).toHaveValue('');
++  await expect(name).toHaveAttribute('maxlength', String(DEAL_NAME_MAX_CHARACTERS));
++  await name.fill(' Café ');
++  await expect(name).toBeFocused();
++  const progress = {
++    boardCode: EXAMPLE_CODE,
++    matched: [],
++    selection: { kind: SelectionKind.one, index: 2 },
++    moves: 0,
++    elapsedMs: 1000,
++    started: true,
++  };
++  const named = { version: NAMED_SNAPSHOT_VERSION, name: ' Café ', ...progress };
++  expect(await exported(page)).toEqual(named);
++  await name.fill('');
++  expect(await exported(page)).toEqual({ version: SNAPSHOT_VERSION, ...progress });
++  await name.fill('Café');
++  await page.getByRole('button', { name: DealControl.newGame, exact: true }).click();
++  await expect(name).toHaveValue('');
++  await load(page, { ...named, name: 'Café' });
++  await expect(page.locator('.load-notice')).toHaveText(SessionNotice.loaded);
++  await expect(name).toHaveValue('Café');
++  await expect(page.locator('.card.revealed')).toHaveCount(1);
++  await name.fill('Renamed while paused');
++  await page.clock.runFor(500);
++  const resume = page.getByRole('button', { name: ReproductionControl.resume, exact: true });
++  await expect(resume).toBeVisible();
++  expect(await exported(page)).toEqual({ ...named, name: 'Renamed while paused' });
++  await resume.click();
++  await page.clock.runFor(250);
++  expect(await exported(page)).toEqual({ ...named, name: 'Renamed while paused', elapsedMs: 1250 });
++  await load(page, { version: SNAPSHOT_VERSION, ...progress });
++  await expect(name).toHaveValue('');
++});
++
++test('new deals clear the name and a completed named import stays completed', async ({ page }) => {
++  await loadTimedBoard(page);
++  await page.locator('summary').click();
++  const name = page.getByLabel(ReproductionControl.dealName, { exact: true });
++  const clears = [
++    () => page.getByRole('button', { name: DealControl.restart, exact: true }).click(),
++    () => page.getByLabel(DealControl.size, { exact: true }).selectOption('6'),
++    () => page.getByRole('button', { name: ReproductionControl.loadBoard, exact: true }).click(),
++    () => page.reload(),
++  ];
++  for (const clear of clears) {
++    if (!(await name.isVisible())) await page.locator('summary').click();
++    await name.fill('Temporary');
++    await clear();
++    if (!(await name.isVisible())) await page.locator('summary').click();
++    await expect(name).toHaveValue('');
++  }
++  await page.getByLabel(ReproductionControl.board, { exact: true }).fill(EXAMPLE_CODE);
++  await page.getByRole('button', { name: ReproductionControl.loadBoard, exact: true }).click();
++  await finishBoard(page);
++  await name.fill('Done');
++  const completed = await exported(page);
++  expect(completed).toMatchObject({ version: NAMED_SNAPSHOT_VERSION, name: 'Done' });
++  await page.getByRole('button', { name: DealControl.newGame, exact: true }).click();
++  if (typeof completed !== 'object' || completed === null) throw new Error('Expected a snapshot.');
++  await load(page, Object.fromEntries(Object.entries(completed)));
++  await expect(page.locator('.load-notice')).toHaveText(SessionNotice.loadedCompleted);
++  await expect(name).toHaveValue('Done');
++  await expect(page.locator('.card.matched')).toHaveCount(16);
++  expect(await page.locator('.victory.celebrate').count()).toBe(0);
++  await expect(
++    page.getByRole('button', { name: ReproductionControl.resume, exact: true }),
++  ).toHaveCount(0);
++});
