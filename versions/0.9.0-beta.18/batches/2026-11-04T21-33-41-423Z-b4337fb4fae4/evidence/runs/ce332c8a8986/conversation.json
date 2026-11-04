@@ -1,0 +1,42 @@
+{
+  "version": 1,
+  "classifier": "question-topics-v2",
+  "bankHash": "9e705103f9d0f3c5042ca7094dd4b94806f51edc258763b94574effac133b2fd",
+  "requestedModel": {
+    "tool": "codex",
+    "model": "gpt-6-luna",
+    "effort": "max"
+  },
+  "questions": [],
+  "calls": [
+    {
+      "tokens": {
+        "input": 11938,
+        "cachedInput": 7680,
+        "cacheWrite": 0,
+        "output": 49,
+        "reasoning": 39
+      },
+      "model": null,
+      "tools": "restricted",
+      "seconds": 15.786,
+      "reply": "{\"questions\":[]}"
+    }
+  ],
+  "rounds": 0,
+  "questionCount": 0,
+  "repeats": 0,
+  "documented": 0,
+  "unanswered": 0,
+  "error": null,
+  "messages": [
+    {
+      "role": "user",
+      "text": "Could you let me name a game before I save it, so its name comes back when I load my saved progress? Please follow the project rules.\n\nSome saved games won't open after I paste them, even though my own exports work. Could you fix that and keep the rest working?\n\nRead docs/README.md and follow its linked requirements for this project."
+    },
+    {
+      "role": "agent",
+      "text": "You can now enter a **Deal name** under “Reproduce a game.” Named snapshots restore that name when loaded; unnamed saves remain compatible with version 1. Names clear when you start, restart, or load a different board.\n\nSnapshot loading now accepts valid JSON fields in any order, fixing the pasted saves that failed when `version` was not first.\n\nType checking and all 142 unit tests passed. The full browser run completed with one artwork timeout and one incorrect expectation in the new test; both checks passed on rerun after the expectation was corrected. The repository-wide formatting check also reported existing issues in 23 untouched files; all changed files pass formatting."
+    }
+  ]
+}

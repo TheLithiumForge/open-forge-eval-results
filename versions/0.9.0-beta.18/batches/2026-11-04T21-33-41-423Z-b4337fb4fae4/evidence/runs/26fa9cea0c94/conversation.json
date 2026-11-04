@@ -1,0 +1,42 @@
+{
+  "version": 1,
+  "classifier": "question-topics-v2",
+  "bankHash": "9e705103f9d0f3c5042ca7094dd4b94806f51edc258763b94574effac133b2fd",
+  "requestedModel": {
+    "tool": "codex",
+    "model": "gpt-6-luna",
+    "effort": "max"
+  },
+  "questions": [],
+  "calls": [
+    {
+      "tokens": {
+        "input": 11974,
+        "cachedInput": 7680,
+        "cacheWrite": 0,
+        "output": 39,
+        "reasoning": 29
+      },
+      "model": null,
+      "tools": "restricted",
+      "seconds": 10.27,
+      "reply": "{\"questions\":[]}"
+    }
+  ],
+  "rounds": 0,
+  "questionCount": 0,
+  "repeats": 0,
+  "documented": 0,
+  "unanswered": 0,
+  "error": null,
+  "messages": [
+    {
+      "role": "user",
+      "text": "Could you let me name a game before I save it, so its name comes back when I load my saved progress? Please follow the project rules.\n\nSome saved games won't open after I paste them, even though my own exports work. Could you fix that and keep the rest working?\n\nRead docs/README.md and follow its linked requirements for this project."
+    },
+    {
+      "role": "agent",
+      "text": "Added the **Deal name** field in the reproduction controls. Names are exported in version 2 snapshots, restored on import, and cleared for fresh deals. Unnamed snapshots remain version 1. Snapshot imports now accept the exact required fields in any JSON property order, fixing valid pasted snapshots that were rejected before.\n\nThe change is in [Reproduction.tsx](/work/src/game/controls/Reproduction.tsx:40), [snapshot.ts](/work/src/game/snapshot.ts:32), and [session.ts](/work/src/game/session/session.ts:40).\n\n**Checks:** typecheck passed; all 144 unit tests and 78 browser journeys passed, including the named-combination run. Prettier passes for changed TypeScript files. The repository-wide format check still reports 13 untouched files, including project docs and existing tests."
+    }
+  ]
+}

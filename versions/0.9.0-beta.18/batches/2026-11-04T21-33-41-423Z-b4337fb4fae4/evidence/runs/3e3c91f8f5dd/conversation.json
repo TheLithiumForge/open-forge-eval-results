@@ -1,0 +1,42 @@
+{
+  "version": 1,
+  "classifier": "question-topics-v2",
+  "bankHash": "9e705103f9d0f3c5042ca7094dd4b94806f51edc258763b94574effac133b2fd",
+  "requestedModel": {
+    "tool": "codex",
+    "model": "gpt-6-luna",
+    "effort": "max"
+  },
+  "questions": [],
+  "calls": [
+    {
+      "tokens": {
+        "input": 11915,
+        "cachedInput": 7680,
+        "cacheWrite": 0,
+        "output": 45,
+        "reasoning": 35
+      },
+      "model": null,
+      "tools": "restricted",
+      "seconds": 14.6,
+      "reply": "{\"questions\":[]}"
+    }
+  ],
+  "rounds": 0,
+  "questionCount": 0,
+  "repeats": 0,
+  "documented": 0,
+  "unanswered": 0,
+  "error": null,
+  "messages": [
+    {
+      "role": "user",
+      "text": "Could you let me name a game before I save it, so its name comes back when I load my saved progress? Please follow the project rules.\n\nSome saved games won't open after I paste them, even though my own exports work. Could you fix that and keep the rest working?\n\nRead docs/README.md and the other documents in docs/ for this project's requirements."
+    },
+    {
+      "role": "agent",
+      "text": "You can now enter a **Deal name** before exporting a snapshot. Loading that snapshot restores the name and progress. New games, restarts, size changes, and board-code loads clear the name.\n\nPasted snapshots also load when their JSON fields appear in a different order. Unnamed snapshots continue to use version 1, and named snapshots use version 2.\n\nValidation passed: type checking, all 142 unit tests, and all 79 browser tests. The changed files pass formatting; the repository-wide formatting check still reports 13 unchanged files."
+    }
+  ]
+}

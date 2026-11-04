@@ -1,0 +1,42 @@
+{
+  "version": 1,
+  "classifier": "question-topics-v2",
+  "bankHash": "9e705103f9d0f3c5042ca7094dd4b94806f51edc258763b94574effac133b2fd",
+  "requestedModel": {
+    "tool": "codex",
+    "model": "gpt-6-luna",
+    "effort": "max"
+  },
+  "questions": [],
+  "calls": [
+    {
+      "tokens": {
+        "input": 11946,
+        "cachedInput": 7680,
+        "cacheWrite": 0,
+        "output": 77,
+        "reasoning": 67
+      },
+      "model": null,
+      "tools": "restricted",
+      "seconds": 14.385,
+      "reply": "{\"questions\":[]}"
+    }
+  ],
+  "rounds": 0,
+  "questionCount": 0,
+  "repeats": 0,
+  "documented": 0,
+  "unanswered": 0,
+  "error": null,
+  "messages": [
+    {
+      "role": "user",
+      "text": "Could you let me name a game before I save it, so its name comes back when I load my saved progress? Please follow the project rules.\n\nSome saved games won't open after I paste them, even though my own exports work. Could you fix that and keep the rest working?\n\nRead docs/README.md and follow its linked requirements for this project."
+    },
+    {
+      "role": "agent",
+      "text": "Implemented named game snapshots and more flexible snapshot loading.\n\n- Added a **Deal name** field. Names stay with the current game, appear in version 2 exports, and return on import. Fresh deals and unnamed version 1 imports clear the name; names aren’t saved in preferences.\n- Snapshot import now accepts versions 1 and 2 regardless of JSON field order, while preserving exact field and progress validation.\n- I didn’t run the project checks.\n\nKey changes are in [Reproduction.tsx](/work/src/game/controls/Reproduction.tsx), [snapshot.ts](/work/src/game/snapshot.ts), and [use-game.ts](/work/src/game/session/use-game.ts)."
+    }
+  ]
+}

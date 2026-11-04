@@ -1,0 +1,42 @@
+{
+  "version": 1,
+  "classifier": "question-topics-v2",
+  "bankHash": "9e705103f9d0f3c5042ca7094dd4b94806f51edc258763b94574effac133b2fd",
+  "requestedModel": {
+    "tool": "codex",
+    "model": "gpt-6-luna",
+    "effort": "max"
+  },
+  "questions": [],
+  "calls": [
+    {
+      "tokens": {
+        "input": 11979,
+        "cachedInput": 7680,
+        "cacheWrite": 0,
+        "output": 105,
+        "reasoning": 95
+      },
+      "model": null,
+      "tools": "restricted",
+      "seconds": 18.831,
+      "reply": "{\"questions\":[]}"
+    }
+  ],
+  "rounds": 0,
+  "questionCount": 0,
+  "repeats": 0,
+  "documented": 0,
+  "unanswered": 0,
+  "error": null,
+  "messages": [
+    {
+      "role": "user",
+      "text": "Could you let me name a game before I save it, so its name comes back when I load my saved progress? Please follow the project rules.\n\nSome saved games won't open after I paste them, even though my own exports work. Could you fix that and keep the rest working?\n\nRead docs/README.md and follow its linked requirements for this project."
+    },
+    {
+      "role": "agent",
+      "text": "Added a **Deal name** input to the reproduction controls. Names are limited to 40 UTF-16 code units; carriage returns and line feeds are rejected. Editing the name leaves game progress and the clock unchanged. See [Reproduction.tsx](/work/src/game/controls/Reproduction.tsx:41) and [game.ts](/work/src/game/game.ts:9).\n\nNamed saves now export as version 2 and restore their name when loaded. Unnamed saves remain version 1. Snapshot imports now accept fields in any order while still requiring the exact supported fields, which fixes valid pasted saves that were rejected before. See [snapshot.ts](/work/src/game/snapshot.ts:37) and [use-game.ts](/work/src/game/session/use-game.ts:72).\n\n`git diff --check` passed. I didn’t run the test suite."
+    }
+  ]
+}

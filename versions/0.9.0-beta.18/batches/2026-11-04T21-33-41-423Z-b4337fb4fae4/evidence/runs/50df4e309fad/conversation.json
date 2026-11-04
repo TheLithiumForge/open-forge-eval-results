@@ -1,0 +1,42 @@
+{
+  "version": 1,
+  "classifier": "question-topics-v2",
+  "bankHash": "9e705103f9d0f3c5042ca7094dd4b94806f51edc258763b94574effac133b2fd",
+  "requestedModel": {
+    "tool": "codex",
+    "model": "gpt-6-luna",
+    "effort": "max"
+  },
+  "questions": [],
+  "calls": [
+    {
+      "tokens": {
+        "input": 12024,
+        "cachedInput": 7680,
+        "cacheWrite": 0,
+        "output": 57,
+        "reasoning": 47
+      },
+      "model": null,
+      "tools": "restricted",
+      "seconds": 10.705,
+      "reply": "{\"questions\":[]}"
+    }
+  ],
+  "rounds": 0,
+  "questionCount": 0,
+  "repeats": 0,
+  "documented": 0,
+  "unanswered": 0,
+  "error": null,
+  "messages": [
+    {
+      "role": "user",
+      "text": "Could you let me name a game before I save it, so its name comes back when I load my saved progress? Please follow the project rules.\n\nSome saved games won't open after I paste them, even though my own exports work. Could you fix that and keep the rest working?\n\nRead docs/README.md and the other documents in docs/ for this project's requirements."
+    },
+    {
+      "role": "agent",
+      "text": "Added the **Deal name** input. Named saves export as version 2 and restore the name on import; unnamed saves and replay output remain version 1. Names clear on New Game, Restart, size changes, board loads, and unnamed imports. See [Reproduction.tsx](/work/src/game/controls/Reproduction.tsx:43) and [snapshot.ts](/work/src/game/snapshot.ts:14).\n\nFixed pasted saves with reordered JSON properties. The loader now checks the exact required keys without requiring a particular order, while still rejecting unknown keys. Regression coverage is in [snapshot-name.test.ts](/work/src/game/snapshot-name.test.ts:17) and [snapshots.e2e.test.ts](/work/tests/snapshots.e2e.test.ts:98).\n\n**Checks:** typecheck passed; all 144 unit tests and 78 browser tests passed, including the fresh build. Changed files pass Prettier. The project-wide format check still reports issues in 12 unchanged files: existing docs, `scripts/replay.test.ts`, and two browser tests."
+    }
+  ]
+}
