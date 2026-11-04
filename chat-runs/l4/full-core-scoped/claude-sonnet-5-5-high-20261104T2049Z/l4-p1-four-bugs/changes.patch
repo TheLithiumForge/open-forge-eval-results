@@ -1,0 +1,154 @@
+diff --git a/src/game/board/Board.tsx b/src/game/board/Board.tsx
+index 48b16ac..a9290b5 100644
+--- a/src/game/board/Board.tsx
++++ b/src/game/board/Board.tsx
+@@ -2,7 +2,7 @@ import { useCallback, useImperativeHandle, useLayoutEffect, useMemo, useRef } fr
+ import { faceUpCards } from '../game.ts';
+ import { Card } from './Card.tsx';
+ import { useBoardFocus } from './use-board-focus.ts';
+-import type { CSSProperties, RefObject } from 'react';
++import type { CSSProperties, KeyboardEvent, RefObject } from 'react';
+ import type { GameState } from '../game.ts';
+ import './board.css';
+ 
+@@ -25,10 +25,17 @@ function cardClicked(card: HTMLElement): void {
+   card.scrollIntoView(NEAREST);
+ }
+ 
++// Offsets of the destination card for each movement key, as [row, column].
++const ARROW_STEPS: Readonly<Record<string, readonly [number, number]>> = {
++  ArrowLeft: [0, -1],
++  ArrowRight: [0, 1],
++  ArrowUp: [-1, 0],
++  ArrowDown: [1, 0],
++};
++
+ export function Board({ game, ref, activate }: BoardProps) {
+   const { size, deck, matched, selection } = game;
+-  const { viewport, element, focused, focusRemembered, cardFocused } =
+-    useBoardFocus();
++  const { viewport, element, focused, focusRemembered, cardFocused } = useBoardFocus();
+   useImperativeHandle(ref, () => ({ focusRemembered }), [focusRemembered]);
+   // A clock tick keeps both arrays, so the cards' props stay equal and no card renders again.
+   const faceUp = useMemo(() => faceUpCards({ matched, selection }), [matched, selection]);
+@@ -39,6 +46,19 @@ export function Board({ game, ref, activate }: BoardProps) {
+     latestActivate.current = activate;
+   });
+   const activateCard = useCallback((index: number) => latestActivate.current(index), []);
++  function moveFocus(event: KeyboardEvent<HTMLDivElement>): void {
++    const step = Object.hasOwn(ARROW_STEPS, event.key) ? ARROW_STEPS[event.key] : undefined;
++    if (!step || event.ctrlKey || event.altKey || event.shiftKey || event.metaKey) return;
++    const cards = Array.from(element.current?.querySelectorAll('button') ?? []);
++    const from = cards.findIndex((card) => card === event.target);
++    if (from < 0) return;
++    event.preventDefault();
++    const row = Math.floor(from / size) + step[0];
++    const column = (from % size) + step[1];
++    // Movement stops at the board edge.
++    if (row < 0 || row >= size || column < 0 || column >= size) return;
++    cards[row * size + column]?.focus({ preventScroll: true });
++  }
+   const style: BoardStyle = { '--grid-size': size };
+   return (
+     <div
+@@ -48,7 +68,7 @@ export function Board({ game, ref, activate }: BoardProps) {
+       aria-label="Game board"
+       aria-describedby="board-help"
+     >
+-      <div className="board" ref={element} style={style}>
++      <div className="board" ref={element} style={style} onKeyDown={moveFocus}>
+         {deck.map((face, index) => (
+           <Card
+             key={index}
+diff --git a/src/game/board/card.css b/src/game/board/card.css
+index 9aa81f7..9fb47fa 100644
+--- a/src/game/board/card.css
++++ b/src/game/board/card.css
+@@ -46,3 +46,9 @@
+   height: 16%;
+   color: var(--green);
+ }
++
++@media (prefers-reduced-motion: reduce) {
++  .card {
++    transition: none;
++  }
++}
+diff --git a/src/game/session/storage.ts b/src/game/session/storage.ts
+index 9bae659..2837014 100644
+--- a/src/game/session/storage.ts
++++ b/src/game/session/storage.ts
+@@ -58,5 +58,8 @@ export function writePreferences(store: PreferenceStore | null, preferences: Pre
+ }
+ 
+ export function rememberBest(preferences: Preferences, size: number, moves: number): Preferences {
++  const best = preferences.bestMoves[size];
++  // An equal or worse result keeps the existing best.
++  if (best !== undefined && moves >= best) return preferences;
+   return { ...preferences, bestMoves: { ...preferences.bestMoves, [size]: moves } };
+ }
+diff --git a/src/game/session/use-game.ts b/src/game/session/use-game.ts
+index e90bacf..b8bf7cd 100644
+--- a/src/game/session/use-game.ts
++++ b/src/game/session/use-game.ts
+@@ -9,23 +9,6 @@ import { browserStore, useSavedPreferences } from './use-saved-preferences.ts';
+ import { useSessionClock } from './use-session-clock.ts';
+ import type { Session } from './session.ts';
+ 
+-const MatchTone = 660;
+-const WinTone = 880;
+-
+-function chime(frequency: number): void {
+-  const Context = window.AudioContext as typeof AudioContext | undefined;
+-  if (!Context) return;
+-  const audio = new Context();
+-  const tone = audio.createOscillator();
+-  const level = audio.createGain();
+-  tone.frequency.value = frequency;
+-  level.gain.value = 0.05;
+-  tone.connect(level).connect(audio.destination);
+-  tone.onended = () => void audio.close();
+-  tone.start();
+-  tone.stop(audio.currentTime + 0.12);
+-}
+-
+ export function useGame() {
+   const [store] = useState(browserStore);
+   const [session, setSession] = useState(() => {
+@@ -94,9 +77,7 @@ export function useGame() {
+ 
+   function activate(index: number): void {
+     clock.synchronize();
+-    const matched = current.current.game.matched.length;
+     commit(activateSession(current.current, index));
+-    if (current.current.game.matched.length > matched) chime(current.current.celebration ? WinTone : MatchTone);
+   }
+ 
+   function resume(): void {
+diff --git a/src/game/status/GameStatus.tsx b/src/game/status/GameStatus.tsx
+index ab26aa0..db14b27 100644
+--- a/src/game/status/GameStatus.tsx
++++ b/src/game/status/GameStatus.tsx
+@@ -27,7 +27,7 @@ export function GameStatus({ game, best, celebration }: GameStatusProps) {
+           <dt>{StatusLabel.time}</dt> <dd>{formatElapsed(game.elapsedMs)}</dd>
+         </div>
+         <div>
+-          <dt>{StatusLabel.best}</dt> <dd>{best ?? 0}</dd>
++          <dt>{StatusLabel.best}</dt> <dd>{best ?? 'none'}</dd>
+         </div>
+       </dl>
+       {isWon(game) && (
+diff --git a/src/game/status/status.css b/src/game/status/status.css
+index e7b5097..4211dce 100644
+--- a/src/game/status/status.css
++++ b/src/game/status/status.css
+@@ -35,3 +35,9 @@ dd {
+     opacity: 0.75;
+   }
+ }
++
++@media (prefers-reduced-motion: reduce) {
++  .celebrate {
++    animation: none;
++  }
++}

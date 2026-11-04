@@ -1,0 +1,15 @@
+{
+  "scenario": "full-core-scoped",
+  "packet": "l4-p1-four-bugs",
+  "workMode": "whole-packet",
+  "harness": "cloud chat, one subagent",
+  "model": {"configured": "claude-sonnet-5-5", "lastServed": "null"},
+  "effort": "high",
+  "openForgeCommit": "98864191af0037c386c4e5c723afd79a95646cad",
+  "startedAt": "2026-11-04T20:49:28Z",
+  "finishedAt": "2026-11-04T20:51:37Z",
+  "timeLimitMinutes": 60,
+  "implementer": {"totalTokens": 97145, "toolUses": 16, "durationMs": 128851},
+  "questionsAnswered": 0,
+  "notes": "Finished within the limit. Chromium missing, so e2e tests were not run. The Agent call returned immediately and the subagent ran in the background; timing comes from its usage figures. lastServed was not available from get_session (field absent)."
+}
