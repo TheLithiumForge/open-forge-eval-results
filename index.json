@@ -14,7 +14,15 @@
         }
       ],
       "judges": [],
-      "gradingVersions": [],
+      "gradingVersions": [
+        {
+          "spec": "b66ec23031ae9d4c1e173aa5daedd06ae6afe34e06feb294a1fe9a08d2b8a158",
+          "specVersion": 2.2,
+          "checker": "fb82bd15085628240db4e851633d83af04875616f64eeb1db30bd1aca67c8774",
+          "rubric": "a32c9aaabb3176570a038e69548418b015c17084a0324959be449d5c0dc5e0eb",
+          "judge": "6211a72e63940c3d612013a32ee1d7353509cf922f77de5b8fc57efef65b9f29"
+        }
+      ],
       "path": "versions/0.9.0-beta.18/batches/2026-11-04T07-42-14-821Z-bb17088bb147"
     }
   ]
