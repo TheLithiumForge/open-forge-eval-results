@@ -1,0 +1,84 @@
+---
+open-forge:
+  description: Shared CLI flags, source syntax, previews, and result meanings
+  tags: [Skill, CLI, Reference]
+---
+
+# Shared CLI Options And Results
+
+Use this reference for options and result meanings shared by all commands. Command references list their own flags and link here instead of repeating these rules. The running executable's `--help` defines the interface when an older installation differs.
+
+## Command And Source Syntax
+
+```text
+open-forge <command> [operands] [command flags] [global flags]
+```
+
+Use `open-forge --help` for the top-level inventory. `route --help`, `extension --help`, and `library --help` list their subcommands. Add `--help` to a complete command for its operands, flags, defaults, and examples.
+
+`open-forge help` lists built-in topics. `open-forge help concepts` prints the concepts and the file formats from the shipped `.agents/README.md`, without a workspace, so it still works after a project deletes its README.
+
+A source reference is an exact source ID, such as `memory/crystallized`, or an exact `./...` workspace-relative Markdown path. Use the exact path when an ID is ambiguous. Exact paths stay literal and never move with the context folder. Source IDs, Extension stable IDs, and Library management IDs identify different things. Examples assume their routes or packages exist. Substitute IDs from the selected workspace's inventory.
+
+The context folder is chosen at first installation with `install --main-root <folder>`. The default is `--main-root .agents`. Native Skills stay in `.agents/skills/`, settings in `.agents/open-forge.json`, and ownership in `.agents/open-forge.lock.json`. See [Install](packages.md#install) for setup and relocation limits.
+
+Outside folders are registered separately in settings v5 `outsideRoutes`. They do not join primary path mapping or implicit package permission. Exact references retain filename and extension, but discovery and result operand identity depend on registration or retained inclusion. See [outside routes](routes.md#outside-routes).
+
+## Global Flags
+
+Every command accepts these flags. Extension Create accepts `--workspace` but creates in its explicit catalogue, so that flag has no effect there.
+
+| Flag                                          | Meaning and useful choice                                                                                                                    |
+| --------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| `--workspace <path>`                          | Select one exact workspace directory. Relative values resolve from the process directory. The CLI does not search parents                    |
+| `--format <text\|json>`                       | Text for reading, JSON for scripts. Default: `text`. JSON returns one schema-version-3 envelope on stdout                                    |
+| `--detail <minimal\|standard\|full\|debug>`   | Default: `minimal`. Use `standard` for reasons, `full` for evidence, `debug` for bounded diagnostics on stderr. Detail affects text and JSON |
+| `--detail-filter <error\|warning\|info\|all>` | Select listed diagnostic severities. Repeat to combine. It never changes semantic status or exit code                                        |
+| `--help`                                      | Print the exact command interface and exit                                                                                                   |
+| `--version`                                   | Print the executable version and exit                                                                                                        |
+
+Quote values containing spaces and glob expressions. Repeat flags only where the command supports repetition. Route List accepts both `--depth=2` and `--depth 2`. Content and region selectors take one comma-separated value, such as `--content frontmatter,body`.
+
+## Worktrees And Sandboxes
+
+Each directory is its own workspace, so every Git worktree has its own lock and recovery bundles. Writing commands keep both in `.open-forge-state/` inside the workspace, which ignores itself in Git. A sandbox only needs write access to the workspace.
+
+The open file handle is the lock. A leftover `workspace.lock` blocks nothing, so never delete it. A lock failure names the exact path and its cause. Only a busy lock means another command is running, so retry after it finishes. Access denied, unsupported locking, an invalid target or an I/O error each need the path fixed, not a retry. If access is denied on a lock under the per-user `OpenForge/locks/v1` folder, the sandbox cannot read that folder: allow read access, or set `OPENFORGE_DATA_HOME` to an absolute folder the sandbox can write.
+
+Bundles left by unrelated earlier runs never block a command. Drafts, damaged bundles and unreadable stores appear as warnings. Install still stops on an unverified bundle, an unreadable workspace store or a partly applied change.
+
+`git clean -x` and `-X` delete `.open-forge-state/` and its recovery bundles. Review them with `status --format json --detail full` first.
+
+## Preview And Apply
+
+`--dry-run` reports the complete checked mutation plan without writing files. Review destinations, replacements, deletions, reference changes, and recovery effects. Apply the same authorized request without `--dry-run` after review.
+
+Only some commands support `--automatic`. It suppresses supported interaction without adding inputs, selecting packages, enabling force, or granting authority. A command that requires confirmation returns `invalid-input` without writes in a noninteractive shell unless its supported unattended mode is supplied. JSON and redirected execution never prompt.
+
+Route Init, Create, Update, Move, and Index apply their checked plans without a confirmation flag. Cleanup also applies directly, so review its deletion preview before use. Check each command's help rather than adding unsupported `--automatic`.
+
+Interactive selection explains the focused option. Line mode shows descriptions beside numbered choices, explains package marks, and accepts `cancel` to stop a package or Custom route list without changes. Cancellation before any effect reports that nothing changed, without an error row. Unknown commands and invalid option values suggest the relevant `--help` command. Invalid values name the supplied value and the allowed values. Parser choices appear on separate lines.
+
+Suggested next actions and retries keep the selected workspace and the options needed for that action, including a local Extension source and selected IDs. Use the reported command after resolving its explanation.
+
+Permission prompts keep the numbered order `1. Allow always`, `2. Allow once`, `3. Cancel`. Key mode starts focused on `Allow once`, so Enter approves only this run without saving a grant. Deliberately choose `Allow always` to save a grant for every Extension and Library. Line mode accepts `always`, `once`, or `cancel`, and an empty line cancels.
+
+`--allow-path <path>` records a supported CLI permission for an exact destination outside the primary content locations. It is a write boundary, not human authorization. Supply the reviewed destination within the task's authority. `--force` permits only its command's documented initial replacement. On Framework and Extension Update it is accepted for compatibility and adds no authority.
+
+## Read Results
+
+Check both semantic status and exit code after every command:
+
+| Status                    | Exit | Next action                                                         |
+| ------------------------- | ---- | ------------------------------------------------------------------- |
+| `completed`               | 0    | Use the result                                                      |
+| `completed-with-warnings` | 2    | Use the result after reviewing warnings                             |
+| `incomplete`              | 3    | Supply required missing facts before relying on the affected result |
+| `invalid-input`           | 4    | Correct syntax, required inputs, or unattended mode                 |
+| `blocked`                 | 5    | Resolve the reported boundary within the task, or report it         |
+| `failed`                  | 1    | Inspect the failure before choosing a retry                         |
+| `cancelled`               | 130  | Treat the operation as cancelled and inspect any reported state     |
+
+Successful, warning, and incomplete text results use stdout. Invalid, blocked, failed, and cancelled text results use stderr. JSON always uses stdout for its result envelope. More detail or filtering never turns an unsuccessful operation into success.
+
+For related tasks, read [discovery](discovery.md), [route maintenance](routes.md), or [Framework and packages](packages.md).
