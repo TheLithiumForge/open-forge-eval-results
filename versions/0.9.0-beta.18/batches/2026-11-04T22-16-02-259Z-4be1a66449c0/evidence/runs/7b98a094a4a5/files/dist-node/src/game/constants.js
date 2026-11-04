@@ -1,0 +1,11 @@
+export const BOARD_SIZES = [4, 6, 8, 10, 12, 14, 16];
+export const MOVE_LIMIT = 999_999;
+export const ELAPSED_LIMIT_MS = 359_999_999;
+export const MISMATCH_MS = 800;
+export const BOARD_CODE_VERSION = "np1";
+export const SNAPSHOT_VERSION = 1;
+export const REPLAY_VERSION = 1;
+export const SNAPSHOT_LIMIT_BYTES = 65_536;
+export const REPLAY_LIMIT_BYTES = 1_048_576;
+export const REPLAY_ACTION_LIMIT = 10_000;
+export const BOARD_CODE_INPUT_LIMIT = 32;

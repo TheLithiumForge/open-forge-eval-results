@@ -1,0 +1,7 @@
+.board-scroll { background:#141827; padding:6px; overflow:auto; max-height:min(70dvh, 768px); border:2px solid #757c9a; border-radius:8px; }
+.board { display:grid; grid-template-columns:repeat(var(--size), minmax(44px, 1fr)); gap:6px; width:100%; min-width:calc(var(--size) * 44px + (var(--size) - 1) * 6px); max-width:calc(var(--size) * 88px + (var(--size) - 1) * 6px); }
+.card { position:relative; display:grid; place-items:center; width:100%; aspect-ratio:1; min-width:44px; padding:0; border:2px solid #757c9a; border-radius:8px; background:#1b2034; cursor:pointer; scroll-margin:6px; transition:border-color 120ms; }
+.card:hover { border-color:#f4f6ff; } .card.revealed { background:#111625; } .card.matched, .card.matched:hover { border-color:#8bea7d; }
+.card svg { width:100%; height:100%; } .back-diamond { width:24%; aspect-ratio:1; border:2px solid #757c9a; transform:rotate(45deg); }
+.check { position:absolute; right:4px; bottom:0; color:#8bea7d; font-size:14px; font-weight:700; line-height:1; }
+@media (prefers-reduced-motion:reduce) { .card { transition:none; } }

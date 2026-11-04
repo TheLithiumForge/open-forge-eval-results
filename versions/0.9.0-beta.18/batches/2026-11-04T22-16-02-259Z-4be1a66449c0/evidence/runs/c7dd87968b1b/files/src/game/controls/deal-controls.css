@@ -1,0 +1,17 @@
+.deal-controls { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+.deal-controls select, .deal-controls button {
+  box-sizing: border-box;
+  min-height: 44px;
+  border: 1px solid #757C9A;
+  border-radius: 8px;
+  background: #141827;
+  color: #F4F6FF;
+  font: inherit;
+}
+.deal-controls select, .deal-controls button { padding: 8px 12px; }
+.deal-controls select { color-scheme: dark; }
+.deal-controls button { cursor: pointer; }
+.deal-controls button:hover { border-color: #F4F6FF; }
+.deal-controls :focus-visible { outline: 3px solid #FFFFFF; outline-offset: 2px; }
+.best-score { margin-left: auto; color: #B8BDD2; }
+@media (max-width: 640px) { .best-score { margin-left: 0; } }

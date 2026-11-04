@@ -1,0 +1,19 @@
+.reproduction { border: 1px solid #757C9A; border-radius: 8px; background: #141827; }
+.reproduction summary { padding: 12px; cursor: pointer; }
+.reproduction-fields { display: grid; gap: 8px; padding: 0 12px 12px; }
+.input-action { display: flex; flex-wrap: wrap; gap: 8px; }
+.input-action button, .input-action input, .reproduction textarea {
+  box-sizing: border-box;
+  min-height: 44px;
+  border: 1px solid #757C9A;
+  border-radius: 8px;
+  background: #141827;
+  color: #F4F6FF;
+  font: inherit;
+}
+.input-action button { padding: 8px 12px; cursor: pointer; }
+.input-action button:hover { border-color: #F4F6FF; }
+.input-action input { flex: 1 1 200px; min-width: 0; padding: 8px 12px; }
+.reproduction textarea { width: 100%; min-height: 112px; resize: vertical; padding: 8px 12px; font-family: ui-monospace, monospace; font-size: 14px; line-height: 20px; }
+.reproduction :focus-visible { outline: 3px solid #FFFFFF; outline-offset: 2px; }
+.control-status { margin: 0; color: #B8BDD2; font-size: 14px; line-height: 20px; }

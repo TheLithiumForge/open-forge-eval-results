@@ -1,0 +1,32 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "lib": ["ES2022"],
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "exactOptionalPropertyTypes": true,
+    "verbatimModuleSyntax": true,
+    "erasableSyntaxOnly": true,
+    "allowImportingTsExtensions": true,
+    "noEmit": true,
+    "composite": true,
+    "skipLibCheck": true,
+    "types": ["node"]
+  },
+  "include": [
+    "vite.config.ts",
+    "vitest.config.ts",
+    "playwright.config.ts",
+    "scripts/**/*.ts",
+    "e2e/**/*.ts",
+    "src/game/model.ts",
+    "src/game/boardCode.ts",
+    "src/game/deck.ts",
+    "src/game/turns.ts",
+    "src/game/inputValidation.ts",
+    "src/game/snapshot.ts",
+    "src/game/replay.ts"
+  ]
+}

@@ -1,0 +1,117 @@
+.deal-controls {
+  display: flex;
+  align-items: end;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.size-field,
+.reproduction-field {
+  display: grid;
+  gap: 6px;
+  color: #b8bdd2;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.size-field select,
+.reproduction-field input,
+.reproduction-field textarea,
+.control-button {
+  box-sizing: border-box;
+  min-height: 44px;
+  padding: 8px 12px;
+  color: #f4f6ff;
+  background: #141827;
+  border: 1px solid #757c9a;
+  border-radius: 8px;
+  font: inherit;
+}
+
+.size-field select {
+  min-width: 112px;
+  cursor: pointer;
+}
+
+.control-button {
+  color: #f4f6ff;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 24px;
+  transition: border-color 120ms ease, background-color 120ms ease;
+}
+
+.control-button:hover {
+  border-color: #f4f6ff;
+  background: #1b2034;
+}
+
+.control-button.primary {
+  border-color: #63e7ff;
+}
+
+.control-button:focus-visible,
+.size-field select:focus-visible,
+.reproduction-field input:focus-visible,
+.reproduction-field textarea:focus-visible,
+.reproduction-panel summary:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: 2px;
+}
+
+.reproduction-area {
+  display: grid;
+  gap: 8px;
+}
+
+.reproduction-panel {
+  padding: 12px;
+  color: #f4f6ff;
+  background: #141827;
+  border: 1px solid #757c9a;
+  border-radius: 8px;
+}
+
+.reproduction-panel summary {
+  width: fit-content;
+  color: #f4f6ff;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.reproduction-content {
+  display: grid;
+  gap: 16px;
+  padding-top: 16px;
+}
+
+.reproduction-field input,
+.reproduction-field textarea {
+  width: 100%;
+}
+
+.reproduction-field textarea {
+  min-height: 160px;
+  resize: vertical;
+  font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+  font-size: 13px;
+  line-height: 20px;
+}
+
+.input-action-row,
+.snapshot-actions {
+  display: flex;
+  align-items: end;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.input-action-row input {
+  flex: 1 1 200px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .control-button {
+    transition: none;
+  }
+}

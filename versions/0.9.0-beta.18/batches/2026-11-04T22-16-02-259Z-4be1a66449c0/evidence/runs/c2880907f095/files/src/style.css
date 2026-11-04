@@ -1,0 +1,5 @@
+* { box-sizing: border-box; }
+html { background: #090B14; color: #F4F6FF; }
+body { min-height: 100vh; margin: 0; background: #090B14; color: #F4F6FF; font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; font-size: 16px; line-height: 24px; }
+button, input, select, textarea { font: inherit; }
+button { color: inherit; }

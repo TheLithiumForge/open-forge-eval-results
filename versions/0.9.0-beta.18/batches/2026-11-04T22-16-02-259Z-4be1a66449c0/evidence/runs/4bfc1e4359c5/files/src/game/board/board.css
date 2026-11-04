@@ -1,0 +1,47 @@
+.boardScroll {
+  width: 100%;
+  max-height: min(768px, 70dvh);
+  overflow: auto;
+  padding: 6px;
+  border: 1px solid #757c9a;
+  border-radius: 12px;
+  background: #141827;
+  overscroll-behavior: contain;
+}
+
+.boardGrid {
+  --card-size: clamp(44px, calc((min(1120px, 100vw - 34px) - 14px - (var(--grid-size) - 1) * 6px) / var(--grid-size)), 88px);
+  display: grid;
+  grid-template-columns: repeat(var(--grid-size), var(--card-size));
+  gap: 6px;
+  width: max-content;
+  margin: auto;
+}
+
+.memoryCard {
+  position: relative;
+  display: grid;
+  width: var(--card-size);
+  height: var(--card-size);
+  place-items: center;
+  padding: 0;
+  border: 2px solid #757c9a;
+  border-radius: 8px;
+  background: #1b2034;
+  color: #f4f6ff;
+  cursor: pointer;
+  scroll-margin: 6px;
+  transition: border-color 120ms ease;
+}
+
+.memoryCard:hover { border-color: #f4f6ff; }
+.memoryCard:focus-visible { outline: 3px solid #fff; outline-offset: 2px; z-index: 1; }
+.memoryCard.isRevealed { background: #111625; }
+.memoryCard.isMatched { border-color: #8bea7d; background: #111625; }
+.memoryCard.isMatched:hover { border-color: #8bea7d; }
+.faceArtwork, .cardBackMark { display: block; width: 100%; height: 100%; }
+.matchedMark { position: absolute; right: 2px; bottom: 0; color: #8bea7d; font-size: 14px; font-weight: 800; line-height: 1; }
+
+@media (prefers-reduced-motion: reduce) {
+  .memoryCard { transition: none; }
+}

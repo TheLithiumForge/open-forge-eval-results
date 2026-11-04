@@ -1,0 +1,50 @@
+.board-scroll {
+  box-sizing: border-box;
+  max-height: min(70dvh, 768px);
+  overflow: auto;
+  padding: 6px;
+  background: #141827;
+  border: 1px solid #757C9A;
+  border-radius: 8px;
+  overscroll-behavior: contain;
+}
+
+.board-grid {
+  display: grid;
+  width: max-content;
+  grid-template-columns: repeat(var(--columns), var(--card-size));
+  gap: 6px;
+  margin-inline: auto;
+}
+
+.card {
+  position: relative;
+  box-sizing: border-box;
+  display: grid;
+  place-items: center;
+  width: var(--card-size);
+  height: var(--card-size);
+  min-width: 44px;
+  min-height: 44px;
+  padding: 4px;
+  border: 2px solid #757C9A;
+  border-radius: 8px;
+  background: #1B2034;
+  color: #F4F6FF;
+  cursor: pointer;
+  scroll-margin: 6px;
+  transition: border-color 120ms ease;
+}
+
+.card:hover { border-color: #F4F6FF; }
+.card:focus-visible { outline: 3px solid #FFFFFF; outline-offset: 2px; z-index: 1; }
+.card--revealed { background: #111625; }
+.card--matched { border-color: #8BEA7D; opacity: 1; }
+.card--matched:hover { border-color: #8BEA7D; }
+.face-svg { display: block; width: 100%; height: 100%; }
+.back-face polygon { fill: none; stroke: #B8BDD2; stroke-width: 7; }
+.card-check { position: absolute; right: 1px; bottom: 0; color: #8BEA7D; font-size: 13px; line-height: 14px; }
+
+@media (prefers-reduced-motion: reduce) {
+  .card { transition: none; }
+}

@@ -1,0 +1,18 @@
+.score-row { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; }
+.score-row > div { display: grid; gap: 4px; min-width: 0; padding: 12px; border: 1px solid #30364f; border-radius: 12px; background: #141827; }
+.score-row span { color: #B8BDD2; font-size: 14px; }
+.score-row strong { overflow-wrap: anywhere; color: #F4F6FF; font-size: 16px; font-weight: 650; }
+.score-row > div:nth-child(1) strong { color: #63E7FF; }
+.score-row > div:nth-child(2) strong { color: #8BEA7D; }
+.score-row > div:nth-child(3) strong { color: #FF71D6; }
+.win-banner { display: flex; align-items: center; justify-content: center; gap: 16px; min-height: 84px; padding: 12px 16px; border: 1px solid #8BEA7D; border-radius: 14px; background: linear-gradient(100deg, #162328, #1b2034 52%, #162328); text-align: center; }
+.win-banner h2 { margin: 0; color: #8BEA7D; font-size: 20px; line-height: 1.25; }
+.win-banner p { margin: 4px 0 0; color: #F4F6FF; font-size: 14px; }
+.win-spark { color: #FFE082; font-size: 24px; }
+.win-celebrate { animation: win-pulse 600ms ease-out 1; }
+@keyframes win-pulse { 0% { transform: scale(.98); box-shadow: 0 0 0 0 #8BEA7D33; } 55% { transform: scale(1.015); box-shadow: 0 0 24px 2px #8BEA7D44; } 100% { transform: scale(1); box-shadow: 0 0 0 0 transparent; } }
+
+@media (max-width: 520px) {
+  .score-row { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (prefers-reduced-motion: reduce) { .win-celebrate { animation: none; } }

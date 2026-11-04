@@ -1,0 +1,42 @@
+.dealControls, .fieldActionRow, .fieldActions { display: flex; align-items: end; flex-wrap: wrap; gap: 8px; }
+.dealControls { align-items: end; gap: 12px; }
+.sizeControl, .reproductionField { display: grid; gap: 6px; }
+.sizeControl { color: #b8bdd2; font-size: 14px; }
+.sizeControl select, .actionButton, .reproductionField input, .reproductionField textarea {
+  min-height: 44px;
+  border: 1px solid #757c9a;
+  border-radius: 8px;
+  background: #141827;
+  color: #f4f6ff;
+  font: inherit;
+}
+.sizeControl select, .reproductionField input, .reproductionField textarea { padding: 8px 12px; }
+.actionButton { padding: 8px 16px; cursor: pointer; }
+.actionButton:hover { border-color: #f4f6ff; }
+.actionButton:focus-visible, .sizeControl select:focus-visible, .reproductionField input:focus-visible,
+.reproductionField textarea:focus-visible, .reproductionPanel summary:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: 2px;
+}
+.primaryAction { border-color: #63e7ff; color: #63e7ff; }
+.reproductionPanel { width: 100%; padding: 16px; border: 1px solid #757c9a; border-radius: 12px; background: #141827; }
+.reproductionPanel summary { width: fit-content; color: #f4f6ff; cursor: pointer; }
+.reproductionContent { display: grid; gap: 16px; padding-top: 16px; }
+.reproductionField { min-width: 0; }
+.reproductionField label { color: #b8bdd2; font-size: 14px; }
+.reproductionField input { width: min(100%, 360px); }
+.reproductionField textarea { width: 100%; resize: vertical; font-family: ui-monospace, SFMono-Regular, Consolas, monospace; font-size: 14px; }
+.fieldActionRow { align-items: stretch; }
+.fieldActions { align-items: center; }
+.reproductionStatus { min-height: 24px; margin: 0; color: #b8bdd2; font-size: 14px; }
+.screenReaderOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}

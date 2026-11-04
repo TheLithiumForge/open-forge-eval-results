@@ -1,0 +1,100 @@
+.game-controls {
+  display: grid;
+  gap: 12px;
+}
+
+.deal-actions,
+.field-action {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+button,
+select,
+input,
+textarea {
+  max-width: 100%;
+  border: 1px solid #757C9A;
+  border-radius: 8px;
+  background: #141827;
+  color: #F4F6FF;
+  font: inherit;
+}
+
+button,
+select,
+input {
+  min-height: 44px;
+  padding: 8px 12px;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:hover {
+  border-color: #F4F6FF;
+}
+
+button:focus-visible,
+select:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+summary:focus-visible {
+  outline: 3px solid #FFFFFF;
+  outline-offset: 2px;
+}
+
+.game-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 24px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.reproduction-area {
+  display: grid;
+  gap: 6px;
+}
+
+.reproduction {
+  padding: 12px;
+  border-radius: 8px;
+  background: #141827;
+}
+
+.reproduction summary {
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.reproduction-fields {
+  display: grid;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.field-action input {
+  flex: 1 1 220px;
+}
+
+.reproduction textarea {
+  width: 100%;
+  min-height: 140px;
+  padding: 8px 12px;
+  resize: vertical;
+  font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.load-status {
+  min-height: 24px;
+  margin: 0;
+  color: #B8BDD2;
+  font-size: 14px;
+}

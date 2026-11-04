@@ -1,0 +1,34 @@
+:root { color-scheme: dark; font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; font-synthesis: none; text-rendering: optimizeLegibility; }
+* { box-sizing: border-box; }
+html { min-width: 320px; background: #090B14; }
+body { min-width: 320px; min-height: 100vh; margin: 0; background: #090B14; color: #F4F6FF; font-size: 16px; line-height: 24px; }
+button, input, textarea, select { font-family: inherit; }
+.game-shell { width: 100%; max-width: 1152px; min-height: 100vh; margin: 0 auto; padding: 24px 16px 16px; display: flex; flex-direction: column; gap: 24px; }
+.game-header { display: flex; align-items: center; gap: 12px; min-height: 48px; }
+.brand-mark { display: grid; width: 44px; height: 44px; flex: 0 0 44px; place-items: center; border: 1px solid #63E7FF; border-radius: 14px; color: #63E7FF; text-decoration: none; font-size: 14px; font-weight: 800; letter-spacing: -1px; box-shadow: inset 0 0 14px #63E7FF22; }
+.brand-mark:focus-visible { outline: 3px solid #FFFFFF; outline-offset: 2px; }
+.heading-copy { display: grid; gap: 0; }
+.eyebrow { margin: 0; color: #B8BDD2; font-size: 14px; line-height: 20px; letter-spacing: .08em; text-transform: uppercase; }
+h1 { margin: 0; font-size: 24px; line-height: 30px; letter-spacing: -.03em; }
+.header-note { margin: 0 0 0 auto; color: #B8BDD2; font-size: 14px; text-align: right; }
+.game-content { display: grid; gap: 16px; }
+.play-panel { display: grid; gap: 12px; padding: 16px; border: 1px solid #30364f; border-radius: 18px; background: linear-gradient(145deg, #141827, #101522); }
+.board-heading { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+.board-heading h2 { margin: 0; font-size: 18px; line-height: 24px; }
+.board-heading p { margin: 4px 0 0; color: #B8BDD2; font-size: 14px; line-height: 20px; }
+.board-count { flex: 0 0 auto; padding: 4px 8px; border: 1px solid #454c68; border-radius: 999px; color: #B8BDD2; font-size: 14px; line-height: 20px; }
+.resume-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-top: 4px; }
+.resume-row p { margin: 0; color: #B8BDD2; font-size: 14px; }
+.keyboard-help { margin: 0; color: #B8BDD2; font-size: 14px; }
+.live-announcer { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0, 0, 0, 0); clip-path: inset(50%); white-space: nowrap; }
+.game-footer { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; margin-top: auto; padding-top: 16px; color: #B8BDD2; font-size: 14px; }
+.game-footer i { margin-left: 4px; color: #FF71D6; font-style: normal; }
+
+@media (max-width: 520px) {
+  .game-shell { gap: 16px; padding-top: 16px; }
+  .header-note { max-width: 100px; }
+  .play-panel { padding: 12px; }
+  .board-heading { align-items: start; }
+  .board-heading p { max-width: 260px; }
+  .resume-row { align-items: start; flex-direction: column; }
+}

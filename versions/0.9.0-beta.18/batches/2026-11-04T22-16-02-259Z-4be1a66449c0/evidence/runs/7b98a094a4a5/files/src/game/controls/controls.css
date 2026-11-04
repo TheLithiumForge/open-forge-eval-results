@@ -1,0 +1,67 @@
+.reproduction-panel {
+  min-width: 0;
+  padding: 16px;
+  border-radius: 8px;
+  background: var(--color-panel);
+}
+
+.reproduction-panel summary {
+  width: fit-content;
+  color: var(--color-text);
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.reproduction-content {
+  display: grid;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.reproduction-field {
+  display: grid;
+  min-width: 0;
+  gap: 8px;
+}
+
+.reproduction-field label {
+  color: var(--color-secondary);
+  font-size: 14px;
+}
+
+.field-row {
+  display: flex;
+  min-width: 0;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.field-row input {
+  flex: 1 1 180px;
+}
+
+.reproduction-field textarea {
+  box-sizing: border-box;
+  width: 100%;
+  resize: vertical;
+  font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+  font-size: 14px;
+}
+
+.reproduction-status {
+  min-height: 24px;
+  margin: 0;
+  color: var(--color-secondary);
+  font-size: 14px;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  clip-path: inset(50%);
+}

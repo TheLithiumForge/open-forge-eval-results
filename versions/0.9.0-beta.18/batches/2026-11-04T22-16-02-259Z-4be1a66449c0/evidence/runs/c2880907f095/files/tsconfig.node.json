@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "lib": ["ES2022"],
+    "module": "ESNext",
+    "skipLibCheck": true,
+    "moduleResolution": "Bundler",
+    "allowImportingTsExtensions": true,
+    "noEmit": true,
+    "verbatimModuleSyntax": true,
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "exactOptionalPropertyTypes": true,
+    "erasableSyntaxOnly": true,
+    "composite": true,
+    "types": ["node"]
+  },
+  "include": [
+    "vite.config.ts", "playwright.config.ts", "src/game/replay-cli.ts",
+    "src/game/replay.ts", "src/game/snapshot.ts", "src/game/state.ts",
+    "src/game/board-code.ts", "src/game/constants.ts", "src/game/types.ts"
+  ]
+}

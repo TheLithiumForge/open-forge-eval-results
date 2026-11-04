@@ -1,0 +1,18 @@
+.deal-controls { display: flex; align-items: end; flex-wrap: wrap; gap: 12px; }
+.size-label { display: grid; gap: 4px; color: #B8BDD2; font-size: 14px; }
+.size-label select { min-width: 112px; }
+.action-button, .size-label select, .reproduction input, .reproduction textarea {
+  border: 1px solid #757C9A;
+  border-radius: 8px;
+  background: #141827;
+  color: #F4F6FF;
+  font: inherit;
+}
+.action-button, .size-label select { min-height: 44px; padding: 8px 12px; }
+.action-button { cursor: pointer; }
+.action-button:hover { border-color: #F4F6FF; }
+.action-button:focus-visible, .size-label select:focus-visible,
+.reproduction input:focus-visible, .reproduction textarea:focus-visible {
+  outline: 3px solid #FFFFFF; outline-offset: 2px;
+}
+@media (max-width: 400px) { .deal-controls { gap: 8px; } }

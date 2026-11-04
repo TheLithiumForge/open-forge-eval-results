@@ -1,0 +1,12 @@
+export declare const BOARD_SIZES: readonly [4, 6, 8, 10, 12, 14, 16];
+export type BoardSize = (typeof BOARD_SIZES)[number];
+export declare const MOVE_LIMIT = 999999;
+export declare const ELAPSED_LIMIT_MS = 359999999;
+export declare const MISMATCH_MS = 800;
+export declare const BOARD_CODE_VERSION = "np1";
+export declare const SNAPSHOT_VERSION = 1;
+export declare const REPLAY_VERSION = 1;
+export declare const SNAPSHOT_LIMIT_BYTES = 65536;
+export declare const REPLAY_LIMIT_BYTES = 1048576;
+export declare const REPLAY_ACTION_LIMIT = 10000;
+export declare const BOARD_CODE_INPUT_LIMIT = 32;

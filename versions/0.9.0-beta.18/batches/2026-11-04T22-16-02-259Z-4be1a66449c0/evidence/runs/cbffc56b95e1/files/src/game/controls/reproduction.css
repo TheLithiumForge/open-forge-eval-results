@@ -1,0 +1,14 @@
+.reproduction-panel {
+  padding: 12px;
+  background: #141827;
+  border: 1px solid #757c9a;
+  border-radius: 12px;
+}
+
+.reproduction-panel summary { min-height: 24px; cursor: pointer; font-weight: 700; }
+.reproduction-fields { display: grid; gap: 8px; margin-top: 12px; }
+.reproduction-fields > label { font-weight: 700; }
+.field-row { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+.field-row input { flex: 1 1 220px; min-width: 0; min-height: 44px; padding: 8px 12px; }
+.reproduction-fields textarea { width: 100%; min-height: 128px; padding: 8px 12px; resize: vertical; font-family: ui-monospace, SFMono-Regular, Consolas, monospace; font-size: 14px; line-height: 20px; }
+.load-status { min-height: 24px; margin: 0; color: #b8bdd2; font-size: 14px; }

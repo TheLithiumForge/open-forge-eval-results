@@ -1,0 +1,5 @@
+.board-scroll { background:#141827; padding:6px; overflow:auto; max-height:min(70dvh, 768px); max-width:100%; }
+.board { --card-size: clamp(44px, (min(100vw - 44px, 1108px) - (var(--size) - 1) * 6px) / var(--size), 88px); display:grid; grid-template-columns:repeat(var(--size), var(--card-size)); gap:6px; width:max-content; }
+.card { width:var(--card-size); height:var(--card-size); padding:0; border:2px solid #757C9A; border-radius:8px; background:#1B2034; position:relative; display:grid; place-items:center; cursor:pointer; scroll-margin:6px; transition:border-color 120ms; }
+.card:hover { border-color:#F4F6FF; } .card.revealed { background:#111625; } .card.matched, .card.matched:hover { border-color:#8BEA7D; } .card svg { width:100%; height:100%; } .back-diamond { width:25%; height:25%; border:2px solid #757C9A; transform:rotate(45deg); } .check { position:absolute; right:2px; bottom:0; color:#8BEA7D; font-weight:bold; line-height:1; text-shadow:0 0 3px #111625; }
+@media (prefers-reduced-motion:reduce) { .card { transition:none; } }

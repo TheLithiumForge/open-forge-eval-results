@@ -1,0 +1,64 @@
+# Automated Chromium accessibility tree
+
+Collected after the keyboard completion journey.
+
+```yaml
+- main:
+  - paragraph: A little neon, a lot of memory
+  - heading "Neon Pairs" [level=1]
+  - paragraph: Find every matching pair. Take a breath, study the faces, and make each move count.
+  - region "Game":
+    - paragraph:
+      - text: "Moves:"
+      - strong: "8"
+    - paragraph:
+      - text: "Pairs:"
+      - strong: 8/8
+    - paragraph:
+      - text: "Time:"
+      - strong: 0:00
+    - paragraph:
+      - text: "Best:"
+      - strong: "8"
+    - text: Grid size
+    - combobox "Grid size":
+      - option "4x4" [selected]
+      - option "6x6"
+      - option "8x8"
+      - option "10x10"
+      - option "12x12"
+      - option "14x14"
+      - option "16x16"
+    - button "New Game"
+    - button "Restart"
+    - region "Game complete":
+      - strong: Every pair found!
+      - text: 8 moves · 0:00
+    - group "Game board":
+      - button "Row 1, column 1, cyan solid plus, marker top, matched" [disabled]
+      - button "Row 1, column 2, cyan solid chevron, marker top, matched" [disabled]
+      - button "Row 1, column 3, cyan solid circle, marker top, matched" [disabled]
+      - button "Row 1, column 4, cyan solid hexagon, marker top, matched" [disabled]
+      - button "Row 2, column 1, cyan solid triangle, marker top, matched" [disabled]
+      - button "Row 2, column 2, cyan solid triangle, marker top, matched" [disabled]
+      - button "Row 2, column 3, cyan solid circle, marker top, matched" [disabled]
+      - button "Row 2, column 4, cyan solid hexagon, marker top, matched" [disabled]
+      - button "Row 3, column 1, cyan solid diamond, marker top, matched" [disabled]
+      - button "Row 3, column 2, cyan solid chevron, marker top, matched" [disabled]
+      - button "Row 3, column 3, cyan solid square, marker top, matched" [disabled]
+      - button "Row 3, column 4, cyan solid plus, marker top, matched" [disabled]
+      - button "Row 4, column 1, cyan solid star, marker top, matched" [disabled]
+      - button "Row 4, column 2, cyan solid star, marker top, matched" [disabled]
+      - button "Row 4, column 3, cyan solid square, marker top, matched" [disabled]
+      - button "Row 4, column 4, cyan solid diamond, marker top, matched" [disabled]
+    - group:
+      - text: Reproduce a game Board code
+      - textbox "Board code": np1-4-1
+      - button "Load board"
+      - text: Snapshot JSON
+      - textbox "Snapshot JSON"
+      - button "Export snapshot"
+      - button "Load snapshot"
+    - status: Pair found. All pairs found in 8 moves and 0:00.
+  - text: All play stays on this device. The game is silent by design.
+```

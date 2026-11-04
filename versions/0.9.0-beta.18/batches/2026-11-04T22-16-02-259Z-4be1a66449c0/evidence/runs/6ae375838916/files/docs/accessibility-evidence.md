@@ -1,0 +1,168 @@
+# Chromium accessibility tree evidence
+
+Initial revealed card:
+```yaml
+- main:
+  - paragraph: A MEMORY GAME
+  - heading "Neon Pairs" [level=1]
+  - paragraph: Find the matching pairs. Remember the glow.
+  - text: Grid size
+  - combobox "Grid size":
+    - option "4x4" [selected]
+    - option "6x6"
+    - option "8x8"
+    - option "10x10"
+    - option "12x12"
+    - option "14x14"
+    - option "16x16"
+  - button "New Game"
+  - button "Restart"
+  - region "Game status":
+    - text: "Moves:"
+    - strong: "0"
+    - text: "Pairs:"
+    - strong: 0/8
+    - text: "Time:"
+    - strong: 0:00
+    - text: "Best:"
+    - strong: none
+  - button "Row 1, column 1, cyan solid plus, marker top, revealed"
+  - button "Row 1, column 2, closed"
+  - button "Row 1, column 3, closed"
+  - button "Row 1, column 4, closed"
+  - button "Row 2, column 1, closed"
+  - button "Row 2, column 2, closed"
+  - button "Row 2, column 3, closed"
+  - button "Row 2, column 4, closed"
+  - button "Row 3, column 1, closed"
+  - button "Row 3, column 2, closed"
+  - button "Row 3, column 3, closed"
+  - button "Row 3, column 4, closed"
+  - button "Row 4, column 1, closed"
+  - button "Row 4, column 2, closed"
+  - button "Row 4, column 3, closed"
+  - button "Row 4, column 4, closed"
+  - paragraph: Choose two cards to find a pair. Use arrow keys to move around the board.
+  - group:
+    - text: Reproduce a game Board code
+    - textbox "Board code": np1-4-1
+    - button "Load board"
+    - text: Snapshot JSON
+    - textbox "Snapshot JSON"
+    - button "Export snapshot"
+    - button "Load snapshot"
+    - paragraph: Loaded board.
+  - status: Loaded board.
+```
+
+First match:
+```yaml
+- main:
+  - paragraph: A MEMORY GAME
+  - heading "Neon Pairs" [level=1]
+  - paragraph: Find the matching pairs. Remember the glow.
+  - text: Grid size
+  - combobox "Grid size":
+    - option "4x4" [selected]
+    - option "6x6"
+    - option "8x8"
+    - option "10x10"
+    - option "12x12"
+    - option "14x14"
+    - option "16x16"
+  - button "New Game"
+  - button "Restart"
+  - region "Game status":
+    - text: "Moves:"
+    - strong: "1"
+    - text: "Pairs:"
+    - strong: 1/8
+    - text: "Time:"
+    - strong: 0:00
+    - text: "Best:"
+    - strong: none
+  - button "Row 1, column 1, cyan solid plus, marker top, matched" [disabled]
+  - button "Row 1, column 2, closed"
+  - button "Row 1, column 3, closed"
+  - button "Row 1, column 4, closed"
+  - button "Row 2, column 1, closed"
+  - button "Row 2, column 2, closed"
+  - button "Row 2, column 3, closed"
+  - button "Row 2, column 4, closed"
+  - button "Row 3, column 1, closed"
+  - button "Row 3, column 2, closed"
+  - button "Row 3, column 3, closed"
+  - button "Row 3, column 4, cyan solid plus, marker top, matched" [disabled]
+  - button "Row 4, column 1, closed"
+  - button "Row 4, column 2, closed"
+  - button "Row 4, column 3, closed"
+  - button "Row 4, column 4, closed"
+  - paragraph: Choose two cards to find a pair. Use arrow keys to move around the board.
+  - group:
+    - text: Reproduce a game Board code
+    - textbox "Board code": np1-4-1
+    - button "Load board"
+    - text: Snapshot JSON
+    - textbox "Snapshot JSON"
+    - button "Export snapshot"
+    - button "Load snapshot"
+    - paragraph: Loaded board.
+  - status: Pair found. 1 pair matched.
+```
+
+Completed game:
+```yaml
+- main:
+  - paragraph: A MEMORY GAME
+  - heading "Neon Pairs" [level=1]
+  - paragraph: Find the matching pairs. Remember the glow.
+  - text: Grid size
+  - combobox "Grid size":
+    - option "4x4" [selected]
+    - option "6x6"
+    - option "8x8"
+    - option "10x10"
+    - option "12x12"
+    - option "14x14"
+    - option "16x16"
+  - button "New Game"
+  - button "Restart"
+  - region "Game status":
+    - text: "Moves:"
+    - strong: "8"
+    - text: "Pairs:"
+    - strong: 8/8
+    - text: "Time:"
+    - strong: 0:00
+    - text: "Best:"
+    - strong: "8"
+  - strong: All pairs found!
+  - text: Completed in 8 moves and 0:00.
+  - button "Row 1, column 1, cyan solid plus, marker top, matched" [disabled]
+  - button "Row 1, column 2, cyan solid chevron, marker top, matched" [disabled]
+  - button "Row 1, column 3, cyan solid circle, marker top, matched" [disabled]
+  - button "Row 1, column 4, cyan solid hexagon, marker top, matched" [disabled]
+  - button "Row 2, column 1, cyan solid triangle, marker top, matched" [disabled]
+  - button "Row 2, column 2, cyan solid triangle, marker top, matched" [disabled]
+  - button "Row 2, column 3, cyan solid circle, marker top, matched" [disabled]
+  - button "Row 2, column 4, cyan solid hexagon, marker top, matched" [disabled]
+  - button "Row 3, column 1, cyan solid diamond, marker top, matched" [disabled]
+  - button "Row 3, column 2, cyan solid chevron, marker top, matched" [disabled]
+  - button "Row 3, column 3, cyan solid square, marker top, matched" [disabled]
+  - button "Row 3, column 4, cyan solid plus, marker top, matched" [disabled]
+  - button "Row 4, column 1, cyan solid star, marker top, matched" [disabled]
+  - button "Row 4, column 2, cyan solid star, marker top, matched" [disabled]
+  - button "Row 4, column 3, cyan solid square, marker top, matched" [disabled]
+  - button "Row 4, column 4, cyan solid diamond, marker top, matched" [disabled]
+  - paragraph: Choose two cards to find a pair. Use arrow keys to move around the board.
+  - group:
+    - text: Reproduce a game Board code
+    - textbox "Board code": np1-4-1
+    - button "Load board"
+    - text: Snapshot JSON
+    - textbox "Snapshot JSON"
+    - button "Export snapshot"
+    - button "Load snapshot"
+    - paragraph: Loaded board.
+  - status: Pair found. All pairs found in 8 moves and 0:00.
+```

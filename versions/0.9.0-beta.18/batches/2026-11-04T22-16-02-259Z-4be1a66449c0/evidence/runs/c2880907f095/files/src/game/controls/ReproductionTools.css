@@ -1,0 +1,16 @@
+.reproduction {
+  padding: 12px 16px;
+  border: 1px solid #757C9A;
+  border-radius: 12px;
+  background: #141827;
+}
+.reproduction summary { cursor: pointer; font-weight: 600; }
+.reproduction summary:focus-visible { outline: 3px solid #FFFFFF; outline-offset: 3px; }
+.reproduction-content { display: grid; gap: 16px; padding-top: 16px; }
+.reproduction-field { display: grid; gap: 8px; }
+.reproduction-field label { color: #B8BDD2; font-size: 14px; }
+.field-row { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+.reproduction input { flex: 1 1 250px; min-width: 0; min-height: 44px; padding: 8px 12px; }
+.reproduction textarea { display: block; width: 100%; min-height: 120px; padding: 8px 12px; resize: vertical; font-family: ui-monospace, monospace; font-size: 14px; }
+.field-hint { color: #B8BDD2; font-size: 14px; }
+.live-status { min-height: 24px; margin: 0; color: #B8BDD2; font-size: 14px; }

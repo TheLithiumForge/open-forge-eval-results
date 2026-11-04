@@ -1,0 +1,30 @@
+.controls { display: grid; gap: 12px; }
+.deal-controls { display: flex; flex-wrap: wrap; align-items: end; gap: 8px; }
+.deal-controls label { min-width: 132px; }
+.controls label { display: grid; gap: 4px; color: #b8bdd2; font-size: 14px; }
+.controls input, .controls textarea, .controls select, .controls button {
+  box-sizing: border-box;
+  min-height: 44px;
+  border: 1px solid #757c9a;
+  border-radius: 8px;
+  background: #141827;
+  color: #f4f6ff;
+  font: inherit;
+}
+.controls select, .controls input, .controls button { padding: 8px 12px; }
+.controls button { cursor: pointer; }
+.controls button:hover, .controls summary:hover { border-color: #f4f6ff; color: #fff; }
+.controls :focus-visible { outline: 3px solid #fff; outline-offset: 2px; }
+.reproduction { border: 1px solid #757c9a; border-radius: 8px; background: #141827; }
+.reproduction summary { min-height: 44px; padding: 8px 12px; cursor: pointer; }
+.reproduction-body { display: grid; gap: 12px; padding: 0 12px 12px; }
+.field-action { display: flex; flex-wrap: wrap; gap: 8px; }
+.field-action input { flex: 1 1 220px; min-width: 0; }
+.controls textarea { width: 100%; min-height: 120px; padding: 8px 12px; resize: vertical; overflow-wrap: anywhere; }
+.snapshot-actions { display: flex; flex-wrap: wrap; gap: 8px; }
+
+@media (max-width: 480px) {
+  .deal-controls label { flex: 1 1 100%; }
+  .deal-controls button { flex: 1 1 auto; }
+  .field-action button { flex: 1 1 100%; }
+}

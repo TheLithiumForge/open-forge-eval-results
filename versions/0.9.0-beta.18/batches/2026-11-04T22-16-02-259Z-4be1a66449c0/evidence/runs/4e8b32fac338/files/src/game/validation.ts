@@ -1,0 +1,7 @@
+export function object(value: unknown): value is Record<string, unknown> { return typeof value === 'object' && value !== null && !Array.isArray(value); }
+export function keys(value: Record<string, unknown>, expected: readonly string[]): boolean { return Object.keys(value).length === expected.length && expected.every(key => Object.hasOwn(value, key)); }
+export function integer(value: unknown, min: number, max: number): value is number { return typeof value === 'number' && Number.isSafeInteger(value) && value >= min && value <= max; }
+export function parseJSON(text: string, limit: number): unknown {
+  if (new TextEncoder().encode(text).length > limit) return null;
+  try { return JSON.parse(text) as unknown; } catch { return null; }
+}

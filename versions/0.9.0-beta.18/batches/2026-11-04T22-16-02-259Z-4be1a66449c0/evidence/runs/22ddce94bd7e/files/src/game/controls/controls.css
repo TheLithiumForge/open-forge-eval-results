@@ -1,0 +1,14 @@
+.deal-controls, .button-row { display: flex; align-items: end; flex-wrap: wrap; gap: 8px; }
+.deal-controls label { display: grid; gap: 4px; color: #b8bdd2; font-size: 14px; }
+button:not(.card), select, input, textarea { font: inherit; color: #f4f6ff; background: #141827; border: 1px solid #757c9a; border-radius: 8px; padding: 8px 12px; }
+button:not(.card), select, summary { cursor: pointer; }
+button:not(.card):hover, select:hover { border-color: #f4f6ff; }
+button:not(.card):focus-visible, select:focus-visible, input:focus-visible, textarea:focus-visible, summary:focus-visible { outline: 3px solid white; outline-offset: 2px; }
+.reproduction { background: #141827; border: 1px solid #757c9a; border-radius: 8px; padding: 16px; }
+.reproduction summary { font-weight: 700; }
+.reproduction p { color: #b8bdd2; font-size: 14px; margin: 12px 0; }
+.input-row, .snapshot-controls { display: flex; flex-wrap: wrap; align-items: end; gap: 8px; margin-top: 12px; }
+.input-row label, .snapshot-controls label { flex-basis: 100%; font-size: 14px; color: #b8bdd2; }
+.input-row input { flex: 1 1 180px; min-width: 0; }
+.snapshot-controls textarea { width: 100%; resize: vertical; }
+.load-status:empty { display: none; }

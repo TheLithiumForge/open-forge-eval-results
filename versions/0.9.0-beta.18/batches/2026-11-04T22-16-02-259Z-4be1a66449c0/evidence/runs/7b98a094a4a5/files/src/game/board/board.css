@@ -1,0 +1,90 @@
+.board-section {
+  min-width: 0;
+  display: grid;
+  gap: 8px;
+}
+
+.board-help {
+  margin: 0;
+  color: var(--color-secondary);
+  font-size: 14px;
+  line-height: 24px;
+}
+
+.board-scroll {
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
+  max-height: min(70dvh, 768px);
+  overflow: auto;
+  padding: 6px;
+  border-radius: 8px;
+  background: var(--color-panel);
+  overscroll-behavior: contain;
+}
+
+.board-grid {
+  display: grid;
+  width: max-content;
+  grid-template-columns: repeat(var(--columns), var(--card-size));
+  grid-auto-rows: var(--card-size);
+  gap: 6px;
+}
+
+.card {
+  position: relative;
+  box-sizing: border-box;
+  display: grid;
+  width: var(--card-size);
+  height: var(--card-size);
+  place-items: center;
+  padding: 4px;
+  border: 2px solid var(--color-border);
+  border-radius: 8px;
+  background: var(--color-back);
+  color: var(--color-text);
+  cursor: pointer;
+  scroll-margin: 6px;
+  transition: border-color 120ms ease;
+}
+
+.card:hover {
+  border-color: var(--color-text);
+}
+
+.card:focus-visible {
+  outline: 3px solid var(--color-focus);
+  outline-offset: 2px;
+  z-index: 1;
+}
+
+.card--revealed {
+  background: var(--color-face);
+}
+
+.card--matched,
+.card--matched:hover {
+  border-color: #8BEA7D;
+}
+
+.card svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.card__check {
+  position: absolute;
+  right: 2px;
+  bottom: 0;
+  color: #8BEA7D;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 16px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card {
+    transition: none;
+  }
+}

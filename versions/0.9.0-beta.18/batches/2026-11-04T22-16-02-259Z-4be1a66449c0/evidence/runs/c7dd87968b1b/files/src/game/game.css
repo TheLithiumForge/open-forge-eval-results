@@ -1,0 +1,32 @@
+.game-shell {
+  box-sizing: border-box;
+  width: min(100%, 1120px);
+  margin-inline: auto;
+  padding: 16px;
+  display: grid;
+  gap: 16px;
+}
+
+.game-header {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+h1 { margin: 0; font-size: 24px; line-height: 32px; }
+.intro { margin: 4px 0 0; color: #B8BDD2; font-size: 14px; line-height: 20px; }
+.score-strip { display: flex; flex-wrap: wrap; gap: 8px 16px; color: #F4F6FF; }
+.win-banner { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 16px; padding: 12px; border: 1px solid #8BEA7D; border-radius: 8px; background: #141827; color: #F4F6FF; text-align: center; }
+.win-banner--pulse { animation: win-pulse 600ms ease-out 1; }
+@keyframes win-pulse { 0% { box-shadow: 0 0 0 0 #8BEA7D; } 40% { box-shadow: 0 0 0 8px #8BEA7D44; } 100% { box-shadow: 0 0 0 0 #8BEA7D00; } }
+
+.visually-hidden { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+
+@media (max-width: 640px) {
+  .game-header { align-items: start; flex-direction: column; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .win-banner--pulse { animation: none; }
+}

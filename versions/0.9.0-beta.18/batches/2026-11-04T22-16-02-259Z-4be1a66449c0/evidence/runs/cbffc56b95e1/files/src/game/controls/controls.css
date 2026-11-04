@@ -1,0 +1,22 @@
+.game-controls {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.game-controls label { font-weight: 700; }
+button, select, input, textarea {
+  color: #f4f6ff;
+  background: #141827;
+  border: 1px solid #757c9a;
+  border-radius: 8px;
+  font: inherit;
+}
+button:not(.game-card), select { min-height: 44px; padding: 8px 12px; }
+button:not(.game-card) { cursor: pointer; }
+button:not(.game-card):hover, select:hover { border-color: #f4f6ff; }
+button:not(.game-card):focus-visible, select:focus-visible, input:focus-visible, textarea:focus-visible, summary:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: 2px;
+}
