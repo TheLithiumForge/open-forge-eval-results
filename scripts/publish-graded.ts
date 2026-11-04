@@ -1,17 +1,21 @@
 import { existsSync } from "node:fs";
 import { copyFile, lstat, mkdir, readdir, readFile } from "node:fs/promises";
 import { join } from "node:path";
-import type { PendingBatch } from "./pending.ts";
+import { waitingRuns, type PendingBatch } from "./pending.ts";
 
 /**
  * Copies grades from CI artifacts into published batches. The grading jobs built agent-written code, so nothing in an
  * artifact is trusted. Only batch folders the plan job expected are read, and each is compared with the batch already
- * published here: records and run evidence stay byte for byte, assessment files only grow with assessments of the
- * batch's own runs, new evidence and artifact entries belong to those assessments, and nothing is deleted.
+ * published here: records and run evidence stay byte for byte, the checks file only grows with checks of the runs
+ * that were waiting, new evidence belongs to those checks and is listed in artifacts.json, and nothing is deleted.
+ * The repository's validator then checks every record against its schema before anything is pushed.
  */
 export const GradedArtifactPrefix = "graded-";
 const BatchFolder = /^versions\/[A-Za-z0-9][A-Za-z0-9_.-]*\/batches\/([A-Za-z0-9][A-Za-z0-9_.-]*)$/;
-const AssessmentFile = /^assessments\/[a-z]+\.jsonl$/;
+// Grading only ever writes checks, so every other assessment file stays as published.
+const ChecksFile = "assessments/checks.jsonl";
+const ChecksKind = "checks";
+const RecordId = /^[A-Za-z0-9][A-Za-z0-9_.-]*$/;
 const AssessmentEvidence = /^evidence\/assessments\/([A-Za-z0-9][A-Za-z0-9_.-]*)\//;
 const ArtifactsFile = "artifacts.json";
 
@@ -34,8 +38,6 @@ const parsed = (text: string): Record[] => text.split("\n").filter((line) => lin
   if (value === null || typeof value !== "object" || Array.isArray(value)) throw new Error("A graded record line isn't an object.");
   return value as Record;
 });
-const runIdsOf = (record: Record): unknown[] => record["kind"] === "pick"
-  ? [(record["left"] as Record | undefined)?.["runId"], (record["right"] as Record | undefined)?.["runId"]] : [record["runId"]];
 
 /** The files a graded copy of one published batch may add or change, after checking every rule above. */
 async function gradedChanges(source: string, target: string, batch: string): Promise<string[]> {
@@ -43,25 +45,35 @@ async function gradedChanges(source: string, target: string, batch: string): Pro
   for (const file of published) if (!graded.includes(file)) throw new Error(`A graded batch may not delete ${file}.`);
   const read = async (folder: string, file: string) => readFile(join(folder, ...file.split("/")));
   const runs = new Set(parsed((await read(target, "runs.jsonl")).toString("utf8")).map((run) => run["id"]));
-  const known = new Set<unknown>(), added = new Set<unknown>();
-  for (const file of published.filter((path) => AssessmentFile.test(path))) for (const record of parsed((await read(target, file)).toString("utf8"))) known.add(record["id"]);
+  const waiting = await waitingRuns(target);
+  const known = new Map<unknown, unknown>(), added = new Set<string>();
   const changed: string[] = [];
-  for (const file of graded.filter((path) => AssessmentFile.test(path))) {
-    const after = await read(source, file), before = published.includes(file) ? await read(target, file) : Buffer.alloc(0);
-    if (!after.subarray(0, before.length).equals(before)) throw new Error(`${file} may only grow.`);
+  if (graded.includes(ChecksFile)) {
+    const after = await read(source, ChecksFile), before = published.includes(ChecksFile) ? await read(target, ChecksFile) : Buffer.alloc(0);
+    if (!after.subarray(0, before.length).equals(before)) throw new Error(`${ChecksFile} may only grow.`);
+    for (const record of parsed(before.toString("utf8"))) known.set(record["id"], record["runId"]);
     for (const record of parsed(after.subarray(before.length).toString("utf8"))) {
-      if (record["experimentId"] !== batch || known.has(record["id"]) || added.has(record["id"]) || runIdsOf(record).some((id) => !runs.has(id))) throw new Error(`${file} adds an assessment that isn't new or isn't of this batch's runs.`);
-      added.add(record["id"]);
+      const id = record["id"], runId = record["runId"], replaces = record["replacesAssessmentId"];
+      const fresh = typeof id === "string" && RecordId.test(id) && !known.has(id) && !added.has(id);
+      // A recheck replaces nothing or an earlier check of the same run.
+      const chain = replaces === null || replaces === undefined || (known.has(replaces) && known.get(replaces) === runId);
+      if (!fresh || record["kind"] !== ChecksKind || record["experimentId"] !== batch || typeof runId !== "string" || !waiting.has(runId) || !runs.has(runId) || !chain) {
+        throw new Error(`${ChecksFile} adds a record that isn't a new check of a waiting run in this batch.`);
+      }
+      added.add(id as string);
     }
-    if (after.length > before.length) changed.push(file);
+    if (after.length > before.length) changed.push(ChecksFile);
   }
-  for (const file of graded.filter((path) => !AssessmentFile.test(path))) {
+  let listed = new Set<string>();
+  for (const file of graded.filter((path) => path !== ChecksFile)) {
     const after = await read(source, file), before = published.includes(file) ? await read(target, file) : null;
     if (file === ArtifactsFile && before !== null) {
       const earlier = new Set((JSON.parse(before.toString("utf8")) as unknown[]).map((item) => JSON.stringify(item)));
       const later = JSON.parse(after.toString("utf8")) as Record[];
       const kept = new Set(later.map((item) => JSON.stringify(item)));
-      if ([...earlier].some((item) => !kept.has(item)) || later.some((item) => !earlier.has(JSON.stringify(item)) && !added.has(item["assessmentId"]))) throw new Error(`${ArtifactsFile} may only add entries of new assessments.`);
+      const additions = later.filter((item) => !earlier.has(JSON.stringify(item)));
+      if ([...earlier].some((item) => !kept.has(item)) || additions.some((item) => typeof item["assessmentId"] !== "string" || !added.has(item["assessmentId"]))) throw new Error(`${ArtifactsFile} may only add entries of new checks.`);
+      listed = new Set(additions.map((item) => `${String(item["assessmentId"])}/${String(item["path"])}`));
       if (!after.equals(before)) changed.push(file);
       continue;
     }
@@ -69,8 +81,13 @@ async function gradedChanges(source: string, target: string, batch: string): Pro
       if (!after.equals(before)) throw new Error(`A graded batch may not change ${file}.`);
       continue;
     }
-    if (!added.has(AssessmentEvidence.exec(file)?.[1])) throw new Error(`A graded batch may not add ${file}.`);
+    const owner = AssessmentEvidence.exec(file)?.[1];
+    if (owner === undefined || !added.has(owner)) throw new Error(`A graded batch may not add ${file}.`);
     changed.push(file);
+  }
+  // New evidence must be what the new artifact entries name, so nothing rides along unlisted.
+  for (const file of changed.filter((path) => AssessmentEvidence.test(path))) {
+    if (!listed.has(file.replace(/^evidence\/assessments\//, ""))) throw new Error(`${file} isn't listed in ${ArtifactsFile}.`);
   }
   return changed;
 }

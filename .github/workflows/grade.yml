@@ -33,8 +33,11 @@ jobs:
       matrix: ${{ steps.pending.outputs.matrix }}
       any: ${{ steps.pending.outputs.any }}
     steps:
-      - name: Require a pinned Open Forge commit
-        run: test -n "$OPEN_FORGE_REF" || { echo "Name the Open Forge commit whose graders run."; exit 1; }
+      # Only main's workflow and scripts may grade, since its publish job pushes to main.
+      - name: Require main and a pinned Open Forge commit
+        run: |
+          test "$GITHUB_REF" = "refs/heads/main" || { echo "Start grading from main."; exit 1; }
+          test -n "$OPEN_FORGE_REF" || { echo "Name the Open Forge commit whose graders run."; exit 1; }
       - uses: actions/checkout@v7.0.1
         with:
           persist-credentials: false
@@ -110,13 +113,14 @@ jobs:
   # folders the plan job expected, runs this repository's own scripts, and holds a token only while it pushes.
   publish:
     needs: [plan, grade]
-    if: ${{ !cancelled() && needs.grade.result != 'skipped' }}
+    if: ${{ !cancelled() && needs.grade.result != 'skipped' && github.ref == 'refs/heads/main' }}
     runs-on: ubuntu-24.04
     permissions:
       contents: write
     steps:
       - uses: actions/checkout@v7.0.1
         with:
+          ref: main
           persist-credentials: false
           fetch-depth: 0
       - uses: actions/setup-node@v7.0.0

@@ -22,6 +22,14 @@ function checked(assessment: PublishedCheck | undefined): boolean {
     && assessment.outcomes.every((outcome) => outcome.status !== "error");
 }
 
+/** A published batch's built runs whose latest check graded nothing or ended in an error, by run ID. */
+export async function waitingRuns(folder: string): Promise<Set<string>> {
+  const latest = new Map<string, PublishedCheck>();
+  for (const check of await lines<PublishedCheck>(join(folder, "assessments", "checks.jsonl"))) latest.set(check.runId, check);
+  const runs = await lines<PublishedRun>(join(folder, RecordFiles.runs));
+  return new Set(runs.filter((run) => run.pipelineStatus === "done" && run.build?.passed === true && !checked(latest.get(run.id))).map((run) => run.id));
+}
+
 /** Every published batch with waiting runs, in folder order, handed round robin to the runners so each pool takes a share. */
 export async function pendingBatches(root: string, runners: readonly unknown[]): Promise<PendingBatch[]> {
   if (runners.length === 0) throw new Error("Name at least one runner.");
@@ -32,11 +40,8 @@ export async function pendingBatches(root: string, runners: readonly unknown[]):
     if (!existsSync(batches)) continue;
     // Batch names reach runner commands and artifact names, so only names in the records' ID form count.
     for (const batch of (await readdir(batches)).sort().filter((name) => RecordId.test(name))) {
-      const folder = join(batches, batch);
-      const latest = new Map<string, PublishedCheck>();
-      for (const check of await lines<PublishedCheck>(join(folder, "assessments", "checks.jsonl"))) latest.set(check.runId, check);
-      const waiting = (await lines<PublishedRun>(join(folder, RecordFiles.runs))).filter((run) => run.pipelineStatus === "done" && run.build?.passed === true && !checked(latest.get(run.id)));
-      if (waiting.length > 0) found.push({ batch, folder: ["versions", version, "batches", batch].join("/"), waiting: waiting.length });
+      const waiting = await waitingRuns(join(batches, batch));
+      if (waiting.size > 0) found.push({ batch, folder: ["versions", version, "batches", batch].join("/"), waiting: waiting.size });
     }
   }
   return found.map((item, index) => ({ ...item, runner: runners[index % runners.length] }));
