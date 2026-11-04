@@ -32118,5 +32118,2021 @@
     "path": "game.html",
     "bytes": 240119,
     "sha256": "3344a2b18dd64e53d808ef287f2fb70bb5e020cbf6b83572a0276a9974c1e662"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "00b3d2524aa4",
+    "assessmentId": "1c59aea9-a1b8-45e1-b282-fa0c1a678542",
+    "path": "shots/desktop-16x16.png",
+    "bytes": 54826,
+    "sha256": "d5458404f391ee37ff76e005962e1a758d2c393dc7d3f0d412b3089684153b6e"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "00b3d2524aa4",
+    "assessmentId": "1c59aea9-a1b8-45e1-b282-fa0c1a678542",
+    "path": "shots/desktop-4x4.png",
+    "bytes": 41110,
+    "sha256": "867cd41d985efa831201973ae8906d232de3ddab204bc214552257c896121392"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "00b3d2524aa4",
+    "assessmentId": "1c59aea9-a1b8-45e1-b282-fa0c1a678542",
+    "path": "shots/desktop-win.png",
+    "bytes": 50273,
+    "sha256": "b8d3de7d342db8ae60296756d71cb0da9cc47d1cb401ab0884c0042fff0be971"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "00b3d2524aa4",
+    "assessmentId": "1c59aea9-a1b8-45e1-b282-fa0c1a678542",
+    "path": "shots/face-sheet.png",
+    "bytes": 354825,
+    "sha256": "e2507e6204c669e6230dc57fccc6dbabf1c1c10658c5ceb5450fc31e43199934"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "00b3d2524aa4",
+    "assessmentId": "1c59aea9-a1b8-45e1-b282-fa0c1a678542",
+    "path": "shots/phone-16x16.png",
+    "bytes": 108879,
+    "sha256": "caaf0407924fb4e159d7cdaa49286b884ee2b46f915ed902b24f168f6183daeb"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "00b3d2524aa4",
+    "assessmentId": "1c59aea9-a1b8-45e1-b282-fa0c1a678542",
+    "path": "shots/phone-4x4.png",
+    "bytes": 85134,
+    "sha256": "fe8ce84845de530fcf0bdcc1906767254197af9a715ad43ad7d02b29bd9b9d4a"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "00e77169d6f4",
+    "assessmentId": "19fd8bc4-2e0c-48bf-88bf-113e73f96a20",
+    "path": "shots/desktop-16x16.png",
+    "bytes": 72620,
+    "sha256": "548298f5b492e3b26223b3e7df06aee8c0742658c28f0c847f4195022aac3831"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "00e77169d6f4",
+    "assessmentId": "19fd8bc4-2e0c-48bf-88bf-113e73f96a20",
+    "path": "shots/desktop-4x4.png",
+    "bytes": 44050,
+    "sha256": "1bf497fa76d31343dddf3965522e640ca039ef5e0c75c7f7c08b4fb6f91f194d"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "00e77169d6f4",
+    "assessmentId": "19fd8bc4-2e0c-48bf-88bf-113e73f96a20",
+    "path": "shots/desktop-win.png",
+    "bytes": 53134,
+    "sha256": "3a9c0cea76fe85c6d95105e11bdbda5162b256192c9c8f9c649fd3cb901f8c24"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "00e77169d6f4",
+    "assessmentId": "19fd8bc4-2e0c-48bf-88bf-113e73f96a20",
+    "path": "shots/face-sheet.png",
+    "bytes": 395063,
+    "sha256": "e188842fe042410ab92506dc1314999728f6c7f40ddceddc5e83151da9772023"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "00e77169d6f4",
+    "assessmentId": "19fd8bc4-2e0c-48bf-88bf-113e73f96a20",
+    "path": "shots/phone-16x16.png",
+    "bytes": 115187,
+    "sha256": "dd22f495ab5bbbec890f673eac58e96ad06b56d133b63558d94dbfd8c00cfc8e"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "00e77169d6f4",
+    "assessmentId": "19fd8bc4-2e0c-48bf-88bf-113e73f96a20",
+    "path": "shots/phone-4x4.png",
+    "bytes": 87963,
+    "sha256": "75060792de2d713266a69c8e5c6753e2e4c2b67a8d654f1da9ec119419105cc2"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "09abbf445afd",
+    "assessmentId": "92d8ec99-284d-4029-8133-b3f158155c13",
+    "path": "shots/desktop-16x16.png",
+    "bytes": 68802,
+    "sha256": "80ede728bde72756f9bb2250e0ba023febe1391579530481b9906d6c86258393"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "09abbf445afd",
+    "assessmentId": "92d8ec99-284d-4029-8133-b3f158155c13",
+    "path": "shots/desktop-4x4.png",
+    "bytes": 53300,
+    "sha256": "911dfeb7ff4c0d8fa825fca13cf30c175f573ba5404212f60b76b5b4c6418519"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "09abbf445afd",
+    "assessmentId": "92d8ec99-284d-4029-8133-b3f158155c13",
+    "path": "shots/desktop-win.png",
+    "bytes": 61807,
+    "sha256": "aae247fc1f406b556f4a613be3fe096918db1c2b838a9651c43dc64af13b1a36"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "09abbf445afd",
+    "assessmentId": "92d8ec99-284d-4029-8133-b3f158155c13",
+    "path": "shots/face-sheet.png",
+    "bytes": 383616,
+    "sha256": "a714d3c25fd7c7f4edfd5d1090e1289625f0806e3cc4e38a681cb34cffe7484c"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "09abbf445afd",
+    "assessmentId": "92d8ec99-284d-4029-8133-b3f158155c13",
+    "path": "shots/phone-16x16.png",
+    "bytes": 146757,
+    "sha256": "052e5724f14a5120d37d7aec535c70d6a241ba9a1280f075b2c9fed8c046810e"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "09abbf445afd",
+    "assessmentId": "92d8ec99-284d-4029-8133-b3f158155c13",
+    "path": "shots/phone-4x4.png",
+    "bytes": 109468,
+    "sha256": "807930386cc2c857ce0f9ab59594c67f23f9ae18143decb34d811daf44f29ef1"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "13a8a8d239c8",
+    "assessmentId": "52e518ab-ad60-438b-b2e8-96cc43a967d6",
+    "path": "shots/desktop-16x16.png",
+    "bytes": 62169,
+    "sha256": "78c8780b97520b0c31b67dce1b6b10696920b84d6af21225e587123de1fdf9f8"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "13a8a8d239c8",
+    "assessmentId": "52e518ab-ad60-438b-b2e8-96cc43a967d6",
+    "path": "shots/desktop-4x4.png",
+    "bytes": 39832,
+    "sha256": "5b9289662a14405122ddcab738e6ae37b4cea26e959ee9a7c0ebfbb693db693c"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "13a8a8d239c8",
+    "assessmentId": "52e518ab-ad60-438b-b2e8-96cc43a967d6",
+    "path": "shots/desktop-win.png",
+    "bytes": 41131,
+    "sha256": "69caaec4be78d0e69131f90bb94c31a3e24ce8a4fcb9373d1adac98f34991a6b"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "13a8a8d239c8",
+    "assessmentId": "52e518ab-ad60-438b-b2e8-96cc43a967d6",
+    "path": "shots/face-sheet.png",
+    "bytes": 323979,
+    "sha256": "a6e579d0e9177cf993b034b02fd44357ef99060f601e67f659933435719e8a63"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "13a8a8d239c8",
+    "assessmentId": "52e518ab-ad60-438b-b2e8-96cc43a967d6",
+    "path": "shots/phone-16x16.png",
+    "bytes": 94183,
+    "sha256": "1966c2ccaf12cac4b4042bbcc1e446e967d743432186f4a77c947855b0e0ab02"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "13a8a8d239c8",
+    "assessmentId": "52e518ab-ad60-438b-b2e8-96cc43a967d6",
+    "path": "shots/phone-4x4.png",
+    "bytes": 72584,
+    "sha256": "e999bf69f8d3a4c2f986856fc529ed64f9be6b998cb736d16cab41675f5c7a17"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "1c0d9ae0803f",
+    "assessmentId": "c40f1047-0a7d-40d4-91d5-f3f0f7b80ad9",
+    "path": "shots/desktop-16x16.png",
+    "bytes": 62246,
+    "sha256": "e912b4975174984d73148cbf057f588a244c62603f75e831a9a33244ab079aad"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "1c0d9ae0803f",
+    "assessmentId": "c40f1047-0a7d-40d4-91d5-f3f0f7b80ad9",
+    "path": "shots/desktop-4x4.png",
+    "bytes": 51055,
+    "sha256": "f685344028b53231ca73f5bed44e66b3e0747d317b979712736627f0ec18fa49"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "1c0d9ae0803f",
+    "assessmentId": "c40f1047-0a7d-40d4-91d5-f3f0f7b80ad9",
+    "path": "shots/desktop-win.png",
+    "bytes": 61441,
+    "sha256": "5c5b8d5261f58cac40bda64e808b8a4be97ed7163d5e2476a4c4a3fb355ea7d6"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "1c0d9ae0803f",
+    "assessmentId": "c40f1047-0a7d-40d4-91d5-f3f0f7b80ad9",
+    "path": "shots/face-sheet.png",
+    "bytes": 308379,
+    "sha256": "4b7aa01d0c73e85a5acf7d0e3e6f2b3eab983a3b1a5f76c2fda4b37ef6f9f27f"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "1c0d9ae0803f",
+    "assessmentId": "c40f1047-0a7d-40d4-91d5-f3f0f7b80ad9",
+    "path": "shots/phone-16x16.png",
+    "bytes": 135875,
+    "sha256": "f7004e8ac853514ac0a853c7167ff36ba51b48f7f0e8b3774f2b4953d27f1d25"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "1c0d9ae0803f",
+    "assessmentId": "c40f1047-0a7d-40d4-91d5-f3f0f7b80ad9",
+    "path": "shots/phone-4x4.png",
+    "bytes": 113819,
+    "sha256": "446e59c88214dc6405731674c4cf5dde26106ddd9b4b746f8a91f6e4895867aa"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "25afc8139f7a",
+    "assessmentId": "bc18cfd7-dc9e-435a-99d7-36875f73abeb",
+    "path": "shots/desktop-16x16.png",
+    "bytes": 57976,
+    "sha256": "657fd32bab9e6e4c42ad3eb1cc2f44ae1dd4b99d46434f75ab743049b6e41762"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "25afc8139f7a",
+    "assessmentId": "bc18cfd7-dc9e-435a-99d7-36875f73abeb",
+    "path": "shots/desktop-4x4.png",
+    "bytes": 41221,
+    "sha256": "2388cadc8d48a0b82f29db66aa695378da3aabbae459df6709bf48e23c7c5f97"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "25afc8139f7a",
+    "assessmentId": "bc18cfd7-dc9e-435a-99d7-36875f73abeb",
+    "path": "shots/desktop-win.png",
+    "bytes": 51434,
+    "sha256": "f0724ab37f31b73cfc5f71a5e60d820f002c9cf2b8c7c29e915b1d74030a0862"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "25afc8139f7a",
+    "assessmentId": "bc18cfd7-dc9e-435a-99d7-36875f73abeb",
+    "path": "shots/face-sheet.png",
+    "bytes": 391205,
+    "sha256": "322d04ee2e524f5733a4e2c0011724285c19ede2930c82e4c6917dfd0bf01117"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "25afc8139f7a",
+    "assessmentId": "bc18cfd7-dc9e-435a-99d7-36875f73abeb",
+    "path": "shots/phone-16x16.png",
+    "bytes": 115165,
+    "sha256": "23c18b9c6e95506427123df5de17b8a77dc68f7e467434184f62580a85ca2c23"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "25afc8139f7a",
+    "assessmentId": "bc18cfd7-dc9e-435a-99d7-36875f73abeb",
+    "path": "shots/phone-4x4.png",
+    "bytes": 85772,
+    "sha256": "eb87b5d12f044e61d8ca6e434497695d6008f49a8e07ab1ae92722fc5c04d196"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "2639eb3c4e65",
+    "assessmentId": "8e0553f5-5170-46b2-b4e5-ee7e8f3e3257",
+    "path": "shots/desktop-16x16.png",
+    "bytes": 59810,
+    "sha256": "89cc376b800b5a7e8dbc927c5f09d429d8270affcd498f12e38bf0d45fdd8ff2"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "2639eb3c4e65",
+    "assessmentId": "8e0553f5-5170-46b2-b4e5-ee7e8f3e3257",
+    "path": "shots/desktop-4x4.png",
+    "bytes": 43981,
+    "sha256": "1a59c0cb8e6db614d11708af39964bc101748c03bcda39d0d7b00ded06d5a315"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "2639eb3c4e65",
+    "assessmentId": "8e0553f5-5170-46b2-b4e5-ee7e8f3e3257",
+    "path": "shots/desktop-win.png",
+    "bytes": 53713,
+    "sha256": "3c0d0812bdaf9bc79e103af6cd3a0eccd1167981e6a4db7d1eda577062c2e418"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "2639eb3c4e65",
+    "assessmentId": "8e0553f5-5170-46b2-b4e5-ee7e8f3e3257",
+    "path": "shots/face-sheet.png",
+    "bytes": 391790,
+    "sha256": "f1a179d8a09da1917cbdfe262a38fb2ae8391ec85435ba518740b0208a98ccb7"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "2639eb3c4e65",
+    "assessmentId": "8e0553f5-5170-46b2-b4e5-ee7e8f3e3257",
+    "path": "shots/phone-16x16.png",
+    "bytes": 113041,
+    "sha256": "d55a006ad38a1cee9d58fcd3602268b73f9444837937880ee7e18f4b6c00ecc0"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "2639eb3c4e65",
+    "assessmentId": "8e0553f5-5170-46b2-b4e5-ee7e8f3e3257",
+    "path": "shots/phone-4x4.png",
+    "bytes": 90859,
+    "sha256": "f473913614c2eafe480135c6f2f9e4afcf4edd3601dc596d5756c421f12588cf"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "27f6d4ee7e50",
+    "assessmentId": "08af93fd-9fdd-476c-8b46-7b1f5b26c6c7",
+    "path": "shots/desktop-16x16.png",
+    "bytes": 55974,
+    "sha256": "2b1f3d949b93d00174c406ecb9c9337d8236a90fddfae021f89d6af105e2b6c3"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "27f6d4ee7e50",
+    "assessmentId": "08af93fd-9fdd-476c-8b46-7b1f5b26c6c7",
+    "path": "shots/desktop-4x4.png",
+    "bytes": 33274,
+    "sha256": "18aec955e136f651175dd7dcbc29cce7a019e22cd103b81d4c6b07219dda96eb"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "27f6d4ee7e50",
+    "assessmentId": "08af93fd-9fdd-476c-8b46-7b1f5b26c6c7",
+    "path": "shots/desktop-win.png",
+    "bytes": 43574,
+    "sha256": "95199df7d7ae84ef2b4da5037108d12e7ebbf9f0b373b1431e12b13fcc990b37"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "27f6d4ee7e50",
+    "assessmentId": "08af93fd-9fdd-476c-8b46-7b1f5b26c6c7",
+    "path": "shots/face-sheet.png",
+    "bytes": 357513,
+    "sha256": "7384dd2a5881e46689b1a36306962beac419e3669178bada8ca18debe98dac4d"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "27f6d4ee7e50",
+    "assessmentId": "08af93fd-9fdd-476c-8b46-7b1f5b26c6c7",
+    "path": "shots/phone-16x16.png",
+    "bytes": 82950,
+    "sha256": "67e8ebcf9261866a971a9be9203e5c7090642ec3109a23c1ff881d2ddb92748c"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "27f6d4ee7e50",
+    "assessmentId": "08af93fd-9fdd-476c-8b46-7b1f5b26c6c7",
+    "path": "shots/phone-4x4.png",
+    "bytes": 66045,
+    "sha256": "26ebac77bd9427565af8d9d83354806ee8acefb8361bbdb270e8feb244966e17"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "295c785d7fab",
+    "assessmentId": "9a35b48c-0ba0-48c8-8551-d4169e35f414",
+    "path": "shots/desktop-16x16.png",
+    "bytes": 56482,
+    "sha256": "01c03f199593cf01a3f92889ed24f68464a9d3b3cb5fb52183b736827806544d"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "295c785d7fab",
+    "assessmentId": "9a35b48c-0ba0-48c8-8551-d4169e35f414",
+    "path": "shots/desktop-4x4.png",
+    "bytes": 40652,
+    "sha256": "42d96643c85284d107c33993f5f60d8d2ce50284050e1241c1f43adc5ed4c846"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "295c785d7fab",
+    "assessmentId": "9a35b48c-0ba0-48c8-8551-d4169e35f414",
+    "path": "shots/desktop-win.png",
+    "bytes": 49444,
+    "sha256": "efd38b86df31191d64f1de3c6d3311823f7676b0f1abb4ffd6bacf57a39c41bd"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "295c785d7fab",
+    "assessmentId": "9a35b48c-0ba0-48c8-8551-d4169e35f414",
+    "path": "shots/face-sheet.png",
+    "bytes": 385670,
+    "sha256": "181971a517e9a1ae4ebaadae7019a8d22e130bd682b807a849b4b147bbc513ac"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "295c785d7fab",
+    "assessmentId": "9a35b48c-0ba0-48c8-8551-d4169e35f414",
+    "path": "shots/phone-16x16.png",
+    "bytes": 106480,
+    "sha256": "0163a8770d7ea0bbcb6e5c4736be3b2fe3396bb459381ce3ca9021cd765bc717"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "295c785d7fab",
+    "assessmentId": "9a35b48c-0ba0-48c8-8551-d4169e35f414",
+    "path": "shots/phone-4x4.png",
+    "bytes": 84686,
+    "sha256": "d701084b9197b98f8744ea84142994b74d52b7ad85ccb581870903effb8b1606"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "2ad98abae98a",
+    "assessmentId": "7e244547-a068-45c2-b9b1-0c635d08a310",
+    "path": "shots/desktop-16x16.png",
+    "bytes": 60815,
+    "sha256": "52312f5867bb65e2b81a6d1da3330a9f7aa7bdd38432ab6c8fc16862a6b2e71b"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "2ad98abae98a",
+    "assessmentId": "7e244547-a068-45c2-b9b1-0c635d08a310",
+    "path": "shots/desktop-4x4.png",
+    "bytes": 45558,
+    "sha256": "14a57149d1dfd6d000d50a00beb0d3981f818acd441661f31211319a9801d60e"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "2ad98abae98a",
+    "assessmentId": "7e244547-a068-45c2-b9b1-0c635d08a310",
+    "path": "shots/desktop-win.png",
+    "bytes": 52659,
+    "sha256": "4c0c60d7570eed4c63d242002924447e23e6c7ec4a4d5861fc65c82338966608"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "2ad98abae98a",
+    "assessmentId": "7e244547-a068-45c2-b9b1-0c635d08a310",
+    "path": "shots/face-sheet.png",
+    "bytes": 394957,
+    "sha256": "5b553c0fa43a18220f1c41fd8c28fdbfe9050a0f2ac2401076a3e6b8e87bb84e"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "2ad98abae98a",
+    "assessmentId": "7e244547-a068-45c2-b9b1-0c635d08a310",
+    "path": "shots/phone-16x16.png",
+    "bytes": 117565,
+    "sha256": "88ad183d3bfb68973d32d2d1fc44e382ab4610f1f790394fb476b7d604ced669"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "2ad98abae98a",
+    "assessmentId": "7e244547-a068-45c2-b9b1-0c635d08a310",
+    "path": "shots/phone-4x4.png",
+    "bytes": 97216,
+    "sha256": "9da1064fe7f11aaf8cc6567c60f920d0eab020092cb08d0308573e6bdfaff5ce"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "33a47b98e0e0",
+    "assessmentId": "3328d3b0-aa05-4f97-8dc5-9a36296105f4",
+    "path": "shots/desktop-16x16.png",
+    "bytes": 53730,
+    "sha256": "ae5a380b0be79a3afd26c8dd5b22b0d10838282a84ac00222bd7f94c7971eef2"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "33a47b98e0e0",
+    "assessmentId": "3328d3b0-aa05-4f97-8dc5-9a36296105f4",
+    "path": "shots/desktop-4x4.png",
+    "bytes": 41377,
+    "sha256": "705c47d8b0b305cbe6a9537c2e49db3bcae7d637783cf6a2edc4806f23d87ee8"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "33a47b98e0e0",
+    "assessmentId": "3328d3b0-aa05-4f97-8dc5-9a36296105f4",
+    "path": "shots/desktop-win.png",
+    "bytes": 51346,
+    "sha256": "27cd836ef79658bcd9274a2e8eddb72b7060ef538193b5a9ac22c0fcce0a5dce"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "33a47b98e0e0",
+    "assessmentId": "3328d3b0-aa05-4f97-8dc5-9a36296105f4",
+    "path": "shots/face-sheet.png",
+    "bytes": 333876,
+    "sha256": "a44ea85b0a35c08da364d0b7e7a5aa622fef3f97f0a62292553de139b13eea2d"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "33a47b98e0e0",
+    "assessmentId": "3328d3b0-aa05-4f97-8dc5-9a36296105f4",
+    "path": "shots/phone-16x16.png",
+    "bytes": 113130,
+    "sha256": "cc281c0e9097d0942950ff8775f2f58804b1dbe7c96195ea6130349a8b2683e1"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "33a47b98e0e0",
+    "assessmentId": "3328d3b0-aa05-4f97-8dc5-9a36296105f4",
+    "path": "shots/phone-4x4.png",
+    "bytes": 93282,
+    "sha256": "207ac75edc3cd9092bd577949636082e464e40357c3d0aeadb7d2861493512bf"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "357226192a7f",
+    "assessmentId": "fb3a3149-a254-424d-9daa-e8c809d17604",
+    "path": "shots/desktop-16x16.png",
+    "bytes": 75694,
+    "sha256": "531e50c04e67b78f13fcd81a392600723bb351cf9c18b120bb09a522c75997a7"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "357226192a7f",
+    "assessmentId": "fb3a3149-a254-424d-9daa-e8c809d17604",
+    "path": "shots/desktop-4x4.png",
+    "bytes": 45970,
+    "sha256": "a7ba8b19947b9073ff91b244131d01270c74bdeb8e623a0f2e80c24cbabe661c"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "357226192a7f",
+    "assessmentId": "fb3a3149-a254-424d-9daa-e8c809d17604",
+    "path": "shots/desktop-win.png",
+    "bytes": 53841,
+    "sha256": "32bd2176f586cbfa83c9601c52c2a8995ffd2c9f70786a139a0a8e902d080906"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "357226192a7f",
+    "assessmentId": "fb3a3149-a254-424d-9daa-e8c809d17604",
+    "path": "shots/face-sheet.png",
+    "bytes": 379709,
+    "sha256": "01162abfcc39f782fa87bb15057caa60cd8a131ab306f6dc14c018132698a399"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "357226192a7f",
+    "assessmentId": "fb3a3149-a254-424d-9daa-e8c809d17604",
+    "path": "shots/phone-16x16.png",
+    "bytes": 120490,
+    "sha256": "ac0d6b75a223c11cfbd1a91780c728fc270da0c8a87bedc7474b1350f17152f8"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "357226192a7f",
+    "assessmentId": "fb3a3149-a254-424d-9daa-e8c809d17604",
+    "path": "shots/phone-4x4.png",
+    "bytes": 95448,
+    "sha256": "a85be3971c415f83304b803800872407be6663c5ecfa6d202d9a54ea4d4654fd"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "3c95d3a7b5f8",
+    "assessmentId": "25e5e272-9eee-4097-b3dc-bcfd0ff049a1",
+    "path": "shots/desktop-16x16.png",
+    "bytes": 65928,
+    "sha256": "181cd53d734cde3c088c825187f1a290902986f2b2276918ceb3f66fe51400be"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "3c95d3a7b5f8",
+    "assessmentId": "25e5e272-9eee-4097-b3dc-bcfd0ff049a1",
+    "path": "shots/desktop-4x4.png",
+    "bytes": 48482,
+    "sha256": "5264102d1b6acde37d46e04e3f307c5fd845362f2f1828636672b98c501f01eb"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "3c95d3a7b5f8",
+    "assessmentId": "25e5e272-9eee-4097-b3dc-bcfd0ff049a1",
+    "path": "shots/desktop-win.png",
+    "bytes": 56340,
+    "sha256": "3f77187d6de3a0d55970c6a6f17e6ba48661642f7431e73ec3bccbefdea16e04"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "3c95d3a7b5f8",
+    "assessmentId": "25e5e272-9eee-4097-b3dc-bcfd0ff049a1",
+    "path": "shots/face-sheet.png",
+    "bytes": 392039,
+    "sha256": "4b3f395cc624321171b40af82492a3c8589b43efa2ca22d6be8e53eb934799f2"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "3c95d3a7b5f8",
+    "assessmentId": "25e5e272-9eee-4097-b3dc-bcfd0ff049a1",
+    "path": "shots/phone-16x16.png",
+    "bytes": 124451,
+    "sha256": "ea3c5e62a4dd57c0bd1347f4851c92704a14213c3e83f92644b817c2433b22c8"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "3c95d3a7b5f8",
+    "assessmentId": "25e5e272-9eee-4097-b3dc-bcfd0ff049a1",
+    "path": "shots/phone-4x4.png",
+    "bytes": 101389,
+    "sha256": "64dc588c647988e348f9a5c3a37b542ed58f9c37d9504f2c6f4d60b9414110ed"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "3fe3b03aee3a",
+    "assessmentId": "6d86a6a1-b8c8-44a2-b67c-e7052d82841b",
+    "path": "shots/desktop-16x16.png",
+    "bytes": 61625,
+    "sha256": "45b5d0dfc5734c138cd22c55586468ae3bb2e004b3c6148781f4b1173d8a56a2"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "3fe3b03aee3a",
+    "assessmentId": "6d86a6a1-b8c8-44a2-b67c-e7052d82841b",
+    "path": "shots/desktop-4x4.png",
+    "bytes": 46195,
+    "sha256": "9785d8ae47b047e45cf8504806dc11d1f65bf6e1184ccfd90a9c78680f04405d"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "3fe3b03aee3a",
+    "assessmentId": "6d86a6a1-b8c8-44a2-b67c-e7052d82841b",
+    "path": "shots/desktop-win.png",
+    "bytes": 55312,
+    "sha256": "af9f343dfa4fa7aabcd5a761575c528747d07f0fe59fcbca0f74e21f5aa46062"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "3fe3b03aee3a",
+    "assessmentId": "6d86a6a1-b8c8-44a2-b67c-e7052d82841b",
+    "path": "shots/face-sheet.png",
+    "bytes": 348699,
+    "sha256": "b493225fbbd5f28932dce5d845d8787a228d79e5638acd359da213bdef741905"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "3fe3b03aee3a",
+    "assessmentId": "6d86a6a1-b8c8-44a2-b67c-e7052d82841b",
+    "path": "shots/phone-16x16.png",
+    "bytes": 120040,
+    "sha256": "a9e7e33c9faba3697acd5f4aaacbcb87ac8893305bc3d294bbac633dce155f34"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "3fe3b03aee3a",
+    "assessmentId": "6d86a6a1-b8c8-44a2-b67c-e7052d82841b",
+    "path": "shots/phone-4x4.png",
+    "bytes": 94048,
+    "sha256": "9a144daec487a3bf0d10fc7d3a2e2210466f79a53f388cc597dcee937216588c"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "4c787b177e14",
+    "assessmentId": "84268e82-f7a2-4546-b2c2-d772789629b3",
+    "path": "shots/desktop-16x16.png",
+    "bytes": 72491,
+    "sha256": "f86c29a0d64f09b8c9ac85d055a405e3bb02f2487558e756a324429c0a314ba9"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "4c787b177e14",
+    "assessmentId": "84268e82-f7a2-4546-b2c2-d772789629b3",
+    "path": "shots/desktop-4x4.png",
+    "bytes": 51065,
+    "sha256": "c5c487a0cdbad4458a2b8e439e5f14f7460ba3c11debd9f9ee9a5a3905db072b"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "4c787b177e14",
+    "assessmentId": "84268e82-f7a2-4546-b2c2-d772789629b3",
+    "path": "shots/desktop-win.png",
+    "bytes": 56530,
+    "sha256": "af6ff971e5b1de22fbc2e1108d4416f9b5f3b6334c4db55fe3165d238d22aa67"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "4c787b177e14",
+    "assessmentId": "84268e82-f7a2-4546-b2c2-d772789629b3",
+    "path": "shots/face-sheet.png",
+    "bytes": 404267,
+    "sha256": "1660e62a9a4fb04a1bde00d872c22aed9a9bdeb04b4acff802d0504e805f6149"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "4c787b177e14",
+    "assessmentId": "84268e82-f7a2-4546-b2c2-d772789629b3",
+    "path": "shots/phone-16x16.png",
+    "bytes": 128990,
+    "sha256": "46a365d98440f27032e96f37cb25f1f02f2b00a58f8429f641de8cf5f91299be"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "4c787b177e14",
+    "assessmentId": "84268e82-f7a2-4546-b2c2-d772789629b3",
+    "path": "shots/phone-4x4.png",
+    "bytes": 105000,
+    "sha256": "770212da840c8f07aff27bc67277c668a2b54edecac5c89940858f3bc9f3c4d9"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "6282b0e3789a",
+    "assessmentId": "8bd3aacc-51b8-4567-ba12-884338ac8abc",
+    "path": "shots/desktop-16x16.png",
+    "bytes": 69835,
+    "sha256": "256169d1675c70f9320f145d3669992532cd96975dba39c6a66569ce3c2ea2e7"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "6282b0e3789a",
+    "assessmentId": "8bd3aacc-51b8-4567-ba12-884338ac8abc",
+    "path": "shots/desktop-4x4.png",
+    "bytes": 50874,
+    "sha256": "2a795c94eea7ec46f8495a027f45b2fa08d7bd69ba7874e9b7d5ad96e3d08334"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "6282b0e3789a",
+    "assessmentId": "8bd3aacc-51b8-4567-ba12-884338ac8abc",
+    "path": "shots/desktop-win.png",
+    "bytes": 60963,
+    "sha256": "f4b1ca0409c5c55180d1fdc5ef8e90e3203cecd5e8d36bc6c5186334802a837d"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "6282b0e3789a",
+    "assessmentId": "8bd3aacc-51b8-4567-ba12-884338ac8abc",
+    "path": "shots/face-sheet.png",
+    "bytes": 398497,
+    "sha256": "70338c7b62911572763badbf1a1d0664a38d6f174c03e013f3c6019fdf021401"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "6282b0e3789a",
+    "assessmentId": "8bd3aacc-51b8-4567-ba12-884338ac8abc",
+    "path": "shots/phone-16x16.png",
+    "bytes": 132996,
+    "sha256": "7401453a017def8d12d87b147d96762e8f7d5f16431b57fa8bbb8a5d640831c4"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "6282b0e3789a",
+    "assessmentId": "8bd3aacc-51b8-4567-ba12-884338ac8abc",
+    "path": "shots/phone-4x4.png",
+    "bytes": 102310,
+    "sha256": "7dcc629936f9ad99be0c911e43cd8a79f9fa68afb79eda9a5bf2f3a8aa097ad7"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "7869b6f85867",
+    "assessmentId": "70ec5286-148c-4a50-966f-c7cd2215df14",
+    "path": "shots/desktop-16x16.png",
+    "bytes": 74410,
+    "sha256": "9a924d14ce5949595d9b7cf6bd77a771e37ff5610dec11aa9aef4e6d33cfc7c8"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "7869b6f85867",
+    "assessmentId": "70ec5286-148c-4a50-966f-c7cd2215df14",
+    "path": "shots/desktop-4x4.png",
+    "bytes": 54057,
+    "sha256": "36b182ce6286ec022d439b14c0edb2bb64152cb8034c729e7d36f2b986fc0e33"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "7869b6f85867",
+    "assessmentId": "70ec5286-148c-4a50-966f-c7cd2215df14",
+    "path": "shots/desktop-win.png",
+    "bytes": 63338,
+    "sha256": "fe1e61f8a226b6de4825b0949d2de28f58bf77341f35d9c432ae58eafc617901"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "7869b6f85867",
+    "assessmentId": "70ec5286-148c-4a50-966f-c7cd2215df14",
+    "path": "shots/face-sheet.png",
+    "bytes": 385083,
+    "sha256": "04c5bd9344db4d56339014415dd33fdb1ccc35923f9d580660b8fe62b55a2d4f"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "7869b6f85867",
+    "assessmentId": "70ec5286-148c-4a50-966f-c7cd2215df14",
+    "path": "shots/phone-16x16.png",
+    "bytes": 140265,
+    "sha256": "f90b6cee1002e25c9216e09410bb51886e845c5819367beef7e71169e0873ea2"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "7869b6f85867",
+    "assessmentId": "70ec5286-148c-4a50-966f-c7cd2215df14",
+    "path": "shots/phone-4x4.png",
+    "bytes": 110513,
+    "sha256": "7609f5890d0df6f33e3245e64c6d2c62917ace8065c38bfe6e7a9d66322f01df"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "7d99c2990bde",
+    "assessmentId": "7e4dc46d-5f00-4b2f-9b6e-b1a2b7debe8c",
+    "path": "shots/desktop-16x16.png",
+    "bytes": 56243,
+    "sha256": "0bdad9dc8220187f59bfbc8f47876d84e50680310d8d8dbaf6b76c99f6fab729"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "7d99c2990bde",
+    "assessmentId": "7e4dc46d-5f00-4b2f-9b6e-b1a2b7debe8c",
+    "path": "shots/desktop-4x4.png",
+    "bytes": 40319,
+    "sha256": "9ec0d278a396a4e41405f02e2c2335f38c3302153f5d75cea68de966b879915a"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "7d99c2990bde",
+    "assessmentId": "7e4dc46d-5f00-4b2f-9b6e-b1a2b7debe8c",
+    "path": "shots/desktop-win.png",
+    "bytes": 49276,
+    "sha256": "eaffe057b7d0d4b974a1ff656db32a244d39a4911565e3c19ea50472c6252ef8"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "7d99c2990bde",
+    "assessmentId": "7e4dc46d-5f00-4b2f-9b6e-b1a2b7debe8c",
+    "path": "shots/face-sheet.png",
+    "bytes": 380539,
+    "sha256": "f9c22e586fc3d3c57caab132375fac1bb6ceafb87991f3244e3735feb96792e9"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "7d99c2990bde",
+    "assessmentId": "7e4dc46d-5f00-4b2f-9b6e-b1a2b7debe8c",
+    "path": "shots/phone-16x16.png",
+    "bytes": 107035,
+    "sha256": "81348a557ae385cecf6417da56e3f8418eb5555ba405de2af2dd39517b23ec9f"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "7d99c2990bde",
+    "assessmentId": "7e4dc46d-5f00-4b2f-9b6e-b1a2b7debe8c",
+    "path": "shots/phone-4x4.png",
+    "bytes": 81850,
+    "sha256": "0766440becc449395713d2cf44d2e3950e5ea35e33674b6b42978fc1a410ad4e"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "896ba798a617",
+    "assessmentId": "1ec4379f-dd8f-4d8e-9d05-a05b382835c6",
+    "path": "shots/desktop-16x16.png",
+    "bytes": 72083,
+    "sha256": "4ec2ac7ffcb6dd6d00273c447e169972045f30e4d31e2a2a965eeae40ba93555"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "896ba798a617",
+    "assessmentId": "1ec4379f-dd8f-4d8e-9d05-a05b382835c6",
+    "path": "shots/desktop-4x4.png",
+    "bytes": 40902,
+    "sha256": "4df5888ff7519f884c19fc7ec1f65a6f3cd3f01917b4072cf70169d9ff182ddf"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "896ba798a617",
+    "assessmentId": "1ec4379f-dd8f-4d8e-9d05-a05b382835c6",
+    "path": "shots/desktop-win.png",
+    "bytes": 52331,
+    "sha256": "c6d18cf5e56f577c51c081fbb8a5cf14dd6c22f245fad3b7d6502e1f3dac9401"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "896ba798a617",
+    "assessmentId": "1ec4379f-dd8f-4d8e-9d05-a05b382835c6",
+    "path": "shots/face-sheet.png",
+    "bytes": 396132,
+    "sha256": "ae8a7bd2b58010c2bdc006bf170c8ce66af88e97e0983bc52769e5e905ac624c"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "896ba798a617",
+    "assessmentId": "1ec4379f-dd8f-4d8e-9d05-a05b382835c6",
+    "path": "shots/phone-16x16.png",
+    "bytes": 111576,
+    "sha256": "963a62b04b7d0c9142f36de4f845b0c2d0886f1b42b112dd5dceb58bfc64d39c"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "896ba798a617",
+    "assessmentId": "1ec4379f-dd8f-4d8e-9d05-a05b382835c6",
+    "path": "shots/phone-4x4.png",
+    "bytes": 83055,
+    "sha256": "4002465ceaf792aa4527926110d35122556926ea61492c162762c2103f4bf65d"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "8a351741f367",
+    "assessmentId": "3e87e834-1723-4f5d-8b28-8931a6af3533",
+    "path": "shots/desktop-16x16.png",
+    "bytes": 57051,
+    "sha256": "5e127f948bbfc4f3fe9e2ee2e7de5bc61f5634301724efda3b898b72c11c8c0c"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "8a351741f367",
+    "assessmentId": "3e87e834-1723-4f5d-8b28-8931a6af3533",
+    "path": "shots/desktop-4x4.png",
+    "bytes": 41965,
+    "sha256": "c7e4c962353c5e39dbc40671f54a4954f9ecfe022b4f9ef8504740cbe95ffb45"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "8a351741f367",
+    "assessmentId": "3e87e834-1723-4f5d-8b28-8931a6af3533",
+    "path": "shots/desktop-win.png",
+    "bytes": 50468,
+    "sha256": "fd86f9c547e8a3a92043e9842f91b18a1fd90c961f756ebef2af08ea4f5af030"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "8a351741f367",
+    "assessmentId": "3e87e834-1723-4f5d-8b28-8931a6af3533",
+    "path": "shots/face-sheet.png",
+    "bytes": 395116,
+    "sha256": "591805020f56526c77de01af344a96e557da6ae8f76f817a2544c9aecbce7b6d"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "8a351741f367",
+    "assessmentId": "3e87e834-1723-4f5d-8b28-8931a6af3533",
+    "path": "shots/phone-16x16.png",
+    "bytes": 109384,
+    "sha256": "5569a87b7fb931144e92af1f00f775fd7433c405e7a8ed73480d66ce7a3a8409"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "8a351741f367",
+    "assessmentId": "3e87e834-1723-4f5d-8b28-8931a6af3533",
+    "path": "shots/phone-4x4.png",
+    "bytes": 85577,
+    "sha256": "a084bdaa5b0ad84d240da7d9ea5b3ef91ffd5f55c77cc29bd95913c30d2258aa"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "8c21d582a049",
+    "assessmentId": "e55ddd8d-19ba-4f06-9ed7-679f04930697",
+    "path": "shots/desktop-16x16.png",
+    "bytes": 58847,
+    "sha256": "65a53fb0e9f262848b6eb3559a3c6ec983b0fe94ac37c221d3d219861c54a3a1"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "8c21d582a049",
+    "assessmentId": "e55ddd8d-19ba-4f06-9ed7-679f04930697",
+    "path": "shots/desktop-4x4.png",
+    "bytes": 43389,
+    "sha256": "069924736f9a376bdf537f75d3352c2a13057bcaa7d095b2e8d3c2d4b1ef0037"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "8c21d582a049",
+    "assessmentId": "e55ddd8d-19ba-4f06-9ed7-679f04930697",
+    "path": "shots/desktop-win.png",
+    "bytes": 51571,
+    "sha256": "2e0bccd8384a2141c4f808833725b187131123e0bf5e902a086e7a64152a0413"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "8c21d582a049",
+    "assessmentId": "e55ddd8d-19ba-4f06-9ed7-679f04930697",
+    "path": "shots/face-sheet.png",
+    "bytes": 379033,
+    "sha256": "0bdcf3ed6512fdea578087e875a0674f8db635586e73154478ddd14f78c4d349"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "8c21d582a049",
+    "assessmentId": "e55ddd8d-19ba-4f06-9ed7-679f04930697",
+    "path": "shots/phone-16x16.png",
+    "bytes": 112814,
+    "sha256": "6a6969af5d44df3e296ec3032fa8b8f9511ce195a5e7c51731b7b5486f85161b"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "8c21d582a049",
+    "assessmentId": "e55ddd8d-19ba-4f06-9ed7-679f04930697",
+    "path": "shots/phone-4x4.png",
+    "bytes": 88893,
+    "sha256": "57ccb7d7ad66a0444cbf2c5a4480a6b8aabd2c0686c9280ea532775b6fe81aca"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "94d06c378022",
+    "assessmentId": "fa8879f1-d3ec-44ff-ba56-05f4c54f309e",
+    "path": "shots/desktop-16x16.png",
+    "bytes": 60019,
+    "sha256": "80fda43dee89aa948b5d43e893dae5e518beb0582bf19cedf0fb5374a0991f79"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "94d06c378022",
+    "assessmentId": "fa8879f1-d3ec-44ff-ba56-05f4c54f309e",
+    "path": "shots/desktop-4x4.png",
+    "bytes": 43535,
+    "sha256": "5321db12acab2b229c133337b32110e1001797cbc660b37b8589b91ee022c72d"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "94d06c378022",
+    "assessmentId": "fa8879f1-d3ec-44ff-ba56-05f4c54f309e",
+    "path": "shots/desktop-win.png",
+    "bytes": 48690,
+    "sha256": "a5e74996ccf7c4df5abee7db5d0a11180aa5d96f81907a5db86c83caf43174e4"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "94d06c378022",
+    "assessmentId": "fa8879f1-d3ec-44ff-ba56-05f4c54f309e",
+    "path": "shots/face-sheet.png",
+    "bytes": 379927,
+    "sha256": "dc87289b233fff9c9ffcb153e84d4b0237850ae52c5633a6b09eacdf7175c620"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "94d06c378022",
+    "assessmentId": "fa8879f1-d3ec-44ff-ba56-05f4c54f309e",
+    "path": "shots/phone-16x16.png",
+    "bytes": 121018,
+    "sha256": "afd09f58155acfe1098d487b7f633f5a352ef3eacbc2cda5a7aefbcdd43c34ad"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "94d06c378022",
+    "assessmentId": "fa8879f1-d3ec-44ff-ba56-05f4c54f309e",
+    "path": "shots/phone-4x4.png",
+    "bytes": 87598,
+    "sha256": "e254689c6422b55efce1b684ea8adc5a74b41f1efa45a7916db7739257503c0b"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "957876eeb005",
+    "assessmentId": "989cdd35-190e-492d-8a8d-0a75f284092a",
+    "path": "shots/desktop-16x16.png",
+    "bytes": 58559,
+    "sha256": "08dd0f532344146e56676f2ca2f794586abfa3a39aad3a15ea2a0128ff9ebc9f"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "957876eeb005",
+    "assessmentId": "989cdd35-190e-492d-8a8d-0a75f284092a",
+    "path": "shots/desktop-4x4.png",
+    "bytes": 43238,
+    "sha256": "58ac130bd40ed891378eeab4367501ef42d8a8d1937adb8a7bc9528933ac7310"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "957876eeb005",
+    "assessmentId": "989cdd35-190e-492d-8a8d-0a75f284092a",
+    "path": "shots/desktop-win.png",
+    "bytes": 50936,
+    "sha256": "87834ff25ab61818ac2f47363660c18b8937c85dd806b6021a850e66ec3fa767"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "957876eeb005",
+    "assessmentId": "989cdd35-190e-492d-8a8d-0a75f284092a",
+    "path": "shots/face-sheet.png",
+    "bytes": 393127,
+    "sha256": "276b75ce7832f0918886fe67407f796fb788c44eb8d907ad5f3d34e5c876cfa6"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "957876eeb005",
+    "assessmentId": "989cdd35-190e-492d-8a8d-0a75f284092a",
+    "path": "shots/phone-16x16.png",
+    "bytes": 108817,
+    "sha256": "f4223eb7f3a037cfb28e6e0edf69b713c24c74e0adf8bad3fac324aa126234db"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "957876eeb005",
+    "assessmentId": "989cdd35-190e-492d-8a8d-0a75f284092a",
+    "path": "shots/phone-4x4.png",
+    "bytes": 86145,
+    "sha256": "8b6f3c6213b41d005dd8666e343a3ddbf5065319e6883001fe3285cee5d52f21"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "979b335037b4",
+    "assessmentId": "d8d17682-809c-4770-9757-79f4cff90643",
+    "path": "shots/desktop-16x16.png",
+    "bytes": 66599,
+    "sha256": "3fa1283d9ed9bd44df1e74d170551c65eb18233d2994dcbae7442299c8746be7"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "979b335037b4",
+    "assessmentId": "d8d17682-809c-4770-9757-79f4cff90643",
+    "path": "shots/desktop-4x4.png",
+    "bytes": 47618,
+    "sha256": "4a310b8b7f5d5bd7a6ee03a69499872e5397ab701599db70a82d1fe116fe427d"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "979b335037b4",
+    "assessmentId": "d8d17682-809c-4770-9757-79f4cff90643",
+    "path": "shots/desktop-win.png",
+    "bytes": 55121,
+    "sha256": "0f2245bbaece020670d672eeb5e9797e95c804c7192e2d5c61e3fa91c9e139ac"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "979b335037b4",
+    "assessmentId": "d8d17682-809c-4770-9757-79f4cff90643",
+    "path": "shots/face-sheet.png",
+    "bytes": 376885,
+    "sha256": "c68ec467cdd7515e62b6b45ef2d24183bb18da13f85ffb2289cc366d8a29da1f"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "979b335037b4",
+    "assessmentId": "d8d17682-809c-4770-9757-79f4cff90643",
+    "path": "shots/phone-16x16.png",
+    "bytes": 124369,
+    "sha256": "4cc51d9030ae358867c0fee1aa6b8e337516aca0ed114b8231a3ebbcb78b79b6"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "979b335037b4",
+    "assessmentId": "d8d17682-809c-4770-9757-79f4cff90643",
+    "path": "shots/phone-4x4.png",
+    "bytes": 94865,
+    "sha256": "20c1387ec5a1c68e2610a7d919e6c05d9e424e11f5f7df8c3f0c18aa67c43431"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "98ab2bd65ca0",
+    "assessmentId": "c5ab77b4-e294-4c9b-aa84-3f699c78a172",
+    "path": "shots/desktop-16x16.png",
+    "bytes": 54192,
+    "sha256": "5d1f35a117805add8be3265d2242c62d0c72d995217bf46fb74f0f75413e664d"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "98ab2bd65ca0",
+    "assessmentId": "c5ab77b4-e294-4c9b-aa84-3f699c78a172",
+    "path": "shots/desktop-4x4.png",
+    "bytes": 36278,
+    "sha256": "8c64d460e9e89326332e2ddef6ed8604b6f193603c38677a0c684e420f847a34"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "98ab2bd65ca0",
+    "assessmentId": "c5ab77b4-e294-4c9b-aa84-3f699c78a172",
+    "path": "shots/desktop-win.png",
+    "bytes": 47077,
+    "sha256": "6a33bdbe1893ce3e5b306ea0fa14b68b3729e81360b855478346aca0800d0081"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "98ab2bd65ca0",
+    "assessmentId": "c5ab77b4-e294-4c9b-aa84-3f699c78a172",
+    "path": "shots/face-sheet.png",
+    "bytes": 395652,
+    "sha256": "5b84ef1738366cb5343e00e21d47422e849fc9e766fd984bad08db1c2ef07b79"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "98ab2bd65ca0",
+    "assessmentId": "c5ab77b4-e294-4c9b-aa84-3f699c78a172",
+    "path": "shots/phone-16x16.png",
+    "bytes": 107315,
+    "sha256": "55d1b3c42cfc8751fc0cb0bff8e3974662538a220785279fb23f73edd3ef20b5"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "98ab2bd65ca0",
+    "assessmentId": "c5ab77b4-e294-4c9b-aa84-3f699c78a172",
+    "path": "shots/phone-4x4.png",
+    "bytes": 76229,
+    "sha256": "befe6799c652c539868e235f808c6993edc66703ba51e06e7ef47a54fd309d9f"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "9ab2ab06f146",
+    "assessmentId": "63641d42-2188-4ca2-bf1f-2684ecc1cfe9",
+    "path": "shots/desktop-16x16.png",
+    "bytes": 69087,
+    "sha256": "3125f58df246b395bd1100ddc49bb339f8200cf9826e0a663ae218a4bb0c21ef"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "9ab2ab06f146",
+    "assessmentId": "63641d42-2188-4ca2-bf1f-2684ecc1cfe9",
+    "path": "shots/desktop-4x4.png",
+    "bytes": 51568,
+    "sha256": "e93b0e50e17a04c71528c8d9b14cdd5c7ff37047982d7a30d3facfea9454c891"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "9ab2ab06f146",
+    "assessmentId": "63641d42-2188-4ca2-bf1f-2684ecc1cfe9",
+    "path": "shots/desktop-win.png",
+    "bytes": 62008,
+    "sha256": "2a8fbf12ddf692bd3094520d198545d23159b738ebf1a1875c9f0270f54c246c"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "9ab2ab06f146",
+    "assessmentId": "63641d42-2188-4ca2-bf1f-2684ecc1cfe9",
+    "path": "shots/face-sheet.png",
+    "bytes": 395312,
+    "sha256": "b29e5a2f40de508ec48e75ead50abd3eabde58370a1da461a6c02dc6b4993ce8"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "9ab2ab06f146",
+    "assessmentId": "63641d42-2188-4ca2-bf1f-2684ecc1cfe9",
+    "path": "shots/phone-16x16.png",
+    "bytes": 132390,
+    "sha256": "0819e901fcc333b1c9335892d021ff4d6eab5f21b263de657b37146a5f441a25"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "9ab2ab06f146",
+    "assessmentId": "63641d42-2188-4ca2-bf1f-2684ecc1cfe9",
+    "path": "shots/phone-4x4.png",
+    "bytes": 104634,
+    "sha256": "49933a559da47ff2d3efdb60c3b3975c0c00da1717649ed06d3dfa063ab3c531"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a529113c0452",
+    "assessmentId": "e3dc039e-6966-40ce-9b39-ef917657784d",
+    "path": "shots/desktop-16x16.png",
+    "bytes": 56321,
+    "sha256": "d43e924c9fc8df6b7739ae36b441ff01988d0c9593198b2deff9a105849f25b7"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a529113c0452",
+    "assessmentId": "e3dc039e-6966-40ce-9b39-ef917657784d",
+    "path": "shots/desktop-4x4.png",
+    "bytes": 39250,
+    "sha256": "08d0cb4efb72183cc8f9327c744808cc122f055dd50a3624a5e80eaad02865e8"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a529113c0452",
+    "assessmentId": "e3dc039e-6966-40ce-9b39-ef917657784d",
+    "path": "shots/desktop-win.png",
+    "bytes": 47447,
+    "sha256": "7d5bc0840ef36578056efdcbad12c6d61a20746de6aa3e238d691ce76e5792ad"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a529113c0452",
+    "assessmentId": "e3dc039e-6966-40ce-9b39-ef917657784d",
+    "path": "shots/face-sheet.png",
+    "bytes": 397661,
+    "sha256": "9787fd4a91dcf077b3bbcbfee6ac87cec2c5ec794d6d26fe56003f6a7dba6a4b"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a529113c0452",
+    "assessmentId": "e3dc039e-6966-40ce-9b39-ef917657784d",
+    "path": "shots/phone-16x16.png",
+    "bytes": 103287,
+    "sha256": "3a59b0e8f5905e115712fc4c8f7880aab7d36b5b48a080bcc67fe4be2d1bcba1"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a529113c0452",
+    "assessmentId": "e3dc039e-6966-40ce-9b39-ef917657784d",
+    "path": "shots/phone-4x4.png",
+    "bytes": 80596,
+    "sha256": "3f191c9257777b2f946bf862bed3b6db27c5f91dda9b745a107a0943f454ff6d"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "b6cbfdc9ec38",
+    "assessmentId": "70765df8-b0f2-450b-9061-377eb98cff3b",
+    "path": "shots/desktop-16x16.png",
+    "bytes": 59749,
+    "sha256": "da7b2ed4241abd027c303cd75b6c76e11283fa0e5737f7bba1c8d9b16fb5c775"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "b6cbfdc9ec38",
+    "assessmentId": "70765df8-b0f2-450b-9061-377eb98cff3b",
+    "path": "shots/desktop-4x4.png",
+    "bytes": 43017,
+    "sha256": "6de359db26b01c655fcede3be26fe9f2326a098235f15b770cc741288125f1df"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "b6cbfdc9ec38",
+    "assessmentId": "70765df8-b0f2-450b-9061-377eb98cff3b",
+    "path": "shots/desktop-win.png",
+    "bytes": 51211,
+    "sha256": "ed6f584f7148864bb612043b61427a88d5f7adfd76a01f60a62b03977bd12ae8"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "b6cbfdc9ec38",
+    "assessmentId": "70765df8-b0f2-450b-9061-377eb98cff3b",
+    "path": "shots/face-sheet.png",
+    "bytes": 397596,
+    "sha256": "01083b7b2f08cb1581d84cd8b43b80c2f769ed6d35b929da6142a4ab47041622"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "b6cbfdc9ec38",
+    "assessmentId": "70765df8-b0f2-450b-9061-377eb98cff3b",
+    "path": "shots/phone-16x16.png",
+    "bytes": 111112,
+    "sha256": "99dbdbef10743f23e32d3cfb700016f31853d9879897f3ad8e740ab1393d15f6"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "b6cbfdc9ec38",
+    "assessmentId": "70765df8-b0f2-450b-9061-377eb98cff3b",
+    "path": "shots/phone-4x4.png",
+    "bytes": 88209,
+    "sha256": "4da4e63287dbda3e1fdf2ada94b05af3632620256c318ef8844b45acaac64637"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "b83be68a5db6",
+    "assessmentId": "5d1d703f-9870-4d34-a92e-5de389763a0e",
+    "path": "shots/desktop-16x16.png",
+    "bytes": 68577,
+    "sha256": "9c174b0f4725ae40d563c63768ceaf7c8598a28f158034f2b0fa03bedf817b1c"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "b83be68a5db6",
+    "assessmentId": "5d1d703f-9870-4d34-a92e-5de389763a0e",
+    "path": "shots/desktop-4x4.png",
+    "bytes": 50339,
+    "sha256": "4721af71337346fa7f80f81b7020686df2b1b3ab229d1773dcd15bc5fda95399"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "b83be68a5db6",
+    "assessmentId": "5d1d703f-9870-4d34-a92e-5de389763a0e",
+    "path": "shots/desktop-win.png",
+    "bytes": 59206,
+    "sha256": "03f4cfd0ad46509d84fee4a791aaac993c79f239c6ae86b46b0e4c3ccd82a453"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "b83be68a5db6",
+    "assessmentId": "5d1d703f-9870-4d34-a92e-5de389763a0e",
+    "path": "shots/face-sheet.png",
+    "bytes": 392820,
+    "sha256": "61de6d306b3a14c0b73ff826e85e0d9f32d77b7a2f777b005b513133e7734ead"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "b83be68a5db6",
+    "assessmentId": "5d1d703f-9870-4d34-a92e-5de389763a0e",
+    "path": "shots/phone-16x16.png",
+    "bytes": 133059,
+    "sha256": "0af74af3c70f9db240b812e82a5241fa41bb3120a032fc54694e2402668d2ee3"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "b83be68a5db6",
+    "assessmentId": "5d1d703f-9870-4d34-a92e-5de389763a0e",
+    "path": "shots/phone-4x4.png",
+    "bytes": 104918,
+    "sha256": "55ced0f8230d86ac921544e1f3f5206530e4462f4ca1e8e4e56f1263c5a0228e"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "bad4abaaceb0",
+    "assessmentId": "fdc39b9e-eb8b-451b-9f18-caff2578b439",
+    "path": "shots/desktop-16x16.png",
+    "bytes": 52065,
+    "sha256": "be161cb1bf8f40ffa378ad46229e23c755ea4b06ed3dc32cceb2892f2d67b503"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "bad4abaaceb0",
+    "assessmentId": "fdc39b9e-eb8b-451b-9f18-caff2578b439",
+    "path": "shots/desktop-4x4.png",
+    "bytes": 35842,
+    "sha256": "44785200abc3c1c0ca8c761f78198eb7373717565eefad9f89ee1831ba04da6f"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "bad4abaaceb0",
+    "assessmentId": "fdc39b9e-eb8b-451b-9f18-caff2578b439",
+    "path": "shots/desktop-win.png",
+    "bytes": 42100,
+    "sha256": "94dca5501b1fc7c36d07e3eac7905928856fa0e07074fe5be867c8b0c37f86c9"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "bad4abaaceb0",
+    "assessmentId": "fdc39b9e-eb8b-451b-9f18-caff2578b439",
+    "path": "shots/face-sheet.png",
+    "bytes": 365108,
+    "sha256": "79da05accf2ca0c6c0d1c9eef820287639c4f33509fd348723c7066466cc3582"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "bad4abaaceb0",
+    "assessmentId": "fdc39b9e-eb8b-451b-9f18-caff2578b439",
+    "path": "shots/phone-16x16.png",
+    "bytes": 95022,
+    "sha256": "65112f1230a36964f10665e79ef4a3d471cc9c38b7e1cbcf8f3cc701f7bc332e"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "bad4abaaceb0",
+    "assessmentId": "fdc39b9e-eb8b-451b-9f18-caff2578b439",
+    "path": "shots/phone-4x4.png",
+    "bytes": 67230,
+    "sha256": "f95debb1729efa1a970737420bc4ebf88cfac9a6749a81a5f6cb3b7621a57f22"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "c196e31b1bfc",
+    "assessmentId": "ec53e519-07b2-4060-81be-579d8731d96c",
+    "path": "shots/desktop-16x16.png",
+    "bytes": 69371,
+    "sha256": "398618e3b50324b503ac4618102999a11e5653ba165c65a7da4175c1890edb2f"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "c196e31b1bfc",
+    "assessmentId": "ec53e519-07b2-4060-81be-579d8731d96c",
+    "path": "shots/desktop-4x4.png",
+    "bytes": 49599,
+    "sha256": "463e583f0844e9772c943dfd2c45add6a9c3b7f7976dfcffa38cfc00ff36a776"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "c196e31b1bfc",
+    "assessmentId": "ec53e519-07b2-4060-81be-579d8731d96c",
+    "path": "shots/desktop-win.png",
+    "bytes": 61230,
+    "sha256": "6c5e47c60634d2a56b0bda6616f2d8a662d63b024de091636eb50057819c8cef"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "c196e31b1bfc",
+    "assessmentId": "ec53e519-07b2-4060-81be-579d8731d96c",
+    "path": "shots/face-sheet.png",
+    "bytes": 394501,
+    "sha256": "a6037c2c6109359bbb0ad678412b6a3d856624a03f792e61e8ccdcf88810bf69"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "c196e31b1bfc",
+    "assessmentId": "ec53e519-07b2-4060-81be-579d8731d96c",
+    "path": "shots/phone-16x16.png",
+    "bytes": 132278,
+    "sha256": "63aedae9298e6f646449d44370212baec13cef3d44d56adcb70fce4b00a3e04d"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "c196e31b1bfc",
+    "assessmentId": "ec53e519-07b2-4060-81be-579d8731d96c",
+    "path": "shots/phone-4x4.png",
+    "bytes": 104123,
+    "sha256": "b226fa6d7b6ed9776f81aabc303a56f4b117abb08bd98e13ed91b56446cc6972"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "cadaaa2fdb32",
+    "assessmentId": "f55d319e-e211-4940-ad02-a6e89c5ce9d8",
+    "path": "shots/desktop-16x16.png",
+    "bytes": 83436,
+    "sha256": "ee6f02f412f4eef27f7e71e61855f5c90a7d18473dccc2908c4eca4f82033d8a"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "cadaaa2fdb32",
+    "assessmentId": "f55d319e-e211-4940-ad02-a6e89c5ce9d8",
+    "path": "shots/desktop-4x4.png",
+    "bytes": 51700,
+    "sha256": "c3c58e28909cef3a95fe503e9620fa2c7f8724e77a701cde9f3029c519df12a8"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "cadaaa2fdb32",
+    "assessmentId": "f55d319e-e211-4940-ad02-a6e89c5ce9d8",
+    "path": "shots/desktop-win.png",
+    "bytes": 60793,
+    "sha256": "ddbd0aa1aadbc111d9e05e5e616520e7168b1000483e2703ab92b8729628b455"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "cadaaa2fdb32",
+    "assessmentId": "f55d319e-e211-4940-ad02-a6e89c5ce9d8",
+    "path": "shots/face-sheet.png",
+    "bytes": 394272,
+    "sha256": "77f468e2e420c22380bbfb1366d3be3ef12a37737afd2911c7916ccb625486b3"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "cadaaa2fdb32",
+    "assessmentId": "f55d319e-e211-4940-ad02-a6e89c5ce9d8",
+    "path": "shots/phone-16x16.png",
+    "bytes": 133852,
+    "sha256": "cfdbe5f70a139aafdc645c725b1563a00cc8be6479bd7285d2f475195027c70c"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "cadaaa2fdb32",
+    "assessmentId": "f55d319e-e211-4940-ad02-a6e89c5ce9d8",
+    "path": "shots/phone-4x4.png",
+    "bytes": 106097,
+    "sha256": "9aaed76d94cc05c89aa6d8fddd9dac131ee77cf7c4c07361906a7df4313dfcc0"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "cc3a0cf950d7",
+    "assessmentId": "f8962d61-39ad-474b-bcd6-85192a9b4e06",
+    "path": "shots/desktop-16x16.png",
+    "bytes": 75195,
+    "sha256": "d5954c806055d984e8f2dfda3978e720ac4afcbcfb88a9f960b6e74f2dd10c28"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "cc3a0cf950d7",
+    "assessmentId": "f8962d61-39ad-474b-bcd6-85192a9b4e06",
+    "path": "shots/desktop-4x4.png",
+    "bytes": 57513,
+    "sha256": "fc3aaf8b69a07402395688eb7389f54a7941cece804b28fa063f182ce48c274a"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "cc3a0cf950d7",
+    "assessmentId": "f8962d61-39ad-474b-bcd6-85192a9b4e06",
+    "path": "shots/desktop-win.png",
+    "bytes": 68213,
+    "sha256": "69929119fc6e46ad4c1fedb8d5a3a7fea734aa66d3b1f5f24d4da60b2470feef"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "cc3a0cf950d7",
+    "assessmentId": "f8962d61-39ad-474b-bcd6-85192a9b4e06",
+    "path": "shots/face-sheet.png",
+    "bytes": 366652,
+    "sha256": "7cac14b20fafd9730824025162f58aaa55c0a3a875b9569226812438cfd46ffc"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "cc3a0cf950d7",
+    "assessmentId": "f8962d61-39ad-474b-bcd6-85192a9b4e06",
+    "path": "shots/phone-16x16.png",
+    "bytes": 145895,
+    "sha256": "70effc18f6bec7711b59c4f015e7f1c9bbead63e2b0f4204fbfb71ce1aa84516"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "cc3a0cf950d7",
+    "assessmentId": "f8962d61-39ad-474b-bcd6-85192a9b4e06",
+    "path": "shots/phone-4x4.png",
+    "bytes": 125676,
+    "sha256": "cf8f08b743b5b471b2532b346d001c3d5749baf4e7f0e45ba1cc56251c0eb2a0"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "d260c001ba62",
+    "assessmentId": "0815d291-dfa1-49cc-a9e0-1888a5953fc2",
+    "path": "shots/desktop-16x16.png",
+    "bytes": 83254,
+    "sha256": "d1b46406a006229ea47e9d67fdb287250deca68c9c1d7c4733e26840a2af8137"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "d260c001ba62",
+    "assessmentId": "0815d291-dfa1-49cc-a9e0-1888a5953fc2",
+    "path": "shots/desktop-4x4.png",
+    "bytes": 61810,
+    "sha256": "d30a39f7869cc4669413a41a2da6dd1c9b246330a5a5a9c8bd1f5976f8685afa"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "d260c001ba62",
+    "assessmentId": "0815d291-dfa1-49cc-a9e0-1888a5953fc2",
+    "path": "shots/desktop-win.png",
+    "bytes": 74588,
+    "sha256": "8a636c30652b596c725217c21d099475789104e5dcd9ab9e458b140731134808"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "d260c001ba62",
+    "assessmentId": "0815d291-dfa1-49cc-a9e0-1888a5953fc2",
+    "path": "shots/face-sheet.png",
+    "bytes": 307145,
+    "sha256": "054080f11e07fc65f13f5d395f40ed0a8d86a34edd29bd4d0dee392b857199a0"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "d260c001ba62",
+    "assessmentId": "0815d291-dfa1-49cc-a9e0-1888a5953fc2",
+    "path": "shots/phone-16x16.png",
+    "bytes": 161548,
+    "sha256": "03113ca108b680fef0b09f75b865ae3602da4eaef4f33603a7f5e98a73a58a8f"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "d260c001ba62",
+    "assessmentId": "0815d291-dfa1-49cc-a9e0-1888a5953fc2",
+    "path": "shots/phone-4x4.png",
+    "bytes": 128568,
+    "sha256": "6032f42376fdc1bedce1230adc4de0c43e8287677a7d9efb3e506db112c480a9"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "d3727b87c553",
+    "assessmentId": "8ef53630-073f-4f28-9bc8-a2c68cb685a2",
+    "path": "shots/desktop-16x16.png",
+    "bytes": 56843,
+    "sha256": "72876aab7f65f9cf10ad858046d17afdbe997c18897abaa0bd9e460c23279b61"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "d3727b87c553",
+    "assessmentId": "8ef53630-073f-4f28-9bc8-a2c68cb685a2",
+    "path": "shots/desktop-4x4.png",
+    "bytes": 41986,
+    "sha256": "60e8dd695df53c4146ab3321ab1f90f0ce95da3a57b657af7eec0ec78f64ae02"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "d3727b87c553",
+    "assessmentId": "8ef53630-073f-4f28-9bc8-a2c68cb685a2",
+    "path": "shots/desktop-win.png",
+    "bytes": 50758,
+    "sha256": "7b05638f129e1e79d005a9981aed8c74a549168954a24b7ba4ec95beacb2a5e8"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "d3727b87c553",
+    "assessmentId": "8ef53630-073f-4f28-9bc8-a2c68cb685a2",
+    "path": "shots/face-sheet.png",
+    "bytes": 398045,
+    "sha256": "bb6e883ed7512ac8b1dc0d6ffd4629f82bc2952b51081030fae31c8971115bba"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "d3727b87c553",
+    "assessmentId": "8ef53630-073f-4f28-9bc8-a2c68cb685a2",
+    "path": "shots/phone-16x16.png",
+    "bytes": 106619,
+    "sha256": "8380556eb220104a29c30069479833041f05092aa3652ed522426f8b02391053"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "d3727b87c553",
+    "assessmentId": "8ef53630-073f-4f28-9bc8-a2c68cb685a2",
+    "path": "shots/phone-4x4.png",
+    "bytes": 83894,
+    "sha256": "fadfbcf4394ad8a135a88e07c9568a8e1ff53907b6d5a0a3201278f0cc205801"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "d7480dcfba99",
+    "assessmentId": "58d437b7-a854-4769-b60c-696a262dad3d",
+    "path": "shots/desktop-16x16.png",
+    "bytes": 79475,
+    "sha256": "e8eee55ae5cb6e0062a1f31fd97fce528e07d2fa732a6bcdb2d13f578f884a79"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "d7480dcfba99",
+    "assessmentId": "58d437b7-a854-4769-b60c-696a262dad3d",
+    "path": "shots/desktop-4x4.png",
+    "bytes": 63451,
+    "sha256": "2c773ffe2b2618edb52cc512399bcbe3abb965b58deade00096f952223483d73"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "d7480dcfba99",
+    "assessmentId": "58d437b7-a854-4769-b60c-696a262dad3d",
+    "path": "shots/desktop-win.png",
+    "bytes": 75258,
+    "sha256": "e5595b0b518fd723cc8a0d53f26d1b038080940c185e062c7d95da95728ab48a"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "d7480dcfba99",
+    "assessmentId": "58d437b7-a854-4769-b60c-696a262dad3d",
+    "path": "shots/face-sheet.png",
+    "bytes": 394514,
+    "sha256": "9fb3c20837c961edd6cb0707fb14a2775b3214012259159cb4f24ee218f66f4e"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "d7480dcfba99",
+    "assessmentId": "58d437b7-a854-4769-b60c-696a262dad3d",
+    "path": "shots/phone-16x16.png",
+    "bytes": 162621,
+    "sha256": "7c664d02447da9a168946ad6eac07a830fabdeacbec0f963891f86e488833103"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "d7480dcfba99",
+    "assessmentId": "58d437b7-a854-4769-b60c-696a262dad3d",
+    "path": "shots/phone-4x4.png",
+    "bytes": 126524,
+    "sha256": "c856a9ab3e005566447cd90202b0ef49e5459a5807be10c2aaf233318723b715"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "d7faf22e9e34",
+    "assessmentId": "b3be3f3a-9e01-43eb-8c11-2c04cc7cae68",
+    "path": "shots/desktop-16x16.png",
+    "bytes": 60937,
+    "sha256": "759b34024ed5d24bbc8756e7d722c358c2a733a6e1054e8838db6074d58a66e0"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "d7faf22e9e34",
+    "assessmentId": "b3be3f3a-9e01-43eb-8c11-2c04cc7cae68",
+    "path": "shots/desktop-4x4.png",
+    "bytes": 41208,
+    "sha256": "f1ccf045d3b58ad1ed31c72ef29680b1ab653fafff54d7533f0ed254c9517674"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "d7faf22e9e34",
+    "assessmentId": "b3be3f3a-9e01-43eb-8c11-2c04cc7cae68",
+    "path": "shots/desktop-win.png",
+    "bytes": 52382,
+    "sha256": "4dea2cef47f15521461ef3bb61966250ad2dccfe1db443506bf57a5a2eace69d"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "d7faf22e9e34",
+    "assessmentId": "b3be3f3a-9e01-43eb-8c11-2c04cc7cae68",
+    "path": "shots/face-sheet.png",
+    "bytes": 376542,
+    "sha256": "3872660f5aff3034c21de89e45c89fb630267fa1434a0e1a2a20a367de231b19"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "d7faf22e9e34",
+    "assessmentId": "b3be3f3a-9e01-43eb-8c11-2c04cc7cae68",
+    "path": "shots/phone-16x16.png",
+    "bytes": 119653,
+    "sha256": "c72fed6336a07ba1995e51ca0bedd52924b8312ae6a6fbc7f9e5ca30016fe787"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "d7faf22e9e34",
+    "assessmentId": "b3be3f3a-9e01-43eb-8c11-2c04cc7cae68",
+    "path": "shots/phone-4x4.png",
+    "bytes": 90234,
+    "sha256": "d7f8da313fa6f7ae57b4c505e74ab66bfd3202f4360f6d3239e9ef00b1c08d86"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "e1d0952d6611",
+    "assessmentId": "fcb670bf-14b6-41b0-b32c-aee9a445abe6",
+    "path": "shots/desktop-16x16.png",
+    "bytes": 45236,
+    "sha256": "9457a0138f8c73a36f01ad1763d3b67a5d520afcdcc1a3d98bbc9b9346529868"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "e1d0952d6611",
+    "assessmentId": "fcb670bf-14b6-41b0-b32c-aee9a445abe6",
+    "path": "shots/desktop-4x4.png",
+    "bytes": 32662,
+    "sha256": "c6ff65c8f645636780862e7438acb7500247b3d8261e74286260dc52d5007006"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "e1d0952d6611",
+    "assessmentId": "fcb670bf-14b6-41b0-b32c-aee9a445abe6",
+    "path": "shots/desktop-win.png",
+    "bytes": 42948,
+    "sha256": "e2d67639394d606b0589e3f182dedf269b435fee2e67a2bbdff108cf930bdb63"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "e1d0952d6611",
+    "assessmentId": "fcb670bf-14b6-41b0-b32c-aee9a445abe6",
+    "path": "shots/face-sheet.png",
+    "bytes": 352175,
+    "sha256": "c60374df315f7adea93d6e4ec7d882667e7a44d229a70552821ffa16b421488b"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "e1d0952d6611",
+    "assessmentId": "fcb670bf-14b6-41b0-b32c-aee9a445abe6",
+    "path": "shots/phone-16x16.png",
+    "bytes": 80937,
+    "sha256": "97d4fa5768ff0cf6ee3ef7b52011a76eb804f45051a584c5952ae716fd35e014"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "e1d0952d6611",
+    "assessmentId": "fcb670bf-14b6-41b0-b32c-aee9a445abe6",
+    "path": "shots/phone-4x4.png",
+    "bytes": 60766,
+    "sha256": "ea9dcfb78edd0f8ceeb5e6a487839e4198732138f9abb058cd0c06cd88b6b967"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "e26cbc3d4fef",
+    "assessmentId": "056dbfa6-145e-4313-b5f8-fd7d88f0bd31",
+    "path": "shots/desktop-16x16.png",
+    "bytes": 59422,
+    "sha256": "c6b6768f09c1860c019006836d0a4c8fe095677782db2f2c5376b8f10543e027"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "e26cbc3d4fef",
+    "assessmentId": "056dbfa6-145e-4313-b5f8-fd7d88f0bd31",
+    "path": "shots/desktop-4x4.png",
+    "bytes": 41909,
+    "sha256": "90a8b901ef6aab80ebc101c3583367cdb06adc12b9c6a46c0c8ec88c9b0b4340"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "e26cbc3d4fef",
+    "assessmentId": "056dbfa6-145e-4313-b5f8-fd7d88f0bd31",
+    "path": "shots/desktop-win.png",
+    "bytes": 50335,
+    "sha256": "51cbf810122e8080dee9abc336edeed2c93f6804ad073c601794be51f7874926"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "e26cbc3d4fef",
+    "assessmentId": "056dbfa6-145e-4313-b5f8-fd7d88f0bd31",
+    "path": "shots/face-sheet.png",
+    "bytes": 376481,
+    "sha256": "8ecb8f3f029548bfa0dfe70eac7c4fb541123015b282926cf01cb4dc4d4df6df"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "e26cbc3d4fef",
+    "assessmentId": "056dbfa6-145e-4313-b5f8-fd7d88f0bd31",
+    "path": "shots/phone-16x16.png",
+    "bytes": 111815,
+    "sha256": "782459e6f0251eb15a31db784cd58be1b2e9bbe5618427bfbb6af26a6d486937"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "e26cbc3d4fef",
+    "assessmentId": "056dbfa6-145e-4313-b5f8-fd7d88f0bd31",
+    "path": "shots/phone-4x4.png",
+    "bytes": 87273,
+    "sha256": "04383dde62d5af639be200c66ab91466a6e905133e8aa8cb905c269f5d65cad6"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "f0b86ed3bddc",
+    "assessmentId": "6cae95d5-6d36-4af5-98ea-aada1dc72aad",
+    "path": "shots/desktop-16x16.png",
+    "bytes": 65408,
+    "sha256": "f39c38650b82971c1f9e93a7458f37d88ae8903319109e15673101eb694c54c4"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "f0b86ed3bddc",
+    "assessmentId": "6cae95d5-6d36-4af5-98ea-aada1dc72aad",
+    "path": "shots/desktop-4x4.png",
+    "bytes": 48934,
+    "sha256": "5f6e524a66b0d5d212ba715e363bd54dcf730b80c7b9ac8ba4e6f5157979365d"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "f0b86ed3bddc",
+    "assessmentId": "6cae95d5-6d36-4af5-98ea-aada1dc72aad",
+    "path": "shots/desktop-win.png",
+    "bytes": 57675,
+    "sha256": "c7494f36ac1cfeba2215723236a83fc492452a62d7b407755f9b620f34414484"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "f0b86ed3bddc",
+    "assessmentId": "6cae95d5-6d36-4af5-98ea-aada1dc72aad",
+    "path": "shots/face-sheet.png",
+    "bytes": 378327,
+    "sha256": "70537a0281ebd3121e581881b2b78113cc74ea1f775139afe64d5f8f1e66bd66"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "f0b86ed3bddc",
+    "assessmentId": "6cae95d5-6d36-4af5-98ea-aada1dc72aad",
+    "path": "shots/phone-16x16.png",
+    "bytes": 128331,
+    "sha256": "ad6b566f1b97628cafa0ba26697481a3052eb439ef6446428c37d5c6e6d73e71"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "f0b86ed3bddc",
+    "assessmentId": "6cae95d5-6d36-4af5-98ea-aada1dc72aad",
+    "path": "shots/phone-4x4.png",
+    "bytes": 104854,
+    "sha256": "8d0f1902b356e172e78d4cbab8cd6cb44663f303c886be44832b05927bbe5507"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "f7dc4b623992",
+    "assessmentId": "659b86cf-98a5-4fde-aefa-49cc6ee42e50",
+    "path": "shots/desktop-16x16.png",
+    "bytes": 55413,
+    "sha256": "91e3a347d938d008e5749d1b3261833201d470d5c357fd0d5a31be6dce52a3ca"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "f7dc4b623992",
+    "assessmentId": "659b86cf-98a5-4fde-aefa-49cc6ee42e50",
+    "path": "shots/desktop-4x4.png",
+    "bytes": 37591,
+    "sha256": "7c3a44f8ca6a6324c374f5e5243d4f1d39a8a90775663ef76fae3a089d6ce15f"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "f7dc4b623992",
+    "assessmentId": "659b86cf-98a5-4fde-aefa-49cc6ee42e50",
+    "path": "shots/desktop-win.png",
+    "bytes": 46316,
+    "sha256": "9d70ea15e2a673ee259f7cdb87c20a794368ad6592ebf5b65985986e3da556a0"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "f7dc4b623992",
+    "assessmentId": "659b86cf-98a5-4fde-aefa-49cc6ee42e50",
+    "path": "shots/face-sheet.png",
+    "bytes": 359740,
+    "sha256": "fcdf74a99643fff237a36aa00d5ac95d1365a818a8cbb2afe30c0177b707cf60"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "f7dc4b623992",
+    "assessmentId": "659b86cf-98a5-4fde-aefa-49cc6ee42e50",
+    "path": "shots/phone-16x16.png",
+    "bytes": 102830,
+    "sha256": "1cec3512aa4cef8b2ec2c60e5e16fa6362d78d69943aeda1ee6fd48083849ae8"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "f7dc4b623992",
+    "assessmentId": "659b86cf-98a5-4fde-aefa-49cc6ee42e50",
+    "path": "shots/phone-4x4.png",
+    "bytes": 74502,
+    "sha256": "991d54a99e07518187659eb8e952da290d428ade6c0d1c34e95ef9ef32ba24e5"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "fe347e8f916e",
+    "assessmentId": "aec6edca-f644-4d0c-a7a4-e6c8e1652276",
+    "path": "shots/desktop-16x16.png",
+    "bytes": 68737,
+    "sha256": "b2434894b3ed7d6a7867d7ba52725834b824994d37abdbda5904d6e98a1c6e7f"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "fe347e8f916e",
+    "assessmentId": "aec6edca-f644-4d0c-a7a4-e6c8e1652276",
+    "path": "shots/desktop-4x4.png",
+    "bytes": 52194,
+    "sha256": "96d448d009f974a16b7f02e0264b39d97d94ee33ef7ca996e04709a331e98c8b"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "fe347e8f916e",
+    "assessmentId": "aec6edca-f644-4d0c-a7a4-e6c8e1652276",
+    "path": "shots/desktop-win.png",
+    "bytes": 63341,
+    "sha256": "daad9380b71c72e70fd5199f94a53520f0cf94a7cdba85af31e8f46bac7d76f1"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "fe347e8f916e",
+    "assessmentId": "aec6edca-f644-4d0c-a7a4-e6c8e1652276",
+    "path": "shots/face-sheet.png",
+    "bytes": 378655,
+    "sha256": "06d2d4cb04929df9652e476ef23ae959e48bce153d4453ed059a5869e2d849cd"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "fe347e8f916e",
+    "assessmentId": "aec6edca-f644-4d0c-a7a4-e6c8e1652276",
+    "path": "shots/phone-16x16.png",
+    "bytes": 137152,
+    "sha256": "a2b2c2fcb045dd615ce511356987a3d5a64f55024734d371d31900aeb6752788"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "fe347e8f916e",
+    "assessmentId": "aec6edca-f644-4d0c-a7a4-e6c8e1652276",
+    "path": "shots/phone-4x4.png",
+    "bytes": 110821,
+    "sha256": "dcc107ce2589d85d1a2e2a86ca305911cd0a6ef4579991b37e785074461495b0"
   }
 ]
