@@ -1,0 +1,3 @@
+.deal-controls { display: flex; flex-wrap: wrap; align-items: end; gap: 12px; }
+.size-control { display: grid; gap: 4px; color: var(--secondary); font-size: 14px; }
+.size-control select { min-width: 96px; color: var(--text); }

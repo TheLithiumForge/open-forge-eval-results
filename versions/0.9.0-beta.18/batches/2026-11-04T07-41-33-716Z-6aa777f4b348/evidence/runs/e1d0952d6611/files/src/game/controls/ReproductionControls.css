@@ -1,0 +1,30 @@
+.reproduction-controls { display: grid; gap: 8px; }
+.reproduce-panel { border-radius: 8px; background: #141827; color: #F4F6FF; }
+.reproduce-panel summary { min-height: 44px; padding: 8px 16px; cursor: pointer; font-weight: 600; }
+.reproduce-content { display: grid; gap: 16px; padding: 12px 16px 16px; }
+.reproduce-content form { display: grid; gap: 6px; }
+.reproduce-content label { color: #B8BDD2; font-size: 14px; }
+.reproduce-content input, .reproduce-content textarea {
+  min-width: 0;
+  padding: 8px;
+  border: 1px solid #757C9A;
+  border-radius: 8px;
+  background: #141827;
+  color: #F4F6FF;
+}
+.reproduce-content input { flex: 1 1 230px; min-height: 44px; }
+.reproduce-content textarea { width: 100%; resize: vertical; font-family: inherit; }
+.reproduce-content code { font-family: inherit; }
+.inline-form-controls { display: flex; flex-wrap: wrap; gap: 8px; }
+.inline-form-controls button {
+  min-height: 44px;
+  padding: 8px 12px;
+  border: 1px solid #757C9A;
+  border-radius: 8px;
+  background: #141827;
+  color: #F4F6FF;
+  cursor: pointer;
+}
+.board-code-current, .reproduction-status, .resume-help { margin: 0; color: #B8BDD2; font-size: 14px; }
+.board-code-current code { color: #F4F6FF; }
+.snapshot-actions { justify-content: flex-start; }

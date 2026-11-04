@@ -1,0 +1,25 @@
+.reproduction-controls {
+  min-width: 0;
+  padding: 16px;
+  border: 1px solid #757C9A;
+  border-radius: 8px;
+  background: #141827;
+}
+.reproduction-controls summary { width: fit-content; max-width: 100%; }
+.reproduction-fields { display: grid; gap: 12px; padding-top: 16px; }
+.reproduction-label, .load-status { color: #B8BDD2; font-size: 14px; }
+.board-code-controls {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: end;
+  gap: 4px 12px;
+}
+.board-code-controls label { grid-column: 1 / -1; }
+.board-code-controls input { width: 100%; }
+.reproduction-controls textarea { width: 100%; resize: vertical; }
+.snapshot-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+.load-status { min-height: 24px; overflow-wrap: anywhere; }
+@media (max-width: 400px) {
+  .board-code-controls { grid-template-columns: minmax(0, 1fr); }
+  .board-code-controls button { justify-self: start; }
+}

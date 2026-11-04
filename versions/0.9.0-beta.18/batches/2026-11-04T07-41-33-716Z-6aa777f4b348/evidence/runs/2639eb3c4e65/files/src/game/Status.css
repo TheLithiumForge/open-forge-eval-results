@@ -1,0 +1,6 @@
+.status { display: flex; flex-wrap: wrap; gap: 8px 24px; color: var(--secondary); font-size: 14px; font-variant-numeric: tabular-nums; }
+.win-banner { padding: 16px; border: 1px solid var(--green); border-radius: 8px; background: var(--panel); }
+.win-banner strong { color: var(--green); }
+.win-banner.celebrate { animation: win-pulse 600ms 1; }
+@keyframes win-pulse { 50% { box-shadow: 0 0 16px #8BEA7D66; } }
+@media (prefers-reduced-motion: reduce) { .win-banner.celebrate { animation: none; } }

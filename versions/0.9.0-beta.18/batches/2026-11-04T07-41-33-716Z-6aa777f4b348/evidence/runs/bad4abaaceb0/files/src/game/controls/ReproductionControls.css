@@ -1,0 +1,49 @@
+.reproduction-controls {
+  padding: 12px;
+  border-radius: 8px;
+  background: #141827;
+}
+
+.reproduction-controls summary {
+  min-height: 24px;
+  cursor: pointer;
+}
+
+.reproduction-content {
+  display: grid;
+  gap: 16px;
+  padding-top: 16px;
+}
+
+.reproduction-field {
+  display: grid;
+  gap: 8px;
+}
+
+.input-action-row,
+.snapshot-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.reproduction-controls input {
+  flex: 1 1 220px;
+  min-width: 0;
+  padding: 8px;
+}
+
+.reproduction-controls textarea {
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
+  padding: 8px;
+  resize: vertical;
+  font-family: inherit;
+}
+
+.control-status {
+  margin: 0;
+  color: #b8bdd2;
+  font-size: 14px;
+}

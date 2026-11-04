@@ -1,0 +1,11 @@
+{
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "lib": ["ES2024", "DOM", "DOM.Iterable"],
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "types": ["node"]
+  },
+  "include": ["vite.config.ts", "vitest.config.ts", "playwright.config.ts", "scripts/**/*.ts", "tests/**/*.ts", "src/game/*.ts", "src/**/*.test.ts"],
+  "exclude": ["src/game/session/**/*.ts", "src/game/board/**/*.ts", "src/game/controls/**/*.ts"]
+}

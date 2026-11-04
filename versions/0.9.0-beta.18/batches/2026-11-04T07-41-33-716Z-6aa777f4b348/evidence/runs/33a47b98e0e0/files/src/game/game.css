@@ -1,0 +1,115 @@
+.app-shell {
+  width: 100%;
+  max-width: 1120px;
+  min-width: 0;
+  margin-inline: auto;
+  padding: 16px;
+  box-sizing: border-box;
+}
+
+.game-header {
+  display: grid;
+  gap: 4px;
+  margin-bottom: 16px;
+}
+
+.game-header h1 {
+  margin: 0;
+  color: var(--text);
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 32px;
+  letter-spacing: 0.02em;
+}
+
+.game-header p {
+  margin: 0;
+  color: var(--secondary);
+  font-size: 14px;
+  line-height: 24px;
+}
+
+.game-layout {
+  display: grid;
+  gap: 16px;
+  min-width: 0;
+}
+
+.status-readout {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 24px;
+  min-width: 0;
+  padding: 12px 16px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--panel);
+}
+
+.status-readout p {
+  margin: 0;
+}
+
+.status-label {
+  color: var(--secondary);
+  font-size: 14px;
+}
+
+.status-readout strong {
+  font-variant-numeric: tabular-nums;
+}
+
+.win-banner {
+  padding: 16px;
+  border: 1px solid #8BEA7D;
+  border-radius: 12px;
+  background: #141827;
+  color: var(--text);
+}
+
+.win-banner h2 {
+  margin: 0 0 4px;
+  font-size: 20px;
+  line-height: 28px;
+}
+
+.win-banner p {
+  margin: 0;
+}
+
+.win-banner.is-celebrating {
+  animation: win-pulse 600ms ease-out 1 both;
+}
+
+@keyframes win-pulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgb(139 234 125 / 0%);
+  }
+  48% {
+    transform: scale(1.02);
+    box-shadow: 0 0 16px 4px rgb(139 234 125 / 45%);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgb(139 234 125 / 0%);
+  }
+}
+
+.screen-reader-output {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .win-banner.is-celebrating {
+    animation: none;
+  }
+}

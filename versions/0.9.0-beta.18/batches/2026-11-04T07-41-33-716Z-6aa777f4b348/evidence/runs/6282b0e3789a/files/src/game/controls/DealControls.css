@@ -1,0 +1,5 @@
+.deal-controls { display: flex; align-items: flex-end; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+.size-control { display: grid; gap: 4px; font-size: 14px; color: var(--secondary); }
+.size-control select { font-size: 16px; }
+.deal-actions { display: flex; flex-wrap: wrap; gap: 8px; }
+.new-game { border-color: #63e7ff; font-weight: 600; }

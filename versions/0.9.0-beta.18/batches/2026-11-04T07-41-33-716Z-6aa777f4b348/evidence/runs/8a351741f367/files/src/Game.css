@@ -1,0 +1,46 @@
+:root {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  color-scheme: dark;
+  color: #F4F6FF;
+  background: #090B14;
+  --panel: #141827;
+  --back: #1B2034;
+  --face: #111625;
+  --text: #F4F6FF;
+  --secondary: #B8BDD2;
+  --border: #757C9A;
+  --green: #8BEA7D;
+}
+* { box-sizing: border-box; }
+body, h1, p { margin: 0; }
+body { min-width: 0; }
+button, select, input, textarea { font: inherit; line-height: 24px; }
+button, select, input, textarea {
+  padding: 8px 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--panel);
+  color: var(--text);
+}
+button, select { cursor: pointer; }
+button:hover { border-color: var(--text); }
+:focus-visible { outline: 3px solid #FFFFFF; outline-offset: 2px; }
+.game { display: grid; gap: 16px; width: 100%; max-width: 1120px; padding: 16px; margin: 0 auto; }
+.game-header { display: grid; gap: 4px; }
+h1 { font-size: 24px; line-height: 32px; font-weight: 650; }
+.title-mark { color: #63E7FF; }
+.help { color: var(--secondary); font-size: 14px; }
+.resume-panel { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}

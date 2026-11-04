@@ -1,0 +1,29 @@
+.deal-controls {
+  display: flex;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.size-control { display: grid; gap: 4px; color: #B8BDD2; font-size: 14px; }
+.size-control select { min-width: 96px; }
+
+.size-control select,
+.game-action {
+  min-height: 44px;
+  padding: 8px 12px;
+  border: 1px solid #757C9A;
+  border-radius: 8px;
+  background: #141827;
+  color: #F4F6FF;
+}
+
+.game-action { cursor: pointer; font-weight: 600; }
+.game-action:hover { border-color: #F4F6FF; }
+.game-action--quiet { font-weight: 400; }
+
+@media (max-width: 680px) {
+  .deal-controls { width: 100%; }
+  .size-control { flex: 1 1 100%; }
+  .size-control select { width: 100%; }
+}

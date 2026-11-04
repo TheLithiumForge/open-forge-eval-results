@@ -1,0 +1,24 @@
+.game-card {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1;
+  min-width: 44px;
+  min-height: 44px;
+  padding: 4px;
+  overflow: hidden;
+  border: 2px solid #757C9A;
+  border-radius: 8px;
+  background: #1B2034;
+  color: #F4F6FF;
+  scroll-margin: 6px;
+  cursor: pointer;
+  transition: border-color 120ms ease;
+}
+.game-card:hover { border-color: #F4F6FF; }
+.game-card:focus-visible { outline: 3px solid #FFFFFF; outline-offset: 2px; z-index: 1; }
+.game-card.is-revealed { background: #111625; }
+.game-card.is-matched { background: #111625; border-color: #8BEA7D; }
+.card-back-mark { display: block; width: 100%; height: 100%; }
+.card-back-mark path { fill: #757C9A; opacity: .64; }
+.matched-mark { position: absolute; top: 0; right: 0; color: #8BEA7D; font-size: 10px; line-height: 10px; }
+@media (prefers-reduced-motion: reduce) { .game-card { transition: none; } }

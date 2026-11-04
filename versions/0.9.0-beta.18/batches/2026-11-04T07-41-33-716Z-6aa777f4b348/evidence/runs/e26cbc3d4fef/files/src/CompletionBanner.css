@@ -1,0 +1,17 @@
+.completion-banner {
+  display: grid;
+  gap: 4px;
+  padding: 16px;
+  border: 2px solid #8BEA7D;
+  border-radius: 8px;
+  background: #141827;
+}
+.completion-banner h2 { font-size: 24px; line-height: 32px; }
+.completion-banner--pulse { animation: completion-pulse 600ms ease-out 1; }
+@keyframes completion-pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.01); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .completion-banner--pulse { animation: none; }
+}

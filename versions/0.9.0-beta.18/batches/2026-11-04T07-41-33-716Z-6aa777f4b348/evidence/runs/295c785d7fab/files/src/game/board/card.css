@@ -1,0 +1,21 @@
+.card {
+  position: relative;
+  display: block;
+  width: 100%;
+  min-width: 44px;
+  aspect-ratio: 1;
+  padding: 0;
+  border: 2px solid var(--border);
+  border-radius: 8px;
+  background: var(--back);
+  color: var(--border);
+  scroll-margin: 6px;
+  transition: border-color 120ms;
+}
+.card svg { display: block; width: 100%; height: 100%; }
+.card.revealed { background: var(--face); }
+.card.matched, .card.matched:hover { border-color: #8BEA7D; opacity: 1; }
+.card:hover { border-color: var(--text); }
+.card:focus-visible { outline: 3px solid #FFFFFF; outline-offset: 2px; }
+.card .match-check { position: absolute; inset: 0; pointer-events: none; }
+@media (prefers-reduced-motion: reduce) { .card { transition: none; } }

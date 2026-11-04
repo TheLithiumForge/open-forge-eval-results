@@ -1,0 +1,9 @@
+.game-status { display: flex; flex-wrap: wrap; gap: 8px 24px; }
+.game-status p { white-space: nowrap; }
+.game-status span { color: var(--secondary); font-size: 14px; }
+.game-status strong { font-weight: 600; font-variant-numeric: tabular-nums; }
+.win-banner { padding: 16px; border: 2px solid var(--green); border-radius: 8px; background: var(--panel); }
+.win-banner p { margin-top: 4px; }
+.win-banner--pulse { animation: win-pulse 600ms ease-in-out 1; }
+@keyframes win-pulse { 0%, 100% { border-color: var(--green); } 50% { border-color: var(--text); box-shadow: 0 0 16px #8BEA7D66; } }
+@media (prefers-reduced-motion: reduce) { .win-banner--pulse { animation: none; } }

@@ -1,0 +1,16 @@
+main { max-width: 1120px; padding: 16px; margin: 0 auto; display: flex; flex-direction: column; gap: 16px; }
+.game-header { padding-top: 16px; display: flex; flex-direction: column; gap: 8px; }
+.title-row { display: flex; align-items: center; gap: 12px; }
+.brand { width: 32px; height: 32px; }
+h1 { font-size: 24px; line-height: 32px; font-weight: 700; }
+.intro { color: var(--secondary); font-size: 14px; }
+.help { font-size: 14px; color: var(--secondary); line-height: 24px; }
+.board-help { text-align: center; }
+.pause-banner, .win-banner { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; padding: 16px; background: var(--panel); border: 1px solid var(--green); border-radius: 8px; }
+.win-banner { justify-content: space-between; }
+.win-banner strong { color: var(--green); }
+.win-banner.celebrate { animation: win-pulse 600ms ease-out 1; }
+footer { text-align: center; padding: 8px 0 16px; }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: 0; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+@keyframes win-pulse { 0%, 100% { box-shadow: 0 0 0 0 transparent; } 50% { box-shadow: 0 0 16px 0 #8BEA7D66; } }
+@media (prefers-reduced-motion: reduce) { .win-banner.celebrate { animation: none; } }

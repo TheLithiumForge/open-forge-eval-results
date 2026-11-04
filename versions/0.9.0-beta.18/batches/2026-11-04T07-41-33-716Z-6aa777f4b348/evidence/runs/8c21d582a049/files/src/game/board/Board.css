@@ -1,0 +1,15 @@
+.board-scroll {
+  min-width: 0;
+  max-height: min(70dvh, 768px);
+  padding: 6px;
+  overflow: auto;
+  background: #141827;
+  border-radius: 8px;
+  scroll-padding: 6px;
+}
+.board-grid {
+  display: grid;
+  gap: 6px;
+  width: 100%;
+  margin: 0 auto;
+}

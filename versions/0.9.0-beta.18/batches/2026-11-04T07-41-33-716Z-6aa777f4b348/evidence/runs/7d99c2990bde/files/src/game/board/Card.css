@@ -1,0 +1,22 @@
+.card {
+  position: relative;
+  display: block;
+  width: 100%;
+  min-width: 44px;
+  aspect-ratio: 1;
+  padding: 0;
+  border: 2px solid var(--border);
+  border-radius: 8px;
+  background: var(--back);
+  scroll-margin: 6px;
+  cursor: pointer;
+  transition: border-color 120ms;
+}
+.card:hover { border-color: var(--text); }
+.card:focus-visible { outline: 3px solid #FFFFFF; outline-offset: 2px; }
+.card-revealed, .card-matched { background: var(--face); }
+.card-matched, .card-matched:hover { border-color: #8BEA7D; opacity: 1; }
+.card-face, .card-back { display: block; width: 100%; height: 100%; }
+.card-back { fill: none; stroke: var(--border); stroke-width: 2; }
+.card-check { position: absolute; right: 4px; bottom: 0; color: #8BEA7D; font-size: 14px; line-height: 16px; }
+@media (prefers-reduced-motion: reduce) { .card { transition: none; } }

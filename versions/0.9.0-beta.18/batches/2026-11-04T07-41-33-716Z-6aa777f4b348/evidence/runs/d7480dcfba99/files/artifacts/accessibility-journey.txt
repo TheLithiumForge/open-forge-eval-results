@@ -1,0 +1,287 @@
+Browser: 156.0.8078.4
+
+Tool: Playwright 1.64.1
+
+Screen reader: not used
+
+INITIAL TREE
+
+- main:
+  - heading "Neon Pairs" [level=1]
+  - text: A LITTLE FOCUS. A FRESH PERSPECTIVE.
+  - region "How to play":
+    - paragraph: THE MEMORY GAME
+    - heading "Find your focus." [level=2]
+    - paragraph: Two cards. One connection. Find every pair in as few moves as you can.
+    - text: Grid size
+    - combobox "Grid size":
+      - option "4x4" [selected]
+      - option "6x6"
+      - option "8x8"
+      - option "10x10"
+      - option "12x12"
+      - option "14x14"
+      - option "16x16"
+    - button "New Game"
+    - button "Restart"
+  - paragraph:
+    - text: "Moves:"
+    - strong: "0"
+  - paragraph:
+    - text: "Pairs:"
+    - strong: 0/8
+  - paragraph:
+    - text: "Time:"
+    - strong: 0:00
+  - paragraph:
+    - text: "Best:"
+    - strong: none
+  - region "Game":
+    - text: 4 × 4 / FIND THE PAIRS READY WHEN YOU ARE
+    - group "4 by 4 memory board":
+      - button "Row 1, column 1, closed"
+      - button "Row 1, column 2, closed"
+      - button "Row 1, column 3, closed"
+      - button "Row 1, column 4, closed"
+      - button "Row 2, column 1, closed"
+      - button "Row 2, column 2, closed"
+      - button "Row 2, column 3, closed"
+      - button "Row 2, column 4, closed"
+      - button "Row 3, column 1, closed"
+      - button "Row 3, column 2, closed"
+      - button "Row 3, column 3, closed"
+      - button "Row 3, column 4, closed"
+      - button "Row 4, column 1, closed"
+      - button "Row 4, column 2, closed"
+      - button "Row 4, column 3, closed"
+      - button "Row 4, column 4, closed"
+    - paragraph: Reveal. Remember. Reconnect.
+    - paragraph: Arrow keys to move · Enter or Space to reveal
+  - group: Reproduce a game
+  - text: Small moments. Sharper memory. Made for a quiet mind.
+
+FIRST REVEAL
+
+- main:
+  - heading "Neon Pairs" [level=1]
+  - text: A LITTLE FOCUS. A FRESH PERSPECTIVE.
+  - region "How to play":
+    - paragraph: THE MEMORY GAME
+    - heading "Find your focus." [level=2]
+    - paragraph: Two cards. One connection. Find every pair in as few moves as you can.
+    - text: Grid size
+    - combobox "Grid size":
+      - option "4x4" [selected]
+      - option "6x6"
+      - option "8x8"
+      - option "10x10"
+      - option "12x12"
+      - option "14x14"
+      - option "16x16"
+    - button "New Game"
+    - button "Restart"
+  - paragraph:
+    - text: "Moves:"
+    - strong: "0"
+  - paragraph:
+    - text: "Pairs:"
+    - strong: 0/8
+  - paragraph:
+    - text: "Time:"
+    - strong: 0:00
+  - paragraph:
+    - text: "Best:"
+    - strong: none
+  - region "Game":
+    - text: 4 × 4 / FIND THE PAIRS IN PLAY
+    - group "4 by 4 memory board":
+      - button "Row 1, column 1, cyan solid plus, marker top, revealed"
+      - button "Row 1, column 2, closed"
+      - button "Row 1, column 3, closed"
+      - button "Row 1, column 4, closed"
+      - button "Row 2, column 1, closed"
+      - button "Row 2, column 2, closed"
+      - button "Row 2, column 3, closed"
+      - button "Row 2, column 4, closed"
+      - button "Row 3, column 1, closed"
+      - button "Row 3, column 2, closed"
+      - button "Row 3, column 3, closed"
+      - button "Row 3, column 4, closed"
+      - button "Row 4, column 1, closed"
+      - button "Row 4, column 2, closed"
+      - button "Row 4, column 3, closed"
+      - button "Row 4, column 4, closed"
+    - paragraph: Reveal. Remember. Reconnect.
+    - paragraph: Arrow keys to move · Enter or Space to reveal
+  - group: Reproduce a game
+  - text: Small moments. Sharper memory. Made for a quiet mind.
+
+FIRST MATCH
+
+- main:
+  - heading "Neon Pairs" [level=1]
+  - text: A LITTLE FOCUS. A FRESH PERSPECTIVE.
+  - region "How to play":
+    - paragraph: THE MEMORY GAME
+    - heading "Find your focus." [level=2]
+    - paragraph: Two cards. One connection. Find every pair in as few moves as you can.
+    - text: Grid size
+    - combobox "Grid size":
+      - option "4x4" [selected]
+      - option "6x6"
+      - option "8x8"
+      - option "10x10"
+      - option "12x12"
+      - option "14x14"
+      - option "16x16"
+    - button "New Game"
+    - button "Restart"
+  - paragraph:
+    - text: "Moves:"
+    - strong: "1"
+  - paragraph:
+    - text: "Pairs:"
+    - strong: 1/8
+  - paragraph:
+    - text: "Time:"
+    - strong: 0:00
+  - paragraph:
+    - text: "Best:"
+    - strong: none
+  - region "Game":
+    - text: 4 × 4 / FIND THE PAIRS IN PLAY
+    - group "4 by 4 memory board":
+      - button "Row 1, column 1, cyan solid plus, marker top, matched" [disabled]
+      - button "Row 1, column 2, closed"
+      - button "Row 1, column 3, closed"
+      - button "Row 1, column 4, closed"
+      - button "Row 2, column 1, closed"
+      - button "Row 2, column 2, closed"
+      - button "Row 2, column 3, closed"
+      - button "Row 2, column 4, closed"
+      - button "Row 3, column 1, closed"
+      - button "Row 3, column 2, closed"
+      - button "Row 3, column 3, closed"
+      - button "Row 3, column 4, cyan solid plus, marker top, matched" [disabled]
+      - button "Row 4, column 1, closed"
+      - button "Row 4, column 2, closed"
+      - button "Row 4, column 3, closed"
+      - button "Row 4, column 4, closed"
+    - paragraph: Reveal. Remember. Reconnect.
+    - paragraph: Arrow keys to move · Enter or Space to reveal
+  - group: Reproduce a game
+  - text: Small moments. Sharper memory. Made for a quiet mind. Pair found. 1 pair matched.
+
+WIN
+
+- main:
+  - heading "Neon Pairs" [level=1]
+  - text: A LITTLE FOCUS. A FRESH PERSPECTIVE.
+  - region "How to play":
+    - paragraph: THE MEMORY GAME
+    - heading "Find your focus." [level=2]
+    - paragraph: Two cards. One connection. Find every pair in as few moves as you can.
+    - text: Grid size
+    - combobox "Grid size":
+      - option "4x4" [selected]
+      - option "6x6"
+      - option "8x8"
+      - option "10x10"
+      - option "12x12"
+      - option "14x14"
+      - option "16x16"
+    - button "New Game"
+    - button "Restart"
+  - paragraph:
+    - text: "Moves:"
+    - strong: "8"
+  - paragraph:
+    - text: "Pairs:"
+    - strong: 8/8
+  - paragraph:
+    - text: "Time:"
+    - strong: 0:03
+  - paragraph:
+    - text: "Best:"
+    - strong: "8"
+  - region "Game":
+    - text: 4 × 4 / FIND THE PAIRS COMPLETE
+    - heading "All pairs found!" [level=2]
+    - paragraph: Completed in 8 moves and 0:03.
+    - group "4 by 4 memory board":
+      - button "Row 1, column 1, cyan solid plus, marker top, matched" [disabled]
+      - button "Row 1, column 2, cyan solid chevron, marker top, matched" [disabled]
+      - button "Row 1, column 3, cyan solid circle, marker top, matched" [disabled]
+      - button "Row 1, column 4, cyan solid hexagon, marker top, matched" [disabled]
+      - button "Row 2, column 1, cyan solid triangle, marker top, matched" [disabled]
+      - button "Row 2, column 2, cyan solid triangle, marker top, matched" [disabled]
+      - button "Row 2, column 3, cyan solid circle, marker top, matched" [disabled]
+      - button "Row 2, column 4, cyan solid hexagon, marker top, matched" [disabled]
+      - button "Row 3, column 1, cyan solid diamond, marker top, matched" [disabled]
+      - button "Row 3, column 2, cyan solid chevron, marker top, matched" [disabled]
+      - button "Row 3, column 3, cyan solid square, marker top, matched" [disabled]
+      - button "Row 3, column 4, cyan solid plus, marker top, matched" [disabled]
+      - button "Row 4, column 1, cyan solid star, marker top, matched" [disabled]
+      - button "Row 4, column 2, cyan solid star, marker top, matched" [disabled]
+      - button "Row 4, column 3, cyan solid square, marker top, matched" [disabled]
+      - button "Row 4, column 4, cyan solid diamond, marker top, matched" [disabled]
+    - paragraph: Reveal. Remember. Reconnect.
+    - paragraph: Arrow keys to move · Enter or Space to reveal
+  - group: Reproduce a game
+  - text: Small moments. Sharper memory. Made for a quiet mind. Pair found. All pairs found in 8 moves and 0:03.
+
+NEW GAME
+
+- main:
+  - heading "Neon Pairs" [level=1]
+  - text: A LITTLE FOCUS. A FRESH PERSPECTIVE.
+  - region "How to play":
+    - paragraph: THE MEMORY GAME
+    - heading "Find your focus." [level=2]
+    - paragraph: Two cards. One connection. Find every pair in as few moves as you can.
+    - text: Grid size
+    - combobox "Grid size":
+      - option "4x4" [selected]
+      - option "6x6"
+      - option "8x8"
+      - option "10x10"
+      - option "12x12"
+      - option "14x14"
+      - option "16x16"
+    - button "New Game"
+    - button "Restart"
+  - paragraph:
+    - text: "Moves:"
+    - strong: "0"
+  - paragraph:
+    - text: "Pairs:"
+    - strong: 0/8
+  - paragraph:
+    - text: "Time:"
+    - strong: 0:00
+  - paragraph:
+    - text: "Best:"
+    - strong: "8"
+  - region "Game":
+    - text: 4 × 4 / FIND THE PAIRS READY WHEN YOU ARE
+    - group "4 by 4 memory board":
+      - button "Row 1, column 1, closed"
+      - button "Row 1, column 2, closed"
+      - button "Row 1, column 3, closed"
+      - button "Row 1, column 4, closed"
+      - button "Row 2, column 1, closed"
+      - button "Row 2, column 2, closed"
+      - button "Row 2, column 3, closed"
+      - button "Row 2, column 4, closed"
+      - button "Row 3, column 1, closed"
+      - button "Row 3, column 2, closed"
+      - button "Row 3, column 3, closed"
+      - button "Row 3, column 4, closed"
+      - button "Row 4, column 1, closed"
+      - button "Row 4, column 2, closed"
+      - button "Row 4, column 3, closed"
+      - button "Row 4, column 4, closed"
+    - paragraph: Reveal. Remember. Reconnect.
+    - paragraph: Arrow keys to move · Enter or Space to reveal
+  - group: Reproduce a game
+  - text: Small moments. Sharper memory. Made for a quiet mind.

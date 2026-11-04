@@ -1,0 +1,8 @@
+.reproduction { background: var(--panel); border: 1px solid var(--border); border-radius: 8px; }
+.reproduction summary { padding: 16px; cursor: pointer; color: var(--secondary); font-size: 14px; }
+.reproduction-content { display: flex; flex-direction: column; gap: 8px; padding: 0 16px 16px; }
+.code-controls { display: flex; flex-wrap: wrap; gap: 8px; }
+.code-controls input { flex: 1; min-width: 0; width: 100%; }
+.snapshot-controls { display: flex; flex-wrap: wrap; gap: 8px; }
+.load-status { color: var(--cyan); }
+textarea { width: 100%; resize: vertical; font-family: ui-monospace, monospace; font-size: 14px; }

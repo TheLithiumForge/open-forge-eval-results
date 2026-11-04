@@ -1,0 +1,18 @@
+.game-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.size-control { display: grid; min-width: 0; gap: 6px; }
+.size-control label { color: var(--secondary); font-size: 14px; }
+.deal-buttons { display: flex; flex-wrap: wrap; gap: 8px; }
+
+@media (max-width: 520px) {
+  .game-controls { align-items: flex-start; }
+  .deal-buttons { width: 100%; }
+  .deal-buttons button { flex: 1; }
+}

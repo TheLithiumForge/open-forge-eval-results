@@ -1,0 +1,73 @@
+import { expect, test } from '@playwright/test';
+import { createGame } from '../../src/game/state.ts';
+import { CARDS, exported, loadBoard, loadSnapshot } from './helpers.ts';
+
+test.beforeEach(async ({ page }) => { await page.goto('/'); });
+test('preserves drafts, validates whole loads, and resets tab stop only on successful replacement', async ({ page }) => {
+  await loadBoard(page);
+  await page.getByLabel('Board code', { exact: true }).fill('np1-04-1');
+  await page.locator(CARDS).nth(0).click();
+  await expect(page.getByLabel('Board code', { exact: true })).toHaveValue('np1-04-1');
+  await page.getByRole('button', { name: 'Load board', exact: true }).click();
+  await expect(page.locator('.load-status')).toHaveText('Invalid board code.');
+  await expect(page.locator(CARDS).nth(0)).toHaveClass(/revealed/);
+  await expect(page.getByRole('button', { name: 'Load board', exact: true })).toBeFocused();
+  await page.getByLabel('Snapshot JSON').fill('{"version":2}');
+  await page.getByRole('button', { name: 'Load snapshot', exact: true }).click();
+  await expect(page.locator('.load-status')).toHaveText('Invalid snapshot.');
+  await expect(page.getByLabel('Snapshot JSON')).toHaveValue('{"version":2}');
+  await expect(page.locator(CARDS).nth(0)).toHaveClass(/revealed/);
+  await loadBoard(page, '  np1-6-42  ');
+  await expect(page.getByLabel('Grid size')).toHaveValue('6');
+  await expect(page.getByLabel('Board code', { exact: true })).toHaveValue('np1-6-42');
+  await expect(page.locator(`${CARDS}[tabindex="0"]`)).toHaveAccessibleName('Row 1, column 1, closed');
+  await page.reload();
+  await expect(page.getByLabel('Grid size')).toHaveValue('6');
+  await expect(page.locator(CARDS)).toHaveCount(36);
+});
+test('unfinished snapshot stays paused until Resume and retains active mismatch time', async ({ page }) => {
+  await page.clock.install({ time: 0 });
+  await page.clock.pauseAt(60000);
+  await loadSnapshot(page, { ...createGame('np1-4-1'), matched: [0, 11], moves: 2, elapsedMs: 1500,
+    started: true, selection: { kind: 'mismatch', first: 1, second: 2, remainingMs: 300 } });
+  await expect(page.locator('.load-status')).toHaveText('Loaded snapshot. Select Resume to continue.');
+  await page.locator(CARDS).nth(3).click();
+  await page.keyboard.press('ArrowDown');
+  await expect(page.locator(CARDS).nth(7)).toBeFocused();
+  await page.clock.runFor(5000);
+  const paused = await exported(page);
+  expect(paused.elapsedMs).toBe(1500);
+  expect(paused.selection).toMatchObject({ remainingMs: 300 });
+  await expect(page.getByRole('button', { name: 'Export snapshot' })).toBeFocused();
+  await page.getByRole('button', { name: 'Resume', exact: true }).click();
+  await expect(page.locator(CARDS).nth(7)).toBeFocused();
+  await page.clock.runFor(299);
+  await expect(page.locator(CARDS).nth(1)).toHaveClass(/revealed/);
+  await page.clock.runFor(17);
+  await expect(page.locator(CARDS).nth(1)).not.toHaveClass(/revealed/);
+  expect((await exported(page)).moves).toBe(2);
+});
+test('completed import stays static and never creates a best', async ({ page }) => {
+  const game = createGame('np1-6-1');
+  await loadSnapshot(page, { ...game, matched: Array.from({ length: 36 }, (_, i) => i), moves: 18, elapsedMs: 12345, started: true });
+  await expect(page.locator('.load-status')).toHaveText('Loaded completed snapshot.');
+  await expect(page.locator('.win-banner')).toHaveCSS('animation-name', 'none');
+  await expect(page.locator('.win-banner')).toContainText('18 moves · 0:12');
+  await expect(page.getByText('Best: none', { exact: true })).toBeVisible();
+  await expect(page.getByRole('button', { name: 'Load snapshot', exact: true })).toBeFocused();
+  await expect(page.getByLabel('Grid size')).toHaveValue('6');
+});
+test('caps display and continues matching and resolving mismatches', async ({ page }) => {
+  await page.clock.install({ time: 0 });
+  await page.clock.pauseAt(60000);
+  await loadSnapshot(page, { ...createGame('np1-4-1'), moves: 999999, elapsedMs: 359999999, started: true });
+  await page.getByRole('button', { name: 'Resume', exact: true }).click();
+  await page.locator(CARDS).nth(0).click();
+  await page.locator(CARDS).nth(1).click();
+  await page.clock.runFor(816);
+  await expect(page.getByText('Time: 5999:59', { exact: true })).toBeVisible();
+  await expect(page.getByText('Moves: 999999', { exact: true })).toBeVisible();
+  await page.locator(CARDS).nth(0).click();
+  await page.locator(CARDS).nth(11).click();
+  await expect(page.getByText('Pairs: 1/8', { exact: true })).toBeVisible();
+});

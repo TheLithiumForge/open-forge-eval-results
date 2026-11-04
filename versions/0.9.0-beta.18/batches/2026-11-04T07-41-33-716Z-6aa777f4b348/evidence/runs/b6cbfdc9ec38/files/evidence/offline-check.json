@@ -1,0 +1,11 @@
+{
+  "chromium": "156.0.8078.4",
+  "networkBlocked": true,
+  "requests": [
+    "file:///work/dist/index.html"
+  ],
+  "networkRequests": [],
+  "pageErrors": [],
+  "audioApisTrapped": true,
+  "completedGame": true
+}

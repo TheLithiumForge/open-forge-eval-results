@@ -1,0 +1,16 @@
+.board-scroll {
+  width: 100%;
+  max-height: min(70dvh, 768px);
+  overflow: auto;
+  padding: 6px;
+  background: #141827;
+  border: 1px solid #757C9A;
+  border-radius: 8px;
+  scrollbar-color: #757C9A #141827;
+}
+
+.board-grid {
+  display: grid;
+  gap: 6px;
+  margin-inline: auto;
+}

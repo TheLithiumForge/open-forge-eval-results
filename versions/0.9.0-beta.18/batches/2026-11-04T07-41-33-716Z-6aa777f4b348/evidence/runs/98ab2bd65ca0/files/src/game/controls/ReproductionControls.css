@@ -1,0 +1,46 @@
+.reproduction-panel {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--panel);
+  color: var(--text);
+}
+
+.reproduction-panel > summary {
+  padding: 12px 16px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.reproduction-content {
+  display: grid;
+  gap: 16px;
+  padding: 0 16px 16px;
+}
+
+.reproduction-form {
+  display: grid;
+  gap: 8px;
+}
+
+.reproduction-form label,
+.reproduction-status {
+  color: var(--secondary);
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.reproduction-row,
+.snapshot-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.reproduction-row input { flex: 1 1 240px; }
+.reproduction-form textarea { min-inline-size: 0; resize: vertical; }
+.reproduction-status { min-block-size: 20px; margin: 0; }
+
+@media (max-width: 480px) {
+  .snapshot-actions button,
+  .reproduction-row button { flex: 1 1 140px; }
+}

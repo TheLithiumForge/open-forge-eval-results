@@ -1,0 +1,27 @@
+button, select, input, textarea {
+  color: var(--text);
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font: inherit;
+}
+button, select { min-height: 44px; padding: 8px 16px; }
+button { cursor: pointer; }
+button:hover { border-color: var(--text); }
+button:focus-visible, select:focus-visible, input:focus-visible,
+textarea:focus-visible, summary:focus-visible { outline: 3px solid #FFFFFF; outline-offset: 2px; }
+.deal-controls { display: flex; flex-wrap: wrap; align-items: end; gap: 8px; }
+.size-control { display: grid; gap: 4px; margin-right: 8px; color: var(--secondary); font-size: 14px; }
+.size-control select { font-size: 16px; }
+.new-game { border-color: #63E7FF; }
+.reproduction { width: 100%; min-width: 0; padding: 16px; background: var(--panel); border: 1px solid var(--border); border-radius: 12px; }
+.reproduction summary { width: fit-content; cursor: pointer; }
+.reproduction-content { display: grid; gap: 16px; padding-top: 16px; }
+.help-text, .load-status { color: var(--secondary); font-size: 14px; }
+.board-code-controls { display: flex; flex-wrap: wrap; align-items: end; gap: 8px; }
+.code-field { display: grid; flex: 1 1 240px; gap: 4px; min-width: 0; }
+.snapshot-field { display: grid; gap: 4px; min-width: 0; }
+input, textarea { width: 100%; min-width: 0; padding: 8px 12px; }
+textarea { resize: vertical; line-height: 24px; overflow-wrap: anywhere; }
+.snapshot-actions { display: flex; flex-wrap: wrap; gap: 8px; }
+.load-status { overflow-wrap: anywhere; }

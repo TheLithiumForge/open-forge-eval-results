@@ -1,0 +1,3 @@
+.deal-controls { display: flex; flex-wrap: wrap; align-items: end; gap: 8px; }
+.size-control { display: flex; gap: 6px; flex-direction: column; font-size: 14px; color: var(--secondary); }
+.resume { border-color: #63E7FF; }

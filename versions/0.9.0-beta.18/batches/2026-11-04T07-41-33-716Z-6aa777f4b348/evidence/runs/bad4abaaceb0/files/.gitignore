@@ -1,0 +1,9 @@
+# BEGIN OPEN FORGE INSTALL
+/.agents/memory/working/*
+!/.agents/memory/working/_working.md
+# END OPEN FORGE INSTALL
+node_modules/
+playwright-report/
+test-results/
+coverage/
+.vite/

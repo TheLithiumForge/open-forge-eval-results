@@ -1,0 +1,5 @@
+.board-scroll {
+  background: var(--panel); border-radius: 12px; padding: 6px; overflow: auto;
+  max-height: min(70dvh, 768px); width: 100%; scroll-padding: 6px; overscroll-behavior: contain;
+}
+.board-grid { display: grid; gap: 6px; width: max-content; margin-inline: auto; }

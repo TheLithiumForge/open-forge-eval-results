@@ -1,0 +1,15 @@
+.board-scroll {
+  max-height: min(70dvh, 768px);
+  min-width: 0;
+  padding: 6px;
+  overflow: auto;
+  background: var(--panel);
+  container-type: inline-size;
+}
+.board-grid {
+  display: grid;
+  grid-template-columns: repeat(var(--columns), clamp(44px, calc((100cqw - (var(--columns) - 1) * 6px) / var(--columns)), 88px));
+  gap: 6px;
+  width: max-content;
+  margin-inline: auto;
+}

@@ -1,0 +1,7 @@
+.deal-controls { display: flex; align-items: end; flex-wrap: wrap; gap: 8px; }
+.size-control { display: flex; align-items: center; gap: 8px; color: var(--secondary); font-size: 14px; margin-right: auto; }
+.primary-button { border-color: var(--cyan); color: var(--cyan); }
+.resume-button { border-color: var(--green); color: var(--green); }
+@media (max-width: 420px) {
+  .size-control { flex-basis: 100%; margin-bottom: 4px; }
+}

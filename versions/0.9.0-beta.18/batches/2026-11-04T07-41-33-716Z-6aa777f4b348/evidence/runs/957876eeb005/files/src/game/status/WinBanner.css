@@ -1,0 +1,6 @@
+.win-banner { border: 1px solid var(--green); border-radius: 8px; padding: 16px; background: var(--panel); }
+.win-banner h2 { color: var(--green); font-size: 16px; line-height: 24px; }
+.win-banner p { color: var(--secondary); font-size: 14px; }
+.win-banner--celebrate { animation: win-pulse 600ms ease-in-out 1; }
+@keyframes win-pulse { 50% { transform: scale(1.015); } }
+@media (prefers-reduced-motion: reduce) { .win-banner--celebrate { animation: none; } }

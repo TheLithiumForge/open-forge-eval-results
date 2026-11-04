@@ -1,0 +1,14 @@
+{
+  "version": 1,
+  "boardCode": "np1-4-1",
+  "matched": [
+    0,
+    11
+  ],
+  "selection": {
+    "kind": "closed"
+  },
+  "moves": 1,
+  "elapsedMs": 800,
+  "started": true
+}

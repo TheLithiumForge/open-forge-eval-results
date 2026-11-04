@@ -1,0 +1,201 @@
+Browser: Chromium 156.0.8078.4
+Tool: Playwright 1.64.1
+Screen reader: not used
+
+
+CLOSED BOARD
+- main:
+  - link "Neon Pairs home":
+    - /url: "#main-game"
+    - text: NEON PAIRS
+  - text: A MOMENT OF FOCUS
+  - region "Small cards. Sharp mind.":
+    - paragraph: THE MEMORY GAME
+    - heading "Small cards. Sharp mind." [level=1]
+    - paragraph: Turn over two. Find their connection. Make every move count.
+    - text: Grid size
+    - combobox "Grid size":
+      - option "4x4" [selected]
+      - option "6x6"
+      - option "8x8"
+      - option "10x10"
+      - option "12x12"
+      - option "14x14"
+      - option "16x16"
+    - button "New Game"
+    - button "Restart"
+    - paragraph:
+      - text: "Moves:"
+      - strong: "0"
+    - paragraph:
+      - text: "Pairs:"
+      - strong: 0/8
+    - paragraph:
+      - text: "Time:"
+      - strong: 0:00
+    - paragraph:
+      - text: "Best:"
+      - strong: none
+    - text: 4 × 4 / FIND ALL 8 PAIRS YOUR MOVE
+    - button "Row 1, column 1, closed"
+    - button "Row 1, column 2, closed"
+    - button "Row 1, column 3, closed"
+    - button "Row 1, column 4, closed"
+    - button "Row 2, column 1, closed"
+    - button "Row 2, column 2, closed"
+    - button "Row 2, column 3, closed"
+    - button "Row 2, column 4, closed"
+    - button "Row 3, column 1, closed"
+    - button "Row 3, column 2, closed"
+    - button "Row 3, column 3, closed"
+    - button "Row 3, column 4, closed"
+    - button "Row 4, column 1, closed"
+    - button "Row 4, column 2, closed"
+    - button "Row 4, column 3, closed"
+    - button "Row 4, column 4, closed"
+    - paragraph: Same shape. Same marker. A perfect pair.
+    - paragraph: ↑ ↓ ← → to move · ↵ or Space to reveal
+    - group:
+      - text: Reproduce a game
+      - paragraph: Share a deal, or save your progress for later.
+      - text: Board code
+      - textbox "Board code": np1-4-1
+      - button "Load board"
+      - text: Snapshot JSON
+      - textbox "Snapshot JSON":
+        - /placeholder: Export your progress here, or paste a saved snapshot.
+      - button "Export snapshot"
+      - button "Load snapshot"
+  - text: A little focus goes a long way. OFFLINE. UNHURRIED. ALL YOURS.
+
+REVEALED FACE
+- main:
+  - link "Neon Pairs home":
+    - /url: "#main-game"
+    - text: NEON PAIRS
+  - text: A MOMENT OF FOCUS
+  - region "Small cards. Sharp mind.":
+    - paragraph: THE MEMORY GAME
+    - heading "Small cards. Sharp mind." [level=1]
+    - paragraph: Turn over two. Find their connection. Make every move count.
+    - text: Grid size
+    - combobox "Grid size":
+      - option "4x4" [selected]
+      - option "6x6"
+      - option "8x8"
+      - option "10x10"
+      - option "12x12"
+      - option "14x14"
+      - option "16x16"
+    - button "New Game"
+    - button "Restart"
+    - paragraph:
+      - text: "Moves:"
+      - strong: "0"
+    - paragraph:
+      - text: "Pairs:"
+      - strong: 0/8
+    - paragraph:
+      - text: "Time:"
+      - strong: 0:00
+    - paragraph:
+      - text: "Best:"
+      - strong: none
+    - text: 4 × 4 / FIND ALL 8 PAIRS IN PLAY
+    - button "Row 1, column 1, closed"
+    - button "Row 1, column 2, closed"
+    - button "Row 1, column 3, cyan solid circle, marker top, revealed"
+    - button "Row 1, column 4, closed"
+    - button "Row 2, column 1, closed"
+    - button "Row 2, column 2, closed"
+    - button "Row 2, column 3, closed"
+    - button "Row 2, column 4, closed"
+    - button "Row 3, column 1, closed"
+    - button "Row 3, column 2, closed"
+    - button "Row 3, column 3, closed"
+    - button "Row 3, column 4, closed"
+    - button "Row 4, column 1, closed"
+    - button "Row 4, column 2, closed"
+    - button "Row 4, column 3, closed"
+    - button "Row 4, column 4, closed"
+    - paragraph: Same shape. Same marker. A perfect pair.
+    - paragraph: ↑ ↓ ← → to move · ↵ or Space to reveal
+    - group:
+      - text: Reproduce a game
+      - paragraph: Share a deal, or save your progress for later.
+      - text: Board code
+      - textbox "Board code": np1-4-1
+      - button "Load board"
+      - text: Snapshot JSON
+      - textbox "Snapshot JSON":
+        - /placeholder: Export your progress here, or paste a saved snapshot.
+      - button "Export snapshot"
+      - button "Load snapshot"
+  - text: A little focus goes a long way. OFFLINE. UNHURRIED. ALL YOURS.
+
+COMPLETED BOARD
+- main:
+  - link "Neon Pairs home":
+    - /url: "#main-game"
+    - text: NEON PAIRS
+  - text: A MOMENT OF FOCUS
+  - region "Small cards. Sharp mind.":
+    - paragraph: THE MEMORY GAME
+    - heading "Small cards. Sharp mind." [level=1]
+    - paragraph: Turn over two. Find their connection. Make every move count.
+    - text: Grid size
+    - combobox "Grid size":
+      - option "4x4" [selected]
+      - option "6x6"
+      - option "8x8"
+      - option "10x10"
+      - option "12x12"
+      - option "14x14"
+      - option "16x16"
+    - button "New Game"
+    - button "Restart"
+    - paragraph:
+      - text: "Moves:"
+      - strong: "8"
+    - paragraph:
+      - text: "Pairs:"
+      - strong: 8/8
+    - paragraph:
+      - text: "Time:"
+      - strong: 0:07
+    - paragraph:
+      - text: "Best:"
+      - strong: "8"
+    - text: 4 × 4 / FIND ALL 8 PAIRS COMPLETE
+    - strong: All pairs found. Nicely done.
+    - paragraph: 8 moves · 0:07. Ready for another round?
+    - button "Row 1, column 1, cyan solid plus, marker top, matched" [disabled]
+    - button "Row 1, column 2, cyan solid chevron, marker top, matched" [disabled]
+    - button "Row 1, column 3, cyan solid circle, marker top, matched" [disabled]
+    - button "Row 1, column 4, cyan solid hexagon, marker top, matched" [disabled]
+    - button "Row 2, column 1, cyan solid triangle, marker top, matched" [disabled]
+    - button "Row 2, column 2, cyan solid triangle, marker top, matched" [disabled]
+    - button "Row 2, column 3, cyan solid circle, marker top, matched" [disabled]
+    - button "Row 2, column 4, cyan solid hexagon, marker top, matched" [disabled]
+    - button "Row 3, column 1, cyan solid diamond, marker top, matched" [disabled]
+    - button "Row 3, column 2, cyan solid chevron, marker top, matched" [disabled]
+    - button "Row 3, column 3, cyan solid square, marker top, matched" [disabled]
+    - button "Row 3, column 4, cyan solid plus, marker top, matched" [disabled]
+    - button "Row 4, column 1, cyan solid star, marker top, matched" [disabled]
+    - button "Row 4, column 2, cyan solid star, marker top, matched" [disabled]
+    - button "Row 4, column 3, cyan solid square, marker top, matched" [disabled]
+    - button "Row 4, column 4, cyan solid diamond, marker top, matched" [disabled]
+    - paragraph: Same shape. Same marker. A perfect pair.
+    - paragraph: ↑ ↓ ← → to move · ↵ or Space to reveal
+    - group:
+      - text: Reproduce a game
+      - paragraph: Share a deal, or save your progress for later.
+      - text: Board code
+      - textbox "Board code": np1-4-1
+      - button "Load board"
+      - text: Snapshot JSON
+      - textbox "Snapshot JSON":
+        - /placeholder: Export your progress here, or paste a saved snapshot.
+      - button "Export snapshot"
+      - button "Load snapshot"
+  - text: A little focus goes a long way. OFFLINE. UNHURRIED. ALL YOURS. Pair found. All pairs found in 8 moves and 0:07.

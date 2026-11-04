@@ -1,0 +1,8 @@
+.reproduction { width: 100%; background: var(--panel); border: 1px solid var(--border); border-radius: 8px; }
+.reproduction summary { padding: 12px 16px; cursor: pointer; }
+.reproduction-body { display: flex; flex-direction: column; gap: 16px; padding: 4px 16px 16px; }
+.board-code-control, .snapshot-control { display: flex; flex-direction: column; gap: 6px; }
+.code-row, .snapshot-actions { display: flex; flex-wrap: wrap; gap: 8px; }
+.code-row input { flex: 1; min-width: 0; }
+.snapshot-control textarea { width: 100%; resize: vertical; min-height: 88px; }
+.load-status { color: var(--secondary); font-size: 14px; overflow-wrap: anywhere; }

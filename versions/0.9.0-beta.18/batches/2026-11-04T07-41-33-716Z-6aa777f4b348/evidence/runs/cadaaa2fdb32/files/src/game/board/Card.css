@@ -1,0 +1,14 @@
+.card {
+  width: 100%; aspect-ratio: 1; min-width: 44px; padding: 0;
+  border: 2px solid var(--border); border-radius: 8px; background: var(--back);
+  position: relative; display: grid; place-items: center; scroll-margin: 6px;
+  transition: border-color 120ms; cursor: pointer; color: var(--secondary);
+}
+.card:hover { border-color: var(--text); }
+.card.revealed { background: var(--face); }
+.card.matched, .card.matched:hover { border-color: var(--green); opacity: 1; }
+.card:focus-visible { outline: 3px solid #fff; outline-offset: 2px; }
+.card-back { font-size: 32px; line-height: 1; color: var(--border); }
+.face { display: block; width: 100%; height: 100%; }
+.card-check { position: absolute; right: 4px; bottom: 0; color: var(--green); font-size: 12px; line-height: 16px; }
+@media (prefers-reduced-motion: reduce) { .card { transition: none; } }

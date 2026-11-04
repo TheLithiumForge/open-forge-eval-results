@@ -1,0 +1,9 @@
+.game {
+  width: 100%;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 16px;
+  display: grid;
+  gap: 24px;
+}
+.game-heading, .game-play { display: grid; gap: 8px; min-width: 0; }

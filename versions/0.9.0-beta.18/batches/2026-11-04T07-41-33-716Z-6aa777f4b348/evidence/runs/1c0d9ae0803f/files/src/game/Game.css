@@ -1,0 +1,139 @@
+.neon-app {
+  width: 100%;
+  max-width: 1120px;
+  min-width: 0;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+.neon-header {
+  margin-bottom: 24px;
+}
+
+.neon-eyebrow {
+  margin-bottom: 4px;
+  color: #63E7FF;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.neon-header h1 {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 32px;
+}
+
+.neon-intro,
+.neon-section-heading p,
+.neon-footer {
+  color: #B8BDD2;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.neon-intro {
+  margin-top: 4px;
+}
+
+.neon-screen-reader-status {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  clip-path: inset(50%);
+}
+
+.neon-win-banner {
+  margin-bottom: 16px;
+  padding: 12px 16px;
+  border: 1px solid #8BEA7D;
+  border-radius: 12px;
+  background: #141827;
+}
+
+.neon-win-banner h2,
+.neon-section-heading h2 {
+  font-size: 18px;
+  font-weight: 650;
+  line-height: 24px;
+}
+
+.neon-win-banner p {
+  margin-top: 4px;
+  color: #B8BDD2;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.neon-win-banner--pulse {
+  animation: neon-win-pulse 600ms ease-out both;
+}
+
+@keyframes neon-win-pulse {
+  0% { transform: scale(0.99); }
+  45% { transform: scale(1.02); }
+  100% { transform: scale(1); }
+}
+
+.neon-game-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(232px, 272px);
+  grid-template-rows: auto auto;
+  align-items: start;
+  gap: 24px;
+}
+
+.neon-board-section,
+.neon-deal-panel,
+.neon-reproduction {
+  min-width: 0;
+}
+
+.neon-deal-panel {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.neon-board-section {
+  grid-column: 1;
+  grid-row: 1 / 3;
+}
+
+.neon-reproduction {
+  grid-column: 2;
+  grid-row: 2;
+}
+
+.neon-section-heading {
+  display: grid;
+  gap: 4px;
+  margin-bottom: 8px;
+}
+
+.neon-footer {
+  margin-top: 24px;
+}
+
+@media (max-width: 760px) {
+  .neon-game-layout {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto;
+    gap: 16px;
+  }
+
+  .neon-deal-panel,
+  .neon-board-section,
+  .neon-reproduction {
+    grid-column: 1;
+    grid-row: auto;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .neon-win-banner--pulse {
+    animation: none;
+  }
+}

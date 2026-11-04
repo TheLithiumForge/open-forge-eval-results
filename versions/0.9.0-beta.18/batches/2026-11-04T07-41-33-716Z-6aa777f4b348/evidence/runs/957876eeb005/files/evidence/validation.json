@@ -1,0 +1,52 @@
+{
+  "date": "2026-11-04",
+  "toolchain": {
+    "node": "v26.12.1",
+    "npm": "11.20.0",
+    "playwright": "1.64.1",
+    "chromium": "156.0.8078.4"
+  },
+  "checks": {
+    "npm ci": {
+      "exit": 0
+    },
+    "npm run typecheck": {
+      "exit": 0
+    },
+    "npm test": {
+      "exit": 0,
+      "tests": 121,
+      "files": 14
+    },
+    "npm run test:e2e": {
+      "exit": 0,
+      "tests": 37,
+      "workers": 2,
+      "freshBuild": true
+    },
+    "npm run build": {
+      "exit": 0
+    },
+    "npm run dev": {
+      "playableSmoke": true,
+      "stopped": true
+    },
+    "replay": {
+      "validExit": 0,
+      "invalidExit": 1,
+      "missingFileExit": 1
+    }
+  },
+  "artifact": {
+    "path": "dist/index.html",
+    "bytes": 240575,
+    "sha256": "877a5e2b499487ec357b9710e8a3faf7859fbf9ddac281f4f601693df520499c"
+  },
+  "architecture": {
+    "authoredTypeScriptFiles": 69,
+    "maximumLines": 98,
+    "within200LineLimit": true
+  },
+  "screenReaderUsed": false,
+  "networkBlockedFilePlay": true
+}

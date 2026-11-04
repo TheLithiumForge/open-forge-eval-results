@@ -1,0 +1,9 @@
+.card { width: 100%; min-width: 44px; min-height: 44px; aspect-ratio: 1; display: grid; place-items: center; position: relative; padding: 0; border: 2px solid var(--border); border-radius: 8px; background: var(--back); scroll-margin: 6px; transition: border-color 120ms; touch-action: manipulation; }
+.card:hover { border-color: var(--text); }
+.card:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+.card-revealed { background: var(--face); }
+.card-matched, .card-matched:hover { border-color: var(--green); opacity: 1; }
+.card-back { width: 12px; height: 12px; border: 2px solid var(--border); transform: rotate(45deg); border-radius: 2px; }
+.card-face { display: block; width: 100%; height: 100%; }
+.card-check { position: absolute; right: 0; bottom: 0; width: 12px; height: 12px; color: var(--green); }
+@media (prefers-reduced-motion: reduce) { .card { transition: none; } }

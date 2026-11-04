@@ -1,0 +1,18 @@
+.board-scroll {
+  box-sizing: border-box;
+  container-type: inline-size;
+  width: 100%;
+  min-width: 0;
+  max-height: min(70dvh, 768px);
+  padding: 6px;
+  overflow: auto;
+  overscroll-behavior: contain;
+  background: #141827;
+}
+
+.board-grid {
+  display: grid;
+  width: max-content;
+  gap: 6px;
+  margin: 0 auto;
+}

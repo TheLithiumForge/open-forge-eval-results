@@ -1,0 +1,38 @@
+.memory-card {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 100%;
+  min-width: 44px;
+  aspect-ratio: 1;
+  padding: 4px;
+  color: #F4F6FF;
+  background: #1B2034;
+  border: 2px solid #757C9A;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: border-color 120ms ease;
+}
+
+.memory-card:hover { border-color: #F4F6FF; }
+.memory-card.is-revealed { background: #111625; }
+.memory-card.is-matched { background: #111625; border-color: #8BEA7D; }
+.memory-card.is-matched:hover { border-color: #8BEA7D; }
+.memory-card:focus-visible { outline: 3px solid #FFFFFF; outline-offset: 2px; }
+
+.face-art,
+.card-back-art { display: block; width: 100%; height: 100%; }
+
+.matched-mark {
+  position: absolute;
+  right: 4px;
+  bottom: 2px;
+  color: #8BEA7D;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .memory-card { transition: none; }
+}

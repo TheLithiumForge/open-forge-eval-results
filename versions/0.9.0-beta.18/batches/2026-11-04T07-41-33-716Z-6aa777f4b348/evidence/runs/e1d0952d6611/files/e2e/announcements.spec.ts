@@ -1,0 +1,36 @@
+import { expect, test } from '@playwright/test';
+import { card, loadBoard, pauseClock } from './helpers.ts';
+
+test('repeated misses announce one result each while focus, time and closing stay quiet', async ({ page }) => {
+  await pauseClock(page);
+  await page.goto('/');
+  await loadBoard(page, 'np1-4-1');
+  const region = page.locator('[aria-live="polite"]');
+  const original = await region.locator('span').elementHandle();
+  if (original === null) throw new Error('The atomic result region must be present.');
+  await card(page, 0).focus();
+  await page.keyboard.press('Enter');
+  await card(page, 1).focus();
+  await page.keyboard.press('Enter');
+  await expect(region).toHaveText('No match. Cards close after a short pause.');
+  expect(await original.evaluate((node) => node.isConnected)).toBe(false);
+  const firstMiss = await region.locator('span').elementHandle();
+  if (firstMiss === null) throw new Error('The first miss must create an announcement node.');
+  await card(page, 8).focus();
+  await page.keyboard.press('ArrowRight');
+  await page.clock.runFor(799);
+  expect(await firstMiss.evaluate((node) => node.isConnected)).toBe(true);
+  await expect(region).toHaveText('No match. Cards close after a short pause.');
+  await page.clock.runFor(1);
+  expect(await firstMiss.evaluate((node) => node.isConnected)).toBe(true);
+  await expect(region).toHaveText('No match. Cards close after a short pause.');
+  await card(page, 2).focus();
+  await page.keyboard.press('Enter');
+  await card(page, 3).focus();
+  await page.keyboard.press('Enter');
+  await expect(region).toHaveText('No match. Cards close after a short pause.');
+  expect(await firstMiss.evaluate((node) => node.isConnected)).toBe(false);
+  await page.clock.runFor(800);
+  await expect(region).toHaveText('No match. Cards close after a short pause.');
+  await expect(page.getByText('Moves: 2', { exact: true })).toBeVisible();
+});

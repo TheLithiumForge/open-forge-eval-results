@@ -1,0 +1,166 @@
+Playwright 1.64.1; Chromium 156.0.8078.4; no screen reader used.
+
+- main:
+  - heading "Neon Pairs" [level=1]
+  - paragraph: Find every pair. Make each move count.
+  - text: Grid size
+  - combobox "Grid size":
+    - option "4x4" [selected]
+    - option "6x6"
+    - option "8x8"
+    - option "10x10"
+    - option "12x12"
+    - option "14x14"
+    - option "16x16"
+  - button "New Game"
+  - button "Restart"
+  - paragraph: "Moves: 0"
+  - paragraph: "Pairs: 0/8"
+  - paragraph: "Time: 0:00"
+  - paragraph: "Best: none"
+  - paragraph: Reveal two cards to find a pair. Use arrow keys to move, Enter or Space to reveal.
+  - group "Card board":
+    - button "Row 1, column 1, closed"
+    - button "Row 1, column 2, closed"
+    - button "Row 1, column 3, closed"
+    - button "Row 1, column 4, closed"
+    - button "Row 2, column 1, closed"
+    - button "Row 2, column 2, closed"
+    - button "Row 2, column 3, closed"
+    - button "Row 2, column 4, closed"
+    - button "Row 3, column 1, closed"
+    - button "Row 3, column 2, closed"
+    - button "Row 3, column 3, closed"
+    - button "Row 3, column 4, closed"
+    - button "Row 4, column 1, closed"
+    - button "Row 4, column 2, closed"
+    - button "Row 4, column 3, closed"
+    - button "Row 4, column 4, closed"
+  - group:
+    - text: Reproduce a game
+    - paragraph: Repeat a deal with its board code, or save progress with a snapshot.
+    - text: Board code
+    - textbox "Board code": np1-4-1
+    - button "Load board"
+    - text: Snapshot JSON
+    - textbox "Snapshot JSON"
+    - button "Export snapshot"
+    - button "Load snapshot"
+    - paragraph: Loaded board.
+  - text: Loaded board.
+
+Turn 1, index 0:
+- button "Row 1, column 1, cyan solid plus, marker top, revealed"
+
+Turn 1, index 11:
+- button "Row 3, column 4, cyan solid plus, marker top, matched" [disabled]
+
+- text: Pair found. 1 pair matched.
+
+Turn 2, index 1:
+- button "Row 1, column 2, cyan solid chevron, marker top, revealed"
+
+Turn 2, index 9:
+- button "Row 3, column 2, cyan solid chevron, marker top, matched" [disabled]
+
+- text: Pair found. 2 pairs matched.
+
+Turn 3, index 2:
+- button "Row 1, column 3, cyan solid circle, marker top, revealed"
+
+Turn 3, index 6:
+- button "Row 2, column 3, cyan solid circle, marker top, matched" [disabled]
+
+- text: Pair found. 3 pairs matched.
+
+Turn 4, index 3:
+- button "Row 1, column 4, cyan solid hexagon, marker top, revealed"
+
+Turn 4, index 7:
+- button "Row 2, column 4, cyan solid hexagon, marker top, matched" [disabled]
+
+- text: Pair found. 4 pairs matched.
+
+Turn 5, index 4:
+- button "Row 2, column 1, cyan solid triangle, marker top, revealed"
+
+Turn 5, index 5:
+- button "Row 2, column 2, cyan solid triangle, marker top, matched" [disabled]
+
+- text: Pair found. 5 pairs matched.
+
+Turn 6, index 8:
+- button "Row 3, column 1, cyan solid diamond, marker top, revealed"
+
+Turn 6, index 15:
+- button "Row 4, column 4, cyan solid diamond, marker top, matched" [disabled]
+
+- text: Pair found. 6 pairs matched.
+
+Turn 7, index 10:
+- button "Row 3, column 3, cyan solid square, marker top, revealed"
+
+Turn 7, index 14:
+- button "Row 4, column 3, cyan solid square, marker top, matched" [disabled]
+
+- text: Pair found. 7 pairs matched.
+
+Turn 8, index 12:
+- button "Row 4, column 1, cyan solid star, marker top, revealed"
+
+Turn 8, index 13:
+- button "Row 4, column 2, cyan solid star, marker top, matched" [disabled]
+
+- text: Pair found. All pairs found in 8 moves and 0:00.
+
+Completed:
+- main:
+  - heading "Neon Pairs" [level=1]
+  - paragraph: Find every pair. Make each move count.
+  - text: Grid size
+  - combobox "Grid size":
+    - option "4x4" [selected]
+    - option "6x6"
+    - option "8x8"
+    - option "10x10"
+    - option "12x12"
+    - option "14x14"
+    - option "16x16"
+  - button "New Game"
+  - button "Restart"
+  - paragraph: "Moves: 8"
+  - paragraph: "Pairs: 8/8"
+  - paragraph: "Time: 0:00"
+  - paragraph: "Best: 8"
+  - heading "All pairs found!" [level=2]
+  - paragraph: 8 moves · 0:00
+  - paragraph: Reveal two cards to find a pair. Use arrow keys to move, Enter or Space to reveal.
+  - group "Card board":
+    - button "Row 1, column 1, cyan solid plus, marker top, matched" [disabled]
+    - button "Row 1, column 2, cyan solid chevron, marker top, matched" [disabled]
+    - button "Row 1, column 3, cyan solid circle, marker top, matched" [disabled]
+    - button "Row 1, column 4, cyan solid hexagon, marker top, matched" [disabled]
+    - button "Row 2, column 1, cyan solid triangle, marker top, matched" [disabled]
+    - button "Row 2, column 2, cyan solid triangle, marker top, matched" [disabled]
+    - button "Row 2, column 3, cyan solid circle, marker top, matched" [disabled]
+    - button "Row 2, column 4, cyan solid hexagon, marker top, matched" [disabled]
+    - button "Row 3, column 1, cyan solid diamond, marker top, matched" [disabled]
+    - button "Row 3, column 2, cyan solid chevron, marker top, matched" [disabled]
+    - button "Row 3, column 3, cyan solid square, marker top, matched" [disabled]
+    - button "Row 3, column 4, cyan solid plus, marker top, matched" [disabled]
+    - button "Row 4, column 1, cyan solid star, marker top, matched" [disabled]
+    - button "Row 4, column 2, cyan solid star, marker top, matched" [disabled]
+    - button "Row 4, column 3, cyan solid square, marker top, matched" [disabled]
+    - button "Row 4, column 4, cyan solid diamond, marker top, matched" [disabled]
+  - group:
+    - text: Reproduce a game
+    - paragraph: Repeat a deal with its board code, or save progress with a snapshot.
+    - text: Board code
+    - textbox "Board code": np1-4-1
+    - button "Load board"
+    - text: Snapshot JSON
+    - textbox "Snapshot JSON"
+    - button "Export snapshot"
+    - button "Load snapshot"
+    - paragraph: Loaded board.
+  - text: Pair found. All pairs found in 8 moves and 0:00.

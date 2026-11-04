@@ -1,0 +1,13 @@
+.reproduction-controls {
+  min-width: 0;
+  border: 1px solid #757C9A;
+  border-radius: 12px;
+  background: #141827;
+}
+.reproduction-controls summary { padding: 16px; cursor: pointer; font-weight: 600; }
+.reproduction-content { display: grid; gap: 16px; padding: 0 16px 16px; min-width: 0; }
+.reproduction-content p, .snapshot-control label { color: #B8BDD2; font-size: 14px; }
+.snapshot-control { display: grid; gap: 4px; min-width: 0; }
+.snapshot-control textarea { width: 100%; min-width: 0; resize: vertical; font-variant-numeric: tabular-nums; }
+.snapshot-actions { display: flex; flex-wrap: wrap; gap: 8px; }
+.reproduction-status { overflow-wrap: anywhere; }

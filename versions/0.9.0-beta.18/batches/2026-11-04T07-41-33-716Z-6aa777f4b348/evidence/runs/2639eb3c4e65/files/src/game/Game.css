@@ -1,0 +1,6 @@
+.game { width: 100%; max-width: 1120px; padding: 16px; margin: 0 auto; display: flex; flex-direction: column; gap: 16px; }
+.game header { display: flex; flex-direction: column; gap: 4px; padding: 16px 0; }
+.game h1 { font-size: 24px; line-height: 32px; }
+.game h1 span { color: #63E7FF; }
+.eyebrow { letter-spacing: 0.08em; }
+.pause-panel { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }

@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "composite": true,
+    "target": "ES2022",
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "exactOptionalPropertyTypes": true,
+    "verbatimModuleSyntax": true,
+    "erasableSyntaxOnly": true,
+    "skipLibCheck": true,
+    "noEmit": true,
+    "allowImportingTsExtensions": true,
+    "types": ["node", "vitest/globals"]
+  },
+  "include": [
+    "src/game/*.test.ts", "src/game/session/*.test.ts", "src/game/types.ts", "src/game/board.ts", "src/game/state.ts",
+    "src/game/snapshot.ts", "src/game/replay.ts", "src/game/session/storage.ts", "src/game/session/deal.ts", "e2e/**/*.ts"
+  ]
+}

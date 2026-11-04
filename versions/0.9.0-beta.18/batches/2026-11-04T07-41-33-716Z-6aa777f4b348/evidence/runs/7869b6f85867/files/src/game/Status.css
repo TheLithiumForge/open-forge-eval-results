@@ -1,0 +1,3 @@
+.status { display: flex; flex-wrap: wrap; gap: 8px 24px; padding: 16px 0; border-top: 1px solid var(--border); color: var(--secondary); font-size: 14px; }
+.status span { white-space: nowrap; }
+.status strong { color: var(--text); font-size: 16px; font-weight: 600; font-variant-numeric: tabular-nums; }

@@ -1,0 +1,3 @@
+.game-status { display: flex; flex-wrap: wrap; gap: 8px 24px; color: var(--secondary); font-size: 14px; }
+.game-status p { white-space: nowrap; }
+.game-status strong { color: var(--text); font-size: 16px; font-weight: 600; font-variant-numeric: tabular-nums; }

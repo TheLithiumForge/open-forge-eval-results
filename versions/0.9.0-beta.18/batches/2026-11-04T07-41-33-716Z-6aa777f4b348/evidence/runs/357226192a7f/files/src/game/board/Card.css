@@ -1,0 +1,25 @@
+.card {
+  position: relative;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  width: 100%;
+  aspect-ratio: 1;
+  min-width: 44px;
+  min-height: 44px;
+  background: var(--back);
+  border: 2px solid var(--border);
+  border-radius: 8px;
+  color: var(--secondary);
+  cursor: pointer;
+  scroll-margin: 6px;
+  transition: border-color 120ms;
+}
+.card:hover { border-color: var(--text); }
+.card.revealed { background: var(--face); }
+.card.matched, .card.matched:hover { border-color: #8BEA7D; opacity: 1; }
+.card:focus-visible { outline: 3px solid #FFFFFF; outline-offset: 2px; }
+.face-art { display: block; width: 100%; height: 100%; }
+.card-back { font-size: 28px; line-height: 1; }
+.card-check { position: absolute; right: 4px; bottom: 0; font-size: 12px; line-height: 1; color: #8BEA7D; }
+@media (prefers-reduced-motion: reduce) { .card { transition: none; } }

@@ -1,0 +1,12 @@
+.reproduction { background: var(--panel); border: 1px solid var(--border); border-radius: 12px; }
+.reproduction summary { padding: 16px; cursor: pointer; color: var(--secondary); font-size: 14px; }
+.reproduction summary::marker { color: #63E7FF; }
+.reproduction-body { padding: 0 16px 16px; display: grid; gap: 12px; }
+.reproduction label { display: grid; gap: 6px; color: var(--secondary); font-size: 14px; min-width: 0; }
+.board-code-tools { display: flex; align-items: end; flex-wrap: wrap; gap: 8px; }
+.board-code-tools label { flex: 1; min-width: min(100%, 240px); }
+.snapshot-buttons { display: flex; flex-wrap: wrap; gap: 8px; }
+.snapshot-field { display: grid; gap: 6px; }
+.control-status { color: #D9F3FF; font-size: 14px; }
+.control-status:empty { display: none; }
+.reproduction textarea { resize: vertical; min-height: 112px; font-family: ui-monospace, monospace; font-size: 14px; }

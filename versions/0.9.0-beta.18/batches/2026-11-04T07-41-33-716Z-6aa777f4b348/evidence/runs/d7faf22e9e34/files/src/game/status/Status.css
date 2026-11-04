@@ -1,0 +1,11 @@
+.game-status { margin-top: 16px; }
+.statistics { display: flex; flex-wrap: wrap; gap: 8px 24px; padding: 12px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+.statistics p { white-space: nowrap; font-variant-numeric: tabular-nums; }
+.statistics span { font-size: 14px; color: var(--secondary); }
+.statistics strong { font-weight: 650; }
+.win-banner { margin-top: 16px; padding: 16px; border: 1px solid var(--green); border-radius: 8px; background: var(--panel); }
+.win-banner h2 { font-size: 24px; line-height: 32px; }
+.win-banner p { margin-top: 4px; color: var(--secondary); }
+.win-banner.celebrate { animation: win-pulse 600ms ease-in-out 1; }
+@keyframes win-pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.015); } }
+@media (prefers-reduced-motion: reduce) { .win-banner.celebrate { animation: none; } }

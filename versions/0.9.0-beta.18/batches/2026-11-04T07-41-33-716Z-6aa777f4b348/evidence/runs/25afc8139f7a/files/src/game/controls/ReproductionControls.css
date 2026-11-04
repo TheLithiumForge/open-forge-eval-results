@@ -1,0 +1,10 @@
+.reproduction { background: var(--panel); border: 1px solid var(--border); border-radius: 8px; }
+.reproduction summary { padding: 12px 16px; cursor: pointer; }
+.reproduction-content { display: grid; gap: 16px; padding: 0 16px 16px; }
+.reproduction-field { display: grid; gap: 6px; min-width: 0; }
+.board-code-controls { display: flex; flex-wrap: wrap; align-items: flex-end; gap: 8px; }
+.board-code-controls .reproduction-field { flex: 1 1 192px; }
+.board-code-controls input { width: 100%; }
+.reproduction textarea { width: 100%; max-width: 100%; resize: vertical; }
+.snapshot-actions { display: flex; flex-wrap: wrap; gap: 8px; }
+.reproduction-status { color: var(--text); font-size: 14px; overflow-wrap: anywhere; }

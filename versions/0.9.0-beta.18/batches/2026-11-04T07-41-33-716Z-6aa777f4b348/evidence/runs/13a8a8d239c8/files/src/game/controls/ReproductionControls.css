@@ -1,0 +1,26 @@
+.reproduction-panel {
+  width: 100%;
+  min-width: 0;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--panel);
+}
+
+.reproduction-panel summary {
+  min-height: 44px;
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+.reproduction-content {
+  display: grid;
+  gap: 16px;
+  padding: 0 16px 16px;
+}
+
+.control-status {
+  min-height: 24px;
+  margin: 0;
+  color: var(--secondary);
+  font-size: 14px;
+}

@@ -1,0 +1,25 @@
+.neon-game-status {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.neon-game-status p {
+  min-width: 0;
+  padding: 8px 12px;
+  border: 1px solid #757C9A;
+  border-radius: 8px;
+  background: #141827;
+  color: #B8BDD2;
+  font-size: 14px;
+  line-height: 20px;
+  white-space: nowrap;
+}
+
+@media (max-width: 600px) {
+  .neon-game-status {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    margin-bottom: 16px;
+  }
+}

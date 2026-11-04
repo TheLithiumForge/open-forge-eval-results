@@ -1,0 +1,28 @@
+.board-code-form {
+  display: grid;
+  gap: 6px;
+}
+
+.board-code-form label,
+.snapshot-control label {
+  color: var(--secondary);
+  font-size: 14px;
+}
+
+.control-row {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.board-code-form input {
+  width: min(100%, 280px);
+  min-width: 0;
+  min-height: 44px;
+  padding: 8px 12px;
+}
+
+.control-row button {
+  flex: none;
+}

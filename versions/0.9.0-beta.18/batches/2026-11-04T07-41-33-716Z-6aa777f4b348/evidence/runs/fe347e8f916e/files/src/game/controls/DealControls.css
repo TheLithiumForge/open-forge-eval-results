@@ -1,0 +1,6 @@
+.deal-controls { display: flex; flex-wrap: wrap; gap: 12px; align-items: end; justify-content: space-between; }
+.size-label { display: flex; gap: 8px; align-items: center; color: var(--secondary); font-size: 14px; }
+.size-label select { color: var(--text); }
+.deal-buttons { display: flex; flex-wrap: wrap; gap: 8px; }
+button.primary { border-color: #63E7FF; color: #63E7FF; }
+button.primary:hover { background: #1B2034; }

@@ -1,0 +1,56 @@
+.reproduction-panel {
+  padding: 16px;
+  background: #141827;
+  border: 1px solid #757C9A;
+  border-radius: 8px;
+}
+
+.reproduction-panel summary {
+  width: fit-content;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.reproduction-fields {
+  display: grid;
+  gap: 16px;
+  padding-top: 16px;
+}
+
+.reproduction-fields form,
+.snapshot-tools {
+  display: grid;
+  gap: 8px;
+}
+
+.control-row {
+  display: flex;
+  gap: 8px;
+}
+
+.control-row input { flex: 1; min-width: 0; }
+
+.control-row input,
+.snapshot-tools textarea {
+  padding: 8px;
+  color: #F4F6FF;
+  background: #141827;
+  border: 1px solid #757C9A;
+  border-radius: 4px;
+}
+
+.snapshot-tools textarea {
+  width: 100%;
+  min-height: 132px;
+  resize: vertical;
+}
+
+.snapshot-actions { justify-content: flex-start; flex-wrap: wrap; }
+.reproduction-status { min-height: 24px; color: #B8BDD2; font-size: 14px; }
+.reproduction-fields [aria-invalid="true"] { border-color: #FF8296; }
+
+@media (max-width: 420px) {
+  .reproduction-panel { padding: 12px; }
+  .control-row { flex-wrap: wrap; }
+  .control-row input { flex-basis: 100%; }
+}

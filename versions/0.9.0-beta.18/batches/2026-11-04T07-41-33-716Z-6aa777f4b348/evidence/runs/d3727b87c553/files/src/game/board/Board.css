@@ -1,0 +1,18 @@
+.board-scroll {
+  container-type: inline-size;
+  max-width: 100%;
+  max-height: min(70dvh, 768px);
+  overflow: auto;
+  padding: 6px;
+  scroll-padding: 6px;
+  background: var(--panel);
+  border-radius: 8px;
+}
+.board {
+  --card-size: clamp(44px, calc((100cqw - (var(--columns) - 1) * 6px) / var(--columns)), 88px);
+  display: grid;
+  grid-template-columns: repeat(var(--columns), var(--card-size));
+  gap: 6px;
+  width: max-content;
+  margin-inline: auto;
+}

@@ -1,0 +1,67 @@
+.game-controls {
+  display: grid;
+  gap: 16px;
+}
+
+.deal-controls,
+.field-action {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: end;
+  gap: 8px;
+}
+
+.size-control,
+.reproduction-field {
+  display: grid;
+  gap: 6px;
+}
+
+.size-control span,
+.reproduction-field label {
+  color: #B8BDD2;
+  font-size: 14px;
+}
+
+.reproduction-tools {
+  min-width: 0;
+  padding: 12px;
+  border-radius: 8px;
+  background: #141827;
+}
+
+.reproduction-tools summary {
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.reproduction-content {
+  display: grid;
+  gap: 12px;
+  padding-top: 12px;
+}
+
+.field-action input {
+  flex: 1 1 180px;
+  min-width: 0;
+}
+
+.reproduction-field textarea {
+  width: 100%;
+  min-width: 0;
+  min-height: 112px;
+  resize: vertical;
+}
+
+.control-status {
+  min-height: 24px;
+  margin: 0;
+  color: #B8BDD2;
+  font-size: 14px;
+}
+
+@media (max-width: 420px) {
+  .field-action input {
+    flex-basis: 100%;
+  }
+}

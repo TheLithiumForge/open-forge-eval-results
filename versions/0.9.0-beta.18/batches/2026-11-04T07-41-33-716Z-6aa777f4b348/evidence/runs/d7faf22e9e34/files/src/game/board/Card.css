@@ -1,0 +1,22 @@
+.card {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 100%;
+  min-width: 44px;
+  max-width: 88px;
+  min-height: 44px;
+  aspect-ratio: 1;
+  padding: 0;
+  border: 2px solid var(--border);
+  border-radius: 8px;
+  background: var(--back);
+  scroll-margin: 6px;
+  transition: border-color 120ms;
+}
+.card.revealed, .card.matched { background: var(--face); }
+.card.matched, .card.matched:hover { border-color: var(--green); opacity: 1; }
+.card:focus-visible { outline: 3px solid #FFFFFF; outline-offset: 2px; }
+.card-face, .card-back { display: block; width: 100%; height: 100%; }
+.match-check { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+@media (prefers-reduced-motion: reduce) { .card { transition: none; } }

@@ -1,0 +1,17 @@
+{
+  "valid": {
+    "exit": 0,
+    "stdout": "Final snapshot JSON only",
+    "stderr": ""
+  },
+  "invalid": {
+    "exit": 1,
+    "stdout": "",
+    "stderr": "Invalid replay.\n"
+  },
+  "missing": {
+    "exit": 1,
+    "stdout": "",
+    "stderr": "File read error"
+  }
+}

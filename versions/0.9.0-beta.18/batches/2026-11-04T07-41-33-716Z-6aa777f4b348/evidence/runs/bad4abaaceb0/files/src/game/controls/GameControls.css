@@ -1,0 +1,61 @@
+.game-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: end;
+  gap: 16px;
+}
+
+.size-control {
+  display: grid;
+  gap: 4px;
+  min-width: 116px;
+  font-weight: 600;
+}
+
+.size-control select,
+.deal-actions button,
+.reproduction-controls input,
+.reproduction-controls textarea,
+.reproduction-controls button {
+  border: 1px solid #757c9a;
+  border-radius: 8px;
+  background: #141827;
+  color: #f4f6ff;
+  font: inherit;
+}
+
+.size-control select,
+.deal-actions button,
+.reproduction-controls button {
+  min-height: 44px;
+  padding: 8px 12px;
+}
+
+.deal-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.deal-actions button,
+.reproduction-controls button {
+  cursor: pointer;
+}
+
+.score-line {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  margin: 0;
+  color: #b8bdd2;
+  font-size: 14px;
+}
+
+button:focus-visible,
+select:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+summary:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: 2px;
+}

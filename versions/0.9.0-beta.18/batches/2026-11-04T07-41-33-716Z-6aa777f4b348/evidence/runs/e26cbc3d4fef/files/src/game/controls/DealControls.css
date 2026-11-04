@@ -1,0 +1,4 @@
+.deal-controls { display: flex; flex-wrap: wrap; align-items: end; gap: 12px; }
+.size-control { display: grid; gap: 4px; }
+.size-control > label { color: #B8BDD2; font-size: 14px; }
+.new-game { font-weight: 600; }

@@ -1,0 +1,8 @@
+.reproduction { min-width: 0; padding: 16px; border-radius: 8px; background: var(--panel); }
+.reproduction summary { cursor: pointer; }
+.reproduction-content { display: grid; gap: 16px; padding-top: 16px; }
+.board-code-controls, .snapshot-actions { display: flex; flex-wrap: wrap; align-items: end; gap: 8px; }
+.code-field { flex: 1 1 256px; }
+.code-field, .snapshot-field { display: grid; gap: 4px; min-width: 0; }
+.snapshot-field textarea { width: 100%; resize: vertical; }
+.load-status { min-height: 24px; overflow-wrap: anywhere; }

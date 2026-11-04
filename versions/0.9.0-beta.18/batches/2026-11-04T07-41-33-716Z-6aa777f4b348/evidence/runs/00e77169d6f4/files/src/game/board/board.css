@@ -1,0 +1,9 @@
+.board-scroll { max-height: min(70dvh, 768px); overflow: auto; padding: 6px; background: var(--panel); border-radius: 12px; max-width: 100%; overscroll-behavior: contain; }
+.board { display: grid; gap: 6px; margin: 0 auto; }
+.card { padding: 0; position: relative; aspect-ratio: 1; min-width: 44px; max-width: 88px; width: 100%; border: 2px solid var(--border); border-radius: 8px; background: var(--back); scroll-margin: 6px; transition: border-color 120ms; display: grid; place-items: center; }
+.card svg { width: 100%; height: 100%; display: block; }
+.card-back { color: var(--border); font-size: 24px; line-height: 1; }
+.card.revealed { background: var(--face); }
+.card.matched, .card.matched:hover { border-color: #8BEA7D; opacity: 1; }
+.check { position: absolute; bottom: 0; right: 4px; font-size: 14px; line-height: 1; color: #8BEA7D; }
+@media (prefers-reduced-motion: reduce) { .card { transition: none; } }

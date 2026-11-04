@@ -1,0 +1,2 @@
+.board-scroll { background: var(--panel); border-radius: 8px; padding: 6px; overflow: auto; max-height: min(70dvh, 768px); }
+.board { display: grid; gap: 6px; width: 100%; min-width: min-content; justify-content: center; }

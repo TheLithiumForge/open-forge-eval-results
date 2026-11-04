@@ -1,0 +1,176 @@
+Chromium 156.0.8078.4; Playwright 1.64.1; no screen reader used.
+
+INITIAL
+- main:
+  - paragraph: A LITTLE FOCUS. A LITTLE MEMORY.
+  - heading "Neon Pairs" [level=1]
+  - paragraph: Turn a card. Find its twin. Make a little connection.
+  - region "Neon Pairs game":
+    - text: Grid size
+    - combobox "Grid size":
+      - option "4x4" [selected]
+      - option "6x6"
+      - option "8x8"
+      - option "10x10"
+      - option "12x12"
+      - option "14x14"
+      - option "16x16"
+    - button "New Game"
+    - button "Restart"
+    - text: "Moves:"
+    - strong: "0"
+    - text: "Pairs:"
+    - strong: 0/8
+    - text: "Time:"
+    - strong: 0:00
+    - text: "Best:"
+    - strong: none
+    - group "Memory board, 4 rows and 4 columns":
+      - button "Row 1, column 1, closed"
+      - button "Row 1, column 2, closed"
+      - button "Row 1, column 3, closed"
+      - button "Row 1, column 4, closed"
+      - button "Row 2, column 1, closed"
+      - button "Row 2, column 2, closed"
+      - button "Row 2, column 3, closed"
+      - button "Row 2, column 4, closed"
+      - button "Row 3, column 1, closed"
+      - button "Row 3, column 2, closed"
+      - button "Row 3, column 3, closed"
+      - button "Row 3, column 4, closed"
+      - button "Row 4, column 1, closed"
+      - button "Row 4, column 2, closed"
+      - button "Row 4, column 3, closed"
+      - button "Row 4, column 4, closed"
+    - text: Find every pair. Take your time. Arrows to move · Enter or Space to reveal
+  - group:
+    - text: Reproduce a game
+    - paragraph: A board code repeats a deal. A snapshot saves your place.
+    - text: Board code
+    - textbox "Board code": np1-4-1
+    - button "Load board"
+    - text: Snapshot JSON
+    - textbox "Snapshot JSON":
+      - /placeholder: Export your progress, or paste a saved snapshot.
+    - button "Export snapshot"
+    - button "Load snapshot"
+    - paragraph: Loaded board.
+  - text: Made for a quiet moment. Play. Remember. Repeat. Loaded board.
+
+REVEALED
+- button "Row 1, column 1, cyan solid plus, marker top, revealed"
+
+COMPLETED
+- main:
+  - paragraph: A LITTLE FOCUS. A LITTLE MEMORY.
+  - heading "Neon Pairs" [level=1]
+  - paragraph: Turn a card. Find its twin. Make a little connection.
+  - region "Neon Pairs game":
+    - text: Grid size
+    - combobox "Grid size":
+      - option "4x4" [selected]
+      - option "6x6"
+      - option "8x8"
+      - option "10x10"
+      - option "12x12"
+      - option "14x14"
+      - option "16x16"
+    - button "New Game"
+    - button "Restart"
+    - text: "Moves:"
+    - strong: "8"
+    - text: "Pairs:"
+    - strong: 8/8
+    - text: "Time:"
+    - strong: 0:09
+    - text: "Best:"
+    - strong: "8"
+    - heading "All pairs found." [level=2]
+    - paragraph: 8 moves · 0:09. A moment well matched.
+    - group "Memory board, 4 rows and 4 columns":
+      - button "Row 1, column 1, cyan solid plus, marker top, matched" [disabled]
+      - button "Row 1, column 2, cyan solid chevron, marker top, matched" [disabled]
+      - button "Row 1, column 3, cyan solid circle, marker top, matched" [disabled]
+      - button "Row 1, column 4, cyan solid hexagon, marker top, matched" [disabled]
+      - button "Row 2, column 1, cyan solid triangle, marker top, matched" [disabled]
+      - button "Row 2, column 2, cyan solid triangle, marker top, matched" [disabled]
+      - button "Row 2, column 3, cyan solid circle, marker top, matched" [disabled]
+      - button "Row 2, column 4, cyan solid hexagon, marker top, matched" [disabled]
+      - button "Row 3, column 1, cyan solid diamond, marker top, matched" [disabled]
+      - button "Row 3, column 2, cyan solid chevron, marker top, matched" [disabled]
+      - button "Row 3, column 3, cyan solid square, marker top, matched" [disabled]
+      - button "Row 3, column 4, cyan solid plus, marker top, matched" [disabled]
+      - button "Row 4, column 1, cyan solid star, marker top, matched" [disabled]
+      - button "Row 4, column 2, cyan solid star, marker top, matched" [disabled]
+      - button "Row 4, column 3, cyan solid square, marker top, matched" [disabled]
+      - button "Row 4, column 4, cyan solid diamond, marker top, matched" [disabled]
+    - text: Find every pair. Take your time. Arrows to move · Enter or Space to reveal
+  - group:
+    - text: Reproduce a game
+    - paragraph: A board code repeats a deal. A snapshot saves your place.
+    - text: Board code
+    - textbox "Board code": np1-4-1
+    - button "Load board"
+    - text: Snapshot JSON
+    - textbox "Snapshot JSON":
+      - /placeholder: Export your progress, or paste a saved snapshot.
+    - button "Export snapshot"
+    - button "Load snapshot"
+    - paragraph: Loaded board.
+  - text: Made for a quiet moment. Play. Remember. Repeat. Pair found. All pairs found in 8 moves and 0:09.
+
+NEW GAME
+- main:
+  - paragraph: A LITTLE FOCUS. A LITTLE MEMORY.
+  - heading "Neon Pairs" [level=1]
+  - paragraph: Turn a card. Find its twin. Make a little connection.
+  - region "Neon Pairs game":
+    - text: Grid size
+    - combobox "Grid size":
+      - option "4x4" [selected]
+      - option "6x6"
+      - option "8x8"
+      - option "10x10"
+      - option "12x12"
+      - option "14x14"
+      - option "16x16"
+    - button "New Game"
+    - button "Restart"
+    - text: "Moves:"
+    - strong: "0"
+    - text: "Pairs:"
+    - strong: 0/8
+    - text: "Time:"
+    - strong: 0:00
+    - text: "Best:"
+    - strong: "8"
+    - group "Memory board, 4 rows and 4 columns":
+      - button "Row 1, column 1, closed"
+      - button "Row 1, column 2, closed"
+      - button "Row 1, column 3, closed"
+      - button "Row 1, column 4, closed"
+      - button "Row 2, column 1, closed"
+      - button "Row 2, column 2, closed"
+      - button "Row 2, column 3, closed"
+      - button "Row 2, column 4, closed"
+      - button "Row 3, column 1, closed"
+      - button "Row 3, column 2, closed"
+      - button "Row 3, column 3, closed"
+      - button "Row 3, column 4, closed"
+      - button "Row 4, column 1, closed"
+      - button "Row 4, column 2, closed"
+      - button "Row 4, column 3, closed"
+      - button "Row 4, column 4, closed"
+    - text: Find every pair. Take your time. Arrows to move · Enter or Space to reveal
+  - group:
+    - text: Reproduce a game
+    - paragraph: A board code repeats a deal. A snapshot saves your place.
+    - text: Board code
+    - textbox "Board code": np1-4-436578353
+    - button "Load board"
+    - text: Snapshot JSON
+    - textbox "Snapshot JSON":
+      - /placeholder: Export your progress, or paste a saved snapshot.
+    - button "Export snapshot"
+    - button "Load snapshot"
+  - text: Made for a quiet moment. Play. Remember. Repeat.

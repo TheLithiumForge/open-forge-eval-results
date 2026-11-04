@@ -1,0 +1,54 @@
+.board-scroll {
+  width: 100%;
+  max-height: 70vh;
+  max-height: min(70dvh, 768px);
+  overflow: auto;
+  padding: 6px;
+  border-radius: 8px;
+  background: #141827;
+  overscroll-behavior: contain;
+}
+
+.board-grid {
+  display: grid;
+  width: max-content;
+  gap: 6px;
+}
+
+.card-button {
+  position: relative;
+  display: grid;
+  width: var(--card-size);
+  height: var(--card-size);
+  flex: 0 0 auto;
+  place-items: center;
+  padding: 0;
+  border: 2px solid #757C9A;
+  border-radius: 8px;
+  background: #1B2034;
+  color: #F4F6FF;
+  cursor: pointer;
+  scroll-margin: 6px;
+  transition: border-color 120ms ease;
+  -webkit-tap-highlight-color: transparent;
+}
+.card-button.is-revealed { background: #111625; }
+.card-button:hover { border-color: #F4F6FF; }
+.card-button.is-matched, .card-button.is-matched:hover { border-color: #8BEA7D; }
+.card-button:focus { outline: 3px solid #FFFFFF; outline-offset: 2px; }
+.card-button:focus-visible { outline: 3px solid #FFFFFF; outline-offset: 2px; }
+.card-button[aria-disabled="true"] { cursor: default; }
+.face-art, .back-art { display: block; width: 82%; height: 82%; }
+.match-check {
+  position: absolute;
+  right: 4px;
+  bottom: 2px;
+  color: #8BEA7D;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 12px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card-button { transition: none; }
+}

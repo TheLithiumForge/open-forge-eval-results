@@ -1,0 +1,113 @@
+:root {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: #F4F6FF;
+  background: #090B14;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  font-weight: 400;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background: #090B14;
+  color: #F4F6FF;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+button, input, select, textarea { font: inherit; }
+
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+summary:focus-visible {
+  outline: 3px solid #FFF;
+  outline-offset: 2px;
+}
+
+.game-shell {
+  width: 100%;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+.game-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+.game-header h1 {
+  margin: 0;
+  font-size: 24px;
+  line-height: 32px;
+  letter-spacing: -0.02em;
+}
+
+.game-eyebrow {
+  margin: 0 0 4px;
+  color: #63E7FF;
+  font-size: 14px;
+}
+
+.game-intro,
+.board-help,
+.sound-note { margin: 8px 0 0; color: #B8BDD2; font-size: 14px; }
+
+.game-summary {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 24px;
+  margin-bottom: 16px;
+}
+
+.game-summary p { margin: 0; font-variant-numeric: tabular-nums; }
+
+.win-banner {
+  margin-bottom: 16px;
+  padding: 16px;
+  border: 1px solid #8BEA7D;
+  border-radius: 12px;
+  background: #141827;
+}
+
+.win-banner h2 { margin: 0; font-size: 20px; line-height: 28px; }
+.win-banner p { margin: 4px 0 0; color: #B8BDD2; }
+.win-banner--pulse { animation: win-pulse 600ms ease-in-out 1; }
+
+@keyframes win-pulse {
+  0%, 100% { transform: scale(1); }
+  45% { transform: scale(1.025); }
+}
+
+.board-help { margin: 0 0 8px; }
+.sound-note { margin-top: 16px; }
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (max-width: 680px) {
+  .game-shell { padding: 16px; }
+  .game-header { align-items: flex-start; flex-direction: column; gap: 16px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .win-banner--pulse { animation: none; }
+}

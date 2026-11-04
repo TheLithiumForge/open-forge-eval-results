@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "composite": true,
+    "target": "ES2022",
+    "lib": ["ES2022"],
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "exactOptionalPropertyTypes": true,
+    "verbatimModuleSyntax": true,
+    "erasableSyntaxOnly": true,
+    "skipLibCheck": true,
+    "noEmit": true,
+    "allowImportingTsExtensions": true,
+    "types": ["node", "vitest/globals"]
+  },
+  "include": [
+    "src/game/types.ts", "src/game/board.ts", "src/game/state.ts", "src/game/snapshot.ts",
+    "src/game/replay.ts", "src/game/replay-cli.ts", "vite.config.ts", "playwright.config.ts", "vitest.config.ts"
+  ]
+}

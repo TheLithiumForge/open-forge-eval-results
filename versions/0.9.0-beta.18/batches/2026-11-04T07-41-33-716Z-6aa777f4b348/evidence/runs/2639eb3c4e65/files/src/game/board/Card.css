@@ -1,0 +1,12 @@
+.card {
+  position: relative; display: grid; place-items: center; width: 100%; aspect-ratio: 1;
+  min-width: 44px; min-height: 44px; max-width: 88px; padding: 0;
+  border: 2px solid var(--border); border-radius: 8px; background: var(--back);
+  scroll-margin: 6px; transition: border-color 120ms;
+}
+.card svg { display: block; width: 100%; height: 100%; }
+.card.revealed, .card.matched { background: var(--face); }
+.card.matched, .card.matched:hover { border-color: var(--green); opacity: 1; }
+.card:focus-visible { z-index: 1; outline: 3px solid #FFFFFF; outline-offset: 2px; }
+.check { position: absolute; top: 0; right: 0; font-size: 14px; line-height: 12px; color: var(--green); }
+@media (prefers-reduced-motion: reduce) { .card { transition: none; } }

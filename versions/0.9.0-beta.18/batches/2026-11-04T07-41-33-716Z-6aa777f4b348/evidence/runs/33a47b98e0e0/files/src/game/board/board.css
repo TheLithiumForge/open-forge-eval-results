@@ -1,0 +1,100 @@
+.board-section {
+  min-width: 0;
+  width: 100%;
+}
+
+.board-hint {
+  margin: 0 0 8px;
+  color: var(--secondary);
+  font-size: 14px;
+  line-height: 24px;
+}
+
+.board-scroll {
+  container-type: inline-size;
+  width: 100%;
+  max-height: min(70dvh, 768px);
+  overflow: auto;
+  padding: 6px;
+  box-sizing: border-box;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overscroll-behavior: contain;
+}
+
+.card-grid {
+  display: grid;
+  gap: 6px;
+  width: max-content;
+  min-width: 100%;
+  justify-content: center;
+  align-content: start;
+  box-sizing: border-box;
+}
+
+.game-card {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 100%;
+  min-width: 44px;
+  aspect-ratio: 1;
+  border: 2px solid var(--border);
+  border-radius: 8px;
+  background: var(--back);
+  color: var(--text);
+  cursor: pointer;
+  scroll-margin: 8px;
+  transition: border-color 120ms ease;
+}
+
+.game-card:hover:not(.is-matched) {
+  border-color: var(--text);
+}
+
+.game-card:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 2px;
+  z-index: 1;
+}
+
+.game-card.is-revealed {
+  border-color: var(--border);
+  background: var(--face);
+}
+
+.game-card.is-matched,
+.game-card.is-matched:hover {
+  border-color: #8BEA7D;
+  background: var(--face);
+}
+
+.face-artwork,
+.card-back {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.matched-check {
+  position: absolute;
+  right: 4px;
+  bottom: 4px;
+  display: grid;
+  width: 14px;
+  height: 14px;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--face);
+  color: #8BEA7D;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 14px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .game-card {
+    transition: none;
+  }
+}

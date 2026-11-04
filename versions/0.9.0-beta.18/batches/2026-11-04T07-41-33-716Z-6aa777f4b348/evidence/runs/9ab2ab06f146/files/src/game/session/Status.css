@@ -1,0 +1,9 @@
+.status { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px 24px; padding: 16px 0; }
+.status span { font-size: 14px; color: var(--secondary); font-variant-numeric: tabular-nums; }
+.status strong { font-size: 16px; color: var(--text); font-weight: 600; }
+.win-banner { padding: 16px; border: 1px solid var(--green); border-radius: 8px; background: var(--panel); }
+.win-banner h2 { font-size: 20px; color: var(--green); margin-bottom: 4px; }
+.win-banner p { color: var(--secondary); }
+.win-banner.celebrate { animation: win-pulse 600ms ease-out 1; }
+@keyframes win-pulse { 50% { box-shadow: 0 0 24px #8bea7d40; } }
+@media (prefers-reduced-motion: reduce) { .win-banner.celebrate { animation: none; } }

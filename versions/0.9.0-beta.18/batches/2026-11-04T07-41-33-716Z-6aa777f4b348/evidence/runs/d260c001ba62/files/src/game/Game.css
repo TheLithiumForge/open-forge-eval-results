@@ -1,0 +1,31 @@
+.game-shell { width: 100%; max-width: 1120px; padding: 16px; margin-inline: auto; }
+.masthead { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 16px 24px; border-bottom: 1px solid var(--border); }
+.wordmark { display: flex; gap: 8px; align-items: center; color: var(--text); font-size: 14px; font-weight: 700; letter-spacing: .12em; text-decoration: none; }
+.wordmark > span { color: var(--cyan); font-size: 24px; }
+.edition { font-size: 14px; color: var(--secondary); letter-spacing: .08em; }
+.game-content { max-width: 800px; margin: 32px auto; display: flex; flex-direction: column; gap: 16px; }
+.introduction { margin-bottom: 8px; }
+.eyebrow { display: flex; align-items: center; gap: 8px; color: var(--cyan); font-size: 14px; letter-spacing: .12em; margin-bottom: 8px; }
+.eyebrow > span { width: 6px; height: 6px; border-radius: 50%; background: var(--cyan); }
+h1 { font-size: 24px; font-weight: 600; line-height: 32px; letter-spacing: -.03em; margin-bottom: 8px; }
+h1 span { color: var(--cyan); }
+.subtitle { color: var(--secondary); font-size: 14px; }
+.scoreboard { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; border-block: 1px solid var(--border); padding: 16px 0; }
+.scoreboard p { color: var(--secondary); font-size: 14px; font-variant-numeric: tabular-nums; }
+.scoreboard strong { color: var(--text); font-size: 16px; font-weight: 600; }
+.board-heading { display: flex; gap: 8px; justify-content: space-between; font-size: 14px; letter-spacing: .04em; }
+.muted { color: var(--secondary); }
+.board-heading .muted { font-size: 14px; }
+.board-footer { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; color: var(--secondary); font-size: 14px; }
+.board-footer p { display: flex; align-items: center; flex-wrap: wrap; gap: 4px; }
+kbd { font: inherit; color: var(--text); }
+.board-footer p > span { margin-inline: 4px; }
+.page-footer { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; border-top: 1px solid var(--border); padding-block: 24px 16px; color: var(--secondary); font-size: 14px; }
+.page-footer span:last-child { letter-spacing: .06em; }
+.win-banner { display: flex; align-items: center; gap: 12px; padding: 16px; border: 1px solid var(--green); border-radius: 8px; background: var(--panel); }
+.win-banner > span { color: var(--green); font-size: 24px; }
+.win-banner p { font-size: 14px; color: var(--secondary); }
+.celebrate { animation: win-pulse 600ms ease-out 1; }
+@keyframes win-pulse { 50% { box-shadow: 0 0 0 4px #8bea7d30; } }
+@media (max-width: 560px) { .edition { display: none; } .scoreboard { grid-template-columns: repeat(2, minmax(0, 1fr)); } .board-heading { flex-wrap: wrap; } }
+@media (prefers-reduced-motion: reduce) { .celebrate { animation: none; } }

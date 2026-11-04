@@ -1,0 +1,91 @@
+.neon-board-scroll {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 100%;
+  max-height: min(70dvh, 768px);
+  overflow: auto;
+  overscroll-behavior: contain;
+  padding: 6px;
+  border-radius: 8px;
+  background: #141827;
+}
+
+.neon-board-grid {
+  display: grid;
+  width: 100%;
+  gap: 6px;
+}
+
+.neon-board-card {
+  box-sizing: border-box;
+  position: relative;
+  display: grid;
+  width: 100%;
+  min-width: 44px;
+  max-width: 88px;
+  aspect-ratio: 1 / 1;
+  place-items: center;
+  padding: 0;
+  border: 2px solid #757C9A;
+  border-radius: 8px;
+  background: #1B2034;
+  color: #F4F6FF;
+  cursor: pointer;
+  outline: none;
+  scroll-margin: 6px;
+  transition: border-color 120ms ease;
+}
+
+.neon-board-card:focus-visible {
+  z-index: 1;
+  outline: 3px solid #FFFFFF;
+  outline-offset: 2px;
+}
+
+.neon-board-card:hover:not([aria-disabled="true"]) {
+  border-color: #F4F6FF;
+}
+
+.neon-board-card--revealed {
+  background: #111625;
+}
+
+.neon-board-card[aria-disabled="true"] {
+  border-color: #8BEA7D;
+  background: #111625;
+  cursor: default;
+}
+
+.neon-board-face {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.neon-board-back {
+  display: block;
+  width: 36%;
+  height: 36%;
+}
+
+.neon-board-check {
+  position: absolute;
+  right: 4px;
+  bottom: 4px;
+  display: grid;
+  width: 10px;
+  height: 10px;
+  place-items: center;
+  border-radius: 4px;
+  background: #111625;
+  color: #8BEA7D;
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 10px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .neon-board-card {
+    transition: none;
+  }
+}

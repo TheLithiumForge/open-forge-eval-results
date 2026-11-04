@@ -1,0 +1,3 @@
+.deal-controls { display: flex; flex-wrap: wrap; align-items: end; gap: 8px; }
+.size-field { display: grid; gap: 4px; }
+.size-field select { min-width: 112px; }

@@ -1,0 +1,27 @@
+.board-shell {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+}
+
+.board-scroll-area {
+  width: 100%;
+  max-height: min(70dvh, 768px);
+  overflow: auto;
+  padding: 6px;
+  box-sizing: border-box;
+  container-type: inline-size;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--panel);
+  scrollbar-color: var(--border) var(--panel);
+  scrollbar-gutter: stable;
+}
+
+.board-grid {
+  display: grid;
+  width: max-content;
+  gap: 6px;
+  margin-inline: auto;
+  align-content: start;
+}

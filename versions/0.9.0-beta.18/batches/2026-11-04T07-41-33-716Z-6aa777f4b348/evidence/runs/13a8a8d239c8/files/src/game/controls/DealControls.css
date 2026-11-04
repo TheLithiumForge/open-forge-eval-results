@@ -1,0 +1,28 @@
+.deal-controls {
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.grid-size-control {
+  display: grid;
+  gap: 4px;
+  color: var(--secondary);
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.grid-size-control select {
+  color: var(--text);
+  font-size: 16px;
+}
+
+.deal-controls button {
+  color: var(--text);
+}
+
+.deal-controls button:hover,
+.resume-button:hover {
+  border-color: var(--text);
+}

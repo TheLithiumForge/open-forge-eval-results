@@ -1,0 +1,11 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "lib": ["ES2023", "DOM"],
+    "jsx": "react-jsx",
+    "types": ["node"]
+  },
+  "include": ["tools", "tests", "*.config.ts", "src/**/*.test.ts", "src/**/*.test.tsx"]
+}

@@ -1,0 +1,15 @@
+import { isWon, matchedPairCount } from "../state.ts";
+import type { GameState } from "../state.ts";
+import { formatTime } from "./formatTime.ts";
+
+export function turnAnnouncement(before: GameState, after: GameState): string | null {
+  if (before.selection.kind !== "one" || before === after) return null;
+  if (after.selection.kind === "mismatch") return "No match. Cards close after a short pause.";
+  if (after.selection.kind !== "closed" || after.matched.length <= before.matched.length) return null;
+  if (isWon(after)) {
+    return `Pair found. All pairs found in ${after.moves} moves and ${formatTime(after.elapsedMs)}.`;
+  }
+  const pairs = matchedPairCount(after);
+  const pairWord = pairs === 1 ? "pair" : "pairs";
+  return `Pair found. ${pairs} ${pairWord} matched.`;
+}

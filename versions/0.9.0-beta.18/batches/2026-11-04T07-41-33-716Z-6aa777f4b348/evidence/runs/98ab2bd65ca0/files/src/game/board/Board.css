@@ -1,0 +1,16 @@
+.board-scroll {
+  max-inline-size: 100%;
+  max-block-size: min(768px, 70dvh);
+  overflow: auto;
+  padding: 6px;
+  border-radius: 12px;
+  background: var(--panel);
+  overscroll-behavior: contain;
+}
+
+.board-grid {
+  display: grid;
+  gap: 6px;
+  inline-size: 100%;
+  margin-inline: auto;
+}

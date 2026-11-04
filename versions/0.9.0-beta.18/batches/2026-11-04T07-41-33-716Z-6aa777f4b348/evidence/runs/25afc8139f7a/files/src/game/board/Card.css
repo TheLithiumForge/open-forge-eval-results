@@ -1,0 +1,34 @@
+.card {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 100%;
+  aspect-ratio: 1;
+  padding: 0;
+  border: 2px solid var(--border);
+  border-radius: 8px;
+  scroll-margin: 6px;
+  transition: border-color 120ms;
+}
+.card-closed { background: var(--back); }
+.card-revealed { background: var(--face); }
+.card:hover { border-color: var(--text); }
+.card-matched, .card-matched:hover { border-color: var(--green); opacity: 1; }
+.card-face { display: block; width: 100%; height: 100%; }
+.card-back {
+  width: 16px;
+  height: 16px;
+  border: 2px solid var(--border);
+  transform: rotate(45deg);
+}
+.card-check {
+  position: absolute;
+  right: 0;
+  top: 0;
+  color: var(--green);
+  font-size: 10px;
+  line-height: 10px;
+}
+@media (prefers-reduced-motion: reduce) {
+  .card { transition: none; }
+}

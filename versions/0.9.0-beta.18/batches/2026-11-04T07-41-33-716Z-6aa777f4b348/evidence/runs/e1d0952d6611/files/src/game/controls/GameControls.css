@@ -1,0 +1,17 @@
+.game-controls { display: flex; flex-wrap: wrap; align-items: end; gap: 8px; }
+.size-control { display: grid; gap: 4px; color: #B8BDD2; font-size: 14px; line-height: 24px; }
+.game-controls button, .size-control select {
+  min-height: 44px;
+  padding: 8px 12px;
+  border: 1px solid #757C9A;
+  border-radius: 8px;
+  background: #141827;
+  color: #F4F6FF;
+}
+.game-controls button { cursor: pointer; }
+.game-controls button:focus-visible, .size-control select:focus-visible,
+.reproduce-panel input:focus-visible, .reproduce-panel textarea:focus-visible,
+.reproduce-panel button:focus-visible, .reproduce-panel summary:focus-visible {
+  outline: 3px solid #FFFFFF;
+  outline-offset: 2px;
+}

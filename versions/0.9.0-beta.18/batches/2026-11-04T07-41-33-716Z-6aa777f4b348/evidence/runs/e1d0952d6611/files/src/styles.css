@@ -1,0 +1,17 @@
+:root {
+  color: #F4F6FF;
+  background: #090B14;
+  font-family: system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html, body, #root { width: 100%; min-height: 100%; margin: 0; }
+body { min-width: 0; background: #090B14; }
+button, select, input, textarea { font: inherit; }
+button, select, input, textarea { color: #F4F6FF; }
+.game-shell { display: grid; gap: 16px; width: min(100%, 1120px); margin-inline: auto; padding: 16px; }

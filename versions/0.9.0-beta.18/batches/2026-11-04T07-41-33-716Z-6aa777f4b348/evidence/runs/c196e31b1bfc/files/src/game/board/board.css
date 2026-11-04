@@ -1,0 +1,57 @@
+.board-scroll {
+  position: relative;
+  width: 100%;
+  min-width: 0;
+  max-height: min(70dvh, 768px);
+  overflow: auto;
+  padding: 6px;
+  border: 1px solid #757C9A;
+  border-radius: 12px;
+  background: #141827;
+  container-type: inline-size;
+  scrollbar-color: #757C9A #141827;
+  scrollbar-width: thin;
+}
+
+.board-grid {
+  --card-size: clamp(44px, calc((100cqi - (var(--board-size) - 1) * 6px) / var(--board-size)), 88px);
+  display: grid;
+  grid-template-columns: repeat(var(--board-size), var(--card-size));
+  gap: 6px;
+  width: max-content;
+  align-items: start;
+}
+
+.memory-card {
+  position: relative;
+  display: grid;
+  width: var(--card-size);
+  height: var(--card-size);
+  place-items: center;
+  padding: 0;
+  border: 2px solid #757C9A;
+  border-radius: 8px;
+  background: #1B2034;
+  color: #F4F6FF;
+  cursor: pointer;
+  transition: border-color 120ms ease;
+  scroll-margin: 6px;
+  touch-action: manipulation;
+}
+
+.memory-card:hover { border-color: #F4F6FF; }
+.memory-card.is-face { background: #111625; }
+.memory-card.is-matched { border-color: #8BEA7D; }
+.memory-card.is-matched:hover { border-color: #8BEA7D; }
+.memory-card:focus-visible { outline: 3px solid #FFFFFF; outline-offset: 2px; z-index: 1; }
+.face-art, .card-back-mark { display: block; width: 100%; height: 100%; }
+.match-check { position: absolute; display: grid; width: 10px; height: 10px; place-items: center; border-radius: 2px; background: #111625; color: #8BEA7D; font-size: 11px; line-height: 10px; font-weight: 800; }
+.at-top-left { top: 0; left: 0; }
+.at-top-right { top: 0; right: 0; }
+.at-bottom-left { bottom: 0; left: 0; }
+.at-bottom-right { right: 0; bottom: 0; }
+.board-pause-note { position: sticky; bottom: 8px; left: 8px; width: fit-content; padding: 4px 8px; border-radius: 8px; background: #090B14; color: #B8BDD2; font-size: 14px; }
+
+@media (prefers-reduced-motion: reduce) {
+  .memory-card { transition: none; }
+}

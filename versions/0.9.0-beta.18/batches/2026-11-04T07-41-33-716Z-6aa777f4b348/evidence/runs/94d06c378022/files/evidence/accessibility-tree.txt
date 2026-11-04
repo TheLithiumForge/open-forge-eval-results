@@ -1,0 +1,385 @@
+Node v26.12.1; Playwright 1.64.1; Chromium 156.0.8078.4
+
+Initial board accessibility tree:
+
+RootWebArea | Neon Pairs
+generic | 
+main | 
+sectionheader | 
+region | Deal controls
+region | Game status
+generic | 
+region | Cards, 4 by 4
+group | 
+StaticText | MEMORY GAME
+heading | Neon Pairs
+paragraph | 
+LabelText | 
+button | New Game
+button | Restart
+paragraph | 
+paragraph | 
+paragraph | 
+paragraph | 
+heading | Cards, 4 by 4
+button | Row 1, column 1, closed
+button | Row 1, column 2, closed
+button | Row 1, column 3, closed
+button | Row 1, column 4, closed
+button | Row 2, column 1, closed
+button | Row 2, column 2, closed
+button | Row 2, column 3, closed
+button | Row 2, column 4, closed
+button | Row 3, column 1, closed
+button | Row 3, column 2, closed
+button | Row 3, column 3, closed
+button | Row 3, column 4, closed
+button | Row 4, column 1, closed
+button | Row 4, column 2, closed
+button | Row 4, column 3, closed
+button | Row 4, column 4, closed
+DisclosureTriangle | Reproduce a game
+LabelText | 
+textbox | Board code
+button | Load board
+LabelText | 
+textbox | Snapshot JSON
+button | Export snapshot
+button | Load snapshot
+InlineTextBox | MEMORY GAME
+StaticText | Neon Pairs
+StaticText | Find the matching faces. Remember each one as you go.
+StaticText | Grid size
+combobox | Grid size
+StaticText | New Game
+StaticText | Restart
+StaticText | Moves:
+StaticText |  
+StaticText | 0
+StaticText | Pairs:
+StaticText |  
+StaticText | 0
+StaticText | /
+StaticText | 8
+StaticText | Time:
+StaticText |  
+StaticText | 0:00
+StaticText | Best:
+StaticText |  
+StaticText | none
+StaticText | Cards, 
+StaticText | 4
+StaticText |  by 
+StaticText | 4
+StaticText | Reproduce a game
+StaticText | Board code
+generic | 
+StaticText | Load board
+StaticText | Snapshot JSON
+generic | 
+StaticText | Export snapshot
+StaticText | Load snapshot
+InlineTextBox | Neon Pairs
+InlineTextBox | Find the matching faces. Remember each one as you go.
+InlineTextBox | Grid size
+MenuListPopup | 
+InlineTextBox | New Game
+InlineTextBox | Restart
+InlineTextBox | Moves:
+InlineTextBox |  
+InlineTextBox | 0
+InlineTextBox | Pairs:
+InlineTextBox |  
+InlineTextBox | 0
+InlineTextBox | /
+InlineTextBox | 8
+InlineTextBox | Time:
+InlineTextBox |  
+InlineTextBox | 0:00
+InlineTextBox | Best:
+InlineTextBox |  
+InlineTextBox | none
+InlineTextBox | Cards, 
+InlineTextBox | 4
+InlineTextBox |  by 
+InlineTextBox | 4
+InlineTextBox | Reproduce a game
+InlineTextBox | Board code
+StaticText | np1-4-1579242481
+InlineTextBox | Load board
+InlineTextBox | Snapshot JSON
+InlineTextBox | Export snapshot
+InlineTextBox | Load snapshot
+option | 4x4
+option | 6x6
+option | 8x8
+option | 10x10
+option | 12x12
+option | 14x14
+option | 16x16
+InlineTextBox | np1-4-1579242481
+
+A revealed card accessibility tree:
+
+RootWebArea | Neon Pairs
+generic | 
+main | 
+sectionheader | 
+region | Deal controls
+region | Game status
+generic | 
+region | Cards, 4 by 4
+group | 
+StaticText | MEMORY GAME
+heading | Neon Pairs
+paragraph | 
+LabelText | 
+button | New Game
+button | Restart
+paragraph | 
+paragraph | 
+paragraph | 
+paragraph | 
+StaticText | Pair found. 7 pairs matched.
+heading | Cards, 4 by 4
+button | Row 1, column 1, cyan solid hexagon, marker top, matched
+button | Row 1, column 2, cyan solid square, marker top, matched
+button | Row 1, column 3, cyan solid diamond, marker top, matched
+button | Row 1, column 4, cyan solid chevron, marker top, matched
+button | Row 2, column 1, cyan solid triangle, marker top, matched
+button | Row 2, column 2, cyan solid triangle, marker top, matched
+button | Row 2, column 3, cyan solid plus, marker top, matched
+button | Row 2, column 4, cyan solid diamond, marker top, matched
+button | Row 3, column 1, cyan solid star, marker top, matched
+button | Row 3, column 2, cyan solid chevron, marker top, matched
+button | Row 3, column 3, cyan solid square, marker top, matched
+button | Row 3, column 4, cyan solid hexagon, marker top, matched
+button | Row 4, column 1, cyan solid circle, marker top, revealed
+button | Row 4, column 2, closed
+button | Row 4, column 3, cyan solid star, marker top, matched
+button | Row 4, column 4, cyan solid plus, marker top, matched
+DisclosureTriangle | Reproduce a game
+LabelText | 
+textbox | Board code
+button | Load board
+LabelText | 
+textbox | Snapshot JSON
+button | Export snapshot
+button | Load snapshot
+InlineTextBox | MEMORY GAME
+StaticText | Neon Pairs
+StaticText | Find the matching faces. Remember each one as you go.
+StaticText | Grid size
+combobox | Grid size
+StaticText | New Game
+StaticText | Restart
+StaticText | Moves:
+StaticText |  
+StaticText | 7
+StaticText | Pairs:
+StaticText |  
+StaticText | 7
+StaticText | /
+StaticText | 8
+StaticText | Time:
+StaticText |  
+StaticText | 0:03
+StaticText | Best:
+StaticText |  
+StaticText | none
+InlineTextBox | Pair found. 7 pairs matched.
+StaticText | Cards, 
+StaticText | 4
+StaticText |  by 
+StaticText | 4
+StaticText | Reproduce a game
+StaticText | Board code
+generic | 
+StaticText | Load board
+StaticText | Snapshot JSON
+generic | 
+StaticText | Export snapshot
+StaticText | Load snapshot
+InlineTextBox | Neon Pairs
+InlineTextBox | Find the matching faces. Remember each one as you go.
+InlineTextBox | Grid size
+MenuListPopup | 
+InlineTextBox | New Game
+InlineTextBox | Restart
+InlineTextBox | Moves:
+InlineTextBox |  
+InlineTextBox | 7
+InlineTextBox | Pairs:
+InlineTextBox |  
+InlineTextBox | 7
+InlineTextBox | /
+InlineTextBox | 8
+InlineTextBox | Time:
+InlineTextBox |  
+InlineTextBox | 0:03
+InlineTextBox | Best:
+InlineTextBox |  
+InlineTextBox | none
+InlineTextBox | Cards, 
+InlineTextBox | 4
+InlineTextBox |  by 
+InlineTextBox | 4
+InlineTextBox | Reproduce a game
+InlineTextBox | Board code
+StaticText | np1-4-1579242481
+InlineTextBox | Load board
+InlineTextBox | Snapshot JSON
+InlineTextBox | Export snapshot
+InlineTextBox | Load snapshot
+option | 4x4
+option | 6x6
+option | 8x8
+option | 10x10
+option | 12x12
+option | 14x14
+option | 16x16
+InlineTextBox | np1-4-1579242481
+
+Completed board accessibility tree:
+
+RootWebArea | Neon Pairs
+generic | 
+main | 
+sectionheader | 
+region | Deal controls
+region | Game status
+paragraph | 
+generic | 
+region | Cards, 4 by 4
+group | 
+StaticText | MEMORY GAME
+heading | Neon Pairs
+paragraph | 
+LabelText | 
+button | New Game
+button | Restart
+paragraph | 
+paragraph | 
+paragraph | 
+paragraph | 
+StaticText | Board cleared 
+StaticText |  
+StaticText | 8
+StaticText |  moves 
+StaticText |  
+StaticText | 0:03
+StaticText | Pair found. All pairs found in 8 moves and 0:03.
+heading | Cards, 4 by 4
+button | Row 1, column 1, cyan solid hexagon, marker top, matched
+button | Row 1, column 2, cyan solid square, marker top, matched
+button | Row 1, column 3, cyan solid diamond, marker top, matched
+button | Row 1, column 4, cyan solid chevron, marker top, matched
+button | Row 2, column 1, cyan solid triangle, marker top, matched
+button | Row 2, column 2, cyan solid triangle, marker top, matched
+button | Row 2, column 3, cyan solid plus, marker top, matched
+button | Row 2, column 4, cyan solid diamond, marker top, matched
+button | Row 3, column 1, cyan solid star, marker top, matched
+button | Row 3, column 2, cyan solid chevron, marker top, matched
+button | Row 3, column 3, cyan solid square, marker top, matched
+button | Row 3, column 4, cyan solid hexagon, marker top, matched
+button | Row 4, column 1, cyan solid circle, marker top, matched
+button | Row 4, column 2, cyan solid circle, marker top, matched
+button | Row 4, column 3, cyan solid star, marker top, matched
+button | Row 4, column 4, cyan solid plus, marker top, matched
+DisclosureTriangle | Reproduce a game
+LabelText | 
+textbox | Board code
+button | Load board
+LabelText | 
+textbox | Snapshot JSON
+button | Export snapshot
+button | Load snapshot
+InlineTextBox | MEMORY GAME
+StaticText | Neon Pairs
+StaticText | Find the matching faces. Remember each one as you go.
+StaticText | Grid size
+combobox | Grid size
+StaticText | New Game
+StaticText | Restart
+StaticText | Moves:
+StaticText |  
+StaticText | 8
+StaticText | Pairs:
+StaticText |  
+StaticText | 8
+StaticText | /
+StaticText | 8
+StaticText | Time:
+StaticText |  
+StaticText | 0:03
+StaticText | Best:
+StaticText |  
+StaticText | 8
+InlineTextBox | Board cleared 
+InlineTextBox |  
+InlineTextBox | 8
+InlineTextBox |  moves 
+InlineTextBox |  
+InlineTextBox | 0:03
+InlineTextBox | Pair found. All pairs found in 8 moves and 0:03.
+StaticText | Cards, 
+StaticText | 4
+StaticText |  by 
+StaticText | 4
+StaticText | Reproduce a game
+StaticText | Board code
+generic | 
+StaticText | Load board
+StaticText | Snapshot JSON
+generic | 
+StaticText | Export snapshot
+StaticText | Load snapshot
+InlineTextBox | Neon Pairs
+InlineTextBox | Find the matching faces. Remember each one as you go.
+InlineTextBox | Grid size
+MenuListPopup | 
+InlineTextBox | New Game
+InlineTextBox | Restart
+InlineTextBox | Moves:
+InlineTextBox |  
+InlineTextBox | 8
+InlineTextBox | Pairs:
+InlineTextBox |  
+InlineTextBox | 8
+InlineTextBox | /
+InlineTextBox | 8
+InlineTextBox | Time:
+InlineTextBox |  
+InlineTextBox | 0:03
+InlineTextBox | Best:
+InlineTextBox |  
+InlineTextBox | 8
+InlineTextBox | Cards, 
+InlineTextBox | 4
+InlineTextBox |  by 
+InlineTextBox | 4
+InlineTextBox | Reproduce a game
+InlineTextBox | Board code
+StaticText | np1-4-1579242481
+InlineTextBox | Load board
+InlineTextBox | Snapshot JSON
+InlineTextBox | Export snapshot
+InlineTextBox | Load snapshot
+option | 4x4
+option | 6x6
+option | 8x8
+option | 10x10
+option | 12x12
+option | 14x14
+option | 16x16
+InlineTextBox | np1-4-1579242481
+
+Visible final score:
+
+Moves: 8
+
+Pairs: 8/8
+
+Time: 0:03
+
+Best: 8

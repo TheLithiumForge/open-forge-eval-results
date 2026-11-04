@@ -1,0 +1,10 @@
+export const SUPPORTED_SIZES = [4, 6, 8, 10, 12, 14, 16] as const;
+export const MISMATCH_MS = 800;
+export const MAX_MOVES = 999_999;
+export const MAX_ELAPSED_MS = 359_999_999;
+export const SNAPSHOT_LIMIT_BYTES = 65_536;
+export const REPLAY_LIMIT_BYTES = 1_048_576;
+export const REPLAY_LIMIT_ACTIONS = 10_000;
+export const BOARD_VERSION = "np1";
+export const FORMAT_VERSION = 1;
+export const PARK_MILLER_MODULUS = 2_147_483_647;

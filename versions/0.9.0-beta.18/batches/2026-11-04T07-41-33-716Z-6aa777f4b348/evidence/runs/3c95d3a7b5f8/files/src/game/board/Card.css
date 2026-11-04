@@ -1,0 +1,35 @@
+.card {
+  box-sizing: border-box;
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 100%;
+  aspect-ratio: 1;
+  min-width: 44px;
+  padding: 0;
+  border: 2px solid #757C9A;
+  border-radius: 8px;
+  background: #1B2034;
+  color: #757C9A;
+  cursor: pointer;
+  scroll-margin: 6px;
+  transition: border-color 120ms;
+}
+
+.card:hover { border-color: #F4F6FF; }
+.card:focus-visible { outline: 3px solid #FFFFFF; outline-offset: 2px; }
+.card--revealed, .card--matched { background: #111625; }
+.card--matched, .card--matched:hover { border-color: #8BEA7D; opacity: 1; }
+.card-back, .card-face { display: block; width: 100%; height: 100%; pointer-events: none; }
+.card-check {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  color: #8BEA7D;
+  font: bold 8px/8px system-ui, sans-serif;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card { transition: none; }
+}

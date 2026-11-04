@@ -1,0 +1,48 @@
+* { box-sizing: border-box; }
+:root { color-scheme: dark; }
+body, h1, h2, p { margin: 0; }
+body {
+  background: #090B14;
+  color: #F4F6FF;
+  font: 16px/24px system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+.game {
+  display: grid;
+  gap: 24px;
+  width: 100%;
+  max-width: 1120px;
+  min-width: 0;
+  margin-inline: auto;
+  padding: 16px;
+}
+.game-heading { display: grid; gap: 4px; }
+.game-heading h1 { font-size: 24px; line-height: 32px; letter-spacing: 0; }
+.game-heading p, .board-heading p, .board-help { color: #B8BDD2; font-size: 14px; }
+.game-overview { display: grid; gap: 16px; min-width: 0; }
+.game-board { display: grid; gap: 12px; min-width: 0; }
+.board-heading { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px; }
+.board-heading h2 { font-size: 16px; line-height: 24px; font-weight: 600; }
+.game button:not(.card), .game select, .game input, .game textarea {
+  min-height: 44px;
+  max-width: 100%;
+  padding: 8px 12px;
+  border: 1px solid #757C9A;
+  border-radius: 8px;
+  background: #141827;
+  color: #F4F6FF;
+  font: inherit;
+}
+.game button:not(.card) { cursor: pointer; }
+.game button:not(.card):hover { border-color: #F4F6FF; }
+.game :is(button, select, input, textarea, summary):focus-visible {
+  outline: 3px solid #FFFFFF;
+  outline-offset: 2px;
+}
+.announcements {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}

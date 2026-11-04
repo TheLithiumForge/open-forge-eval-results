@@ -1,0 +1,11 @@
+.reproduction { min-width: 0; padding: 16px; background: #141827; border-radius: 8px; }
+.reproduction summary { cursor: pointer; font-weight: 600; }
+.reproduction-content { display: grid; gap: 16px; padding-top: 16px; }
+.reproduction-field { display: grid; gap: 6px; min-width: 0; }
+.reproduction-field label { color: #B8BDD2; font-size: 14px; }
+.board-code-controls { display: flex; flex-wrap: wrap; gap: 8px; }
+.board-code-controls input { flex: 1 1 200px; min-width: 0; }
+.board-code-controls button { flex: 0 0 auto; }
+.reproduction textarea { width: 100%; min-width: 0; max-width: 100%; resize: vertical; }
+.snapshot-controls { display: flex; flex-wrap: wrap; gap: 8px; }
+.reproduction-status { overflow-wrap: anywhere; }

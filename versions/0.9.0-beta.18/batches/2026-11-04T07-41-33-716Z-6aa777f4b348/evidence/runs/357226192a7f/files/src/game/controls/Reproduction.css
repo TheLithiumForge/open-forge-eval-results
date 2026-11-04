@@ -1,0 +1,9 @@
+.reproduction { padding: 16px; background: var(--panel); border: 1px solid var(--border); border-radius: 8px; }
+.reproduction summary { cursor: pointer; color: var(--secondary); }
+.reproduction-content { display: grid; gap: 12px; margin-top: 16px; }
+.reproduction label { font-size: 14px; color: var(--secondary); }
+.code-controls { display: flex; flex-wrap: wrap; gap: 8px; }
+.code-controls input { flex: 1 1 160px; min-width: 0; }
+.snapshot-buttons { display: flex; flex-wrap: wrap; gap: 8px; }
+.load-status { color: var(--secondary); font-size: 14px; overflow-wrap: anywhere; }
+.load-status:empty { display: none; }

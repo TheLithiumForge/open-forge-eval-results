@@ -1,0 +1,172 @@
+## Closed cards
+
+```yaml
+- main:
+  - paragraph: A quiet game of memory
+  - heading "Neon Pairs" [level=1]
+  - paragraph: Find every pair. Arrow keys move; Enter or Space turns a card over.
+  - status
+  - region "Game status":
+    - paragraph: "Moves: 0"
+    - paragraph: "Pairs: 0/8"
+    - paragraph: "Time: 0:00"
+    - paragraph: "Best: none"
+  - region "Game controls":
+    - text: Grid size
+    - combobox "Grid size":
+      - option "4x4" [selected]
+      - option "6x6"
+      - option "8x8"
+      - option "10x10"
+      - option "12x12"
+      - option "14x14"
+      - option "16x16"
+    - button "New Game"
+    - button "Restart"
+  - region "Find the pairs":
+    - heading "Find the pairs" [level=2]
+    - paragraph: Matched cards stay open. A miss closes after a short pause.
+    - group "4 by 4 card board":
+      - button "Row 1, column 1, closed"
+      - button "Row 1, column 2, closed"
+      - button "Row 1, column 3, closed"
+      - button "Row 1, column 4, closed"
+      - button "Row 2, column 1, closed"
+      - button "Row 2, column 2, closed"
+      - button "Row 2, column 3, closed"
+      - button "Row 2, column 4, closed"
+      - button "Row 3, column 1, closed"
+      - button "Row 3, column 2, closed"
+      - button "Row 3, column 3, closed"
+      - button "Row 3, column 4, closed"
+      - button "Row 4, column 1, closed"
+      - button "Row 4, column 2, closed"
+      - button "Row 4, column 3, closed"
+      - button "Row 4, column 4, closed"
+  - group:
+    - text: Reproduce a game Board code
+    - textbox "Board code": np1-4-1
+    - button "Load board"
+    - text: Snapshot JSON
+    - textbox "Snapshot JSON"
+    - button "Export snapshot"
+    - button "Load snapshot"
+    - paragraph
+  - text: Every face has its own shape, marker, and fill.
+```
+
+## First reveal
+
+```yaml
+- main:
+  - paragraph: A quiet game of memory
+  - heading "Neon Pairs" [level=1]
+  - paragraph: Find every pair. Arrow keys move; Enter or Space turns a card over.
+  - status
+  - region "Game status":
+    - paragraph: "Moves: 0"
+    - paragraph: "Pairs: 0/8"
+    - paragraph: "Time: 0:00"
+    - paragraph: "Best: none"
+  - region "Game controls":
+    - text: Grid size
+    - combobox "Grid size":
+      - option "4x4" [selected]
+      - option "6x6"
+      - option "8x8"
+      - option "10x10"
+      - option "12x12"
+      - option "14x14"
+      - option "16x16"
+    - button "New Game"
+    - button "Restart"
+  - region "Find the pairs":
+    - heading "Find the pairs" [level=2]
+    - paragraph: Matched cards stay open. A miss closes after a short pause.
+    - group "4 by 4 card board":
+      - button "Row 1, column 1, cyan solid plus, marker top, revealed"
+      - button "Row 1, column 2, closed"
+      - button "Row 1, column 3, closed"
+      - button "Row 1, column 4, closed"
+      - button "Row 2, column 1, closed"
+      - button "Row 2, column 2, closed"
+      - button "Row 2, column 3, closed"
+      - button "Row 2, column 4, closed"
+      - button "Row 3, column 1, closed"
+      - button "Row 3, column 2, closed"
+      - button "Row 3, column 3, closed"
+      - button "Row 3, column 4, closed"
+      - button "Row 4, column 1, closed"
+      - button "Row 4, column 2, closed"
+      - button "Row 4, column 3, closed"
+      - button "Row 4, column 4, closed"
+  - group:
+    - text: Reproduce a game Board code
+    - textbox "Board code": np1-4-1
+    - button "Load board"
+    - text: Snapshot JSON
+    - textbox "Snapshot JSON"
+    - button "Export snapshot"
+    - button "Load snapshot"
+    - paragraph
+  - text: Every face has its own shape, marker, and fill.
+```
+
+## Complete game
+
+```yaml
+- main:
+  - paragraph: A quiet game of memory
+  - heading "Neon Pairs" [level=1]
+  - paragraph: Find every pair. Arrow keys move; Enter or Space turns a card over.
+  - status: Pair found. All pairs found in 9 moves and 0:00.
+  - region "Game status":
+    - paragraph: "Moves: 9"
+    - paragraph: "Pairs: 8/8"
+    - paragraph: "Time: 0:00"
+    - paragraph: "Best: 9"
+  - heading "All pairs found!" [level=2]
+  - paragraph: Finished in 9 moves and 0:00.
+  - region "Game controls":
+    - text: Grid size
+    - combobox "Grid size":
+      - option "4x4" [selected]
+      - option "6x6"
+      - option "8x8"
+      - option "10x10"
+      - option "12x12"
+      - option "14x14"
+      - option "16x16"
+    - button "New Game"
+    - button "Restart"
+  - region "Find the pairs":
+    - heading "Find the pairs" [level=2]
+    - paragraph: Matched cards stay open. A miss closes after a short pause.
+    - group "4 by 4 card board":
+      - button "Row 1, column 1, cyan solid plus, marker top, matched" [disabled]
+      - button "Row 1, column 2, cyan solid chevron, marker top, matched" [disabled]
+      - button "Row 1, column 3, cyan solid circle, marker top, matched" [disabled]
+      - button "Row 1, column 4, cyan solid hexagon, marker top, matched" [disabled]
+      - button "Row 2, column 1, cyan solid triangle, marker top, matched" [disabled]
+      - button "Row 2, column 2, cyan solid triangle, marker top, matched" [disabled]
+      - button "Row 2, column 3, cyan solid circle, marker top, matched" [disabled]
+      - button "Row 2, column 4, cyan solid hexagon, marker top, matched" [disabled]
+      - button "Row 3, column 1, cyan solid diamond, marker top, matched" [disabled]
+      - button "Row 3, column 2, cyan solid chevron, marker top, matched" [disabled]
+      - button "Row 3, column 3, cyan solid square, marker top, matched" [disabled]
+      - button "Row 3, column 4, cyan solid plus, marker top, matched" [disabled]
+      - button "Row 4, column 1, cyan solid star, marker top, matched" [disabled]
+      - button "Row 4, column 2, cyan solid star, marker top, matched" [disabled]
+      - button "Row 4, column 3, cyan solid square, marker top, matched" [disabled]
+      - button "Row 4, column 4, cyan solid diamond, marker top, matched" [disabled]
+  - group:
+    - text: Reproduce a game Board code
+    - textbox "Board code": np1-4-1
+    - button "Load board"
+    - text: Snapshot JSON
+    - textbox "Snapshot JSON"
+    - button "Export snapshot"
+    - button "Load snapshot"
+    - paragraph
+  - text: Every face has its own shape, marker, and fill.
+```

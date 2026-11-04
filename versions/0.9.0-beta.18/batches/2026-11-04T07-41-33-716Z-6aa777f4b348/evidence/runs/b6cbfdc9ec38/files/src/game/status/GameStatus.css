@@ -1,0 +1,20 @@
+.game-status { display: grid; gap: 12px; }
+.scoreboard { display: flex; flex-wrap: wrap; column-gap: 24px; row-gap: 8px; }
+.scoreboard p { color: var(--secondary); font-size: 14px; white-space: nowrap; }
+.scoreboard strong { color: var(--text); font-size: 16px; font-variant-numeric: tabular-nums; }
+.paused-note { font-size: 14px; color: var(--secondary); }
+.win-banner {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 12px 16px;
+  color: var(--green);
+  border: 1px solid var(--green);
+  border-radius: 8px;
+  background: var(--panel);
+}
+.win-banner span { color: var(--text); font-variant-numeric: tabular-nums; }
+.win-banner--celebrate { animation: win-pulse 600ms ease-out 1; }
+@keyframes win-pulse { 50% { box-shadow: 0 0 16px #8BEA7D66; } }
+@media (prefers-reduced-motion: reduce) { .win-banner--celebrate { animation: none; } }

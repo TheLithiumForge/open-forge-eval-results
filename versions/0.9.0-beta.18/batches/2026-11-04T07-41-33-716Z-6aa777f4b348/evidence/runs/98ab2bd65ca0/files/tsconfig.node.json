@@ -1,0 +1,28 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "lib": ["ES2022", "DOM"],
+    "jsx": "react-jsx",
+    "types": ["node"],
+    "noEmit": true
+  },
+  "include": [
+    "src/cli/**/*.ts",
+    "src/game/board/**/*.ts",
+    "src/game/create.ts",
+    "src/game/state.ts",
+    "src/game/transition.ts",
+    "src/game/clock.ts",
+    "src/game/snapshot.ts",
+    "src/game/replay.ts",
+    "src/game/**/*.test.ts",
+    "vite.config.ts",
+    "vitest.config.ts",
+    "playwright.config.ts",
+    "tests/**/*.ts",
+    "tests/**/*.tsx"
+  ],
+  "exclude": ["src/game/session", "src/game/board/**/*.tsx"]
+}

@@ -1,0 +1,243 @@
+Chromium 156.0.8078.4; Playwright 1.64.1; Node 26.12.1; no screen reader used.
+
+
+INITIAL
+- main:
+  - heading "Neon Pairs" [level=1]
+  - paragraph: A little focus. A perfect match.
+  - paragraph: Reveal two cards. Find every pair in as few moves as you can.
+  - text: Grid size
+  - combobox "Grid size":
+    - option "4x4" [selected]
+    - option "6x6"
+    - option "8x8"
+    - option "10x10"
+    - option "12x12"
+    - option "14x14"
+    - option "16x16"
+  - button "New Game"
+  - button "Restart"
+  - text: "Moves: 0 Pairs: 0/8 Time: 0:00 Best: none"
+  - group "4 by 4 memory board":
+    - button "Row 1, column 1, closed"
+    - button "Row 1, column 2, closed"
+    - button "Row 1, column 3, closed"
+    - button "Row 1, column 4, closed"
+    - button "Row 2, column 1, closed"
+    - button "Row 2, column 2, closed"
+    - button "Row 2, column 3, closed"
+    - button "Row 2, column 4, closed"
+    - button "Row 3, column 1, closed"
+    - button "Row 3, column 2, closed"
+    - button "Row 3, column 3, closed"
+    - button "Row 3, column 4, closed"
+    - button "Row 4, column 1, closed"
+    - button "Row 4, column 2, closed"
+    - button "Row 4, column 3, closed"
+    - button "Row 4, column 4, closed"
+  - paragraph: Tap or click to reveal. Use arrow keys to explore, Enter or Space to reveal.
+  - group: Reproduce a game
+  - status
+  - text: Made for a moment of quiet concentration.
+
+FIRST REVEAL
+- main:
+  - heading "Neon Pairs" [level=1]
+  - paragraph: A little focus. A perfect match.
+  - paragraph: Reveal two cards. Find every pair in as few moves as you can.
+  - text: Grid size
+  - combobox "Grid size":
+    - option "4x4" [selected]
+    - option "6x6"
+    - option "8x8"
+    - option "10x10"
+    - option "12x12"
+    - option "14x14"
+    - option "16x16"
+  - button "New Game"
+  - button "Restart"
+  - text: "Moves: 0 Pairs: 0/8 Time: 0:00 Best: none"
+  - group "4 by 4 memory board":
+    - button "Row 1, column 1, closed"
+    - button "Row 1, column 2, closed"
+    - button "Row 1, column 3, cyan solid circle, marker top, revealed"
+    - button "Row 1, column 4, closed"
+    - button "Row 2, column 1, closed"
+    - button "Row 2, column 2, closed"
+    - button "Row 2, column 3, closed"
+    - button "Row 2, column 4, closed"
+    - button "Row 3, column 1, closed"
+    - button "Row 3, column 2, closed"
+    - button "Row 3, column 3, closed"
+    - button "Row 3, column 4, closed"
+    - button "Row 4, column 1, closed"
+    - button "Row 4, column 2, closed"
+    - button "Row 4, column 3, closed"
+    - button "Row 4, column 4, closed"
+  - paragraph: Tap or click to reveal. Use arrow keys to explore, Enter or Space to reveal.
+  - group:
+    - text: Reproduce a game
+    - paragraph: Share a deal with its board code, or save your place with a snapshot.
+    - text: Board code
+    - textbox "Board code": np1-4-1
+    - button "Load board"
+    - text: Snapshot JSON
+    - textbox "Snapshot JSON"
+    - button "Export snapshot"
+    - button "Load snapshot"
+    - paragraph: Loaded board.
+    - paragraph: Snapshots load paused. Select Resume when you’re ready to play.
+  - status: Loaded board.
+  - text: Made for a moment of quiet concentration.
+
+FIRST MATCH
+- main:
+  - heading "Neon Pairs" [level=1]
+  - paragraph: A little focus. A perfect match.
+  - paragraph: Reveal two cards. Find every pair in as few moves as you can.
+  - text: Grid size
+  - combobox "Grid size":
+    - option "4x4" [selected]
+    - option "6x6"
+    - option "8x8"
+    - option "10x10"
+    - option "12x12"
+    - option "14x14"
+    - option "16x16"
+  - button "New Game"
+  - button "Restart"
+  - text: "Moves: 1 Pairs: 1/8 Time: 0:00 Best: none"
+  - group "4 by 4 memory board":
+    - button "Row 1, column 1, closed"
+    - button "Row 1, column 2, closed"
+    - button "Row 1, column 3, cyan solid circle, marker top, matched" [disabled]
+    - button "Row 1, column 4, closed"
+    - button "Row 2, column 1, closed"
+    - button "Row 2, column 2, closed"
+    - button "Row 2, column 3, cyan solid circle, marker top, matched" [disabled]
+    - button "Row 2, column 4, closed"
+    - button "Row 3, column 1, closed"
+    - button "Row 3, column 2, closed"
+    - button "Row 3, column 3, closed"
+    - button "Row 3, column 4, closed"
+    - button "Row 4, column 1, closed"
+    - button "Row 4, column 2, closed"
+    - button "Row 4, column 3, closed"
+    - button "Row 4, column 4, closed"
+  - paragraph: Tap or click to reveal. Use arrow keys to explore, Enter or Space to reveal.
+  - group:
+    - text: Reproduce a game
+    - paragraph: Share a deal with its board code, or save your place with a snapshot.
+    - text: Board code
+    - textbox "Board code": np1-4-1
+    - button "Load board"
+    - text: Snapshot JSON
+    - textbox "Snapshot JSON"
+    - button "Export snapshot"
+    - button "Load snapshot"
+    - paragraph: Loaded board.
+    - paragraph: Snapshots load paused. Select Resume when you’re ready to play.
+  - status: Pair found. 1 pair matched.
+  - text: Made for a moment of quiet concentration.
+
+WIN
+- main:
+  - heading "Neon Pairs" [level=1]
+  - paragraph: A little focus. A perfect match.
+  - paragraph: Reveal two cards. Find every pair in as few moves as you can.
+  - text: Grid size
+  - combobox "Grid size":
+    - option "4x4" [selected]
+    - option "6x6"
+    - option "8x8"
+    - option "10x10"
+    - option "12x12"
+    - option "14x14"
+    - option "16x16"
+  - button "New Game"
+  - button "Restart"
+  - text: "Moves: 8 Pairs: 8/8 Time: 0:12 Best: 8"
+  - strong: All pairs found!
+  - paragraph: 8 moves · 0:12
+  - group "4 by 4 memory board":
+    - button "Row 1, column 1, cyan solid plus, marker top, matched" [disabled]
+    - button "Row 1, column 2, cyan solid chevron, marker top, matched" [disabled]
+    - button "Row 1, column 3, cyan solid circle, marker top, matched" [disabled]
+    - button "Row 1, column 4, cyan solid hexagon, marker top, matched" [disabled]
+    - button "Row 2, column 1, cyan solid triangle, marker top, matched" [disabled]
+    - button "Row 2, column 2, cyan solid triangle, marker top, matched" [disabled]
+    - button "Row 2, column 3, cyan solid circle, marker top, matched" [disabled]
+    - button "Row 2, column 4, cyan solid hexagon, marker top, matched" [disabled]
+    - button "Row 3, column 1, cyan solid diamond, marker top, matched" [disabled]
+    - button "Row 3, column 2, cyan solid chevron, marker top, matched" [disabled]
+    - button "Row 3, column 3, cyan solid square, marker top, matched" [disabled]
+    - button "Row 3, column 4, cyan solid plus, marker top, matched" [disabled]
+    - button "Row 4, column 1, cyan solid star, marker top, matched" [disabled]
+    - button "Row 4, column 2, cyan solid star, marker top, matched" [disabled]
+    - button "Row 4, column 3, cyan solid square, marker top, matched" [disabled]
+    - button "Row 4, column 4, cyan solid diamond, marker top, matched" [disabled]
+  - paragraph: Tap or click to reveal. Use arrow keys to explore, Enter or Space to reveal.
+  - group:
+    - text: Reproduce a game
+    - paragraph: Share a deal with its board code, or save your place with a snapshot.
+    - text: Board code
+    - textbox "Board code": np1-4-1
+    - button "Load board"
+    - text: Snapshot JSON
+    - textbox "Snapshot JSON"
+    - button "Export snapshot"
+    - button "Load snapshot"
+    - paragraph: Loaded board.
+    - paragraph: Snapshots load paused. Select Resume when you’re ready to play.
+  - status: Pair found. All pairs found in 8 moves and 0:12.
+  - text: Made for a moment of quiet concentration.
+
+NEW GAME
+- main:
+  - heading "Neon Pairs" [level=1]
+  - paragraph: A little focus. A perfect match.
+  - paragraph: Reveal two cards. Find every pair in as few moves as you can.
+  - text: Grid size
+  - combobox "Grid size":
+    - option "4x4" [selected]
+    - option "6x6"
+    - option "8x8"
+    - option "10x10"
+    - option "12x12"
+    - option "14x14"
+    - option "16x16"
+  - button "New Game"
+  - button "Restart"
+  - text: "Moves: 0 Pairs: 0/8 Time: 0:00 Best: 8"
+  - group "4 by 4 memory board":
+    - button "Row 1, column 1, closed"
+    - button "Row 1, column 2, closed"
+    - button "Row 1, column 3, closed"
+    - button "Row 1, column 4, closed"
+    - button "Row 2, column 1, closed"
+    - button "Row 2, column 2, closed"
+    - button "Row 2, column 3, closed"
+    - button "Row 2, column 4, closed"
+    - button "Row 3, column 1, closed"
+    - button "Row 3, column 2, closed"
+    - button "Row 3, column 3, closed"
+    - button "Row 3, column 4, closed"
+    - button "Row 4, column 1, closed"
+    - button "Row 4, column 2, closed"
+    - button "Row 4, column 3, closed"
+    - button "Row 4, column 4, closed"
+  - paragraph: Tap or click to reveal. Use arrow keys to explore, Enter or Space to reveal.
+  - group:
+    - text: Reproduce a game
+    - paragraph: Share a deal with its board code, or save your place with a snapshot.
+    - text: Board code
+    - textbox "Board code": np1-4-538493506
+    - button "Load board"
+    - text: Snapshot JSON
+    - textbox "Snapshot JSON"
+    - button "Export snapshot"
+    - button "Load snapshot"
+    - paragraph: Loaded board.
+    - paragraph: Snapshots load paused. Select Resume when you’re ready to play.
+  - status: Pair found. All pairs found in 8 moves and 0:12.
+  - text: Made for a moment of quiet concentration.

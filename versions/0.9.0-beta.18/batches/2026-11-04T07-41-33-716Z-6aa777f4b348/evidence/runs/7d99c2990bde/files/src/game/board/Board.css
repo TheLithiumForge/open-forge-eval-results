@@ -1,0 +1,19 @@
+.board-scroll {
+  width: 100%;
+  min-width: 0;
+  max-height: min(70dvh, 768px);
+  padding: 6px;
+  overflow: auto;
+  background: var(--panel);
+  border-radius: 12px;
+  scrollbar-color: var(--border) var(--panel);
+}
+.board-grid {
+  display: grid;
+  grid-template-columns: repeat(var(--columns), minmax(44px, 88px));
+  gap: 6px;
+  width: 100%;
+  min-width: calc(var(--columns) * 44px + (var(--columns) - 1) * 6px);
+  max-width: calc(var(--columns) * 88px + (var(--columns) - 1) * 6px);
+  margin-inline: auto;
+}

@@ -1,0 +1,8 @@
+.reproduction { padding: 16px; border: 1px solid var(--border); border-radius: 8px; background: var(--panel); }
+.reproduction summary { cursor: pointer; }
+.reproduction-content { display: grid; gap: 8px; padding-top: 16px; }
+.reproduction-content label { color: var(--secondary); font-size: 14px; }
+.board-code-controls, .snapshot-actions { display: flex; gap: 8px; flex-wrap: wrap; }
+.board-code-controls input { flex: 1; min-width: 0; }
+.reproduction textarea { width: 100%; resize: vertical; }
+.reproduction-status { min-height: 24px; }

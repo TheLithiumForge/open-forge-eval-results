@@ -1,0 +1,4 @@
+.board-code-control { display: grid; gap: 4px; min-width: 0; }
+.board-code-control label { color: #B8BDD2; font-size: 14px; }
+.board-code-row { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; min-width: 0; }
+.board-code-row input { flex: 1 1 160px; width: 100%; min-width: 0; }

@@ -1,0 +1,16 @@
+.game-controls { display: flex; align-items: flex-end; gap: 8px; flex-wrap: wrap; }
+.size-control { display: flex; flex-direction: column; gap: 6px; margin-right: auto; font-size: 14px; color: var(--secondary); }
+.size-control select { min-width: 112px; color: var(--text); }
+.new-game { border-color: var(--cyan); }
+.game-controls button span { margin-left: 12px; color: var(--secondary); }
+.reproduction { border-top: 1px solid var(--border); padding-top: 16px; }
+.reproduction summary { width: fit-content; color: var(--secondary); font-size: 14px; cursor: pointer; padding: 4px 0; }
+.reproduction summary:hover { color: var(--text); }
+.reproduction-content { display: flex; flex-direction: column; gap: 8px; background: var(--panel); padding: 16px; margin-top: 12px; border-radius: 8px; }
+.reproduction-content label { font-size: 14px; }
+.input-action { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 8px; }
+.input-action input { flex: 1; min-width: 0; width: 100%; }
+.snapshot-actions { display: flex; flex-wrap: wrap; gap: 8px; }
+.load-status { color: var(--secondary); font-size: 14px; }
+.resume { align-self: flex-start; border-color: var(--cyan); }
+textarea { resize: vertical; width: 100%; font-family: ui-monospace, monospace; font-size: 14px; }

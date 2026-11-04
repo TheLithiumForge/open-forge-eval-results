@@ -1,0 +1,44 @@
+- main:
+  - heading "Neon Pairs" [level=1]
+  - paragraph: A little focus. A perfect match.
+  - text: Grid size
+  - combobox "Grid size":
+    - option "4x4" [selected]
+    - option "6x6"
+    - option "8x8"
+    - option "10x10"
+    - option "12x12"
+    - option "14x14"
+    - option "16x16"
+  - button "New Game"
+  - button "Restart"
+  - text: "Moves: 2 Pairs: 0/8 Time: 0:02 Best: none"
+  - group "4 by 4 card board":
+    - button "Row 1, column 1, closed"
+    - button "Row 1, column 2, closed"
+    - button "Row 1, column 3, closed"
+    - button "Row 1, column 4, closed"
+    - button "Row 2, column 1, closed"
+    - button "Row 2, column 2, closed"
+    - button "Row 2, column 3, closed"
+    - button "Row 2, column 4, closed"
+    - button "Row 3, column 1, closed"
+    - button "Row 3, column 2, closed"
+    - button "Row 3, column 3, closed"
+    - button "Row 3, column 4, closed"
+    - button "Row 4, column 1, closed"
+    - button "Row 4, column 2, closed"
+    - button "Row 4, column 3, closed"
+    - button "Row 4, column 4, closed"
+  - paragraph: Find every pair. Take your time. Arrow keys to explore · Enter or Space to reveal
+  - group:
+    - text: Reproduce a game
+    - paragraph: Repeat a deal with its board code, or save your place with a snapshot.
+    - text: Board code
+    - textbox "Board code": np1-4-1
+    - button "Load board"
+    - text: Snapshot JSON
+    - textbox "Snapshot JSON"
+    - button "Export snapshot"
+    - button "Load snapshot"
+  - text: Made for a moment of clarity. No match. Cards close after a short pause.

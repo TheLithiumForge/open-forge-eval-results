@@ -1,0 +1,12 @@
+.board-section { min-width: 0; }
+.board-scroll {
+  max-height: min(70dvh, 768px);
+  overflow: auto;
+  padding: 6px;
+  border-radius: 8px;
+  background: var(--panel);
+  scrollbar-color: var(--border) var(--panel);
+  scroll-padding: 6px;
+}
+.board-grid { display: grid; gap: 6px; justify-content: center; }
+.board-help { margin-top: 12px; }

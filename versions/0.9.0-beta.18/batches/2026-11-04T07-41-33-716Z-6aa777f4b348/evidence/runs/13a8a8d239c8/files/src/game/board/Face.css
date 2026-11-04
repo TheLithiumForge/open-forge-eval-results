@@ -1,0 +1,11 @@
+.face-artwork {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.face-marker {
+  stroke: var(--face);
+  stroke-width: 3;
+}

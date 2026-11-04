@@ -1,0 +1,54 @@
+.board-scroll {
+  box-sizing: border-box;
+  max-height: min(70dvh, 768px);
+  overflow: auto;
+  padding: 6px;
+  border: 1px solid #757C9A;
+  border-radius: 14px;
+  background: #141827;
+  scrollbar-color: #757C9A #141827;
+}
+
+.board-grid {
+  display: grid;
+  width: max-content;
+  gap: 6px;
+}
+
+.card {
+  position: relative;
+  display: grid;
+  box-sizing: border-box;
+  place-items: center;
+  overflow: hidden;
+  flex: none;
+  padding: 0;
+  border: 2px solid #757C9A;
+  border-radius: 8px;
+  background: #1B2034;
+  color: #F4F6FF;
+  cursor: pointer;
+  scroll-margin: 6px;
+  transition: border-color 120ms;
+}
+
+.card:hover { border-color: #F4F6FF; }
+.card:focus-visible { outline: 3px solid #FFFFFF; outline-offset: 2px; z-index: 1; }
+.card--face { background: #111625; }
+.card--matched,
+.card--matched:hover { border-color: #8BEA7D; }
+.card svg { display: block; width: 100%; height: 100%; }
+.card-back-mark { width: 22%; aspect-ratio: 1; border: 1px solid #757C9A; transform: rotate(45deg); }
+.card-check { position: absolute; display: grid; width: 10px; height: 10px; place-items: center; border-radius: 50%; background: #111625; color: #8BEA7D; font-size: 11px; line-height: 10px; }
+.card-check--top { top: 0; left: 50%; transform: translateX(-50%); }
+.card-check--top-right { top: 0; right: 0; }
+.card-check--right { top: 50%; right: 0; transform: translateY(-50%); }
+.card-check--bottom-right { right: 0; bottom: 0; }
+.card-check--bottom { bottom: 0; left: 50%; transform: translateX(-50%); }
+.card-check--bottom-left { bottom: 0; left: 0; }
+.card-check--left { top: 50%; left: 0; transform: translateY(-50%); }
+.card-check--top-left { top: 0; left: 0; }
+
+@media (prefers-reduced-motion: reduce) {
+  .card { transition: none; }
+}

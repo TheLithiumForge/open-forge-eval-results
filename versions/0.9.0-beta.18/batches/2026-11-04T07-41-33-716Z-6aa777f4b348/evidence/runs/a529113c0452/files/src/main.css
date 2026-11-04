@@ -1,0 +1,53 @@
+:root {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: #f4f6ff;
+  background: #090b14;
+  font-size: 16px;
+  line-height: 24px;
+  color-scheme: dark;
+  --page: #090b14;
+  --panel: #141827;
+  --back: #1b2034;
+  --face: #111625;
+  --text: #f4f6ff;
+  --secondary: #b8bdd2;
+  --border: #757c9a;
+  --green: #8bea7d;
+}
+
+* { box-sizing: border-box; }
+body, h1, h2, p { margin: 0; }
+body { min-width: 0; min-height: 100dvh; }
+h1 { font-size: 24px; line-height: 32px; }
+h2 { font-size: 20px; line-height: 24px; }
+button, input, select, textarea {
+  color: inherit;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font: inherit;
+}
+button, input, select { min-height: 44px; }
+button, input, select, textarea { padding: 8px 12px; }
+button { cursor: pointer; transition: border-color 120ms; }
+button:hover { border-color: var(--text); }
+input, select, textarea { min-width: 0; }
+button:focus-visible, input:focus-visible, select:focus-visible,
+textarea:focus-visible, summary:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: 2px;
+}
+.help { color: var(--secondary); font-size: 14px; }
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+@media (prefers-reduced-motion: reduce) {
+  button { transition: none; }
+}

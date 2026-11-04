@@ -1,0 +1,122 @@
+:root {
+  color-scheme: dark;
+  font-family: system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  color: #F4F6FF;
+  background: #090B14;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  min-width: 0;
+  min-height: 100%;
+  margin: 0;
+}
+
+body {
+  min-height: 100vh;
+  background: #090B14;
+}
+
+button,
+select,
+input,
+textarea {
+  max-width: 100%;
+  border: 1px solid #757C9A;
+  border-radius: 6px;
+  padding: 8px;
+  background: #141827;
+  color: #F4F6FF;
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:focus-visible,
+select:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+summary:focus-visible {
+  outline: 3px solid #FFFFFF;
+  outline-offset: 2px;
+}
+
+button:hover {
+  border-color: #F4F6FF;
+}
+
+.game-shell {
+  display: grid;
+  gap: 16px;
+  width: 100%;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+.game-header h1 {
+  margin: 0;
+  font-size: 24px;
+  line-height: 32px;
+}
+
+.game-header p {
+  margin: 8px 0 0;
+  color: #B8BDD2;
+  font-size: 14px;
+}
+
+.game-status {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+}
+
+.game-status p {
+  margin: 0;
+}
+
+.status-label {
+  color: #B8BDD2;
+  font-size: 14px;
+}
+
+.win-banner {
+  padding: 12px;
+  border: 1px solid #8BEA7D;
+  border-radius: 8px;
+  background: #141827;
+}
+
+.win-banner--pulse {
+  animation: win-pulse 600ms ease-out 1;
+}
+
+@keyframes win-pulse {
+  50% { background: #202E29; }
+}
+
+.turn-announcement {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .win-banner--pulse {
+    animation: none;
+  }
+}

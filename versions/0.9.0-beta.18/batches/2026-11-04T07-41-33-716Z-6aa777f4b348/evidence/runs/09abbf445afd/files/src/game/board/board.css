@@ -1,0 +1,50 @@
+.board-scroll {
+  max-height: min(70dvh, 768px);
+  overflow: auto;
+  padding: 6px;
+  border: 1px solid #757C9A;
+  border-radius: 14px;
+  background: #141827;
+  overscroll-behavior: contain;
+}
+
+.memory-board {
+  display: grid;
+  width: max-content;
+  grid-template-columns: repeat(var(--column-count), var(--card-edge));
+  gap: 6px;
+}
+
+.memory-card {
+  position: relative;
+  display: grid;
+  width: var(--card-edge);
+  height: var(--card-edge);
+  padding: 0;
+  place-items: center;
+  border: 2px solid #757C9A;
+  border-radius: 8px;
+  color: #F4F6FF;
+  cursor: pointer;
+  transition: border-color 120ms ease;
+  flex: none;
+}
+
+.memory-card--back { background: #1B2034; }
+.memory-card--face { background: #111625; }
+.memory-card:hover { border-color: #F4F6FF; }
+.memory-card--matched,
+.memory-card--matched:hover { border-color: #8BEA7D; }
+.memory-card[aria-disabled="true"] { cursor: default; }
+
+.memory-card:focus-visible {
+  outline: 3px solid #FFF;
+  outline-offset: 2px;
+  z-index: 1;
+}
+
+.card-face,
+.card-back { display: block; width: 100%; height: 100%; }
+@media (prefers-reduced-motion: reduce) {
+  .memory-card { transition: none; }
+}

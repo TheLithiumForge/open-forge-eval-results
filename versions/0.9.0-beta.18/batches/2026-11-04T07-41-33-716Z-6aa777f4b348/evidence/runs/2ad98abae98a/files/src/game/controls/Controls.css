@@ -1,0 +1,11 @@
+.deal-controls, .snapshot-controls, .code-controls { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.deal-controls { gap: 12px; }
+.size-control { display: flex; gap: 8px; align-items: center; color: var(--secondary); font-size: 14px; }
+.new-game { border-color: var(--cyan); color: var(--cyan); }
+.reproduction { border: 1px solid var(--border); border-radius: 8px; background: var(--panel); }
+.reproduction summary { padding: 16px; cursor: pointer; color: var(--secondary); font-size: 14px; }
+.reproduction-content { display: grid; gap: 12px; padding: 0 16px 16px; }
+.code-controls input { flex: 1; min-width: 0; }
+.reproduction label { font-size: 14px; color: var(--secondary); }
+textarea { width: 100%; resize: vertical; min-height: 88px; }
+.load-status { color: var(--text); font-size: 14px; }

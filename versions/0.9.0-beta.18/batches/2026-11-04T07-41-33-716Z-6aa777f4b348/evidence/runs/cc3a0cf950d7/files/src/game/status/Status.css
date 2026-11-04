@@ -1,0 +1,8 @@
+.status { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px 24px; padding: 16px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); font-size: 14px; color: var(--secondary); font-variant-numeric: tabular-nums; }
+.status strong { color: var(--text); font-size: 16px; font-weight: 500; }
+.win { display: flex; align-items: center; gap: 16px; padding: 16px; border: 1px solid #8BEA7D; border-radius: 8px; background: var(--panel); }
+.win > span { font-size: 32px; color: #8BEA7D; }
+.win p { color: var(--secondary); font-size: 14px; }
+.win.pulse { animation: win-pulse 600ms ease-out 1; }
+@keyframes win-pulse { 50% { box-shadow: 0 0 24px #8BEA7D55; } }
+@media (prefers-reduced-motion: reduce) { .win.pulse { animation: none; } }

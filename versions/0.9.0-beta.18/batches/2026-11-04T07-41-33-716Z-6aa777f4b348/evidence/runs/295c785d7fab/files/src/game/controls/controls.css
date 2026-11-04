@@ -1,0 +1,26 @@
+.deal-controls, .snapshot-actions { display: flex; flex-wrap: wrap; align-items: end; gap: 8px; }
+.size-control { display: flex; flex-direction: column; gap: 4px; margin-right: auto; }
+label { display: flex; flex-direction: column; gap: 4px; font-size: 16px; color: var(--text); }
+button, select, input, textarea {
+  font: inherit;
+  color: var(--text);
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+button, select { min-height: 44px; padding: 8px 16px; }
+button, select, summary { cursor: pointer; }
+button:hover, select:hover, input:hover, textarea:hover { border-color: var(--text); }
+button:focus-visible, select:focus-visible, input:focus-visible, textarea:focus-visible, summary:focus-visible {
+  outline: 3px solid #FFFFFF;
+  outline-offset: 2px;
+}
+input, textarea { min-width: 0; width: 100%; padding: 8px 12px; font-size: 16px; }
+textarea { resize: vertical; line-height: 24px; }
+.reproduction { border: 1px solid var(--border); border-radius: 8px; background: var(--panel); }
+.reproduction summary { padding: 12px 16px; }
+.reproduction-content { display: grid; gap: 16px; padding: 0 16px 16px; }
+.board-code-controls { display: flex; flex-wrap: wrap; align-items: end; gap: 8px; }
+.board-code-field { flex: 1 1 200px; }
+.board-code-field, .snapshot-editor { display: grid; gap: 4px; }
+.load-notice { overflow-wrap: anywhere; }

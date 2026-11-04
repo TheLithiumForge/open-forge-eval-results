@@ -1,0 +1,13 @@
+.game-status { display: grid; grid-template-columns: repeat(4, 1fr); border-block: 1px solid var(--border); }
+.game-status p { padding: 16px 8px; display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px; }
+.game-status span { color: var(--secondary); font-size: 14px; }
+.game-status strong { font-weight: 600; font-variant-numeric: tabular-nums; }
+.pause-banner { color: var(--yellow); font-size: 14px; }
+.win-banner { display: flex; justify-content: center; align-items: center; gap: 16px; padding: 16px; border: 1px solid var(--green); border-radius: 8px; background: var(--panel); }
+.win-banner h2 { font-size: 24px; line-height: 32px; color: var(--green); }
+.win-banner p { color: var(--secondary); font-size: 14px; }
+.win-mark { font-size: 32px; color: var(--green); }
+.win-banner.celebrate { animation: win-pulse 600ms ease-out 1; }
+@keyframes win-pulse { 0%, 100% { box-shadow: 0 0 0 transparent; } 50% { box-shadow: 0 0 24px #8bea7d66; } }
+@media (max-width: 400px) { .game-status p { flex-direction: column; gap: 4px; } }
+@media (prefers-reduced-motion: reduce) { .win-banner.celebrate { animation: none; } }

@@ -1,0 +1,41 @@
+.deal-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: end;
+  gap: 8px;
+}
+
+.field-label { display: block; color: #B8BDD2; font-size: 14px; line-height: 24px; }
+.deal-controls .field-label { align-self: center; }
+select, input, textarea, .primary-button, .secondary-button {
+  box-sizing: border-box;
+  border: 1px solid #757C9A;
+  border-radius: 8px;
+  background: #141827;
+  color: #F4F6FF;
+  font: inherit;
+}
+select, input, .primary-button, .secondary-button { min-height: 44px; padding: 8px 12px; }
+textarea { display: block; width: 100%; min-height: 120px; padding: 8px 12px; resize: vertical; }
+.primary-button, .secondary-button { cursor: pointer; }
+.primary-button { border-color: #757C9A; background: #141827; }
+select:focus-visible, input:focus-visible, textarea:focus-visible, button:focus-visible, summary:focus-visible {
+  outline: 3px solid #FFFFFF;
+  outline-offset: 2px;
+}
+.primary-button:hover, .secondary-button:hover { border-color: #F4F6FF; }
+.reproduction-panel { border: 1px solid #757C9A; border-radius: 12px; background: #141827; }
+.reproduction-panel > summary { padding: 12px; cursor: pointer; }
+.reproduction-fields { display: grid; gap: 16px; padding: 0 12px 16px; }
+.reproduction-field { display: grid; gap: 6px; }
+.field-action-row { display: flex; align-items: end; gap: 8px; }
+.field-action-row input { min-width: 0; flex: 1; }
+.field-action-row--wrap { flex-wrap: wrap; }
+.reproduction-status { margin: 0; color: #B8BDD2; font-size: 14px; line-height: 24px; }
+
+@media (max-width: 480px) {
+  .deal-controls { align-items: stretch; }
+  .deal-controls .field-label { align-self: center; }
+  .field-action-row { flex-wrap: wrap; }
+  .field-action-row input { flex-basis: 100%; }
+}

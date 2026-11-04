@@ -1,0 +1,11 @@
+.reproduction { background: var(--panel); border: 1px solid var(--border); border-radius: 8px; }
+.reproduction summary { padding: 16px; cursor: pointer; color: var(--secondary); font-size: 14px; }
+.reproduction summary::marker { color: var(--cyan); }
+.reproduction-content { padding: 0 16px 16px; display: grid; gap: 12px; }
+.reproduction-content p, .reproduction-content label { color: var(--secondary); font-size: 14px; }
+.board-code-controls { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 8px; }
+.board-code-controls label { grid-column: 1 / -1; }
+.reproduction input, .reproduction textarea { width: 100%; min-width: 0; }
+.reproduction textarea { resize: vertical; font-family: ui-monospace, monospace; font-size: 14px; }
+.snapshot-buttons { display: flex; flex-wrap: wrap; gap: 8px; }
+.load-status:empty { display: none; }

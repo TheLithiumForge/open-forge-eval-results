@@ -1,0 +1,4 @@
+.deal-controls { display: flex; flex-wrap: wrap; align-items: end; gap: 8px; }
+.size-control { display: flex; flex-direction: column; gap: 4px; color: var(--secondary); font-size: 14px; }
+.size-control select { min-width: 112px; font-size: 16px; color: var(--text); }
+.deal-controls .new-game { border-color: var(--cyan); color: var(--cyan); }

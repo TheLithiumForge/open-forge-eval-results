@@ -1,0 +1,15 @@
+.deal-controls { display: flex; align-items: end; flex-wrap: wrap; gap: 8px; }
+label { display: flex; flex-direction: column; gap: 6px; color: var(--secondary); font-size: 14px; }
+.size-label { margin-right: auto; }
+select, input, textarea { border: 1px solid var(--border); border-radius: 8px; background: var(--panel); color: var(--text); padding: 8px 12px; font: inherit; font-size: 16px; line-height: 24px; min-width: 0; max-width: 100%; }
+select { min-width: 112px; }
+input, textarea { width: 100%; }
+textarea { resize: vertical; font-family: ui-monospace, monospace; font-size: 14px; }
+.primary { border-color: #63E7FF; color: #63E7FF; }
+.reproduction { border: 1px solid var(--border); border-radius: 8px; background: var(--panel); }
+summary { cursor: pointer; padding: 16px; font-size: 14px; color: var(--secondary); }
+.reproduction-content { display: grid; gap: 16px; padding: 0 16px 16px; }
+.board-code-controls { display: flex; align-items: end; flex-wrap: wrap; gap: 8px; }
+.board-code-controls label { flex: 1; min-width: 128px; }
+.snapshot-buttons { display: flex; flex-wrap: wrap; gap: 8px; }
+.load-status { color: var(--text); font-size: 14px; overflow-wrap: anywhere; }

@@ -1,0 +1,50 @@
+.card-button {
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-inline-size: 44px;
+  inline-size: 100%;
+  aspect-ratio: 1;
+  padding: 0;
+  border: 2px solid var(--border);
+  border-radius: 8px;
+  color: var(--text);
+  background: var(--back);
+  cursor: pointer;
+  scroll-margin: 6px;
+  transition: border-color 120ms ease;
+}
+
+.card-button--face { background: var(--face); }
+
+.card-button:hover:not(.card-button--matched) { border-color: var(--text); }
+.card-button--matched,
+.card-button--matched:hover { border-color: var(--green); }
+
+.card-button:focus-visible {
+  z-index: 1;
+  outline: 3px solid var(--focus);
+  outline-offset: 2px;
+}
+
+.card-back-mark {
+  inline-size: 16px;
+  aspect-ratio: 1;
+  border: 2px solid var(--border);
+  border-radius: 3px;
+  transform: rotate(45deg);
+}
+
+.card-check {
+  position: absolute;
+  inset-inline-end: 4px;
+  inset-block-end: 0;
+  color: var(--green);
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 20px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card-button { transition: none; }
+}

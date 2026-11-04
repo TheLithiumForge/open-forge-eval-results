@@ -1,0 +1,20 @@
+.board-section { min-width: 0; }
+.board-scroll {
+  max-height: min(70dvh, 768px);
+  overflow: auto;
+  padding: 6px;
+  scroll-padding: 6px;
+  background: var(--panel);
+  border-radius: 8px;
+  overscroll-behavior: contain;
+}
+.board-grid {
+  display: grid;
+  grid-template-columns: repeat(var(--columns), minmax(44px, 88px));
+  gap: 6px;
+  width: 100%;
+  min-width: calc(var(--columns) * 44px + (var(--columns) - 1) * 6px);
+  max-width: calc(var(--columns) * 88px + (var(--columns) - 1) * 6px);
+  margin-inline: auto;
+}
+.board-section .help { margin-top: 12px; }

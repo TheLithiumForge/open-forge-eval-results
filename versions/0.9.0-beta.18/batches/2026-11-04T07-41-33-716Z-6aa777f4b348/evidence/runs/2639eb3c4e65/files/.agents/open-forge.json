@@ -1,0 +1,16 @@
+{
+  "$schema": "https://raw.githubusercontent.com/TheLithiumForge/open-forge/main/schemas/v5/open-forge.schema.json",
+  "schemaVersion": 5,
+  "removedCategories": [
+    "guidance",
+    "maps",
+    "templates"
+  ],
+  "removedDirectories": [
+    ".agents/memory/archived"
+  ],
+  "frontmatter": "scoped",
+  "outsideRoutes": [
+    "docs"
+  ]
+}

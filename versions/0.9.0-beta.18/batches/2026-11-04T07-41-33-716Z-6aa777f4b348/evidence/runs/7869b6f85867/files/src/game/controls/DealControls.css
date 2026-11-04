@@ -1,0 +1,5 @@
+.deal-controls { display: flex; align-items: end; flex-wrap: wrap; gap: 8px; }
+.size-label { display: flex; flex-direction: column; gap: 4px; color: var(--secondary); font-size: 14px; }
+.size-label select { min-width: 112px; color: var(--text); }
+button.primary { color: var(--cyan); border-color: var(--cyan); }
+button.primary:hover { border-color: var(--text); }

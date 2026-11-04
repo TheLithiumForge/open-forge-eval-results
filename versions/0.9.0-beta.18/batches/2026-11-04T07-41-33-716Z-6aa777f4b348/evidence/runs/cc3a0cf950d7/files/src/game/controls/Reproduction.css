@@ -1,0 +1,9 @@
+.reproduction { background: var(--panel); border: 1px solid var(--border); border-radius: 8px; }
+.reproduction summary { cursor: pointer; padding: 16px; font-size: 14px; color: var(--secondary); }
+.reproduction-content { display: flex; flex-direction: column; gap: 12px; padding: 0 16px 16px; }
+.reproduction label { font-size: 14px; }
+.code-row, .snapshot-actions { display: flex; flex-wrap: wrap; gap: 8px; }
+.code-row input { flex: 1; min-width: 0; }
+.code-row button { flex-shrink: 0; }
+.reproduction textarea { width: 100%; min-height: 128px; resize: vertical; font-family: ui-monospace, monospace; font-size: 14px; }
+.reproduction-status { color: var(--text); font-size: 14px; overflow-wrap: anywhere; }

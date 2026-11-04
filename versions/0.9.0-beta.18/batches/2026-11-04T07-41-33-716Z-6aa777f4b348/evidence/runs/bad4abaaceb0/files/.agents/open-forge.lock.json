@@ -1,0 +1,75 @@
+{
+  "$schema": "https://raw.githubusercontent.com/TheLithiumForge/open-forge/main/schemas/v1/open-forge.lock.schema.json",
+  "schemaVersion": 1,
+  "framework": {
+    "source": {
+      "id": "embedded-framework"
+    },
+    "paths": [
+      ".agents/README.md",
+      ".agents/directives/_directives.md",
+      ".agents/loader.md",
+      ".agents/memory/_memory.md",
+      ".agents/memory/crystallized/_crystallized.md",
+      ".agents/memory/emerging/_emerging.md",
+      ".agents/memory/working/_working.md",
+      ".agents/patterns/_patterns.md",
+      ".agents/skills/_skills.md",
+      ".agents/skills/open-forge-cli/SKILL.md",
+      ".agents/skills/open-forge-cli/references/common.md",
+      ".agents/skills/open-forge-cli/references/discovery.md",
+      ".agents/skills/open-forge-cli/references/packages.md",
+      ".agents/skills/open-forge-cli/references/routes.md"
+    ],
+    "regions": [
+      {
+        "path": ".agents/directives/_directives.md",
+        "region": "entries"
+      },
+      {
+        "path": ".agents/loader.md",
+        "region": "entries"
+      },
+      {
+        "path": ".agents/memory/_memory.md",
+        "region": "entries"
+      },
+      {
+        "path": ".agents/memory/crystallized/_crystallized.md",
+        "region": "entries"
+      },
+      {
+        "path": ".agents/memory/emerging/_emerging.md",
+        "region": "entries"
+      },
+      {
+        "path": ".agents/memory/working/_working.md",
+        "region": "entries"
+      },
+      {
+        "path": ".agents/patterns/_patterns.md",
+        "region": "entries"
+      },
+      {
+        "path": ".agents/skills/_skills.md",
+        "region": "entries"
+      },
+      {
+        "path": "AGENTS.md",
+        "region": "open-forge"
+      },
+      {
+        "path": "CLAUDE.md",
+        "region": "open-forge"
+      }
+    ],
+    "gitIgnoredRoutes": [
+      {
+        "directory": ".agents/memory/working",
+        "entrypoint": ".agents/memory/working/_working.md"
+      }
+    ]
+  },
+  "extensions": [],
+  "libraries": []
+}
