@@ -1,0 +1,10 @@
+export const DEAL_NAME_MAX_LENGTH = 40;
+
+export function isValidDealName(value: unknown): value is string {
+  return (
+    typeof value === 'string' &&
+    value.length <= DEAL_NAME_MAX_LENGTH &&
+    !value.includes('\r') &&
+    !value.includes('\n')
+  );
+}

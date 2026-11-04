@@ -1,0 +1,4 @@
+
+> neon-pairs-reference@1.0.0 typecheck
+> tsc -p tsconfig.app.json && tsc -p tsconfig.node.json && tsc -p tsconfig.e2e.json
+

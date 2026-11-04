@@ -1,0 +1,144 @@
+
+> neon-pairs-reference@1.0.0 test:e2e
+> npm run build && npm run build:art && node --test --test-concurrency=1 "tests/*.e2e.test.ts"
+
+
+> neon-pairs-reference@1.0.0 build
+> npm run typecheck && vite build
+
+
+> neon-pairs-reference@1.0.0 typecheck
+> tsc -p tsconfig.app.json && tsc -p tsconfig.node.json && tsc -p tsconfig.e2e.json
+
+vite v8.3.5 building client environment for production...
+transforming...
+✓ 50 modules transformed.
+rendering chunks...
+[plugin vite:singlefile] 
+
+[plugin vite:singlefile] Inlining: index-DgDpEtZX.js
+[plugin vite:singlefile] Inlining: style-CxJWKe8E.css
+computing gzip size...
+dist/index.html  241.83 kB │ gzip: 76.41 kB
+
+✓ built in 312ms
+
+> neon-pairs-reference@1.0.0 build:art
+> vite build --config vite.art.config.ts && vite build --config vite.session.config.ts
+
+vite v8.3.5 building client environment for production...
+transforming...
+✓ 21 modules transformed.
+rendering chunks...
+[plugin vite:singlefile] 
+
+[plugin vite:singlefile] Inlining: index-CrtSgJpV.js
+[plugin vite:singlefile] Inlining: style-BB76cUQw.css
+computing gzip size...
+.art/index.html  225.04 kB │ gzip: 71.04 kB
+
+✓ built in 338ms
+vite v8.3.5 building client environment for production...
+transforming...
+✓ 51 modules transformed.
+rendering chunks...
+[plugin vite:singlefile] 
+
+[plugin vite:singlefile] Inlining: index-udhEbhaw.js
+[plugin vite:singlefile] Inlining: style-CxJWKe8E.css
+computing gzip size...
+.session/index.html  242.61 kB │ gzip: 76.75 kB
+
+✓ built in 337ms
+✔ a complete keyboard journey exposes names, states and each result in Chromium accessibility trees (3039.652113ms)
+✔ a 16 by 16 game starts with every card ready to reveal (2116.173389ms)
+✔ each mismatch is announced once while clocks, focus and closing stay silent (2823.08551ms)
+✔ every load kind updates the one live region once per event and shows its status beside the reproduction panel (2725.715342ms)
+✔ the face sheet stays a face sheet without a session-harness branch (676.879986ms)
+✔ the actual 44px faces keep distinct geometry without color cues (12738.079125ms)
+✔ the face marker keeps the specified surround and geometry (279.679407ms)
+✔ solid fills, outline strokes and marker fills share the face palette color (306.655536ms)
+✔ the face sheet draws the same card as the game outside the control styles (674.446649ms)
+✔ pauses elapsed time and a mismatch while the document is hidden (1156.563563ms)
+✔ continues playing when access to browser storage is denied (491.544195ms)
+✔ keeps the initial focus and produces no audio during play (1393.403765ms)
+✔ the built page carries no fetch call or module preload code (107.663759ms)
+✔ export reads the active clock between render ticks (1141.059108ms)
+✔ literal control labels, limits and invalid statuses match the public contract (1839.195677ms)
+✔ draft resets, load focus, paused notice and Resume focus order survive remembered positions (789.359722ms)
+✔ export keeps populated progress running and exposes a static imported win (1323.96085ms)
+✔ native reproduction controls keep drafts, limits, exact errors and action focus (1297.133343ms)
+✔ session resets and legacy imports clear deal names and retain unnamed exports (1322.368835ms)
+✔ named imports keep completed wins static and resumed wins record local bests (1471.706486ms)
+✔ names stay out of browser preferences and reload starts an unnamed fresh deal (745.635406ms)
+✔ the native deal name preserves characters, limits typing and switches snapshot versions (1089.913718ms)
+✔ renaming a running mismatch keeps its progress, clock, drafts and announcement (1097.400886ms)
+✔ external named progress restores verbatim and renaming keeps it paused until Resume (1015.348921ms)
+✔ invalid named imports retain the current name, progress and entered draft (1511.900905ms)
+✔ Tab and Shift+Tab bring the remembered card in with nearest alignment (1366.054573ms)
+✔ Resume returns focus to the remembered card with nearest alignment (796.647787ms)
+✔ every keyboard move after a pointer click shows the focus outline (431.925959ms)
+✔ a mismatch starts its interval at its own activation between milliseconds (928.928346ms)
+✔ an overdue mismatch resolves before the next click even when its timer is delayed (416.794843ms)
+✔ an idle hidden period adds no elapsed or mismatch time (842.331241ms)
+✔ an idle paused import adds no elapsed or mismatch time (751.827933ms)
+✔ hidden DOM contains only position state and identical neutral backs (547.519827ms)
+✔ native Tab remembers board focus and matched cards stay focusable and inactive (630.937085ms)
+✔ Alt+ArrowLeft and Ctrl+End stay with the browser and leave the board alone (381.098604ms)
+✔ 16x16 fits the page and keeps both end focus outlines at 360x800 (973.591165ms)
+✔ 16x16 fits the page and keeps both end focus outlines at 1280x800 (729.12822ms)
+✔ 16x16 fits the page and keeps both end focus outlines at 1280x1400 (635.927598ms)
+✔ the default board fits a narrow phone and controls keep their target sizes (597.519761ms)
+✔ focus clearance survives nearest scroll to an interior card (503.043308ms)
+✔ a right-click keeps the native context menu and activates no card (561.875525ms)
+✔ Restart clears a mismatch and rejects earlier timer updates (1421.233715ms)
+✔ New Game and size changes clear progress and reset the remembered tab stop (1798.52309ms)
+✔ check marks leave every matched face uncovered on 16x16 at 360x800 (620.253411ms)
+✔ card transitions use 120ms and a completed game has one 600ms pulse (1406.039898ms)
+✔ reduced motion removes card transitions and completion animation (1134.076363ms)
+✔ better equal and worse completed scores persist after each reload (6124.460588ms)
+✔ snapshot loads save only a valid size and every reload starts fresh (727.029646ms)
+✔ saved size and per-size completed bests survive reload and resets (1295.549203ms)
+✔ valid board loads save their size while invalid loads keep that preference (485.599359ms)
+✔ malformed stored preferences fall back to a playable default game (146.981712ms)
+✔ finishes the literal board by keyboard without inspecting hidden faces (1136.4448ms)
+✔ finishes by phone taps with visible 44px targets (1206.86519ms)
+✔ loads the built file with the network offline and no external requests (167.701793ms)
+✔ keeps navigation focus at the board edges and leaves the board with Tab (346.296402ms)
+✔ pointer clicks reveal the pressed card on 16x16 at 360x800 (1464.170686ms)
+✔ pointer clicks reveal the pressed card on 16x16 at 1280x800 (1230.161228ms)
+✔ pointer clicks reveal the pressed card on 16x16 at 640x400 (1191.20838ms)
+✔ taps reveal the tapped card after a scroll and at a clipped edge at 360x800 (541.225573ms)
+✔ taps reveal the tapped card after a scroll and at a clipped edge at 1280x800 (538.874981ms)
+✔ taps reveal the tapped card after a scroll and at a clipped edge at 640x400 (706.931674ms)
+✔ status formats show current values, continuing minutes and a completed import without Resume (757.423926ms)
+✔ the Board code control trims surrounding whitespace and both successful load types select their size (520.43533ms)
+✔ named color targets, reset margins and card focus scroll margins follow the visual contract (889.231551ms)
+✔ a completed import in 10 moves leaves a saved best of 8 alone (754.433163ms)
+✔ a 16x16 board fits beside visible scrollbars at 1280x800 (965.081933ms)
+✔ a 10x10 board fits beside visible scrollbars at 900x600 (448.526791ms)
+✔ a 12x12 board fits beside visible scrollbars at 1000x600 (667.56963ms)
+✔ a 6x6 board fits beside visible scrollbars at 360x640 (592.110221ms)
+✔ Resume focuses the remembered card before removal and continues the exact remaining interval (1262.897129ms)
+✔ invalid drafts keep the current game and a loaded win changes neither best nor celebration (2109.095872ms)
+✔ every margin, padding and gap stays on the spacing scale at 360px (2820.642727ms)
+✔ every margin, padding and gap stays on the spacing scale at 1280px (2378.558494ms)
+✔ Enter moves focus to Load board only when the code loads (1324.097131ms)
+✔ the single game result stays beside the board and in view during large-phone play (1999.123619ms)
+✔ the best label uses one wording before and after a record exists (1836.535123ms)
+✔ completion shows final moves and time and keeps the completed clock stopped (1917.613144ms)
+✔ layout, typography, colors and card geometry match the product values (1471.037355ms)
+✔ hover changes only card border color and matched marks stay legible (1673.950518ms)
+✔ unmount clears the active timer and visibility listener (1033.238493ms)
+✔ a prior turn deadline cannot close a later mismatch in the same deal (1338.009844ms)
+✔ touch scrolling reaches the last 16x16 card at 360 by 800 (4010.643599ms)
+✔ touch scrolling reaches the last 16x16 card at 1280 by 800 (3316.331082ms)
+✔ the equivalent zoom layout keeps both board sizes playable (3306.191077ms)
+ℹ tests 84
+ℹ suites 0
+ℹ pass 84
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 148221.309477

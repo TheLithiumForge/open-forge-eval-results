@@ -1,0 +1,16 @@
+
+> neon-pairs-reference@1.0.0 test
+> vitest run
+
+
+ RUN  v5.0.5 /work
+
+
+ Test Files  23 passed (23)
+      Tests  149 passed (149)
+   Start at  11:57:24
+   Duration  19.01s (tests 73%, import 16%, transform 7%, worker 4%)
+
+    Isolate  23 workers spawned · ~392ms startup each (spawn + environment, per file)
+             at least ~8.63s faster with isolate: false — reuses workers across files instead of one per file
+

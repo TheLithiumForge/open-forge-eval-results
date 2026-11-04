@@ -1,0 +1,29 @@
+
+> neon-pairs-reference@1.0.0 format:check
+> prettier --check .
+
+Checking formatting...
+[warn] .agents/open-forge.json
+[warn] .agents/open-forge.lock.json
+[warn] .agents/README.md
+[warn] .agents/skills/open-forge-cli/references/packages.md
+[warn] docs/acceptance.md
+[warn] docs/gameplay/_gameplay.md
+[warn] docs/gameplay/rules.md
+[warn] docs/interface/_interface.md
+[warn] docs/interface/controls.md
+[warn] docs/interface/input.md
+[warn] docs/README.md
+[warn] docs/sharing/_sharing.md
+[warn] docs/sharing/reproducibility.md
+[warn] docs/sound/_sound.md
+[warn] docs/sound/sound.md
+[warn] docs/technology/_technology.md
+[warn] docs/technology/architecture.md
+[warn] docs/technology/technology.md
+[warn] docs/visuals/_visuals.md
+[warn] docs/visuals/visuals.md
+[warn] scripts/replay.test.ts
+[warn] tests/accessibility.e2e.test.ts
+[warn] tests/layout.e2e.test.ts
+[warn] Code style issues found in 23 files. Run Prettier with --write to fix.
