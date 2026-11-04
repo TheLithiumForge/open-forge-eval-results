@@ -31,7 +31,13 @@
           }
         }
       ],
-      "judges": [],
+      "judges": [
+        {
+          "tool": "codex",
+          "model": "gpt-6.1-sol",
+          "effort": "xhigh"
+        }
+      ],
       "gradingVersions": [
         {
           "spec": "b66ec23031ae9d4c1e173aa5daedd06ae6afe34e06feb294a1fe9a08d2b8a158",
