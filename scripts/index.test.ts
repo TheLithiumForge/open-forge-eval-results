@@ -17,6 +17,11 @@ test("catalogue validates empty and filled repositories and rejects stale metada
     await assert.rejects(validateRepository(root), /index.json differs/);
     await writeIndex(root);
     assert.equal(await validateRepository(root), 1);
+    // An orchestrated implementer names its team, and the catalogue lists implementers as the runs name them.
+    const led = fixture(), agent = { ...led.runs[0]!.agent, team: { model: "fixture-team", effort: null } };
+    await writeBatch(join(root, "versions", FixtureVersion, "batches", led.experiment.id), { ...led, runs: led.runs.map((run) => ({ ...run, agent })) });
+    await writeIndex(root);
+    assert.equal(await validateRepository(root), 2);
     const index: unknown = JSON.parse(await readFile(join(root, "index.json"), "utf8"));
     assert.ok(typeof index === "object" && index !== null);
     await writeFile(join(root, "index.json"), JSON.stringify({ schemaVersion: 1, batches: [{ path: "../escape" }] }));
