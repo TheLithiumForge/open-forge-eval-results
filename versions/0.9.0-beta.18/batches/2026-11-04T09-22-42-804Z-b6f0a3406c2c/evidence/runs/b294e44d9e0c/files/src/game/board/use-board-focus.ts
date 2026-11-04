@@ -1,0 +1,53 @@
+import { useCallback, useRef, useState } from 'react';
+import { useNearestScroll } from './nearest-scroll.ts';
+import type { KeyboardEvent } from 'react';
+
+const KEYBOARD_FOCUS = ':focus-visible';
+
+// Keeps the board's remembered tab stop and scrolls keyboard focus into view with nearest
+// alignment.
+export function useBoardFocus(size: number) {
+  const viewport = useRef<HTMLDivElement>(null);
+  const element = useRef<HTMLDivElement>(null);
+  const [focused, setFocused] = useState(0);
+  const scrollToNearest = useNearestScroll(viewport);
+  // Focus calls skip the browser's centering scroll and then scroll with nearest alignment.
+  const focusRemembered = useCallback(() => {
+    const card = element.current?.querySelectorAll('button').item(focused);
+    card?.focus({ preventScroll: true });
+    if (card) scrollToNearest(card);
+  }, [focused, scrollToNearest]);
+  const cardFocused = useCallback(
+    (index: number, card: HTMLElement): void => {
+      setFocused(index);
+      // Moving a card under a pressed pointer would send the release elsewhere and lose the click.
+      if (card.matches(KEYBOARD_FOCUS)) scrollToNearest(card);
+    },
+    [scrollToNearest],
+  );
+  function moveFocus(event: KeyboardEvent<HTMLDivElement>): void {
+    let next = focused;
+    switch (event.key) {
+      case 'ArrowLeft':
+        if (focused % size > 0) next -= 1;
+        break;
+      case 'ArrowRight':
+        if (focused % size < size - 1) next += 1;
+        break;
+      case 'ArrowUp':
+        if (focused >= size) next -= size;
+        break;
+      case 'ArrowDown':
+        if (focused < size * (size - 1)) next += size;
+        break;
+      default:
+        return;
+    }
+    // Consume arrows even at an edge, so the browser does not scroll the focused card away.
+    event.preventDefault();
+    const card = element.current?.querySelectorAll('button').item(next);
+    card?.focus({ preventScroll: true });
+    if (card) scrollToNearest(card);
+  }
+  return { viewport, element, focused, focusRemembered, cardFocused, moveFocus };
+}
