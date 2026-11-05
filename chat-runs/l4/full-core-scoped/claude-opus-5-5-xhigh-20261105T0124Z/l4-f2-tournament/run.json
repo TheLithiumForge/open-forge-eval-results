@@ -1,0 +1,22 @@
+{
+  "scenario": "full-core-scoped",
+  "packet": "l4-f2-tournament",
+  "workMode": "whole-packet",
+  "harness": "cloud chat, one subagent",
+  "model": {
+    "configured": "claude-opus-5-5",
+    "lastServed": "claude-opus-5-5"
+  },
+  "effort": "xhigh",
+  "openForgeCommit": "7f4406a40504c056e34e8b584cc8bdd1325f21ea",
+  "startedAt": "2026-11-05T01:24:26Z",
+  "finishedAt": "2026-11-05T02:07:09Z",
+  "timeLimitMinutes": 180,
+  "implementer": {
+    "totalTokens": 507915,
+    "toolUses": 163,
+    "durationMs": 2527995
+  },
+  "questionsAnswered": 0,
+  "notes": "Subagent ran in the background despite a foreground request; harness waited for its completion notice. Finished within the time limit. totalTokens is the harness-reported subagent total; summed per-call usage in the transcript is about 46.0M including cache reads. No questions asked. Open Forge was cloned anonymously (public), not attached, so there was no repository to remove from the session. transcripts.tgz was deleted because the sign-in pattern check matched inside the transcripts (the pattern text appears in the harness transcript itself)."
+}
