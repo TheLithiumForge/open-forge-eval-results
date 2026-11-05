@@ -1,0 +1,23 @@
+.face-sheet {
+  display: grid;
+  grid-template-columns: repeat(8, 124px);
+  gap: 12px;
+  margin-top: 16px;
+}
+figure {
+  margin: 0;
+  padding: 8px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--face);
+}
+.face-swatch {
+  width: 44px;
+  height: 44px;
+  margin: 0 0 8px;
+}
+figcaption {
+  min-height: 72px;
+  color: var(--secondary);
+  font-size: 14px;
+}
