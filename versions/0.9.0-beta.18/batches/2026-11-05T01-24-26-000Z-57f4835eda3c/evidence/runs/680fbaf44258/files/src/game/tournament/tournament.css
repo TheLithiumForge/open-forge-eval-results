@@ -1,0 +1,131 @@
+.tournament h2 {
+  font-size: 20px;
+  line-height: 28px;
+  margin: 0 0 8px;
+}
+.tournament h3 {
+  font-size: 18px;
+  line-height: 24px;
+  margin: 0 0 8px;
+}
+.tournament h4 {
+  font-size: 16px;
+  line-height: 24px;
+  margin: 0;
+  color: var(--secondary);
+}
+.tournament-notice {
+  min-height: 24px;
+  margin-bottom: 12px;
+}
+.tournament-setup,
+.tournament-turn,
+.bracket,
+.past-tournaments,
+.tournament-transfer {
+  display: grid;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+.tournament-setup .help,
+.tournament-turn .help {
+  margin-bottom: 0;
+}
+.tournament .board-viewport {
+  margin-bottom: 24px;
+}
+.tournament-field {
+  display: grid;
+  gap: 6px;
+  align-content: start;
+}
+.tournament-setup select {
+  justify-self: start;
+  min-width: 8ch;
+}
+.tournament-names {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 200px), 1fr));
+  gap: 12px;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+.tournament-names legend {
+  padding: 0;
+  margin-bottom: 8px;
+  color: var(--secondary);
+  font-size: 14px;
+}
+.tournament-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.bracket-rounds {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
+  gap: 16px;
+  align-items: start;
+}
+.bracket-round {
+  display: grid;
+  gap: 12px;
+}
+.match {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid var(--border);
+  background: var(--panel);
+  font-variant-numeric: tabular-nums;
+}
+.match caption {
+  padding: 0 0 4px;
+  text-align: start;
+  color: var(--secondary);
+  font-size: 14px;
+}
+.match th,
+.match td {
+  padding: 4px 8px;
+  text-align: start;
+}
+.match thead th {
+  color: var(--secondary);
+  font-size: 14px;
+  font-weight: normal;
+}
+.match tbody th {
+  font-weight: normal;
+  overflow-wrap: anywhere;
+}
+.match .match-winner th {
+  font-weight: bold;
+}
+.match tfoot td {
+  border-top: 1px solid var(--border);
+}
+.past-tournaments ol {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding: 0 0 0 24px;
+}
+.past-champion {
+  font-weight: bold;
+}
+.past-detail {
+  color: var(--secondary);
+  overflow-wrap: anywhere;
+}
+.tournament-transfer textarea {
+  width: 100%;
+  resize: vertical;
+}
+@media (max-width: 599px) {
+  .tournament-actions > button {
+    flex: 1;
+  }
+}
