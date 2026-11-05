@@ -597,6 +597,27 @@
       "judges": [],
       "gradingVersions": [],
       "path": "versions/0.9.0-beta.18/batches/2026-11-05T03-23-03-882Z-67e1106e4709"
+    },
+    {
+      "id": "2026-11-05T03-23-05-356Z-097a5ce660e9",
+      "layer": 4,
+      "cliVersion": "0.9.0-beta.18",
+      "createdAt": "2026-11-05T03:23:05.574Z",
+      "implementers": [
+        {
+          "tool": "codex",
+          "model": "gpt-6.1-terra",
+          "effort": "xhigh"
+        },
+        {
+          "tool": "codex",
+          "model": "gpt-6-luna",
+          "effort": "max"
+        }
+      ],
+      "judges": [],
+      "gradingVersions": [],
+      "path": "versions/0.9.0-beta.18/batches/2026-11-05T03-23-05-356Z-097a5ce660e9"
     }
   ]
 }

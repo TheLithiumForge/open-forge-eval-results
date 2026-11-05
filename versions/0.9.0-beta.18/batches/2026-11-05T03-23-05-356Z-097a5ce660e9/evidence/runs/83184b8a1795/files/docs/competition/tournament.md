@@ -1,0 +1,9 @@
+# Tournament mode
+
+Tournament mode is a knockout for four or eight people sharing one device. Select Tournament beside New Game, choose Players and enter a name for each player. Names are normalized and validated under the [name policies](../interface/text-entry-policy.md). Start tournament creates the opening match.
+
+The [pairing](competition-pairing.md), [round](competition-rounds.md), [board](competition-boards.md), [deal](competition-deals.md), [tie](competition-ties.md) and [score](competition-scores.md) rules apply. Each player starts an individual attempt with Start turn. Next turn prepares the second player; Next match prepares the following match. The bracket shows each player's moves and active time, the winner and unplayed positions. Leave tournament asks for confirmation before discarding unfinished play. The finished screen names the champion.
+
+Finished tournaments are saved locally, with the newest ten retained in the `np3:tournaments` storage value. Storage uses the version 3 feature envelope; failure leaves the current session usable and displays the storage notice. Tournament play does not alter solo best scores or the saved solo size.
+
+Every tournament screen includes Tournament JSON, Export tournament and Load tournament. The version 1 exchange object has `format: "neon-pairs/tournament"`, `version`, `tournament` and `snapshot` keys. The tournament contains normalized `names` in seed order and sequential `matches`; each match contains its `code`, two seed-index `players` and zero to two `results` with `moves` and `elapsedMs`. `snapshot` is null or a version 1 game snapshot encoded as a JSON string for an unfinished attempt. A null tournament represents setup. Loading validates the complete structure, names, bracket progression, distinct codes, scores and snapshot before replacing the current state. Unfinished imported play waits for Start turn. Exports and local records are untrusted and do not verify who played.

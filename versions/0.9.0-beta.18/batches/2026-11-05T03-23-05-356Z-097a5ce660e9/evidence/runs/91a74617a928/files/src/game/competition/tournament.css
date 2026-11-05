@@ -1,0 +1,48 @@
+.tournament h2,
+.tournament h3,
+.tournament h4 {
+  margin: 24px 0 12px;
+}
+.tournament p {
+  margin: 12px 0;
+}
+.tournament-form,
+.name-field,
+.tournament-exchange {
+  display: grid;
+  gap: 8px;
+}
+.tournament-form {
+  max-width: 32rem;
+}
+.tournament .control {
+  min-width: 44px;
+}
+.tournament button {
+  margin: 4px 8px 4px 0;
+}
+.tournament-table {
+  overflow-x: auto;
+}
+.tournament table {
+  border-collapse: collapse;
+  text-align: left;
+}
+.tournament th,
+.tournament td {
+  border: 1px solid var(--border, #757c9a);
+  padding: 8px;
+}
+.tournament-exchange {
+  margin-top: 24px;
+}
+.tournament-exchange textarea {
+  min-height: 120px;
+  width: 100%;
+}
+.tournament dialog {
+  background: #141827;
+  color: #f4f6ff;
+  border: 1px solid #757c9a;
+  padding: 24px;
+}

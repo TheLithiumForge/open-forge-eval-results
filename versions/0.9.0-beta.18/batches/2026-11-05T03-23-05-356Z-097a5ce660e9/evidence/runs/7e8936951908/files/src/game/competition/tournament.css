@@ -1,0 +1,122 @@
+.tournament-screen,
+.tournament-current,
+.tournament-bracket,
+.tournament-bracket section,
+.tournament-setup,
+.tournament-transfer,
+.past-tournaments {
+  display: grid;
+  gap: 16px;
+}
+.tournament-screen h2,
+.tournament-bracket h3,
+.past-tournaments h2,
+.tournament-transfer h3 {
+  margin: 0;
+}
+.tournament-setup {
+  gap: 12px;
+}
+.tournament-count {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.tournament-names {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 180px), 1fr));
+  gap: 12px;
+}
+.tournament-names > div {
+  display: grid;
+  gap: 4px;
+}
+.tournament-names input {
+  width: 100%;
+}
+.tournament-turn {
+  display: grid;
+  gap: 12px;
+}
+.tournament-turn-info {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.tournament-turn-info p,
+.tournament-turn-info h2 {
+  margin: 0;
+}
+.tournament-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.tournament-champion {
+  display: grid;
+  justify-items: start;
+  gap: 12px;
+}
+.tournament-bracket section {
+  min-width: 0;
+  gap: 8px;
+}
+.tournament-table {
+  max-width: 100%;
+  overflow-x: auto;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+.tournament-table table {
+  width: 100%;
+  min-width: 560px;
+  border-collapse: collapse;
+  background: var(--panel);
+}
+.tournament-table caption {
+  padding: 8px 12px;
+  color: var(--secondary);
+  text-align: left;
+}
+.tournament-table th,
+.tournament-table td {
+  padding: 8px 12px;
+  border-top: 1px solid var(--border);
+  text-align: left;
+}
+.tournament-table thead th {
+  color: var(--secondary);
+}
+.past-tournaments ul {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding-left: 24px;
+}
+.past-tournaments details {
+  padding: 8px 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--panel);
+}
+.past-tournaments summary {
+  min-height: 28px;
+  cursor: pointer;
+}
+.past-tournaments .tournament-bracket {
+  margin-top: 12px;
+}
+.tournament-transfer textarea {
+  width: 100%;
+  resize: vertical;
+  font-family: ui-monospace, monospace;
+}
+.tournament-notice {
+  min-height: 24px;
+  color: var(--secondary);
+}
+.tournament-back {
+  justify-self: start;
+}

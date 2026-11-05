@@ -1,0 +1,61 @@
+.tournament-section {
+  display: grid;
+  gap: 12px;
+  margin: 24px 0;
+  justify-items: start;
+}
+.tournament-fields,
+.tournament-names label {
+  display: grid;
+  gap: 4px;
+}
+.tournament-names {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr));
+  gap: 12px;
+  width: 100%;
+}
+.tournament-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.tournament-section button,
+.tournament-section select {
+  min-width: 44px;
+}
+.tournament-json {
+  width: 100%;
+  min-height: 120px;
+}
+.tournament-table {
+  overflow-x: auto;
+  max-width: 100%;
+}
+.tournament-table table {
+  border-collapse: collapse;
+  text-align: left;
+}
+.tournament-table caption {
+  text-align: left;
+  font-weight: bold;
+}
+.tournament-table th,
+.tournament-table td {
+  padding: 8px;
+  border-bottom: 1px solid var(--border);
+}
+dialog {
+  background: var(--panel);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+dialog .tournament-actions {
+  margin-top: 16px;
+}
+
+.tournament-section ul {
+  margin: 0;
+  padding-left: 24px;
+}
