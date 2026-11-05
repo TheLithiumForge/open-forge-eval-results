@@ -1,0 +1,30 @@
+{
+  "scenario": "full-core-scoped",
+  "packet": "l4-f2-tournament",
+  "workMode": "whole-packet",
+  "harness": "cloud chat, one subagent",
+  "model": {
+    "configured": "claude-sonnet-5-5",
+    "lastServed": "claude-sonnet-5-5"
+  },
+  "effort": "xhigh",
+  "openForgeCommit": "7f4406a40504c056e34e8b584cc8bdd1325f21ea",
+  "startedAt": "2026-11-05T01:45:59Z",
+  "finishedAt": "2026-11-05T02:24:16Z",
+  "timeLimitMinutes": 180,
+  "implementer": {
+    "totalTokens": 538828,
+    "toolUses": 61,
+    "durationMs": 1071689
+  },
+  "questionsAnswered": 0,
+  "notes": [
+    "The first get_session call (before the run) showed no last_served_model; the second call, after the run, showed claude-sonnet-5-5.",
+    "The implementer was stopped at the user's request shortly after it started (it had only run the baseline typecheck and unit tests), then resumed with the message: 'You were paused. Continue the work from where you left off and finish it.' That message was not an answer to a question from the implementer.",
+    "The implementer's reported tokens, tool uses and duration come from the completion notice after the resume and probably cover only the resumed segment, not the work before the stop.",
+    "Wall-clock time from start to end was about 38 minutes, which includes the pause.",
+    "transcripts.tgz was deleted and is not in this folder: the sign-in scan matched a key pattern in the two transcript files newer than start.json (likely the scan command's own text, not checked). The real token counts from the transcripts are therefore not saved.",
+    "The implementer reported that browser tests ran on Chrome 153 and Node 22, not the README's named Chromium 156 / Node 26, and that prettier --check fails on docs/ before and after its changes.",
+    "Project saved from git ls-files of the project folder after git add -A, so untracked files that are not ignored are included."
+  ]
+}

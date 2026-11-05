@@ -1,0 +1,126 @@
+.tournament h2,
+.tournament h3 {
+  font-size: 16px;
+  line-height: 24px;
+  margin: 4px 0 12px;
+}
+.tournament h3 {
+  margin-top: 24px;
+}
+.turn-owner {
+  font-weight: 700;
+}
+.match-line {
+  color: var(--secondary);
+  font-size: 14px;
+  margin-bottom: 12px;
+}
+.champion {
+  padding: 12px 16px;
+  margin-bottom: 12px;
+  border: 1px solid var(--green);
+  border-radius: 8px;
+}
+.tournament-form {
+  display: grid;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+.tournament-field {
+  display: grid;
+  gap: 6px;
+}
+.player-fields {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(16ch, 1fr));
+  gap: 12px;
+}
+.tournament-field input,
+.tournament-field select {
+  width: 100%;
+  min-width: 0;
+}
+.tournament-form .tournament-field:first-child select {
+  width: auto;
+  justify-self: start;
+}
+.tournament-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 12px 0 16px;
+}
+.past ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.past li {
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border);
+}
+.detail {
+  color: var(--secondary);
+  font-size: 14px;
+}
+.bracket {
+  width: 100%;
+  margin: 0 0 24px;
+  border-collapse: collapse;
+}
+.bracket caption {
+  padding: 0 0 8px;
+  color: var(--secondary);
+  font-size: 14px;
+  text-align: left;
+}
+.bracket th,
+.bracket td {
+  padding: 8px;
+  border-bottom: 1px solid var(--border);
+  text-align: left;
+  overflow-wrap: anywhere;
+}
+.bracket th {
+  color: var(--secondary);
+  font-size: 14px;
+  font-weight: 400;
+}
+.bracket td {
+  font-variant-numeric: tabular-nums;
+}
+.tournament-exchange {
+  display: grid;
+  gap: 12px;
+  margin-top: 24px;
+  padding: 16px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--panel);
+}
+.tournament-exchange textarea {
+  width: 100%;
+  resize: vertical;
+}
+.tournament-exchange .tournament-actions {
+  margin: 0;
+}
+.leave-dialog {
+  max-width: min(100% - 32px, 360px);
+  padding: 16px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--panel);
+  color: var(--text);
+}
+.leave-dialog::backdrop {
+  background: rgb(9 11 20 / 80%);
+}
+.leave-dialog .tournament-actions {
+  margin: 12px 0 0;
+}
+@media (max-width: 599px) {
+  .tournament-actions > button {
+    flex: 1;
+  }
+}

@@ -1,0 +1,119 @@
+{
+  "schemaVersion": 2,
+  "id": "2026-11-05T01-45-17-000Z-e7ff9dac4e25",
+  "suite": "l4-f2-tournament",
+  "fingerprint": "0a8eaaca3b6d265f22bbf67551db5699fa3b54574865b37c5b9066d9e86461d8",
+  "intentEdited": false,
+  "config": {
+    "suite": "l4-f2-tournament",
+    "isolation": "docker",
+    "agents": [
+      {
+        "tool": "claude",
+        "model": "claude-sonnet-5-5",
+        "effort": "xhigh"
+      }
+    ],
+    "setups": [
+      "organized-docs",
+      "code-only",
+      "plain-docs",
+      "full-core-scoped"
+    ],
+    "runsPerSetup": 1,
+    "parallelRuns": 1,
+    "judge": {
+      "tool": "codex",
+      "model": "gpt-6.1-sol",
+      "effort": "xhigh",
+      "repeats": 3
+    },
+    "judges": [
+      {
+        "tool": "codex",
+        "model": "gpt-6.1-sol",
+        "effort": "xhigh",
+        "repeats": 3
+      }
+    ],
+    "judging": "later",
+    "checking": "later",
+    "simulatedUser": {
+      "tool": "codex",
+      "model": "gpt-6-luna",
+      "effort": "max"
+    },
+    "containers": {
+      "cpus": 2,
+      "memory": "4g",
+      "processes": 512
+    },
+    "limits": {
+      "runMinutes": 180,
+      "checkMinutes": 90,
+      "questionRounds": 3
+    },
+    "layer": 4,
+    "development": false,
+    "protocol": {
+      "version": 1,
+      "bank": [],
+      "documents": [
+        "Please add a Tournament mode for 4 or 8 players sharing one device. A Tournament button next to New Game opens it. Players choose 4 or 8 with a Players select, type names into inputs labelled Player 1 to Player 8, and press Start tournament. It's a knockout: in each match both players play the same deal, one after the other, and fewer moves wins. Show whose turn it is as \"Now playing: NAME\". A Start turn button begins each player's game. When a game ends a Next turn button appears, and when a match ends a Next match button appears. A Leave tournament button stops it early. Show the bracket with each match's players, their moves and time, and its winner, and \"Champion: NAME\" at the end with a Back to game button. Finished tournaments stay in a Past tournaments list on the Tournament screen after reload. Every Tournament screen has an Export tournament button that puts JSON in a Tournament JSON box, and a Load tournament button that reads that box back. Please follow the project rules."
+      ],
+      "hash": "b1fbd32c00a12ac7842a7cac6bca70e98bfcc036c511efa952b2f1cf16d0db04"
+    }
+  },
+  "createdAt": "2026-11-05T01:45:17Z",
+  "status": "done",
+  "runs": [
+    "18c4b99ec63b",
+    "09d8c475f1ac",
+    "2e2462051671",
+    "fb99fbf07b36"
+  ],
+  "revealed": false,
+  "legacy": false,
+  "versions": {
+    "openForge": "0.9.0-beta.18",
+    "node": "v26.12.1",
+    "checker": "a99a063dedef8e49026a7843c78e857d5722f462c74fee4d8e271fd0f21fa9cb",
+    "rubric": "704f7cb21158eda9aaf876acfb3131d102f9e91982c270d7413c4a0eff1d0d42",
+    "judge": "6211a72e63940c3d612013a32ee1d7353509cf922f77de5b8fc57efef65b9f29"
+  },
+  "cliVersion": "0.9.0-beta.18",
+  "candidateLabel": "cloud chat",
+  "capturedAt": "2026-11-05T01:45:17Z",
+  "fingerprints": {
+    "cliPackage": "6e6a98fb1acbaab78bc476bbb0d702b8995aab545f6d1cc58535b762cde5b861",
+    "benchmarkInputs": "0a8eaaca3b6d265f22bbf67551db5699fa3b54574865b37c5b9066d9e86461d8",
+    "setupContent": "5e7cece720b000ab7c20eedda0a22b6b99fb0caf542c7e5f4f42233b4de07b82",
+    "checks": "a99a063dedef8e49026a7843c78e857d5722f462c74fee4d8e271fd0f21fa9cb",
+    "rubric": "704f7cb21158eda9aaf876acfb3131d102f9e91982c270d7413c4a0eff1d0d42",
+    "harnessSource": "735a85ae77954ca29430d38aa4248cd212eb94da4b4e70fd2529b6532f383bb7",
+    "tooling": "343fa631f077a3e4260e0672752347e951e6bee82b6b6434c5d4c98d15fe8efc",
+    "requestedModels": "c98f8f1232fe766384a5b480ed511017300730928c97e2f181962f14be064d3f",
+    "reportedModels": "0b6482a4ccac794064e3f146156fe01a520b3c6e4b4efffca8c0f10fcafac7aa",
+    "schema": "d4735e3a265e16eee03f59718b9b5d03019c07d8b6c51f90da3a666eec13ab35"
+  },
+  "pinnedTools": {
+    "@thelithiumforge/open-forge": "0.9.0-beta.18",
+    "playwright": "1.64.1",
+    "pngjs": "7.0.0",
+    "yaml": "2.9.1",
+    "node": "v26.12.1"
+  },
+  "imageDigests": {
+    "eval": null
+  },
+  "requestedModels": [
+    {
+      "tool": "claude",
+      "model": "claude-sonnet-5-5",
+      "effort": "xhigh"
+    }
+  ],
+  "reportedModels": [
+    "claude-sonnet-5-5"
+  ]
+}
