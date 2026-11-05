@@ -18,9 +18,10 @@
       "organized-docs",
       "code-only",
       "plain-docs",
-      "full-core-scoped"
+      "full-core-scoped",
+      "minimal-scoped"
     ],
-    "runsPerSetup": 1,
+    "runsPerSetup": 2,
     "parallelRuns": 1,
     "judge": {
       "tool": "codex",
@@ -70,7 +71,9 @@
     "680fbaf44258",
     "a048776bfdda",
     "8b00f2706e10",
-    "2a7b136b7b0d"
+    "2a7b136b7b0d",
+    "a8f1dc59b8ca",
+    "a5111d31e562"
   ],
   "revealed": false,
   "legacy": false,

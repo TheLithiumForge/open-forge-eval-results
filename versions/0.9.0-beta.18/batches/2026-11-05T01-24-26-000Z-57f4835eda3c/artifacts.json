@@ -10337,6 +10337,6222 @@
   },
   {
     "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "changes.patch",
+    "bytes": 189125,
+    "sha256": "59537e3bbd37adfbeeb66baaf7aaa63ce3ed0c5f06ed36c0ab47b052dd5f3cc8"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "chat-run.json",
+    "bytes": 1204,
+    "sha256": "8193dff934589c8ca34c5a279a8fc76b3949602cf7cbb6fd68d954957c276afd"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/.agents/directives/_directives.md",
+    "bytes": 916,
+    "sha256": "5c24f594c49eef97999d6fa44b844ed4c0b2f2becc1cda0b03fea4ff16144a54"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/.agents/guidance/_guidance.md",
+    "bytes": 651,
+    "sha256": "26b8cc6831edc37972622c122f2f4b17b940ab8396e81ed361ab065b15241cd3"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/.agents/loader.md",
+    "bytes": 8809,
+    "sha256": "6e42350e961ddde9b093f10bf07f367ccdb814ab264c4ffc1ab01bc0026e576d"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/.agents/maps/_maps.md",
+    "bytes": 839,
+    "sha256": "01d426ade3d9582842c9b246c5cb9b29d8451a55ffe988e45ba7422c6d3a42d8"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/.agents/memory/_memory.md",
+    "bytes": 2723,
+    "sha256": "87495666e3eb3bc3b129a578acfbbb92a01ef465128eddb7a461314296e87256"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/.agents/memory/archived/_archived.md",
+    "bytes": 1145,
+    "sha256": "7cef829724f9139a2a47d8d151dbcc6a162597e27628668d7c800322ee557db1"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/.agents/memory/crystallized/_crystallized.md",
+    "bytes": 851,
+    "sha256": "86b007cc4689353b19163728447c70e73c839f0a8a164b87228525a352db5a37"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/.agents/memory/emerging/_emerging.md",
+    "bytes": 1118,
+    "sha256": "43da9ef1cbbaf8b2f73341eac3fd44d8073173c6fa4b039a90a4a5388ed65046"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/.agents/memory/emerging/tournament-open-questions.md",
+    "bytes": 1538,
+    "sha256": "516c863b2b9c9a415d31f7cb244679ab5d607b735609c3dba71d873c0e77996a"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/.agents/memory/working/_working.md",
+    "bytes": 1149,
+    "sha256": "e806ab632ae13359ff7708f577176e39c436b707b821711c65a38d1a31c21c09"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/.agents/open-forge.json",
+    "bytes": 262,
+    "sha256": "f8d24c559d1284a2af502ffe9230ce49ae6edb3e888ed8503a67667ea2094c40"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/.agents/open-forge.lock.json",
+    "bytes": 2399,
+    "sha256": "ea6a8f69c8e8c9b04da3db5d3f97432ab985596b46a10de061d2826a90a743f3"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/.agents/patterns/_patterns.md",
+    "bytes": 1883,
+    "sha256": "3d6306e8c1282da6ccd1161946a6a1c9849a6fc4e7164b23b6b7bef8299a5a1e"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/.agents/README.md",
+    "bytes": 11788,
+    "sha256": "4c2395b6d3d4215554afc308ad4f42fc5a706ea1d8c26bb7cab262faa6e43ccf"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/.agents/skills/_skills.md",
+    "bytes": 973,
+    "sha256": "eca98e27ba7fd0209a46affcb8b43b89b9dfc720e99ea730f4c9ecf8d2763d31"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/.agents/skills/open-forge-cli/references/common.md",
+    "bytes": 8936,
+    "sha256": "af421715af97a59b6d3ae68a590b7b1fc843e84b0be6f1ca3796aa5dca29e38b"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/.agents/skills/open-forge-cli/references/discovery.md",
+    "bytes": 14463,
+    "sha256": "a0d25121525441207db46fd5448f9ee442ad705f455ad4227e033c54e841c38c"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/.agents/skills/open-forge-cli/references/packages.md",
+    "bytes": 27853,
+    "sha256": "a63ad26a3302f258bcaec580d5f4ae26af15a9aae6fcd8e68119a018f7473164"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/.agents/skills/open-forge-cli/references/routes.md",
+    "bytes": 21836,
+    "sha256": "95ad19a41c65a603daa3a76b6e6ff6c9b451c573dc157427e8eed9db601f0fcb"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/.agents/skills/open-forge-cli/SKILL.md",
+    "bytes": 5928,
+    "sha256": "ed74a95e3c24b9e6e0a414794ae444a02914d4cefe52e270b701425feb074470"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/.agents/templates/_templates.md",
+    "bytes": 1462,
+    "sha256": "107d4a1c94e159c4c6f824c34f45e89ba4a24e47b3b8f42b7ef8a4c5c4edb0da"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/.gitignore",
+    "bytes": 130,
+    "sha256": "3528bf1f87c9d2fb52f4bf4b94ef0e0d7280b103021c8258a683b459744c1ebe"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/.open-forge-state/.gitignore",
+    "bytes": 2,
+    "sha256": "cdbcae15105d6b781e620813c79c7e868740d4e9cc53ce6f5fcbbc12387adf4b"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/.open-forge-state/workspace.lock",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/.prettierignore",
+    "bytes": 102,
+    "sha256": "3c3241d83bd1eab02cd74ab60a19c633b971268a054f23aeb019697e5172aba2"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/.prettierrc.json",
+    "bytes": 67,
+    "sha256": "c6bc6fc6b031c97774bea2caa5e77ae85d2d02d4ea80962ffafc7a2b1f50d734"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/AGENTS.md",
+    "bytes": 537,
+    "sha256": "9e9835927bbb1334c74014a7215fb92fef74439381e1e3990c5eaf30a7dbc94c"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/art/face-sheet.css",
+    "bytes": 381,
+    "sha256": "9a65d6e6b93de3ff307593b981f770a841b4e2dfe8eee3b560ed7c7120c407a9"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/art/face-sheet.tsx",
+    "bytes": 1134,
+    "sha256": "f8fff7b1a0e8183ac8f3b5a794e2382fa62199075a522211360041b8b149790d"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/art/index.html",
+    "bytes": 309,
+    "sha256": "87771cdc870271c2858205a8c509842649c6f573fbe6348fe4a2f61e5c793595"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/art/session/index.html",
+    "bytes": 319,
+    "sha256": "1ca8be0f977b4298a7d38392ef5a2298e461e4cb968c4a7d787be48948ad1741"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/art/session/session-harness.tsx",
+    "bytes": 483,
+    "sha256": "2f5c3751153b173061f8c7f578ddb47b9e8343a6ae20a11709f743d4b64ee193"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/CLAUDE.md",
+    "bytes": 84,
+    "sha256": "adb704b4c64b6fc352879f34bda5a4c829820da49511a11d6dc6f54f39d9a1b7"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/_docs.md",
+    "bytes": 1838,
+    "sha256": "c253ba9411e93afba631710ffa6aecad1e745361f07fd2f323214da7b363bb0d"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/architecture/_architecture.md",
+    "bytes": 2809,
+    "sha256": "5f21ab88792fec602eebebae2f4198ddf7b03b2248e0f1e6c7beac727bb28a2d"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/architecture/architecture.md",
+    "bytes": 4190,
+    "sha256": "5f6a2f009453ad782de6584c947ad7299f65730c72272d224bcb93e01d53beb4"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/architecture/build-pipeline.md",
+    "bytes": 9897,
+    "sha256": "a17cba0aa11baaa5519df67ccf5c9140353a4984e0ec104b2919b786156d27c7"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/architecture/clock-design.md",
+    "bytes": 13235,
+    "sha256": "940ac0b2af185ee82c8433dfc6ef4869809663449609f7a3dd32a22ec5427166"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/architecture/code-review-guide.md",
+    "bytes": 9904,
+    "sha256": "5141f0d56e6967d92fe6d799b808562dc013ddac2cb7e25b97ff1ce6906e8f2f"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/architecture/css-organization.md",
+    "bytes": 11276,
+    "sha256": "0c6c71ff9a128947973c9ef7ff77412ac7ec08976722a485f925c432ef19aea9"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/architecture/dependency-policy.md",
+    "bytes": 9374,
+    "sha256": "d3493c455e0a20eff788bc4d89e3a8b2dada4dcae6a41d707f4cbe395e9d5155"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/architecture/module-layout-policy.md",
+    "bytes": 10228,
+    "sha256": "6e9bc3da0eaf84296c2f818a7de18885bab80e1b42511b271315e4b678992e94"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/architecture/offline-delivery.md",
+    "bytes": 9368,
+    "sha256": "1e2a1d89048aba71308cfa74b91ce0a6f7b80ff1d738be22afa2763868143af4"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/architecture/purity-guide.md",
+    "bytes": 10038,
+    "sha256": "7cbe0247b083c0eb57ca29043a0741f9a141fb2a5d6d1a04444c076c52ad3b58"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/architecture/randomness-policy.md",
+    "bytes": 10556,
+    "sha256": "e1480e328e221c29a84440ae9c43f3969e17bce3a520296c8b6da88d18861246"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/architecture/react-boundaries.md",
+    "bytes": 10969,
+    "sha256": "63ff16023d84df16c9c116131d2be91ecae7080c27c55dbdbfa4ce56c84a5483"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/architecture/session-module.md",
+    "bytes": 12609,
+    "sha256": "f676eeda0a764e536ef5429e3846233737ab468c2ee1962b9d34870100f7a2b4"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/architecture/source-audit-notes.md",
+    "bytes": 10082,
+    "sha256": "aee666ae790dfead51ed8ad16308ee8bedba576398ab4be9c80c70cb00be5808"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/architecture/source-layout.md",
+    "bytes": 13619,
+    "sha256": "0a51fd6035388bc1c3eaa507ba6e18531b1f43c2902e905c1f5062c3ecec7c7a"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/architecture/technology.md",
+    "bytes": 4176,
+    "sha256": "3a3db4505dd71a589da59cfa8a2685a24580f29f55431ad028a2c9c5b50e6d9c"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/architecture/test-policy.md",
+    "bytes": 10797,
+    "sha256": "c66ebf4704038c722a02f564e93671728c20fedb439c0fcd71d224b7172b297d"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/architecture/time-policy.md",
+    "bytes": 10072,
+    "sha256": "549a2d308674eb219ed6161d9dcafd9ec4951cd79617d2cadc646fb52c0258c8"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/architecture/typescript-settings.md",
+    "bytes": 11294,
+    "sha256": "6ed3e56be7195f2af3df6c551533cbd807d7b55b8de059e16cf019bea1768596"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/competition/_competition.md",
+    "bytes": 1788,
+    "sha256": "f2f1f3d5503447f3543ed87fad9bffac3d45e78e256e8d835b3ac8f515eb794c"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/competition/competition-boards.md",
+    "bytes": 7932,
+    "sha256": "4b3f5b58c99a15d8dc119d043d6d0ebbe0e1456b09a2d157ca09ab3847f611a4"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/competition/competition-deals.md",
+    "bytes": 7630,
+    "sha256": "bf8b09cf9a13b19257949102f4045b3a2e70bd2bcfc7ac647091437fc2ed5e3e"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/competition/competition-flow.md",
+    "bytes": 10064,
+    "sha256": "a6e014c0ee856b860d9b2460e4e9761c7d1835cb70cf9db57f2117acbf0ba6b0"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/competition/competition-overview.md",
+    "bytes": 6759,
+    "sha256": "1adcf545103a1671b0467e85a9737e368368edbfe3636477705895d23b3932cb"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/competition/competition-pairing.md",
+    "bytes": 6694,
+    "sha256": "177ba3bfa5e5c6e0d5d0ec9afb0bd41fc31da48d997c997923dfd61874e6e7b7"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/competition/competition-research.md",
+    "bytes": 9091,
+    "sha256": "21a329c369c3bbb43b644c2489ca3b855501eee9c1b3b6932bc06e6f129ac64e"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/competition/competition-rounds.md",
+    "bytes": 6952,
+    "sha256": "69f8ed371eba94bf5fd5a97cfbce0c7711c39fc323724f1771beaa942b83f341"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/competition/competition-scores.md",
+    "bytes": 8263,
+    "sha256": "986ed6a8b1c0bf2ac66175affefc45ff34f00945aac74b700ebd91557a2f13e2"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/competition/competition-ties.md",
+    "bytes": 8415,
+    "sha256": "0da19f3a40b021907761ebb940b2105336ab3d0ea75533ec58be0444ab569cdb"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/decisions/_decisions.md",
+    "bytes": 9797,
+    "sha256": "24f611bba5c40a8214f3ad1288a342b40d520952875d3fffc207cd6a5a67e410"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/decisions/adr-001-react.md",
+    "bytes": 4632,
+    "sha256": "cbbff49cac2b85215b05326d0aa6542c1d218a4a53e7a77f8a9c783249a04832"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/decisions/adr-002-typescript.md",
+    "bytes": 4507,
+    "sha256": "296061f3624b65c464f855000e7cd7db32ea018b6405be0d83e37a17ba9f1569"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/decisions/adr-003-single-file.md",
+    "bytes": 4406,
+    "sha256": "c30853b0b5b7920076d0a4484a38f12a60e25ebdf843e686cb704656985dc2de"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/decisions/adr-004-no-backend.md",
+    "bytes": 4656,
+    "sha256": "a3bfb80e2b787240092169a1c33eae2a8cb39cf9aef0ed975852b762802709e5"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/decisions/adr-005-vite.md",
+    "bytes": 4500,
+    "sha256": "fbaf18ee7462a0c4bfac404a028f1489aa7cb12031b9ff1aa325bf2a36916ed6"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/decisions/adr-006-native-controls.md",
+    "bytes": 5151,
+    "sha256": "5464f9138eca8e4814c90933ec2ab2735abbf4e7790ab29f7c82e159b9622412"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/decisions/adr-007-svg-faces.md",
+    "bytes": 4437,
+    "sha256": "5ca3bfd82f39f213cb18863e41c21c10f8fbd0cdbb1694f6ba651a7f1e993f71"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/decisions/adr-008-seven-sizes.md",
+    "bytes": 4501,
+    "sha256": "b8e3c3a46611f97c79cce5d7f70cb8f0a11a0a0ef8992df291016ee5c324b39d"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/decisions/adr-009-board-codes.md",
+    "bytes": 4635,
+    "sha256": "dc074bc79937aa519a43f7ab24c69c4d11cd220372c7820d6ca17223eed17701"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/decisions/adr-010-snapshot-json.md",
+    "bytes": 5210,
+    "sha256": "6fc6fb0f4cf2b06f95b241f3b107234ccddedbcc8238a4c10aa54954d2b6dc87"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/decisions/adr-011-storage-keys.md",
+    "bytes": 4772,
+    "sha256": "c24e52b68062fc08340faff8414500490dc7bb8e8667f44c3d2acab65b559677"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/decisions/adr-012-no-sound.md",
+    "bytes": 5389,
+    "sha256": "61d645aae37374462e20d328ade16f3e368846b00ee33c6a6ee19550b4918588"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/decisions/adr-013-monotonic-clock.md",
+    "bytes": 4728,
+    "sha256": "cdf4153ab3440ac1b24f5e0c8371469e4d5dc6d4e7644f6c1c45761a15d912cb"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/decisions/adr-014-pause-on-hidden.md",
+    "bytes": 4765,
+    "sha256": "7a95006acf3aea5c4ef1a02c1fa9a3655fdce162341037f8ef1c20bb180b6d40"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/decisions/adr-015-replay-cli.md",
+    "bytes": 4782,
+    "sha256": "e3f5cbd0c28e9c3adf094926a121952647d0e06ec97273f6aa02f9c960e4b2c6"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/decisions/adr-016-no-state-library.md",
+    "bytes": 4634,
+    "sha256": "6ad4c862f4ec388d4174916d6c45ab7f32e667298ba73e19504de28c0feac273"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/decisions/adr-017-colocated-tests.md",
+    "bytes": 4570,
+    "sha256": "00d3ad160747555fb4b75a5406e4b46850eda19ff9c30a7a75fc469505a83cf8"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/decisions/adr-018-playwright.md",
+    "bytes": 5469,
+    "sha256": "81c9ebf44e593ee24c2ee598396aaddde36f213157337eb9416b0202da6e7447"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/decisions/adr-019-modal-overlays.md",
+    "bytes": 3931,
+    "sha256": "8f316cf239bc462dc317f378a593042ff064befa32c84666bef1b39e0f87e035"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/decisions/adr-020-vitest.md",
+    "bytes": 4397,
+    "sha256": "6cb6df360d743ac9d8b192680cfa3137d29d552edca2b3b2cf7484cdeecde077"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/decisions/adr-021-seeded-decks.md",
+    "bytes": 5000,
+    "sha256": "384a9e3a065be3400b23b079446498b6e7fe8a402886ea351396bd6a0dbec094"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/decisions/adr-022-card-names.md",
+    "bytes": 4826,
+    "sha256": "77bc3078714bbe417c97a21ea7ba91f0da23d9bbe346e973d514b6156042c731"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/decisions/adr-023-results-as-lists.md",
+    "bytes": 4234,
+    "sha256": "276fabea417b46405b88233ecb5e2405b472675d12b6c3afa2d05f7f608893f1"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/decisions/adr-024-roving-focus.md",
+    "bytes": 4826,
+    "sha256": "5a0c61ad2a2cbf840bec3ca4cdc9bae2907656620403c5029134c25530f3b447"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/decisions/adr-025-reduced-motion.md",
+    "bytes": 4517,
+    "sha256": "0a80857ba9c29a5fb4047fed7bed99f70cdb24e644909439a7ffe10701e1d8bb"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/decisions/adr-026-dark-theme.md",
+    "bytes": 4661,
+    "sha256": "b7212011a801f7396999ab04980c627d52d0c03665bc4a4c73561d3a7e4a1252"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/decisions/adr-027-offline-first.md",
+    "bytes": 4918,
+    "sha256": "becf8a25dbeda4fcd4ac34b32bbeb4076ccd8cdc91d444f807d3111df3a91d56"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/decisions/adr-028-prettier.md",
+    "bytes": 4703,
+    "sha256": "0427e34f2261d8f8e6df05f2a0f2d147a85ac0cf6a61de580d72b8977e0833e1"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/decisions/adr-029-pinned-versions.md",
+    "bytes": 4337,
+    "sha256": "1e07a1e3859c177c507a5728aa1ed3154657a6f3bb4a377c9d80a93801dba0d8"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/decisions/adr-030-move-cap.md",
+    "bytes": 4594,
+    "sha256": "183cabcfb2847fa1e2f97b7d0626b002c7e84243fe859c7c211a1ec164f01044"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/decisions/adr-031-toast-announcements.md",
+    "bytes": 4028,
+    "sha256": "5b4a53b7abc0ffd4ca0838b87923be20f691270b6976b1ef4659e5e7bd1b9619"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/decisions/adr-032-best-score-scope.md",
+    "bytes": 4460,
+    "sha256": "5674a4e2bf1e41187a183b3065863742682810b521eb6ce210639140e47be796"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/decisions/adr-033-mismatch-800ms.md",
+    "bytes": 4866,
+    "sha256": "b01cee73e84b699d5f1fbd92bbce147f1084415d42c8eef06725aeb5e15e69b4"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/decisions/adr-034-face-count.md",
+    "bytes": 4756,
+    "sha256": "b4035cfd719689c1ef00c884f67e1f7c9eaa69184955ab46a9efde67f234df77"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/decisions/adr-035-scroll-large-boards.md",
+    "bytes": 4940,
+    "sha256": "627543ec96b000ceb7dc9dc706b8ddb6bc40decc0c1b2fa40d436e58a272fba4"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/decisions/adr-036-motion-opt-in.md",
+    "bytes": 4068,
+    "sha256": "b79b67746b9f03f4a7ff8754f906aa9575af12785e32b59f755001d570d54cef"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/decisions/adr-037-snapshot-pause.md",
+    "bytes": 5649,
+    "sha256": "f32fdd18cc396effb7328c908bd9d400b009fd781573588fbe6dd2ebfdbb969d"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/decisions/adr-038-no-analytics.md",
+    "bytes": 4641,
+    "sha256": "c8bdf59cf09db2e2c79ba1db9d53ae723aa7e09bcced7904912debbc180332b9"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/decisions/adr-039-contrast-floor.md",
+    "bytes": 4459,
+    "sha256": "7ada55f69d49c2f5b3ef39c8f9adb4d03f4857ea0ebda8d282f75427f2b43798"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/decisions/adr-040-file-size-aim.md",
+    "bytes": 4703,
+    "sha256": "8ce95d81c39a9015532458bdc5c9e8be6ad2f8e663b25ca3e532f0b9841c8fe3"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/decisions/adr-041-name-limits.md",
+    "bytes": 4112,
+    "sha256": "d17d89996f94840aa0073329ffc1a6de5a57d172d3ba69a88c00b089b6e9adef"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/decisions/adr-042-error-copy.md",
+    "bytes": 4825,
+    "sha256": "9a15afa66c9645215683b624123fe4034a73df9a87b0b65cc47f8294617544a9"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/decisions/adr-043-keyboard-parity.md",
+    "bytes": 4983,
+    "sha256": "28d3488fb1050aa8df3b72f1f128e4c107334d7298fb4a65a93de5f1d96b3789"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/decisions/adr-044-no-routing.md",
+    "bytes": 5895,
+    "sha256": "9f322e2133bc3e917b6ca511ac7327c4390f35a9359f12c5152e27c09b2fc465"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/decisions/adr-045-no-i18n-yet.md",
+    "bytes": 4662,
+    "sha256": "1edd9edc3cc2c584500175509b49a78d1efd0a42f731fd87fe40c2d96fe53cc1"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/decisions/adr-046-print-styles.md",
+    "bytes": 4629,
+    "sha256": "caffa372ee6a0cbbb80f5df84c8f23166ded5ae9568862c55ff307798f74efb3"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/decisions/adr-047-touch-scroll.md",
+    "bytes": 4757,
+    "sha256": "76dad8f140781aa2d80890965cb273553ffc9f6ac56f0a6aff1d717074028018"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/decisions/adr-048-replay-order.md",
+    "bytes": 4826,
+    "sha256": "1c6e5c41c4f10108dbb875b68a1547b660cb7f56ab35d9f4300b40d560726f8d"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/decisions/adr-049-zoom-floor.md",
+    "bytes": 4372,
+    "sha256": "c8a57863d4d2decd021f40d2cfbb22a320bddac451487d14f5e1113c3227fc1a"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/decisions/adr-050-completion-banner.md",
+    "bytes": 4920,
+    "sha256": "bfd3031d340b03c73d68edbae9c1023c34e09bf33a89f6239e39d9bde5e2b16e"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/decisions/adr-051-test-artifacts.md",
+    "bytes": 4780,
+    "sha256": "601293a87d16870db0601cdc2e059ef6c474f3f78919548999da1cdf75811c32"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/decisions/adr-052-release-tags.md",
+    "bytes": 4139,
+    "sha256": "50371e181224977547edac207608d2dc89bf89d77cf535ce446786c939e4241d"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/decisions/adr-053-docs-in-repo.md",
+    "bytes": 4221,
+    "sha256": "5f9a93633250871bca72b1dfc25144ecc97bd30976949c6efa512e6246fa969a"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/decisions/adr-054-acceptance-journeys.md",
+    "bytes": 5231,
+    "sha256": "e9ac0fbdf553e906275ab521d98a6778cc74687b5001ca76cb5c5ea4c8c41a3f"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/decisions/adr-055-review-before-merge.md",
+    "bytes": 3698,
+    "sha256": "3520c2aff528915b6f56b6d96022fa77f7dddc228ae915e5d8a76b3ff6cb6cf1"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/decisions/adr-056-no-feature-flags.md",
+    "bytes": 4879,
+    "sha256": "81fceafa39cf27afd9398d1a59cea606108918a589e279776cd43d1f2fc21e0b"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/decisions/adr-057-small-components.md",
+    "bytes": 5231,
+    "sha256": "6c6c33a6e476842028798a77300abda5d3e56cacbba84622973013f3f845ba8f"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/decisions/adr-058-storage-namespace.md",
+    "bytes": 4932,
+    "sha256": "85374c3715238adc3f3b220cd3a9d0286c593f8acd10dbba544e1c7b2c6823df"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/gameplay/_gameplay.md",
+    "bytes": 2345,
+    "sha256": "0ce856f1785bffca6d9bf69f31a46789b93b4c46bd1c25da04c9129cd2939ddc"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/gameplay/best-score-records.md",
+    "bytes": 9693,
+    "sha256": "67ed58ff855f98e67718a9b3d7678daa01d920be1cdc09c443d974fd48cd600d"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/gameplay/board-size-catalogue.md",
+    "bytes": 9319,
+    "sha256": "528fe9635aa2bdd9d61582151db18809b5229c432f247e49896bedbe2146f21e"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/gameplay/deck-generation.md",
+    "bytes": 10273,
+    "sha256": "a1710559eece197f74392c43d343dc061ebff405f58dd6694bd3055a7de8e534"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/gameplay/elapsed-time-rules.md",
+    "bytes": 9803,
+    "sha256": "d1729c0e83e167984528e470603c135adcbe50f171987c3052ace7b3a853ea36"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/gameplay/game-state-model.md",
+    "bytes": 9446,
+    "sha256": "6ddb2d052d0c2660f7ed803845ae2c609c7d1e222315e54d2d87a5277e86c23d"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/gameplay/gameplay-faq.md",
+    "bytes": 7616,
+    "sha256": "075ffb87131edcb078f265ef2e79766ba8d4b4e208e59170fc8ad4c6ed547d9b"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/gameplay/mismatch-interval.md",
+    "bytes": 9441,
+    "sha256": "87917f73cbbd665f0a6f7caa2244a7311a18e4af62dbdca66d41416d495ac6ef"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/gameplay/new-game-and-restart.md",
+    "bytes": 9210,
+    "sha256": "bc2664c9b21609eb8c5fd3ae414814969ddc321661a8cc8382b08955f7f11f97"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/gameplay/pair-identity.md",
+    "bytes": 8380,
+    "sha256": "4ac8d4645ce44394b76ae7dcb290d75c4766d62e4a3d88cc0866677cbd757cc1"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/gameplay/rules.md",
+    "bytes": 4342,
+    "sha256": "716ddc2e377f099c6c32c2067162a29c2d9c417aa9a8561ccd385b0db2dbd809"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/gameplay/scoring-and-moves.md",
+    "bytes": 8817,
+    "sha256": "cc4a48bd6abe5cc498b4ea069b1fa2b74907c0bd03e4318b19ce5ee18ff4068b"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/gameplay/selection-state.md",
+    "bytes": 8657,
+    "sha256": "cf539f55bd95b43169816169496664baa53da60120f6e5cd6e032569fd3856d1"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/gameplay/turn-resolution.md",
+    "bytes": 9567,
+    "sha256": "819c59281eeb778a622143f60ce372fbbe70c898812e3fa072c8220d2ed45f30"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/gameplay/win-conditions.md",
+    "bytes": 8147,
+    "sha256": "a1750a73e0540e843afbc7e4515925ab7f12f3af7c361bfbb0d7213b8fc43b67"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/history/_history.md",
+    "bytes": 4527,
+    "sha256": "5cfab2b3c914bde1f4fbf5f9749a952ddf9b6dce7b5d00c07b0269abb06ba8d3"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/history/incident-16x16-layout.md",
+    "bytes": 8580,
+    "sha256": "17022f6e988f105684b53f49c0e7d9e8824e1476fc56aa8cb9b3e1648dbfd97c"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/history/incident-clock-drift.md",
+    "bytes": 8571,
+    "sha256": "e69ab0b345faa0c8a9a97c36d4861fbd8326ac7115663d5db27f220202399166"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/history/incident-focus-trap.md",
+    "bytes": 7964,
+    "sha256": "57000363d0b256ffa9971e8db998995857ad1cb07caf2a081e1223c6092580be"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/history/incident-lost-best-scores.md",
+    "bytes": 8037,
+    "sha256": "11a2f03bdbe924925ae5ee722609a104c0a9eeddc6c0c9122a45ca3a3e17076c"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/history/incident-snapshot-rejects.md",
+    "bytes": 8184,
+    "sha256": "3865e4efbfa92c789bcdfef6caff13fd2db55d489051a20414625d9ea78410d4"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/history/meeting-notes-accessibility.md",
+    "bytes": 8289,
+    "sha256": "0aad27a0d9925785e4fc961bfc731895adb84ef2ea50ff3c3f2aa315cec860c8"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/history/meeting-notes-architecture.md",
+    "bytes": 8108,
+    "sha256": "2f70267bd0cf157f637d906fb2cb49899d4e26f2004ce9e9e0d008d2b07945d5"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/history/release-notes-1-0.md",
+    "bytes": 5434,
+    "sha256": "c63a374487d5dc71f37d1472df20ba5de90d0abdfe347a2bf58f5c7496e8d1e4"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/history/release-notes-1-1.md",
+    "bytes": 7883,
+    "sha256": "0bb14cd6e0acfb4129d38c41a7d15fca54aa3589adc9c16c67e177661f8f86d7"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/history/release-notes-1-2.md",
+    "bytes": 7947,
+    "sha256": "42a57aab1f9159e1bc8af843ae628bef31fdcb9af3448ef4e5212193cdb9cc00"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/history/release-notes-1-3.md",
+    "bytes": 7629,
+    "sha256": "eb84c296e379eaff2889e8d3a9aa5bf753953c6e28d29f9c8a0a59663255cd19"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/history/release-notes-1-4.md",
+    "bytes": 8149,
+    "sha256": "e43c19174d9f8e07d71d8c407bf4190277ae7dc506dd5298db327b4a93cc7cdb"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/history/release-notes-2-0.md",
+    "bytes": 8281,
+    "sha256": "2cd6a0c61b3df922847ddf9b8b9fc8379c76064b48c80180112c60cbac39f84e"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/history/release-notes-2-1.md",
+    "bytes": 4203,
+    "sha256": "39480b21d851b27f19e20ba108742de461deddf6699e1cc5616576d6c76c3648"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/history/release-notes-2-2.md",
+    "bytes": 8039,
+    "sha256": "7cce18ee2bc48a548a9e19a83cb4d80d153404284379a76f9e7a7c28435a36b6"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/history/research-memory-games-survey.md",
+    "bytes": 8802,
+    "sha256": "aecf07697b037c72f518d2f555595c51007cd430b93e7ae7eb951c654649fb09"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/history/research-phone-usage.md",
+    "bytes": 8439,
+    "sha256": "56b162a46aa45996ea38eaed811fb1b11cb7a8e3a7fd16360b0e6332098bdeb3"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/history/research-playtest-autumn.md",
+    "bytes": 8482,
+    "sha256": "ab772f810295d319dd61bd3974e7737545cc22dbbc2b19d56883b7ba9a6c75a2"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/history/research-playtest-spring.md",
+    "bytes": 8164,
+    "sha256": "2cb9248a8f83887b9461cd129a89465f45fa4c3ddbe414636b2cb61888a7d175"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/history/research-screen-reader-sessions.md",
+    "bytes": 8462,
+    "sha256": "8cb941b266189dd582b1a61b8ca9d3d6f3e83e542bf66f221ed3fb5c537bfa7f"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/history/retired-idea-hints.md",
+    "bytes": 7571,
+    "sha256": "15aa68a68e33d9375b209b5420335d6c02c7bf74202c2b63eab1307c3b1359aa"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/history/retired-idea-online-play.md",
+    "bytes": 7592,
+    "sha256": "707ea23ebe7d5718c5a37b741fcde21b4916d5c1f4ec772c571f07bf536f56fa"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/history/retired-idea-themes.md",
+    "bytes": 7697,
+    "sha256": "2724feefb38211157ee67d5b8690f0b7c3cbb013ef6be057f694c9ae1c866469"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/history/retired-idea-timed-mode.md",
+    "bytes": 7577,
+    "sha256": "d334f670f679023c8c0a85df5538d4034314eb0a57d0ccc70947fbfe2f431a59"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/history/roadmap-notes.md",
+    "bytes": 5200,
+    "sha256": "417eaf9d9f93d6c9eb52bd68ecc2bbd3d6ca832b0c2b8015be810d618fce8826"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/interface/_interface.md",
+    "bytes": 3234,
+    "sha256": "662c04ac546c65753723b5ae6d52b3afac9ca8c622069fdf0dc19d8a07164c3f"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/interface/announcements-policy.md",
+    "bytes": 10729,
+    "sha256": "8e6a773af73ce872a9fc7c40d793e58652f0b0329c6a905c542d45cab2ddd9b4"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/interface/board-keyboard-navigation.md",
+    "bytes": 10717,
+    "sha256": "4e8348064dd6aad1b1c7d0e126ba64299bb7cb1b7647f048de7a4b0aa13a0367"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/interface/control-bar.md",
+    "bytes": 9465,
+    "sha256": "130aa1bace54feb7ae2fc9ba32040e80321743f5a119c008247f8e1a10843d27"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/interface/controls.md",
+    "bytes": 4550,
+    "sha256": "6739c0c3511a6c761d85d15453a096673ba02245db05417fc7609e4df9921d3b"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/interface/dialog-policy.md",
+    "bytes": 8800,
+    "sha256": "95f4454d5575beecd769674a9444a6873a4cba95df3b33f2075bb01d2d41522a"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/interface/disabled-state-guide.md",
+    "bytes": 9628,
+    "sha256": "992e5ab45a2566d803a53d6a27b4ab630961714549f32fbd209e80be60ee75e6"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/interface/duplicate-names-policy.md",
+    "bytes": 6283,
+    "sha256": "bf4642a3e5892be05629bac892155cb710f8602b3086225e2d501c46e8423562"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/interface/error-display-guide.md",
+    "bytes": 10158,
+    "sha256": "9195416ca4d1a92874450aa227b11cb60a1b3e53082e36582dac317d65d4333a"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/interface/focus-policy.md",
+    "bytes": 9919,
+    "sha256": "106f799390b6fc5d1f8fabe16f932e95a8620181fbd946062669d8dd44a36e65"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/interface/form-layout-guide.md",
+    "bytes": 9447,
+    "sha256": "0f43e3211c22474c1ed26a6db92b40f4f0d98e69fe76ed7022a083df1e8fab5b"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/interface/input.md",
+    "bytes": 5059,
+    "sha256": "61389df5b84e1fc8b855355a48dc4bee8276b7df0250c9392a07c3f2a96dc3f6"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/interface/interface-review-checklist.md",
+    "bytes": 11148,
+    "sha256": "7d59905ba95d0e60e7adaeed794275ff86c110e9e72293d7e652abb28ab37fb5"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/interface/name-length-policy.md",
+    "bytes": 6007,
+    "sha256": "d1a9305d4e93c75a69c287badd9ab5fbfd25bbcfe9665673b74ab2002da18ec4"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/interface/native-controls-guide.md",
+    "bytes": 10243,
+    "sha256": "c4ca6b3cf313d5fbca7ce9f13fcb0fce552e736eb38ce84d1e80ad1fcafa6b73"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/interface/pointer-and-touch.md",
+    "bytes": 9746,
+    "sha256": "18d4181cae500a11dbc39b5526a0eddc00a691839a818f910c77d8620d6a21ca"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/interface/reproduction-panel.md",
+    "bytes": 11170,
+    "sha256": "812e54388223658466ed2c654d7896059f705d6eafb6e80f653a02157b9a73bd"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/interface/screen-reader-notes.md",
+    "bytes": 11348,
+    "sha256": "9b6268c59e3c4637c9868f9f6becf69135993f630410e2ea882181fddc2842bb"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/interface/status-bar.md",
+    "bytes": 10248,
+    "sha256": "6cb0a740b50b9ca15f4ecc95d190507be7e126ba3d8caf07c4eade84879a3b2c"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/interface/tables-policy.md",
+    "bytes": 7171,
+    "sha256": "43f69693fe5f899f744791e1494826b17d809a5139775c30807c209327a61328"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/interface/target-size-policy.md",
+    "bytes": 9362,
+    "sha256": "e019bcdafd1623302ad5dd091f2df4df1bfb83168b6f08d90b92ae9463b2d6fc"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/interface/text-entry-policy.md",
+    "bytes": 9437,
+    "sha256": "fec9b090ad4eabc4ab30851a8ebc90b1f7a5cccf3e1868ec4a0353363ebfd252"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/persistence/_persistence.md",
+    "bytes": 1682,
+    "sha256": "1cfe2e562bc1eb15fc2262044215e511b21de64d1d1ade2f8c80b30c109bd7db"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/persistence/corrupt-data-policy.md",
+    "bytes": 10166,
+    "sha256": "3b46db97a88b20067aa7b5bd1decdeab1ede9055d82b079f92cfdcca0adadd5a"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/persistence/persistence-envelope.md",
+    "bytes": 9336,
+    "sha256": "c15725909794d9907b38d9c8f8046164c894469de74d29a4227baf9e3d13c85e"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/persistence/persistence-overview.md",
+    "bytes": 8952,
+    "sha256": "7a55ec9c1f5edd62ab51e464d56510f61f3e4aebf4c1505de7e87fd762a46b6c"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/persistence/preferences-store.md",
+    "bytes": 9931,
+    "sha256": "715c7ba0c615c623d8c3ac044617c1eba65b947685db15c00610ec5f2c6b089a"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/persistence/private-browsing-notes.md",
+    "bytes": 6845,
+    "sha256": "e8a8e2efab6f962e2152298a9507dad4c23df890c987ebb8bc0e22670adbe3a3"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/persistence/retention-policy.md",
+    "bytes": 9403,
+    "sha256": "726a8c04b678a9299d6b34abfb426e3cd6c0a1a5d7a95929965554a7bb5ceaf9"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/persistence/storage-failure-policy.md",
+    "bytes": 9595,
+    "sha256": "f5714cbbb95199f944756af960d806cac4e42d6cfff7d905a6ee8f814a996e70"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/persistence/storage-quota-notes.md",
+    "bytes": 6973,
+    "sha256": "135e0c46dba5ee54816ce07cd24f002c7159376c5cecb1c83f80ea805e0e7099"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/persistence/storage-testing-guide.md",
+    "bytes": 8939,
+    "sha256": "a61f7ce8dbe6c91e1605725e34f740a8e4132e0f76bff85000b77fe5f4d1bdb4"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/quality/_quality.md",
+    "bytes": 2095,
+    "sha256": "dd818f92dd93daa09bc476cd973d5519e117d4883509272bf2276ffa7053b32b"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/quality/acceptance.md",
+    "bytes": 2803,
+    "sha256": "e21ad6017819681b7d2769e04be99917ba327bfe04af6dd07bc142fb2840ec15"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/quality/accessibility-audit.md",
+    "bytes": 13122,
+    "sha256": "d8eef2ceb52545faa795e35f0d742a845012fda8404ccfdee1d064c520b34ccc"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/quality/browser-support.md",
+    "bytes": 8957,
+    "sha256": "abf9c0756b9cbcbf3495b8fdbba634359961838c0a5294b333b547c04e4d72ea"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/quality/browser-test-guide.md",
+    "bytes": 11567,
+    "sha256": "5385b44f7b2a6b302efb5c4efa11e0b8842df4c0b8b3ada3ce0b1895590a6173"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/quality/fixtures-guide.md",
+    "bytes": 10699,
+    "sha256": "19a31de7d0d994dab181b1b8a5fb4ee4ec0c9923309096daf14c8cad1277deca"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/quality/flaky-test-notes.md",
+    "bytes": 11182,
+    "sha256": "38b3fe5114668974f91eff9d5f6e0591e21ec1e7402cd197e344b76269ede949"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/quality/known-issues.md",
+    "bytes": 7652,
+    "sha256": "5a457be0eaa9f33ea7e625fb4407aea6eabc039050e4e0ac6900fc25b1648e3c"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/quality/performance-budget.md",
+    "bytes": 10585,
+    "sha256": "21c18f3fa19787d3a5488cd27b7166e6ccc276d735eb761a75033c7579d41331"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/quality/regression-catalogue.md",
+    "bytes": 14309,
+    "sha256": "5e6ceb467eb84402fb1601758ad6aafb31c42d7b55541b2908b435666d05a8b7"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/quality/release-checklist.md",
+    "bytes": 8447,
+    "sha256": "06fecc379008ef2e57c38ef3dc2b1ceed7c0ad19b24347ab38dcd116895e32d9"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/quality/test-strategy.md",
+    "bytes": 11711,
+    "sha256": "670c6ff03bc37a4510adf667352d42479cb097ae64398f6eb859af6b79336f68"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/quality/unit-test-guide.md",
+    "bytes": 12338,
+    "sha256": "df11601fb5c7a1cf246ca71e832e1cb618da65a32d63c78bef17fed7ab65974d"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/README.md",
+    "bytes": 34115,
+    "sha256": "0a8c92e1b3eed359ffa8f22767f3a3e6c105ec89c7dbbb0f4ea225328fd24c17"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/sharing/_sharing.md",
+    "bytes": 1645,
+    "sha256": "d98bed67d15ed71c78f1b4c50683753efb6d6f1ac43c436416322107dbe6c4ba"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/sharing/board-code-format.md",
+    "bytes": 11819,
+    "sha256": "e399c646db3c7d854d177518c5987ec3f4780df7c53bf7dbd2c05d3264a1a99e"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/sharing/data-exchange-policy.md",
+    "bytes": 10212,
+    "sha256": "81547a8a0c7d38d2a9d687a8ebc85a38faa5476c4f53b7b92a2bfa96f3fa7fe7"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/sharing/format-versioning-guide.md",
+    "bytes": 7640,
+    "sha256": "9b1b9256183e278226a1ed9ff334dfa8203714fc0488aaa0e138591fc76fa846"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/sharing/import-safety-policy.md",
+    "bytes": 11106,
+    "sha256": "3cd6d61e2db9493d9d51e1e8fba5242ba0a30266cda6363f7c6cf04cbdbc8c7a"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/sharing/replay-format.md",
+    "bytes": 14384,
+    "sha256": "c8a4e25c5f6be6dfb9331ed9d6f8c6534d34ab858543cfa87026d71855b133ca"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/sharing/reproducibility.md",
+    "bytes": 5896,
+    "sha256": "fd2d3be94abe5da78d6aa8f6c98871eb535fc520485da94cd1df5328f8df3bdf"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/sharing/sharing-faq.md",
+    "bytes": 9125,
+    "sha256": "6b592fa00cd65b68c86dc8db2b231648f65fb6e06857278d869f108952371976"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/sharing/snapshot-format.md",
+    "bytes": 15563,
+    "sha256": "83a613a2e71855fc869a6b2cad560a1ef1b1500d13f0eda263b02bcde39b2efa"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/sharing/snapshot-selection-notes.md",
+    "bytes": 10415,
+    "sha256": "810cc9d1102ba84364ffeadc1bd15dce8ec74f872cd13d4038117a571b9b29e4"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/sound/_sound.md",
+    "bytes": 677,
+    "sha256": "b9e1fef5da9a2f0b3a56aa7271d2a69c93749c9411102902cff11786b00e0aa9"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/sound/audio-research-notes.md",
+    "bytes": 12907,
+    "sha256": "fd084ac677a908c41067d225027f887a6f3a152dd7dc8ca298de6bd903042424"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/sound/feedback-without-audio.md",
+    "bytes": 14030,
+    "sha256": "82f4bf8df8e691092487e4d2b4ca8e6abe708e68dd64c8a9c610fd7866ca1c9c"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/sound/sound.md",
+    "bytes": 912,
+    "sha256": "e25b1a905b369cc7d1e6150d55b082c5a5fb00e3db6d3a106bfb0ba13c1addc9"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/visuals/_visuals.md",
+    "bytes": 2291,
+    "sha256": "b6934eedf24d2eaab868f864752f6b7b80a4bc7cebb6cc38746afc0ef010c48e"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/visuals/card-artwork.md",
+    "bytes": 9785,
+    "sha256": "37129f5baee2e74374e1dd248b0d10ac7212cf448275c49b97072635357d83bc"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/visuals/color-policy.md",
+    "bytes": 9089,
+    "sha256": "8ac0b241cff9ce24af2522868c1db36ec366f0118ad8b464aab6131a97b13572"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/visuals/contrast-audit.md",
+    "bytes": 8807,
+    "sha256": "ff46f2189a2bae339ae3f0a71df6a9804372df9475bb724ab6d3d99b5cca9565"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/visuals/face-catalogue.md",
+    "bytes": 9633,
+    "sha256": "3fd32d7679ec2bac854884fc32203cdd0af86d522e478ce15437e40cd0c9bdba"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/visuals/icon-and-glyph-policy.md",
+    "bytes": 9365,
+    "sha256": "2fd474bd30a380f613ce5ba15359b06dd20571c281e1d87a32fc189e233340e9"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/visuals/large-board-rendering.md",
+    "bytes": 10913,
+    "sha256": "70529434c4d3bec94a2913f18cbb4bcbf1484c8160349ab4743a3cf061bf2f5a"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/visuals/layout-grid.md",
+    "bytes": 8749,
+    "sha256": "b0318d529629c0ca800b907f111bbe145c2d048105c4f18f66288322750235da"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/visuals/motion-policy.md",
+    "bytes": 8901,
+    "sha256": "8077ac292d6edc6f0f19c4b8fe54a35754cd3fffeb2379fd6bce4a849c8c9209"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/visuals/spacing-scale.md",
+    "bytes": 9019,
+    "sha256": "f240c31d6068a746c77b6fdadd0fba0d9894150b1026ce3e059cec3ebb3df0e8"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/visuals/theme-tokens.md",
+    "bytes": 9868,
+    "sha256": "c8cc54983225782aef238418a11be9573ba3d6f2d25de72a8201027ccf822116"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/visuals/typography.md",
+    "bytes": 9492,
+    "sha256": "551c8ba9daefaf997b3d747a995b421f72c45f41ccb5b16e879a4dd10fb72ce0"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/visuals/visual-review-checklist.md",
+    "bytes": 10155,
+    "sha256": "50e75bbb2c93763117418c22ecf97087ed93dd301c047fe2aa9716dd311cd481"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/visuals/visuals.md",
+    "bytes": 6483,
+    "sha256": "79280268090f68f08c543fcdd6be10a77df57677c22f8ac08c3c8dcfbee5d5a7"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/visuals/zoom-behaviour.md",
+    "bytes": 9527,
+    "sha256": "256db66d9ab30abfdbc18751aff308c3a4722461e7062ed7f0599aae43f2c6fb"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/writing/_writing.md",
+    "bytes": 1268,
+    "sha256": "ac54116053d5ada472db29a927955ce5b6bf7a2ffd637318b38c5603fa50ab42"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/writing/changelog-style.md",
+    "bytes": 7135,
+    "sha256": "9a7a512f7ec753685dcedc88a907f37b515d9a90cd4b7c17545033d264db27bf"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/writing/documentation-style.md",
+    "bytes": 7627,
+    "sha256": "2556194a67055aad08cf8bb788db154fee0e29f356c152dec6bc46def774c14b"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/writing/error-message-style.md",
+    "bytes": 8457,
+    "sha256": "cf82c42c61fb36dea2b6eeaa08989c78f00c84fc2b9584336164133f0e6c3f70"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/writing/glossary.md",
+    "bytes": 12932,
+    "sha256": "08f0f289afc26677d6583f3b6e052dfbf07055fa805c2d3d1fb310a089f3a4e6"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/writing/numbers-style.md",
+    "bytes": 9493,
+    "sha256": "c374ea1129e8feee4503afe0083d77172c603039291e964fe72abe4c0fd367ee"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/docs/writing/voice-guide.md",
+    "bytes": 9600,
+    "sha256": "66e3b35cffd35caede240616a0d4b2e57ea5826c689ec2a451cf2dcba0d1814f"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/index.html",
+    "bytes": 345,
+    "sha256": "be38f0ef7863bc0d1534d78af23faaa0ebd867f14e1a7a61c3129c32829e65aa"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/package-lock.json",
+    "bytes": 55156,
+    "sha256": "2c3e3274fd301d69253c93e99b75fd0f91c7cd49cdad1f1d96251a4f3aec3c71"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/package.json",
+    "bytes": 1162,
+    "sha256": "82df37b094ca8e910bfdf995a661b622cdfc73d2db0f45436c136e118b320956"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/README.md",
+    "bytes": 4767,
+    "sha256": "93925ee1e73c2d6fc85f7f1fbd7a8f344b1f05a40b4df2790f38f9da19b51ebe"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/scripts/package.fixture.json",
+    "bytes": 329,
+    "sha256": "78a64bf2bc1c856aa03ff0f5d01d83d25b9422518048f5fa9c7b9fb86c6cd7a5"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/scripts/replay-cli.ts",
+    "bytes": 2395,
+    "sha256": "7bf3513c0d7921760b4f056dbac1a57ea469c9fc090470138ce50e70abb77500"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/scripts/replay-messages.fixture.json",
+    "bytes": 251,
+    "sha256": "3d4897c2af808a0d006ed1198e73875518cbb86bcca46643e227d2f5ae1c5225"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/scripts/replay.test.ts",
+    "bytes": 4744,
+    "sha256": "9129a6abfb3255bc63a569ca3c85b1725b8058bb33eccca1ed89a1f2d827a932"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/scripts/replay.ts",
+    "bytes": 105,
+    "sha256": "3eeaa49405c73263c4f204cc962a1d16bd79b2cc3fd169d864f7a5e9670d268d"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/scripts/source-audit.test.ts",
+    "bytes": 3439,
+    "sha256": "6649940d45f1afb13f47fbb007b91ba0b35b8c608a3d29868329cb2d4e08e998"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/scripts/source-conventions.test.ts",
+    "bytes": 2854,
+    "sha256": "3f95d9bb679ad5e22d122f993a1386a6e34f010a459312ae5ca9e1a5318f9a9b"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/scripts/source-files.ts",
+    "bytes": 620,
+    "sha256": "4892d978b06acffe9a973ac21e6b9d320c5b1d2a06407a1e48f50e4546258d80"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/src/game/board/board.css",
+    "bytes": 827,
+    "sha256": "aa29a0d54aa690f10e8d5a8bf57fb0df362ec19becdd56d069a19b3771a8e1fe"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/src/game/board/Board.tsx",
+    "bytes": 2700,
+    "sha256": "f218c9761c637f0663281d9e9f8d23034aaca63386a3bc94ed3bc9a2628b3ba8"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/src/game/board/card-state.fixture.json",
+    "bytes": 256,
+    "sha256": "f34f97abdfa921dfb752044172692c5ec4eef877abecb236eb8ea595dcd10c36"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/src/game/board/card-state.test.ts",
+    "bytes": 545,
+    "sha256": "2a68f0aa97572e192d24dddfa2378bdfe42882e6ec3deee35351cb2f1d1d243f"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/src/game/board/card-state.ts",
+    "bytes": 551,
+    "sha256": "d579207052473916a41317e588a3c4ad4b466bafa690ea115a28e3180943466f"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/src/game/board/card.css",
+    "bytes": 1006,
+    "sha256": "1addfba2863eb1ccb90844ff288dbd0db51f1343ed65bbc2cf8ca0a75f79c429"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/src/game/board/Card.tsx",
+    "bytes": 1619,
+    "sha256": "1ab71bdf6a235c36dfb09ee69b97b8aa09d7dcf46eef79ec0a89e131e7800cd2"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/src/game/board/face-design.fixture.json",
+    "bytes": 482,
+    "sha256": "af68731d013aac76628f9a542d9ec1a22797067f9ec3780cf8cfae209d82c5b1"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/src/game/board/face-design.test.ts",
+    "bytes": 2455,
+    "sha256": "b44588c541d6cefd18b1683d9515a9607baac012096f7ba0b413e279a213e86e"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/src/game/board/face-design.ts",
+    "bytes": 1650,
+    "sha256": "fb5b68553d4e9a64f7f8fd7fa996d2f67fadfaa5f9998b1b7da9a91ccf496e15"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/src/game/board/Face.tsx",
+    "bytes": 1554,
+    "sha256": "3985b66cd53e68f05ebecf7d1263b9eb23c345088e2a9f1ae66dbd0cfa494957"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/src/game/board/keyboard.test.ts",
+    "bytes": 1569,
+    "sha256": "ab76d7aa2b9da00e862cc63576f79ccfaa0814edcb6588c79034583172d0595e"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/src/game/board/keyboard.ts",
+    "bytes": 1072,
+    "sha256": "5755705fb20c3d506b8f83138c43028b3c180152da82e00282fec99e2655c76d"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/src/game/board/nearest-scroll.ts",
+    "bytes": 1303,
+    "sha256": "1490f0211b87f1226610e7c1908358719ddc741bc892b4f61af3413e8774fd27"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/src/game/board/use-board-focus.ts",
+    "bytes": 1731,
+    "sha256": "21e950e970574d3e93fbe7619e31b4255b5230066f7304f58ebe8a538e6e1abd"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/src/game/completion.test.ts",
+    "bytes": 765,
+    "sha256": "2ef6d56d455df5ca04aa630421776cc088c0d6df5b1370b2831cdb1fec15e031"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/src/game/controls/BoardCodeForm.tsx",
+    "bytes": 1401,
+    "sha256": "0fcc88adab5b629d78d878c4f287674700cde2c07ee88fa786ec3fab617cd38e"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/src/game/controls/control-labels.ts",
+    "bytes": 349,
+    "sha256": "f5cd970235f16d428f1c8cf98bcac90c47c08e7fa65dfc3b4b59edc69954e951"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/src/game/controls/control.css",
+    "bytes": 284,
+    "sha256": "1bd31ae2f74de1f4dd223dc7ffa840377d2f8c9d2a9802a30840608f9808aba3"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/src/game/controls/controls.css",
+    "bytes": 366,
+    "sha256": "fbf3885683300caa60f6c0633bdb64df626ab0c37df4c4eb83b8b09368a7cb79"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/src/game/controls/Controls.tsx",
+    "bytes": 1294,
+    "sha256": "bdd1cb2efaaf5a65c809c3440c88648f6c2ad233611184dff3984f257b10915c"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/src/game/controls/reproduction.css",
+    "bytes": 808,
+    "sha256": "ae618088e911ec07495950d776fa3032892f7e2c1799876fcb70633b02bfd304"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/src/game/controls/Reproduction.tsx",
+    "bytes": 2194,
+    "sha256": "fb7b2abd51cb7dd23931c4d6413ef175711b8915fd85588f259826eae338a903"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/src/game/deck-rejection.fixture.json",
+    "bytes": 2398,
+    "sha256": "56deb19d6d31e26a751d71d7bb5c881c85f032841a1eceee39e136429ee4792b"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/src/game/deck-rejection.test.ts",
+    "bytes": 1315,
+    "sha256": "e7a52c56a6238e4eceb924f9bbb854561d58d90473d69d3fe63514b94f19fce9"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/src/game/deck.test.ts",
+    "bytes": 2569,
+    "sha256": "22370693d06501d715d1e8a07fb28a501e7a0cbf1638ca9355022abf233ad718"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/src/game/deck.ts",
+    "bytes": 2043,
+    "sha256": "718b98169069c7e318f5e362ca2c8277742eb0269258fa00e22f66594fa0cb78"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/src/game/elapsed-time.test.ts",
+    "bytes": 1047,
+    "sha256": "d6466412203a4d4110b27099757ab456d8cf83cad96f2a5f80f684a6c558f70e"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/src/game/elapsed-time.ts",
+    "bytes": 344,
+    "sha256": "bc263e9ee435c30d047c49cd1f037d1a9c6df9a171247c83b4fd596edd621f49"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/src/game/game.css",
+    "bytes": 1096,
+    "sha256": "f1d833f6d0328641edaa9ee7b3ef2b21bf64afffe6f79d81dcfff4247b210dd8"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/src/game/game.fixture.ts",
+    "bytes": 581,
+    "sha256": "dba19c664d03f4f3bc07a02386a5fb87815c45a1e892511eb9a189f1ed036072"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/src/game/game.test.ts",
+    "bytes": 4642,
+    "sha256": "e469fff7fbae7a6870962dc2091cd4ec585673e63bfd881aefa03ac74d2bc1a0"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/src/game/game.ts",
+    "bytes": 3066,
+    "sha256": "5277f054699081b29374cc444d51849bc30d90b56f1a6f863efdbc05f0013fde"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/src/game/Game.tsx",
+    "bytes": 3016,
+    "sha256": "435450e7790a24caa08f2548beeba2e14a1f27106606b886d1ecf7d7ae48067b"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/src/game/move-cap.test.ts",
+    "bytes": 1509,
+    "sha256": "bd31e2a5e58b23461a0c3bfda4e6520bed7790ce10130749f30486510933a43a"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/src/game/replay-order.test.ts",
+    "bytes": 812,
+    "sha256": "69955ff21a4154c476ddcfb28831aa52b9d7f52308622c0aa1cd17195eeb4f0c"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/src/game/replay.test.ts",
+    "bytes": 4154,
+    "sha256": "a67c6e580b9f271b41e46f50aa3fcfdf40a3002c5792f596968d649fc9ed9ecf"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/src/game/replay.ts",
+    "bytes": 2669,
+    "sha256": "72eff5bdc72a4495a1fb75b969574a5f151a5ea4a61b8ebf51e7bd15f211a304"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/src/game/saved-format.test.ts",
+    "bytes": 1202,
+    "sha256": "680f902a5aca9600a38c6fbb0b8d1462b4297f69f3513a272ded015f6083f293"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/src/game/saved-format.ts",
+    "bytes": 903,
+    "sha256": "0cbcf35232e68e3a50c6ea6b1f6b254a776e28854426b466d222be81d2854fda"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/src/game/selection.ts",
+    "bytes": 404,
+    "sha256": "97fe77db7c2fe61f86c2cbbe8995e23b602d29165b9231db7a108596e9b60d74"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/src/game/session/browser-clock.test.ts",
+    "bytes": 1318,
+    "sha256": "3b413a7c665347b2444a2a6cd9cc65945f05d49379df89d94b2e5d8b0f17ff02"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/src/game/session/browser-clock.ts",
+    "bytes": 539,
+    "sha256": "0db0e1691165d52bae85a9c164d2e3a09fc2d4a8fe90f1a26f994831e18febc7"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/src/game/session/fresh-board.ts",
+    "bytes": 512,
+    "sha256": "0fd5f98325e3c6a00afc37b65d2a27e7ed0f6e45de7a79a1a1fe7ba2a3e9a1f6"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/src/game/session/session.feedback.fixture.json",
+    "bytes": 185,
+    "sha256": "549701223b444918635d259f92469782ae5872df1b2b8cb2ee87c3808b56c5b7"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/src/game/session/session.test.ts",
+    "bytes": 6308,
+    "sha256": "8527f1dc35a398b7e762583525e7db29c38c2192a5225b0f617bb612735a3d2c"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/src/game/session/session.ts",
+    "bytes": 3156,
+    "sha256": "af827a0bda7bcd07a0ef0d2ab764044fdd44fa22f7267c30162846056c621582"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/src/game/session/storage.test.ts",
+    "bytes": 3399,
+    "sha256": "035ddb5eeecd272ade275a41bbef0363db9f19234351aa3bf80ba55e7c854b8a"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/src/game/session/storage.ts",
+    "bytes": 2210,
+    "sha256": "416ba9ffbcbbfbc3221d927509ff73bba575875fff3bcb77835e291629cdc09a"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/src/game/session/use-game.ts",
+    "bytes": 3755,
+    "sha256": "d5c0f2ff0b86dfb46c2229616a64526ea4db0afdd9f628eecd79f4005d258136"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/src/game/session/use-saved-preferences.ts",
+    "bytes": 623,
+    "sha256": "8a4165642e4df95f399f51bd101634b1830c23b9a1b33a7dc2888e4406816226"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/src/game/session/use-session-clock.ts",
+    "bytes": 2425,
+    "sha256": "4f3c9abd5c2fc27b5f0102b0c117b64d7b94139c6e9f153fc6a854b2573d529c"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/src/game/snapshot-selection.test.ts",
+    "bytes": 1612,
+    "sha256": "ea8a457626276b66415efb9fd849b48094f03decfbfd634d7c0e39720a81a67d"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/src/game/snapshot-selection.ts",
+    "bytes": 2149,
+    "sha256": "855d90f9a8eaaf73e1a2c7079b209af0dd4c92d3319b9b3bec385d47a6a7cacf"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/src/game/snapshot.test.ts",
+    "bytes": 6886,
+    "sha256": "ac06662ec5ee952b6aa190e4fd4fb064a5a120afc5dd34d1799c30b15126aa49"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/src/game/snapshot.ts",
+    "bytes": 2778,
+    "sha256": "913eefa580e370e10c69e0591228cf97d11495c31f8dc2c1db1aaae104bf9531"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/src/game/status/GameStatus.tsx",
+    "bytes": 1253,
+    "sha256": "fe445c565b27c42904b6a2fb3de1e9ff747ae7f270405d32c7b4e1c8294d1305"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/src/game/status/status-labels.ts",
+    "bytes": 113,
+    "sha256": "12b321c0669514e06651c2965353f5547733db7b7bf56bf798db985b13e1a7b8"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/src/game/status/status.css",
+    "bytes": 630,
+    "sha256": "40d8df8a544487453eb7fb39c175a3db745fbae93fa64c276d8749eecda914a8"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/src/game/tournament/Bracket.tsx",
+    "bytes": 2033,
+    "sha256": "deb70988eda183ce0df9b13bd18c7cfaa7d0ea6f5e3f26c706f8206e6c7d0a71"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/src/game/tournament/format.test.ts",
+    "bytes": 4901,
+    "sha256": "a6870ebfb8db6e46f3ecf7ecf1d82c71969455e9185c1766f5092dc752c4c939"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/src/game/tournament/format.ts",
+    "bytes": 5114,
+    "sha256": "ecf36c519861bd35d2550877ad91b644188f049be7fdc5752cdfe2f66d8cc731"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/src/game/tournament/labels.ts",
+    "bytes": 2129,
+    "sha256": "565b6787a73bb63b57b2d2f38ded221c9acafdada4adca9b99ff4d7f9dbab1ce"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/src/game/tournament/LeaveDialog.tsx",
+    "bytes": 1463,
+    "sha256": "b406768eaad530390f7dbf29e287159f5b76f4d55783eca0fa627f1818bbf0b0"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/src/game/tournament/PastTournaments.tsx",
+    "bytes": 1410,
+    "sha256": "b429c300f484d8852931cb91f2a972a58c615739106f42e4490b1761c7778656"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/src/game/tournament/rules.test.ts",
+    "bytes": 5939,
+    "sha256": "a7873e4b870ed0b249a2e06000ae6c821cf123a7b1c3ccb719a7ed057fa971d6"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/src/game/tournament/rules.ts",
+    "bytes": 6382,
+    "sha256": "8c84204a1be63db848aae9f37b65260397922dc28eec70c4bde22945eff1e565"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/src/game/tournament/storage.test.ts",
+    "bytes": 4055,
+    "sha256": "ad1dc54a567aeb270e2456d342e0f0b58957e0d6007affe69183719bb19f8d5f"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/src/game/tournament/storage.ts",
+    "bytes": 2292,
+    "sha256": "5b5f715d8b600b00a562e0696fef9ac0e12b6fb4efe73087e75ce3ce86c97956"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/src/game/tournament/tournament.css",
+    "bytes": 1739,
+    "sha256": "09a6bbbcd33c5ec54fe706ad20128fea5b3c8acff92f48d3b3bb5626b5888692"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/src/game/tournament/TournamentScreen.tsx",
+    "bytes": 4519,
+    "sha256": "7dc23761309d9770d0da23d6e9c6618408b13406e221af090f70a556f86700af"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/src/game/tournament/TournamentSetup.tsx",
+    "bytes": 2522,
+    "sha256": "165b84471c389c1db60f84e640591ee6b287524b95fd5bcdf65656ae2c60b9d2"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/src/game/tournament/TournamentTools.tsx",
+    "bytes": 1388,
+    "sha256": "ada9a18495ce57ca04a55dbc3658b9b2dea61f75b35ca6dcf790260ccff7116e"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/src/game/tournament/use-screen-focus.ts",
+    "bytes": 1353,
+    "sha256": "660bbf21178690cc2c19e0d82046869b9be4cbb977f8dc130924c2694ac5be15"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/src/game/tournament/use-tournament.ts",
+    "bytes": 6301,
+    "sha256": "1c04c8174c60135270015434c3b6e4610888acbb5111f38b5b53cb597f46e7c2"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/src/main.tsx",
+    "bytes": 300,
+    "sha256": "a365b787c8116f6fcccdd6573af202238fdd44d8f2aff1351203761315922e2c"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/tests/accessibility-fixture.ts",
+    "bytes": 1830,
+    "sha256": "e83518f65f2247d374d7da79e1a5e1d6b97f3e47ea32f3ea93bb58cc814c82a9"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/tests/accessibility-tree.ts",
+    "bytes": 2445,
+    "sha256": "320c557f1b4dd64043fe63d214605b2105a3b845410ef65d1e14a8d193da4d72"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/tests/accessibility.e2e.test.ts",
+    "bytes": 7533,
+    "sha256": "a6610d35f3ff9985dd3ea21b460f27422d93efef727515aa50c0eb4f5be32f31"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/tests/accessibility.fixture.json",
+    "bytes": 3278,
+    "sha256": "09600a46b6681089066383b1c8db3e397ecdf1a32222373d8b6b9746267def09"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/tests/all-sizes.e2e.test.ts",
+    "bytes": 1219,
+    "sha256": "e47e6eb4c2bde571bbb24997289b31c200ad4c792baa687bd1058833fdbc2fb7"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/tests/announcements.e2e.test.ts",
+    "bytes": 4026,
+    "sha256": "72986bb12a486e68d5487a996582c3dab78ba0ebabf5f292c70bd0e512d73191"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/tests/art.e2e.test.ts",
+    "bytes": 5693,
+    "sha256": "eaa76b6098f239a09c44c75bea77113c9f956da742928625c5b28c61526ebbb4"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/tests/artifact-server.ts",
+    "bytes": 1070,
+    "sha256": "4f8fcd62d9f682b5838849a96eab901d6c2de6f3af50e68fa0767692e4a4193e"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/tests/browser-environment.e2e.test.ts",
+    "bytes": 2969,
+    "sha256": "98ac12a1181efa70bd6f4106e4ef11b462b89e11699fbd25381626b2bea68dbd"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/tests/browser-test.ts",
+    "bytes": 5101,
+    "sha256": "c03ff60bf5fa94407a94a8e1ca73a65ecb7dcb1dad6c825fa61937b1a4324b54"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/tests/build-output.e2e.test.ts",
+    "bytes": 709,
+    "sha256": "f7e96ec35e06f00cc8b20383889a170f04b480c0356247e74e0e8ec089b74468"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/tests/clock-edges.e2e.test.ts",
+    "bytes": 1280,
+    "sha256": "ceff8f71c8102a201895a319018ff6760c366074ccbaaabaef2f179f97706259"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/tests/control-contract.e2e.test.ts",
+    "bytes": 5979,
+    "sha256": "ca794d449ad1c2bf6cfae4c92331ed20b883bc5642252c819e071e4dbfe3da1f"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/tests/controls.e2e.test.ts",
+    "bytes": 3119,
+    "sha256": "73003810efec81596127e70d19176fdfb1e1d43ef7c74e5d73abbaaee0a09fd9"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/tests/deal-oracle.ts",
+    "bytes": 951,
+    "sha256": "0311eeaac445ebffd0d80b4bddccc3d4b1d7f837e7eb4470e966524cafe72903"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/tests/focus-bounds.ts",
+    "bytes": 2022,
+    "sha256": "3cb4aad33fea7ceb9173035f9b7d661bca8635b93d2524db43f8caa883d027a5"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/tests/focus-entry.e2e.test.ts",
+    "bytes": 3881,
+    "sha256": "86075afe77f047c6d7151274dfbfd604227908e5662a0eb6e28ba231e14962dc"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/tests/fractional-clock.e2e.test.ts",
+    "bytes": 3628,
+    "sha256": "3beefc917e72b821d6ece50bf98a970d59650330b255e3029c509c5fdc793baf"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/tests/game-fixture.ts",
+    "bytes": 2567,
+    "sha256": "5e3a525f0b674ef52ff4de4e138410f958291acc6eaef1ced75285a1fbf23746"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/tests/idle-clock.e2e.test.ts",
+    "bytes": 3111,
+    "sha256": "3b7bca581ab4d4e682ec1b1c62750a9de5427531ca7860807732e62c5f3cdc2e"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/tests/input-contract.e2e.test.ts",
+    "bytes": 933,
+    "sha256": "37248771a49fceab25ec95de8941e9bb0b4aa4f01404dea8df91ed12807977bb"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/tests/keyboard.e2e.test.ts",
+    "bytes": 1722,
+    "sha256": "7881ae04a70c6bcc4262726e46c89567d3c4595db0d15b947bad15da63f358ab"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/tests/layout.e2e.test.ts",
+    "bytes": 3638,
+    "sha256": "b78a037e5a959dac5eb46b6a09479ba15f65b1fc64e41bde60b23bae08fbb30c"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/tests/lifecycle.e2e.test.ts",
+    "bytes": 4483,
+    "sha256": "83b2719b5e44819f6427438326107ed39cecd6e5c9fc55bd762646d1a4f59675"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/tests/matched-mark.e2e.test.ts",
+    "bytes": 3343,
+    "sha256": "e158e5308818b0f529d602299b7bd60e4f4e064ac978ffd7f7d1f40580266d8f"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/tests/motion.e2e.test.ts",
+    "bytes": 1559,
+    "sha256": "829296cd29f4c9c334caf954e2474690ac509597a45a513c9428fd24d508984a"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/tests/persistence-contract.e2e.test.ts",
+    "bytes": 4670,
+    "sha256": "82d467f91113881af0815d3634be43fc4e6660777313e4b4ea3c78ec5c4160c1"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/tests/play.e2e.test.ts",
+    "bytes": 3386,
+    "sha256": "9769d7e876ec55574a0e20781ea32de8a7ea7ff89c0a8798ae68fa46c8f851ce"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/tests/pointer-focus.e2e.test.ts",
+    "bytes": 7283,
+    "sha256": "005d584655a5f5242264e50aa928e78a0047b3c14a869745650f1d2a05848fb2"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/tests/product-contract.e2e.test.ts",
+    "bytes": 4944,
+    "sha256": "b48b923f84111a329ea8ecebc997d018b2e903b508117f3fc863b9657aa0f261"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/tests/readability.ts",
+    "bytes": 1927,
+    "sha256": "dfea814e5025b18c19fdeb5b71a07b0b635ac81ace3347bc94c47ea3bbda5b60"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/tests/saved-bests.e2e.test.ts",
+    "bytes": 2998,
+    "sha256": "323438bec6a703cd99d87559ae7503482067aeb330e602ef0a6d31fb139b55d5"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/tests/scrollbars.e2e.test.ts",
+    "bytes": 1712,
+    "sha256": "13ed62215b445465001692bd700145ade6d4a833ceef3b3b348403654f9aad9b"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/tests/snapshots.e2e.test.ts",
+    "bytes": 4072,
+    "sha256": "7b702a37429078d3503a824f2d649d6e606efb549a4cac832deeafe907e5dceb"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/tests/spacing.e2e.test.ts",
+    "bytes": 3342,
+    "sha256": "02f12d08ee98644f5e50fda2becd32aa510aa607d81efcf78b179d34a62a2370"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/tests/status-controls.e2e.test.ts",
+    "bytes": 3716,
+    "sha256": "3a65f70d143d4df0fa1b3841359ae14ad0462a03b47c9a39428f7764201455ce"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/tests/status-format.fixture.json",
+    "bytes": 210,
+    "sha256": "0b7103ea3d8d75fc515a4c1976d046d3dd522a1e2785afe0ae2ca30f6d5e3232"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/tests/status.e2e.test.ts",
+    "bytes": 1693,
+    "sha256": "ab95d929bbb88e04727f1827cb732d804446111aea1c55301253d5bdb636b769"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/tests/style.e2e.test.ts",
+    "bytes": 3970,
+    "sha256": "9e94c730d324b011caadef4faede644d5f8a7fb68891236283e8efb967969f54"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/tests/timer-lifecycle.e2e.test.ts",
+    "bytes": 3430,
+    "sha256": "a944fac55aa4ed4bd98d14c4108de6c6e5d9f88d68f79d59b6bfaf209cd0e61b"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/tests/touch-scroll.e2e.test.ts",
+    "bytes": 3130,
+    "sha256": "d690f522dae6c80d3dbd7643a52b1024e019bff6130d3c4a534a110daab53ff7"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/tests/tournament-controls.e2e.test.ts",
+    "bytes": 7441,
+    "sha256": "347ec74c0b0918049f2c1909d02a34394f2f974b64dbeeef28642aab8fc87c01"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/tests/tournament-fixture.ts",
+    "bytes": 3906,
+    "sha256": "a5a14a5c952360f1989e2a5ac12d6f02fda39218d70f6a004f358475c7534274"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/tests/tournament-play.e2e.test.ts",
+    "bytes": 6040,
+    "sha256": "dd29b54aba9da5780274daba49926bc1a0229405789220e015d64a2b6172187e"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/tests/ui-snapshot.ts",
+    "bytes": 695,
+    "sha256": "eb551ff43c2d3c844287710b9103f023f3f297841e3c3a22f0bf483174bdbf6d"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/tests/ui.fixture.json",
+    "bytes": 225,
+    "sha256": "2be167d72f3183bb189eb8f37550e823c7b99ac8f58b820290557996395edca3"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/tests/zoom.e2e.test.ts",
+    "bytes": 3457,
+    "sha256": "cd76a24c801d4e5301ae21d5401f2f3e5f27e4b5971b6f91f424e47aef988249"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/tsconfig.app.json",
+    "bytes": 287,
+    "sha256": "ef8147feba45db5b286219a3a1ff496afa93fad3a43dcfd6665f012fc127e6eb"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/tsconfig.base.json",
+    "bytes": 424,
+    "sha256": "9929e25d4aaf686c65f8530eedcbfa96f58df59db44540424b44ccb395e9a923"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/tsconfig.e2e.json",
+    "bytes": 168,
+    "sha256": "1107781734a7d0ae937fe28239684715787ed6cea183d4ddb233997494f8f4e4"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/tsconfig.node.json",
+    "bytes": 308,
+    "sha256": "49b7b4463836bd4eab053da389b4bd8d62e9a3e4df9e585885bfb427a6e54f8e"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/vite.art.config.ts",
+    "bytes": 380,
+    "sha256": "3ed3781e7ea9fa46cf365a78828f56a8cc947f925e61d2522faa2c55c80d6f23"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/vite.config.ts",
+    "bytes": 490,
+    "sha256": "bcffc9651502280102f50840d40e6954bd0f28eaa38d33623b5fb592c99aa001"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/vite.session.config.ts",
+    "bytes": 395,
+    "sha256": "ff123691f9a124985dddc634ba9b14a2d09f9f5c95128b291036620a253cdb34"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "files/vitest.config.ts",
+    "bytes": 144,
+    "sha256": "82c2b20983ff990ae584f1e614d24b01bcda05e1e2910e4f0e49f79655c78905"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "game.html",
+    "bytes": 258148,
+    "sha256": "85acf95fa56d2832107cb4a667419958e8437a54ff425fd2b4cdcf064d55b444"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "prompt.md",
+    "bytes": 10999,
+    "sha256": "f44f8c8b7e5aaec295be030a1b092a375e2975b3de46930a7bac971cf2228b9f"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a8f1dc59b8ca",
+    "assessmentId": null,
+    "path": "report.md",
+    "bytes": 5351,
+    "sha256": "e43d04be7bf19bd62055cff4d3bcb75397ba17efa29e14b09c406a8746385778"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "changes.patch",
+    "bytes": 132974,
+    "sha256": "371a105cd438dc60e33d162c6ad82d3cc33fe3f5cf1feb3907fb5de21e60718a"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "chat-run.json",
+    "bytes": 911,
+    "sha256": "2802533aa52d2a0a174f01d26f8236246a3691ddb8a0f9048b39a0756a2781a7"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/.agents/directives/_directives.md",
+    "bytes": 916,
+    "sha256": "5c24f594c49eef97999d6fa44b844ed4c0b2f2becc1cda0b03fea4ff16144a54"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/.agents/loader.md",
+    "bytes": 8255,
+    "sha256": "aa575eaf513a09accdeea8d945de34a01f8f1b25e42992e4ef29fde257a0e619"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/.agents/memory/_memory.md",
+    "bytes": 2346,
+    "sha256": "07adf2b1212c549b434de7ace221ac7e78b8f40fa3d8e644a216e79c664a52aa"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/.agents/memory/crystallized/_crystallized.md",
+    "bytes": 851,
+    "sha256": "86b007cc4689353b19163728447c70e73c839f0a8a164b87228525a352db5a37"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/.agents/open-forge.json",
+    "bytes": 430,
+    "sha256": "dcee5c3936dd5be6cbe6bd52a77d67a1f69673b8d310219aeac97ea43ca6c753"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/.agents/open-forge.lock.json",
+    "bytes": 1024,
+    "sha256": "d00d54bb4ed75fad887145a209d41fbf52d95cac8a1f5c5629c00a79ab4a0d81"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/.agents/README.md",
+    "bytes": 11788,
+    "sha256": "4c2395b6d3d4215554afc308ad4f42fc5a706ea1d8c26bb7cab262faa6e43ccf"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/.gitignore",
+    "bytes": 130,
+    "sha256": "3528bf1f87c9d2fb52f4bf4b94ef0e0d7280b103021c8258a683b459744c1ebe"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/.open-forge-state/.gitignore",
+    "bytes": 2,
+    "sha256": "cdbcae15105d6b781e620813c79c7e868740d4e9cc53ce6f5fcbbc12387adf4b"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/.open-forge-state/workspace.lock",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/.prettierignore",
+    "bytes": 102,
+    "sha256": "3c3241d83bd1eab02cd74ab60a19c633b971268a054f23aeb019697e5172aba2"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/.prettierrc.json",
+    "bytes": 67,
+    "sha256": "c6bc6fc6b031c97774bea2caa5e77ae85d2d02d4ea80962ffafc7a2b1f50d734"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/AGENTS.md",
+    "bytes": 537,
+    "sha256": "9e9835927bbb1334c74014a7215fb92fef74439381e1e3990c5eaf30a7dbc94c"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/art/face-sheet.css",
+    "bytes": 381,
+    "sha256": "9a65d6e6b93de3ff307593b981f770a841b4e2dfe8eee3b560ed7c7120c407a9"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/art/face-sheet.tsx",
+    "bytes": 1134,
+    "sha256": "f8fff7b1a0e8183ac8f3b5a794e2382fa62199075a522211360041b8b149790d"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/art/index.html",
+    "bytes": 309,
+    "sha256": "87771cdc870271c2858205a8c509842649c6f573fbe6348fe4a2f61e5c793595"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/art/session/index.html",
+    "bytes": 319,
+    "sha256": "1ca8be0f977b4298a7d38392ef5a2298e461e4cb968c4a7d787be48948ad1741"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/art/session/session-harness.tsx",
+    "bytes": 483,
+    "sha256": "2f5c3751153b173061f8c7f578ddb47b9e8343a6ae20a11709f743d4b64ee193"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/CLAUDE.md",
+    "bytes": 84,
+    "sha256": "adb704b4c64b6fc352879f34bda5a4c829820da49511a11d6dc6f54f39d9a1b7"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/_docs.md",
+    "bytes": 1838,
+    "sha256": "c253ba9411e93afba631710ffa6aecad1e745361f07fd2f323214da7b363bb0d"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/architecture/_architecture.md",
+    "bytes": 2809,
+    "sha256": "5f21ab88792fec602eebebae2f4198ddf7b03b2248e0f1e6c7beac727bb28a2d"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/architecture/architecture.md",
+    "bytes": 4108,
+    "sha256": "3863e04fd739c2dd82e1aaad9bc1c6f35b19f5460e0e7e468c9f5c1aea31a75e"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/architecture/build-pipeline.md",
+    "bytes": 9897,
+    "sha256": "a17cba0aa11baaa5519df67ccf5c9140353a4984e0ec104b2919b786156d27c7"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/architecture/clock-design.md",
+    "bytes": 13235,
+    "sha256": "940ac0b2af185ee82c8433dfc6ef4869809663449609f7a3dd32a22ec5427166"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/architecture/code-review-guide.md",
+    "bytes": 9904,
+    "sha256": "5141f0d56e6967d92fe6d799b808562dc013ddac2cb7e25b97ff1ce6906e8f2f"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/architecture/css-organization.md",
+    "bytes": 11276,
+    "sha256": "0c6c71ff9a128947973c9ef7ff77412ac7ec08976722a485f925c432ef19aea9"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/architecture/dependency-policy.md",
+    "bytes": 9374,
+    "sha256": "d3493c455e0a20eff788bc4d89e3a8b2dada4dcae6a41d707f4cbe395e9d5155"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/architecture/module-layout-policy.md",
+    "bytes": 10228,
+    "sha256": "6e9bc3da0eaf84296c2f818a7de18885bab80e1b42511b271315e4b678992e94"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/architecture/offline-delivery.md",
+    "bytes": 9368,
+    "sha256": "1e2a1d89048aba71308cfa74b91ce0a6f7b80ff1d738be22afa2763868143af4"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/architecture/purity-guide.md",
+    "bytes": 10038,
+    "sha256": "7cbe0247b083c0eb57ca29043a0741f9a141fb2a5d6d1a04444c076c52ad3b58"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/architecture/randomness-policy.md",
+    "bytes": 10556,
+    "sha256": "e1480e328e221c29a84440ae9c43f3969e17bce3a520296c8b6da88d18861246"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/architecture/react-boundaries.md",
+    "bytes": 10821,
+    "sha256": "2e7786840f1ed806a113eea06e31f9f60bec8cccb4bee32a529b80f30d18fece"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/architecture/session-module.md",
+    "bytes": 11914,
+    "sha256": "2ed39fbe514b7c88d1b2714faa8b8020e1abe8d33ce980230274f792fb24f02e"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/architecture/source-audit-notes.md",
+    "bytes": 10082,
+    "sha256": "aee666ae790dfead51ed8ad16308ee8bedba576398ab4be9c80c70cb00be5808"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/architecture/source-layout.md",
+    "bytes": 13939,
+    "sha256": "07f8914de8026cbb3acd235c8a18d56710899bd4fc8eccf0e188d4897e2d7a21"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/architecture/technology.md",
+    "bytes": 4176,
+    "sha256": "3a3db4505dd71a589da59cfa8a2685a24580f29f55431ad028a2c9c5b50e6d9c"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/architecture/test-policy.md",
+    "bytes": 10797,
+    "sha256": "c66ebf4704038c722a02f564e93671728c20fedb439c0fcd71d224b7172b297d"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/architecture/time-policy.md",
+    "bytes": 10072,
+    "sha256": "549a2d308674eb219ed6161d9dcafd9ec4951cd79617d2cadc646fb52c0258c8"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/architecture/typescript-settings.md",
+    "bytes": 11294,
+    "sha256": "6ed3e56be7195f2af3df6c551533cbd807d7b55b8de059e16cf019bea1768596"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/competition/_competition.md",
+    "bytes": 1767,
+    "sha256": "fe6e0cef99d73894c920969b5d25b4df21ec08a71c55542e5d97d61a6036c6f6"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/competition/competition-boards.md",
+    "bytes": 7965,
+    "sha256": "ad19edcabb23654f85681b4e011ad6818a73ce6134a7e8c71fe8434215acfe22"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/competition/competition-deals.md",
+    "bytes": 7598,
+    "sha256": "c553d4ddbf5e70212c944b74a81e054d9f8788b0d93d7a08392cfe2c7d5b6adc"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/competition/competition-overview.md",
+    "bytes": 6696,
+    "sha256": "16356811928c2ae7e14b296fb55d746811f922a53250ce1480694e7d531877b1"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/competition/competition-pairing.md",
+    "bytes": 6542,
+    "sha256": "664a0d0527f893a726039480053badeebd5086d6d23986e161f8782aa803ec36"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/competition/competition-research.md",
+    "bytes": 9079,
+    "sha256": "d1233af58a0d2b125abf754f1270340ba0fd2ba2f39a5446de38d4cbf62112c7"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/competition/competition-rounds.md",
+    "bytes": 6870,
+    "sha256": "435c5e989c5505a2cacbc58bceeb7633eed78b66919a8b60567c47f1f8bd00f0"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/competition/competition-scores.md",
+    "bytes": 8014,
+    "sha256": "8b9e0d4a00acedab45e4c28ea436bc17f61645ce160a1743434321e4a211fe75"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/competition/competition-ties.md",
+    "bytes": 8151,
+    "sha256": "6cce0bf9b98fdab55dbf722b830d66e3fb8d62333ed19ce6bc6c4a49c1c1dd48"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/competition/tournament.md",
+    "bytes": 4811,
+    "sha256": "fe85d18566df57f7ad7ba5e388844f5611de8fefa1f9a4229eff5ecf140174d6"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/decisions/_decisions.md",
+    "bytes": 9797,
+    "sha256": "24f611bba5c40a8214f3ad1288a342b40d520952875d3fffc207cd6a5a67e410"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/decisions/adr-001-react.md",
+    "bytes": 4632,
+    "sha256": "cbbff49cac2b85215b05326d0aa6542c1d218a4a53e7a77f8a9c783249a04832"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/decisions/adr-002-typescript.md",
+    "bytes": 4507,
+    "sha256": "296061f3624b65c464f855000e7cd7db32ea018b6405be0d83e37a17ba9f1569"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/decisions/adr-003-single-file.md",
+    "bytes": 4406,
+    "sha256": "c30853b0b5b7920076d0a4484a38f12a60e25ebdf843e686cb704656985dc2de"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/decisions/adr-004-no-backend.md",
+    "bytes": 4656,
+    "sha256": "a3bfb80e2b787240092169a1c33eae2a8cb39cf9aef0ed975852b762802709e5"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/decisions/adr-005-vite.md",
+    "bytes": 4500,
+    "sha256": "fbaf18ee7462a0c4bfac404a028f1489aa7cb12031b9ff1aa325bf2a36916ed6"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/decisions/adr-006-native-controls.md",
+    "bytes": 5151,
+    "sha256": "5464f9138eca8e4814c90933ec2ab2735abbf4e7790ab29f7c82e159b9622412"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/decisions/adr-007-svg-faces.md",
+    "bytes": 4437,
+    "sha256": "5ca3bfd82f39f213cb18863e41c21c10f8fbd0cdbb1694f6ba651a7f1e993f71"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/decisions/adr-008-seven-sizes.md",
+    "bytes": 4501,
+    "sha256": "b8e3c3a46611f97c79cce5d7f70cb8f0a11a0a0ef8992df291016ee5c324b39d"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/decisions/adr-009-board-codes.md",
+    "bytes": 4635,
+    "sha256": "dc074bc79937aa519a43f7ab24c69c4d11cd220372c7820d6ca17223eed17701"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/decisions/adr-010-snapshot-json.md",
+    "bytes": 5210,
+    "sha256": "6fc6fb0f4cf2b06f95b241f3b107234ccddedbcc8238a4c10aa54954d2b6dc87"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/decisions/adr-011-storage-keys.md",
+    "bytes": 4772,
+    "sha256": "c24e52b68062fc08340faff8414500490dc7bb8e8667f44c3d2acab65b559677"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/decisions/adr-012-no-sound.md",
+    "bytes": 5389,
+    "sha256": "61d645aae37374462e20d328ade16f3e368846b00ee33c6a6ee19550b4918588"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/decisions/adr-013-monotonic-clock.md",
+    "bytes": 4728,
+    "sha256": "cdf4153ab3440ac1b24f5e0c8371469e4d5dc6d4e7644f6c1c45761a15d912cb"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/decisions/adr-014-pause-on-hidden.md",
+    "bytes": 4765,
+    "sha256": "7a95006acf3aea5c4ef1a02c1fa9a3655fdce162341037f8ef1c20bb180b6d40"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/decisions/adr-015-replay-cli.md",
+    "bytes": 4782,
+    "sha256": "e3f5cbd0c28e9c3adf094926a121952647d0e06ec97273f6aa02f9c960e4b2c6"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/decisions/adr-016-no-state-library.md",
+    "bytes": 4634,
+    "sha256": "6ad4c862f4ec388d4174916d6c45ab7f32e667298ba73e19504de28c0feac273"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/decisions/adr-017-colocated-tests.md",
+    "bytes": 4570,
+    "sha256": "00d3ad160747555fb4b75a5406e4b46850eda19ff9c30a7a75fc469505a83cf8"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/decisions/adr-018-playwright.md",
+    "bytes": 5469,
+    "sha256": "81c9ebf44e593ee24c2ee598396aaddde36f213157337eb9416b0202da6e7447"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/decisions/adr-019-modal-overlays.md",
+    "bytes": 3931,
+    "sha256": "8f316cf239bc462dc317f378a593042ff064befa32c84666bef1b39e0f87e035"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/decisions/adr-020-vitest.md",
+    "bytes": 4397,
+    "sha256": "6cb6df360d743ac9d8b192680cfa3137d29d552edca2b3b2cf7484cdeecde077"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/decisions/adr-021-seeded-decks.md",
+    "bytes": 5000,
+    "sha256": "384a9e3a065be3400b23b079446498b6e7fe8a402886ea351396bd6a0dbec094"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/decisions/adr-022-card-names.md",
+    "bytes": 4826,
+    "sha256": "77bc3078714bbe417c97a21ea7ba91f0da23d9bbe346e973d514b6156042c731"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/decisions/adr-023-results-as-lists.md",
+    "bytes": 4234,
+    "sha256": "276fabea417b46405b88233ecb5e2405b472675d12b6c3afa2d05f7f608893f1"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/decisions/adr-024-roving-focus.md",
+    "bytes": 4826,
+    "sha256": "5a0c61ad2a2cbf840bec3ca4cdc9bae2907656620403c5029134c25530f3b447"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/decisions/adr-025-reduced-motion.md",
+    "bytes": 4517,
+    "sha256": "0a80857ba9c29a5fb4047fed7bed99f70cdb24e644909439a7ffe10701e1d8bb"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/decisions/adr-026-dark-theme.md",
+    "bytes": 4661,
+    "sha256": "b7212011a801f7396999ab04980c627d52d0c03665bc4a4c73561d3a7e4a1252"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/decisions/adr-027-offline-first.md",
+    "bytes": 4918,
+    "sha256": "becf8a25dbeda4fcd4ac34b32bbeb4076ccd8cdc91d444f807d3111df3a91d56"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/decisions/adr-028-prettier.md",
+    "bytes": 4703,
+    "sha256": "0427e34f2261d8f8e6df05f2a0f2d147a85ac0cf6a61de580d72b8977e0833e1"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/decisions/adr-029-pinned-versions.md",
+    "bytes": 4337,
+    "sha256": "1e07a1e3859c177c507a5728aa1ed3154657a6f3bb4a377c9d80a93801dba0d8"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/decisions/adr-030-move-cap.md",
+    "bytes": 4594,
+    "sha256": "183cabcfb2847fa1e2f97b7d0626b002c7e84243fe859c7c211a1ec164f01044"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/decisions/adr-031-toast-announcements.md",
+    "bytes": 4028,
+    "sha256": "5b4a53b7abc0ffd4ca0838b87923be20f691270b6976b1ef4659e5e7bd1b9619"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/decisions/adr-032-best-score-scope.md",
+    "bytes": 4460,
+    "sha256": "5674a4e2bf1e41187a183b3065863742682810b521eb6ce210639140e47be796"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/decisions/adr-033-mismatch-800ms.md",
+    "bytes": 4866,
+    "sha256": "b01cee73e84b699d5f1fbd92bbce147f1084415d42c8eef06725aeb5e15e69b4"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/decisions/adr-034-face-count.md",
+    "bytes": 4756,
+    "sha256": "b4035cfd719689c1ef00c884f67e1f7c9eaa69184955ab46a9efde67f234df77"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/decisions/adr-035-scroll-large-boards.md",
+    "bytes": 4940,
+    "sha256": "627543ec96b000ceb7dc9dc706b8ddb6bc40decc0c1b2fa40d436e58a272fba4"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/decisions/adr-036-motion-opt-in.md",
+    "bytes": 4068,
+    "sha256": "b79b67746b9f03f4a7ff8754f906aa9575af12785e32b59f755001d570d54cef"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/decisions/adr-037-snapshot-pause.md",
+    "bytes": 5649,
+    "sha256": "f32fdd18cc396effb7328c908bd9d400b009fd781573588fbe6dd2ebfdbb969d"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/decisions/adr-038-no-analytics.md",
+    "bytes": 4641,
+    "sha256": "c8bdf59cf09db2e2c79ba1db9d53ae723aa7e09bcced7904912debbc180332b9"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/decisions/adr-039-contrast-floor.md",
+    "bytes": 4459,
+    "sha256": "7ada55f69d49c2f5b3ef39c8f9adb4d03f4857ea0ebda8d282f75427f2b43798"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/decisions/adr-040-file-size-aim.md",
+    "bytes": 4703,
+    "sha256": "8ce95d81c39a9015532458bdc5c9e8be6ad2f8e663b25ca3e532f0b9841c8fe3"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/decisions/adr-041-name-limits.md",
+    "bytes": 4112,
+    "sha256": "d17d89996f94840aa0073329ffc1a6de5a57d172d3ba69a88c00b089b6e9adef"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/decisions/adr-042-error-copy.md",
+    "bytes": 4825,
+    "sha256": "9a15afa66c9645215683b624123fe4034a73df9a87b0b65cc47f8294617544a9"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/decisions/adr-043-keyboard-parity.md",
+    "bytes": 4983,
+    "sha256": "28d3488fb1050aa8df3b72f1f128e4c107334d7298fb4a65a93de5f1d96b3789"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/decisions/adr-044-no-routing.md",
+    "bytes": 5556,
+    "sha256": "eab7f4fc9ca7ff0f34732f7e3b0d855ea0e2c74d13fab83b7a0e511d985f6333"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/decisions/adr-045-no-i18n-yet.md",
+    "bytes": 4662,
+    "sha256": "1edd9edc3cc2c584500175509b49a78d1efd0a42f731fd87fe40c2d96fe53cc1"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/decisions/adr-046-print-styles.md",
+    "bytes": 4629,
+    "sha256": "caffa372ee6a0cbbb80f5df84c8f23166ded5ae9568862c55ff307798f74efb3"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/decisions/adr-047-touch-scroll.md",
+    "bytes": 4757,
+    "sha256": "76dad8f140781aa2d80890965cb273553ffc9f6ac56f0a6aff1d717074028018"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/decisions/adr-048-replay-order.md",
+    "bytes": 4826,
+    "sha256": "1c6e5c41c4f10108dbb875b68a1547b660cb7f56ab35d9f4300b40d560726f8d"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/decisions/adr-049-zoom-floor.md",
+    "bytes": 4372,
+    "sha256": "c8a57863d4d2decd021f40d2cfbb22a320bddac451487d14f5e1113c3227fc1a"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/decisions/adr-050-completion-banner.md",
+    "bytes": 4920,
+    "sha256": "bfd3031d340b03c73d68edbae9c1023c34e09bf33a89f6239e39d9bde5e2b16e"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/decisions/adr-051-test-artifacts.md",
+    "bytes": 4780,
+    "sha256": "601293a87d16870db0601cdc2e059ef6c474f3f78919548999da1cdf75811c32"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/decisions/adr-052-release-tags.md",
+    "bytes": 4139,
+    "sha256": "50371e181224977547edac207608d2dc89bf89d77cf535ce446786c939e4241d"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/decisions/adr-053-docs-in-repo.md",
+    "bytes": 4221,
+    "sha256": "5f9a93633250871bca72b1dfc25144ecc97bd30976949c6efa512e6246fa969a"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/decisions/adr-054-acceptance-journeys.md",
+    "bytes": 5231,
+    "sha256": "e9ac0fbdf553e906275ab521d98a6778cc74687b5001ca76cb5c5ea4c8c41a3f"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/decisions/adr-055-review-before-merge.md",
+    "bytes": 3698,
+    "sha256": "3520c2aff528915b6f56b6d96022fa77f7dddc228ae915e5d8a76b3ff6cb6cf1"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/decisions/adr-056-no-feature-flags.md",
+    "bytes": 4879,
+    "sha256": "81fceafa39cf27afd9398d1a59cea606108918a589e279776cd43d1f2fc21e0b"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/decisions/adr-057-small-components.md",
+    "bytes": 5231,
+    "sha256": "6c6c33a6e476842028798a77300abda5d3e56cacbba84622973013f3f845ba8f"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/decisions/adr-058-storage-namespace.md",
+    "bytes": 4932,
+    "sha256": "85374c3715238adc3f3b220cd3a9d0286c593f8acd10dbba544e1c7b2c6823df"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/gameplay/_gameplay.md",
+    "bytes": 2345,
+    "sha256": "0ce856f1785bffca6d9bf69f31a46789b93b4c46bd1c25da04c9129cd2939ddc"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/gameplay/best-score-records.md",
+    "bytes": 9693,
+    "sha256": "67ed58ff855f98e67718a9b3d7678daa01d920be1cdc09c443d974fd48cd600d"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/gameplay/board-size-catalogue.md",
+    "bytes": 9319,
+    "sha256": "528fe9635aa2bdd9d61582151db18809b5229c432f247e49896bedbe2146f21e"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/gameplay/deck-generation.md",
+    "bytes": 10273,
+    "sha256": "a1710559eece197f74392c43d343dc061ebff405f58dd6694bd3055a7de8e534"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/gameplay/elapsed-time-rules.md",
+    "bytes": 9803,
+    "sha256": "d1729c0e83e167984528e470603c135adcbe50f171987c3052ace7b3a853ea36"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/gameplay/game-state-model.md",
+    "bytes": 9446,
+    "sha256": "6ddb2d052d0c2660f7ed803845ae2c609c7d1e222315e54d2d87a5277e86c23d"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/gameplay/gameplay-faq.md",
+    "bytes": 7616,
+    "sha256": "075ffb87131edcb078f265ef2e79766ba8d4b4e208e59170fc8ad4c6ed547d9b"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/gameplay/mismatch-interval.md",
+    "bytes": 9441,
+    "sha256": "87917f73cbbd665f0a6f7caa2244a7311a18e4af62dbdca66d41416d495ac6ef"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/gameplay/new-game-and-restart.md",
+    "bytes": 9210,
+    "sha256": "bc2664c9b21609eb8c5fd3ae414814969ddc321661a8cc8382b08955f7f11f97"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/gameplay/pair-identity.md",
+    "bytes": 8380,
+    "sha256": "4ac8d4645ce44394b76ae7dcb290d75c4766d62e4a3d88cc0866677cbd757cc1"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/gameplay/rules.md",
+    "bytes": 4438,
+    "sha256": "a0648e10ed416673e535524b808571ca115c516beafca20fff9a5c6e71ecbe5a"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/gameplay/scoring-and-moves.md",
+    "bytes": 8817,
+    "sha256": "cc4a48bd6abe5cc498b4ea069b1fa2b74907c0bd03e4318b19ce5ee18ff4068b"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/gameplay/selection-state.md",
+    "bytes": 8657,
+    "sha256": "cf539f55bd95b43169816169496664baa53da60120f6e5cd6e032569fd3856d1"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/gameplay/turn-resolution.md",
+    "bytes": 9567,
+    "sha256": "819c59281eeb778a622143f60ce372fbbe70c898812e3fa072c8220d2ed45f30"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/gameplay/win-conditions.md",
+    "bytes": 8147,
+    "sha256": "a1750a73e0540e843afbc7e4515925ab7f12f3af7c361bfbb0d7213b8fc43b67"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/history/_history.md",
+    "bytes": 4527,
+    "sha256": "5cfab2b3c914bde1f4fbf5f9749a952ddf9b6dce7b5d00c07b0269abb06ba8d3"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/history/incident-16x16-layout.md",
+    "bytes": 8580,
+    "sha256": "17022f6e988f105684b53f49c0e7d9e8824e1476fc56aa8cb9b3e1648dbfd97c"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/history/incident-clock-drift.md",
+    "bytes": 8571,
+    "sha256": "e69ab0b345faa0c8a9a97c36d4861fbd8326ac7115663d5db27f220202399166"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/history/incident-focus-trap.md",
+    "bytes": 7964,
+    "sha256": "57000363d0b256ffa9971e8db998995857ad1cb07caf2a081e1223c6092580be"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/history/incident-lost-best-scores.md",
+    "bytes": 8037,
+    "sha256": "11a2f03bdbe924925ae5ee722609a104c0a9eeddc6c0c9122a45ca3a3e17076c"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/history/incident-snapshot-rejects.md",
+    "bytes": 8184,
+    "sha256": "3865e4efbfa92c789bcdfef6caff13fd2db55d489051a20414625d9ea78410d4"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/history/meeting-notes-accessibility.md",
+    "bytes": 8289,
+    "sha256": "0aad27a0d9925785e4fc961bfc731895adb84ef2ea50ff3c3f2aa315cec860c8"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/history/meeting-notes-architecture.md",
+    "bytes": 8108,
+    "sha256": "2f70267bd0cf157f637d906fb2cb49899d4e26f2004ce9e9e0d008d2b07945d5"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/history/release-notes-1-0.md",
+    "bytes": 5434,
+    "sha256": "c63a374487d5dc71f37d1472df20ba5de90d0abdfe347a2bf58f5c7496e8d1e4"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/history/release-notes-1-1.md",
+    "bytes": 7883,
+    "sha256": "0bb14cd6e0acfb4129d38c41a7d15fca54aa3589adc9c16c67e177661f8f86d7"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/history/release-notes-1-2.md",
+    "bytes": 7947,
+    "sha256": "42a57aab1f9159e1bc8af843ae628bef31fdcb9af3448ef4e5212193cdb9cc00"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/history/release-notes-1-3.md",
+    "bytes": 7629,
+    "sha256": "eb84c296e379eaff2889e8d3a9aa5bf753953c6e28d29f9c8a0a59663255cd19"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/history/release-notes-1-4.md",
+    "bytes": 8149,
+    "sha256": "e43c19174d9f8e07d71d8c407bf4190277ae7dc506dd5298db327b4a93cc7cdb"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/history/release-notes-2-0.md",
+    "bytes": 8281,
+    "sha256": "2cd6a0c61b3df922847ddf9b8b9fc8379c76064b48c80180112c60cbac39f84e"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/history/release-notes-2-1.md",
+    "bytes": 4203,
+    "sha256": "39480b21d851b27f19e20ba108742de461deddf6699e1cc5616576d6c76c3648"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/history/release-notes-2-2.md",
+    "bytes": 8039,
+    "sha256": "7cce18ee2bc48a548a9e19a83cb4d80d153404284379a76f9e7a7c28435a36b6"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/history/research-memory-games-survey.md",
+    "bytes": 8802,
+    "sha256": "aecf07697b037c72f518d2f555595c51007cd430b93e7ae7eb951c654649fb09"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/history/research-phone-usage.md",
+    "bytes": 8439,
+    "sha256": "56b162a46aa45996ea38eaed811fb1b11cb7a8e3a7fd16360b0e6332098bdeb3"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/history/research-playtest-autumn.md",
+    "bytes": 8482,
+    "sha256": "ab772f810295d319dd61bd3974e7737545cc22dbbc2b19d56883b7ba9a6c75a2"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/history/research-playtest-spring.md",
+    "bytes": 8164,
+    "sha256": "2cb9248a8f83887b9461cd129a89465f45fa4c3ddbe414636b2cb61888a7d175"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/history/research-screen-reader-sessions.md",
+    "bytes": 8462,
+    "sha256": "8cb941b266189dd582b1a61b8ca9d3d6f3e83e542bf66f221ed3fb5c537bfa7f"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/history/retired-idea-hints.md",
+    "bytes": 7571,
+    "sha256": "15aa68a68e33d9375b209b5420335d6c02c7bf74202c2b63eab1307c3b1359aa"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/history/retired-idea-online-play.md",
+    "bytes": 7592,
+    "sha256": "707ea23ebe7d5718c5a37b741fcde21b4916d5c1f4ec772c571f07bf536f56fa"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/history/retired-idea-themes.md",
+    "bytes": 7697,
+    "sha256": "2724feefb38211157ee67d5b8690f0b7c3cbb013ef6be057f694c9ae1c866469"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/history/retired-idea-timed-mode.md",
+    "bytes": 7577,
+    "sha256": "d334f670f679023c8c0a85df5538d4034314eb0a57d0ccc70947fbfe2f431a59"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/history/roadmap-notes.md",
+    "bytes": 5200,
+    "sha256": "417eaf9d9f93d6c9eb52bd68ecc2bbd3d6ca832b0c2b8015be810d618fce8826"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/interface/_interface.md",
+    "bytes": 3234,
+    "sha256": "662c04ac546c65753723b5ae6d52b3afac9ca8c622069fdf0dc19d8a07164c3f"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/interface/announcements-policy.md",
+    "bytes": 10651,
+    "sha256": "291dd1f9e62a42046c09f8a757201a1bf5938fec111da8b586fea50a39f1c9b3"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/interface/board-keyboard-navigation.md",
+    "bytes": 10717,
+    "sha256": "4e8348064dd6aad1b1c7d0e126ba64299bb7cb1b7647f048de7a4b0aa13a0367"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/interface/control-bar.md",
+    "bytes": 9133,
+    "sha256": "d28d50e2c8fede8df92877f792577b9398f6b74ce4e0a8106a5a1fa8f905c156"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/interface/controls.md",
+    "bytes": 4474,
+    "sha256": "d5c1e35b5be52bf4e0d6b469a44c36f764d4e8aa83d8f41a792920cceebb35d7"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/interface/dialog-policy.md",
+    "bytes": 8358,
+    "sha256": "e5bacad56800daacc20e6258cc178b9636b42624d07ce93c31cb2e4f1023b72e"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/interface/disabled-state-guide.md",
+    "bytes": 9628,
+    "sha256": "992e5ab45a2566d803a53d6a27b4ab630961714549f32fbd209e80be60ee75e6"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/interface/duplicate-names-policy.md",
+    "bytes": 6360,
+    "sha256": "904d53071c5229ade078a23a1618ab6bd1eaf2d3c025e791920ba29b150e3995"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/interface/error-display-guide.md",
+    "bytes": 10020,
+    "sha256": "5ab1f3933d17f80a09fd67be2a8409f2e1bfdf0bdefe5852aecf9e8cf25e0df4"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/interface/focus-policy.md",
+    "bytes": 9861,
+    "sha256": "a1566987bc3d49c95a88279e717c0cd6eef3036d8cba105407a3fecab5349057"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/interface/form-layout-guide.md",
+    "bytes": 9410,
+    "sha256": "db5039373d0df29083f85f806bfeb1f4d58644bff420b035ef68c65a4c88a082"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/interface/input.md",
+    "bytes": 5059,
+    "sha256": "61389df5b84e1fc8b855355a48dc4bee8276b7df0250c9392a07c3f2a96dc3f6"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/interface/interface-review-checklist.md",
+    "bytes": 11063,
+    "sha256": "bea6bd1732ab2f088d78f673ebb9a7388ba4eb917b1aa28291e0e210b6ac6851"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/interface/name-length-policy.md",
+    "bytes": 5855,
+    "sha256": "49954ec00380e8914021d1dab744174ab2e11e46a6dc5a33c0c8e6c9506bdf60"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/interface/native-controls-guide.md",
+    "bytes": 10038,
+    "sha256": "4bb2e79e1c9cc1a3d5ebafdee865eedb97d5f1fbaf1c1ac9d1e39367879a5366"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/interface/pointer-and-touch.md",
+    "bytes": 9746,
+    "sha256": "18d4181cae500a11dbc39b5526a0eddc00a691839a818f910c77d8620d6a21ca"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/interface/reproduction-panel.md",
+    "bytes": 11170,
+    "sha256": "812e54388223658466ed2c654d7896059f705d6eafb6e80f653a02157b9a73bd"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/interface/screen-reader-notes.md",
+    "bytes": 11348,
+    "sha256": "9b6268c59e3c4637c9868f9f6becf69135993f630410e2ea882181fddc2842bb"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/interface/status-bar.md",
+    "bytes": 10067,
+    "sha256": "b7bb58f91af2fcc34fdada2c28e31fc17687fc09fdb2ad29a20ac9b7d8c116dc"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/interface/tables-policy.md",
+    "bytes": 6947,
+    "sha256": "a9fbf531b002ea0352636af3cd27363c7df52a58a9dc3018af06a5fb5e8cc80b"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/interface/target-size-policy.md",
+    "bytes": 9362,
+    "sha256": "e019bcdafd1623302ad5dd091f2df4df1bfb83168b6f08d90b92ae9463b2d6fc"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/interface/text-entry-policy.md",
+    "bytes": 9440,
+    "sha256": "28962e8f9c5a4b21891553c559407c65e23659402d69280730d4765c39bf6850"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/persistence/_persistence.md",
+    "bytes": 1682,
+    "sha256": "1cfe2e562bc1eb15fc2262044215e511b21de64d1d1ade2f8c80b30c109bd7db"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/persistence/corrupt-data-policy.md",
+    "bytes": 10166,
+    "sha256": "3b46db97a88b20067aa7b5bd1decdeab1ede9055d82b079f92cfdcca0adadd5a"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/persistence/persistence-envelope.md",
+    "bytes": 9110,
+    "sha256": "b64cfda0290a9e39f6013309471904c8a6d8017eedbbcad0736dd010cbeb01ab"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/persistence/persistence-overview.md",
+    "bytes": 8798,
+    "sha256": "bbb4262d91f67e3e2c822d03168c9b509a598cf70d400c879086df639aee459c"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/persistence/preferences-store.md",
+    "bytes": 9931,
+    "sha256": "715c7ba0c615c623d8c3ac044617c1eba65b947685db15c00610ec5f2c6b089a"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/persistence/private-browsing-notes.md",
+    "bytes": 6845,
+    "sha256": "e8a8e2efab6f962e2152298a9507dad4c23df890c987ebb8bc0e22670adbe3a3"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/persistence/retention-policy.md",
+    "bytes": 9279,
+    "sha256": "1b959c8b85603ed5e049c2d37a2d3014ac59c7fe011b840670404d6dc8098798"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/persistence/storage-failure-policy.md",
+    "bytes": 9102,
+    "sha256": "5e5f387a818d04d6589c1ad5a29e1bcb7f64860d28fb05da5be5e36c13961dd1"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/persistence/storage-quota-notes.md",
+    "bytes": 6973,
+    "sha256": "135e0c46dba5ee54816ce07cd24f002c7159376c5cecb1c83f80ea805e0e7099"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/persistence/storage-testing-guide.md",
+    "bytes": 8939,
+    "sha256": "a61f7ce8dbe6c91e1605725e34f740a8e4132e0f76bff85000b77fe5f4d1bdb4"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/quality/_quality.md",
+    "bytes": 2095,
+    "sha256": "dd818f92dd93daa09bc476cd973d5519e117d4883509272bf2276ffa7053b32b"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/quality/acceptance.md",
+    "bytes": 2803,
+    "sha256": "e21ad6017819681b7d2769e04be99917ba327bfe04af6dd07bc142fb2840ec15"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/quality/accessibility-audit.md",
+    "bytes": 13122,
+    "sha256": "d8eef2ceb52545faa795e35f0d742a845012fda8404ccfdee1d064c520b34ccc"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/quality/browser-support.md",
+    "bytes": 8957,
+    "sha256": "abf9c0756b9cbcbf3495b8fdbba634359961838c0a5294b333b547c04e4d72ea"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/quality/browser-test-guide.md",
+    "bytes": 11567,
+    "sha256": "5385b44f7b2a6b302efb5c4efa11e0b8842df4c0b8b3ada3ce0b1895590a6173"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/quality/fixtures-guide.md",
+    "bytes": 10699,
+    "sha256": "19a31de7d0d994dab181b1b8a5fb4ee4ec0c9923309096daf14c8cad1277deca"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/quality/flaky-test-notes.md",
+    "bytes": 11182,
+    "sha256": "38b3fe5114668974f91eff9d5f6e0591e21ec1e7402cd197e344b76269ede949"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/quality/known-issues.md",
+    "bytes": 7652,
+    "sha256": "5a457be0eaa9f33ea7e625fb4407aea6eabc039050e4e0ac6900fc25b1648e3c"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/quality/performance-budget.md",
+    "bytes": 10585,
+    "sha256": "21c18f3fa19787d3a5488cd27b7166e6ccc276d735eb761a75033c7579d41331"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/quality/regression-catalogue.md",
+    "bytes": 14309,
+    "sha256": "5e6ceb467eb84402fb1601758ad6aafb31c42d7b55541b2908b435666d05a8b7"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/quality/release-checklist.md",
+    "bytes": 8447,
+    "sha256": "06fecc379008ef2e57c38ef3dc2b1ceed7c0ad19b24347ab38dcd116895e32d9"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/quality/test-strategy.md",
+    "bytes": 11711,
+    "sha256": "670c6ff03bc37a4510adf667352d42479cb097ae64398f6eb859af6b79336f68"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/quality/unit-test-guide.md",
+    "bytes": 12338,
+    "sha256": "df11601fb5c7a1cf246ca71e832e1cb618da65a32d63c78bef17fed7ab65974d"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/README.md",
+    "bytes": 33929,
+    "sha256": "505a369a1a83d51df4f6c005e7a83600889cbb370371cd8bf856da6ceb9b5d95"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/sharing/_sharing.md",
+    "bytes": 1645,
+    "sha256": "d98bed67d15ed71c78f1b4c50683753efb6d6f1ac43c436416322107dbe6c4ba"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/sharing/board-code-format.md",
+    "bytes": 11819,
+    "sha256": "e399c646db3c7d854d177518c5987ec3f4780df7c53bf7dbd2c05d3264a1a99e"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/sharing/data-exchange-policy.md",
+    "bytes": 10138,
+    "sha256": "4ac7cef70949b3d9a72a7c2f7a0396dd9f9a734a40fcd43f3dbcb6919125a0dd"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/sharing/format-versioning-guide.md",
+    "bytes": 7640,
+    "sha256": "9b1b9256183e278226a1ed9ff334dfa8203714fc0488aaa0e138591fc76fa846"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/sharing/import-safety-policy.md",
+    "bytes": 10788,
+    "sha256": "1ca4be949eb6c7955c52e9f970fcf2de18c2e2a03a9a202af28c02e2cfa85de9"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/sharing/replay-format.md",
+    "bytes": 14384,
+    "sha256": "c8a4e25c5f6be6dfb9331ed9d6f8c6534d34ab858543cfa87026d71855b133ca"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/sharing/reproducibility.md",
+    "bytes": 5896,
+    "sha256": "fd2d3be94abe5da78d6aa8f6c98871eb535fc520485da94cd1df5328f8df3bdf"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/sharing/sharing-faq.md",
+    "bytes": 9125,
+    "sha256": "6b592fa00cd65b68c86dc8db2b231648f65fb6e06857278d869f108952371976"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/sharing/snapshot-format.md",
+    "bytes": 15563,
+    "sha256": "83a613a2e71855fc869a6b2cad560a1ef1b1500d13f0eda263b02bcde39b2efa"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/sharing/snapshot-selection-notes.md",
+    "bytes": 10415,
+    "sha256": "810cc9d1102ba84364ffeadc1bd15dce8ec74f872cd13d4038117a571b9b29e4"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/sound/_sound.md",
+    "bytes": 677,
+    "sha256": "b9e1fef5da9a2f0b3a56aa7271d2a69c93749c9411102902cff11786b00e0aa9"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/sound/audio-research-notes.md",
+    "bytes": 12907,
+    "sha256": "fd084ac677a908c41067d225027f887a6f3a152dd7dc8ca298de6bd903042424"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/sound/feedback-without-audio.md",
+    "bytes": 14030,
+    "sha256": "82f4bf8df8e691092487e4d2b4ca8e6abe708e68dd64c8a9c610fd7866ca1c9c"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/sound/sound.md",
+    "bytes": 912,
+    "sha256": "e25b1a905b369cc7d1e6150d55b082c5a5fb00e3db6d3a106bfb0ba13c1addc9"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/visuals/_visuals.md",
+    "bytes": 2291,
+    "sha256": "b6934eedf24d2eaab868f864752f6b7b80a4bc7cebb6cc38746afc0ef010c48e"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/visuals/card-artwork.md",
+    "bytes": 9785,
+    "sha256": "37129f5baee2e74374e1dd248b0d10ac7212cf448275c49b97072635357d83bc"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/visuals/color-policy.md",
+    "bytes": 9089,
+    "sha256": "8ac0b241cff9ce24af2522868c1db36ec366f0118ad8b464aab6131a97b13572"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/visuals/contrast-audit.md",
+    "bytes": 8807,
+    "sha256": "ff46f2189a2bae339ae3f0a71df6a9804372df9475bb724ab6d3d99b5cca9565"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/visuals/face-catalogue.md",
+    "bytes": 9633,
+    "sha256": "3fd32d7679ec2bac854884fc32203cdd0af86d522e478ce15437e40cd0c9bdba"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/visuals/icon-and-glyph-policy.md",
+    "bytes": 9365,
+    "sha256": "2fd474bd30a380f613ce5ba15359b06dd20571c281e1d87a32fc189e233340e9"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/visuals/large-board-rendering.md",
+    "bytes": 10913,
+    "sha256": "70529434c4d3bec94a2913f18cbb4bcbf1484c8160349ab4743a3cf061bf2f5a"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/visuals/layout-grid.md",
+    "bytes": 8749,
+    "sha256": "b0318d529629c0ca800b907f111bbe145c2d048105c4f18f66288322750235da"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/visuals/motion-policy.md",
+    "bytes": 8901,
+    "sha256": "8077ac292d6edc6f0f19c4b8fe54a35754cd3fffeb2379fd6bce4a849c8c9209"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/visuals/spacing-scale.md",
+    "bytes": 9019,
+    "sha256": "f240c31d6068a746c77b6fdadd0fba0d9894150b1026ce3e059cec3ebb3df0e8"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/visuals/theme-tokens.md",
+    "bytes": 9868,
+    "sha256": "c8cc54983225782aef238418a11be9573ba3d6f2d25de72a8201027ccf822116"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/visuals/typography.md",
+    "bytes": 9492,
+    "sha256": "551c8ba9daefaf997b3d747a995b421f72c45f41ccb5b16e879a4dd10fb72ce0"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/visuals/visual-review-checklist.md",
+    "bytes": 10155,
+    "sha256": "50e75bbb2c93763117418c22ecf97087ed93dd301c047fe2aa9716dd311cd481"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/visuals/visuals.md",
+    "bytes": 6483,
+    "sha256": "79280268090f68f08c543fcdd6be10a77df57677c22f8ac08c3c8dcfbee5d5a7"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/visuals/zoom-behaviour.md",
+    "bytes": 9527,
+    "sha256": "256db66d9ab30abfdbc18751aff308c3a4722461e7062ed7f0599aae43f2c6fb"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/writing/_writing.md",
+    "bytes": 1268,
+    "sha256": "ac54116053d5ada472db29a927955ce5b6bf7a2ffd637318b38c5603fa50ab42"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/writing/changelog-style.md",
+    "bytes": 7135,
+    "sha256": "9a7a512f7ec753685dcedc88a907f37b515d9a90cd4b7c17545033d264db27bf"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/writing/documentation-style.md",
+    "bytes": 7627,
+    "sha256": "2556194a67055aad08cf8bb788db154fee0e29f356c152dec6bc46def774c14b"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/writing/error-message-style.md",
+    "bytes": 8457,
+    "sha256": "cf82c42c61fb36dea2b6eeaa08989c78f00c84fc2b9584336164133f0e6c3f70"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/writing/glossary.md",
+    "bytes": 12370,
+    "sha256": "f91c249595af05898715ff632578f451ce69b00935e10c8b980bff2abe9ecbbf"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/writing/numbers-style.md",
+    "bytes": 9493,
+    "sha256": "c374ea1129e8feee4503afe0083d77172c603039291e964fe72abe4c0fd367ee"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/docs/writing/voice-guide.md",
+    "bytes": 9600,
+    "sha256": "66e3b35cffd35caede240616a0d4b2e57ea5826c689ec2a451cf2dcba0d1814f"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/index.html",
+    "bytes": 345,
+    "sha256": "be38f0ef7863bc0d1534d78af23faaa0ebd867f14e1a7a61c3129c32829e65aa"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/package-lock.json",
+    "bytes": 55156,
+    "sha256": "2c3e3274fd301d69253c93e99b75fd0f91c7cd49cdad1f1d96251a4f3aec3c71"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/package.json",
+    "bytes": 1162,
+    "sha256": "82df37b094ca8e910bfdf995a661b622cdfc73d2db0f45436c136e118b320956"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/README.md",
+    "bytes": 4161,
+    "sha256": "0d5d4902d8c00bf7db28be91f410d986ce7ddc0f6f9bef6feaba7061c01bc8d0"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/scripts/package.fixture.json",
+    "bytes": 329,
+    "sha256": "78a64bf2bc1c856aa03ff0f5d01d83d25b9422518048f5fa9c7b9fb86c6cd7a5"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/scripts/replay-cli.ts",
+    "bytes": 2395,
+    "sha256": "7bf3513c0d7921760b4f056dbac1a57ea469c9fc090470138ce50e70abb77500"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/scripts/replay-messages.fixture.json",
+    "bytes": 251,
+    "sha256": "3d4897c2af808a0d006ed1198e73875518cbb86bcca46643e227d2f5ae1c5225"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/scripts/replay.test.ts",
+    "bytes": 4744,
+    "sha256": "9129a6abfb3255bc63a569ca3c85b1725b8058bb33eccca1ed89a1f2d827a932"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/scripts/replay.ts",
+    "bytes": 105,
+    "sha256": "3eeaa49405c73263c4f204cc962a1d16bd79b2cc3fd169d864f7a5e9670d268d"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/scripts/source-audit.test.ts",
+    "bytes": 3439,
+    "sha256": "6649940d45f1afb13f47fbb007b91ba0b35b8c608a3d29868329cb2d4e08e998"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/scripts/source-conventions.test.ts",
+    "bytes": 2854,
+    "sha256": "3f95d9bb679ad5e22d122f993a1386a6e34f010a459312ae5ca9e1a5318f9a9b"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/scripts/source-files.ts",
+    "bytes": 620,
+    "sha256": "4892d978b06acffe9a973ac21e6b9d320c5b1d2a06407a1e48f50e4546258d80"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/src/game/board/board.css",
+    "bytes": 827,
+    "sha256": "aa29a0d54aa690f10e8d5a8bf57fb0df362ec19becdd56d069a19b3771a8e1fe"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/src/game/board/Board.tsx",
+    "bytes": 2423,
+    "sha256": "21a2b8387db4419355d7e018b5072376cb12a2a1465e53bbd1c5ab67448e3c3e"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/src/game/board/BoardHelp.tsx",
+    "bytes": 285,
+    "sha256": "04dd049be2d4be3bb9ebdd7537f92d51a7881105f579745454f424eecd6f2b48"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/src/game/board/card-state.fixture.json",
+    "bytes": 256,
+    "sha256": "f34f97abdfa921dfb752044172692c5ec4eef877abecb236eb8ea595dcd10c36"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/src/game/board/card-state.test.ts",
+    "bytes": 545,
+    "sha256": "2a68f0aa97572e192d24dddfa2378bdfe42882e6ec3deee35351cb2f1d1d243f"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/src/game/board/card-state.ts",
+    "bytes": 551,
+    "sha256": "d579207052473916a41317e588a3c4ad4b466bafa690ea115a28e3180943466f"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/src/game/board/card.css",
+    "bytes": 1006,
+    "sha256": "1addfba2863eb1ccb90844ff288dbd0db51f1343ed65bbc2cf8ca0a75f79c429"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/src/game/board/Card.tsx",
+    "bytes": 1619,
+    "sha256": "1ab71bdf6a235c36dfb09ee69b97b8aa09d7dcf46eef79ec0a89e131e7800cd2"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/src/game/board/face-design.fixture.json",
+    "bytes": 482,
+    "sha256": "af68731d013aac76628f9a542d9ec1a22797067f9ec3780cf8cfae209d82c5b1"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/src/game/board/face-design.test.ts",
+    "bytes": 2455,
+    "sha256": "b44588c541d6cefd18b1683d9515a9607baac012096f7ba0b413e279a213e86e"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/src/game/board/face-design.ts",
+    "bytes": 1650,
+    "sha256": "fb5b68553d4e9a64f7f8fd7fa996d2f67fadfaa5f9998b1b7da9a91ccf496e15"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/src/game/board/Face.tsx",
+    "bytes": 1554,
+    "sha256": "3985b66cd53e68f05ebecf7d1263b9eb23c345088e2a9f1ae66dbd0cfa494957"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/src/game/board/keyboard.test.ts",
+    "bytes": 1569,
+    "sha256": "ab76d7aa2b9da00e862cc63576f79ccfaa0814edcb6588c79034583172d0595e"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/src/game/board/keyboard.ts",
+    "bytes": 1072,
+    "sha256": "5755705fb20c3d506b8f83138c43028b3c180152da82e00282fec99e2655c76d"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/src/game/board/nearest-scroll.ts",
+    "bytes": 1303,
+    "sha256": "1490f0211b87f1226610e7c1908358719ddc741bc892b4f61af3413e8774fd27"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/src/game/board/use-board-focus.ts",
+    "bytes": 1731,
+    "sha256": "21e950e970574d3e93fbe7619e31b4255b5230066f7304f58ebe8a538e6e1abd"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/src/game/completion.test.ts",
+    "bytes": 765,
+    "sha256": "2ef6d56d455df5ca04aa630421776cc088c0d6df5b1370b2831cdb1fec15e031"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/src/game/controls/BoardCodeForm.tsx",
+    "bytes": 1401,
+    "sha256": "0fcc88adab5b629d78d878c4f287674700cde2c07ee88fa786ec3fab617cd38e"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/src/game/controls/control-labels.ts",
+    "bytes": 349,
+    "sha256": "f5cd970235f16d428f1c8cf98bcac90c47c08e7fa65dfc3b4b59edc69954e951"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/src/game/controls/control.css",
+    "bytes": 284,
+    "sha256": "1bd31ae2f74de1f4dd223dc7ffa840377d2f8c9d2a9802a30840608f9808aba3"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/src/game/controls/controls.css",
+    "bytes": 366,
+    "sha256": "fbf3885683300caa60f6c0633bdb64df626ab0c37df4c4eb83b8b09368a7cb79"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/src/game/controls/Controls.tsx",
+    "bytes": 1305,
+    "sha256": "009dc668245e5d3ec1041562fd7a405a9962660bc785a754907894b232dc3bbd"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/src/game/controls/reproduction.css",
+    "bytes": 808,
+    "sha256": "ae618088e911ec07495950d776fa3032892f7e2c1799876fcb70633b02bfd304"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/src/game/controls/Reproduction.tsx",
+    "bytes": 2194,
+    "sha256": "fb7b2abd51cb7dd23931c4d6413ef175711b8915fd85588f259826eae338a903"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/src/game/deck-rejection.fixture.json",
+    "bytes": 2398,
+    "sha256": "56deb19d6d31e26a751d71d7bb5c881c85f032841a1eceee39e136429ee4792b"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/src/game/deck-rejection.test.ts",
+    "bytes": 1315,
+    "sha256": "e7a52c56a6238e4eceb924f9bbb854561d58d90473d69d3fe63514b94f19fce9"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/src/game/deck.test.ts",
+    "bytes": 2569,
+    "sha256": "22370693d06501d715d1e8a07fb28a501e7a0cbf1638ca9355022abf233ad718"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/src/game/deck.ts",
+    "bytes": 2043,
+    "sha256": "718b98169069c7e318f5e362ca2c8277742eb0269258fa00e22f66594fa0cb78"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/src/game/elapsed-time.test.ts",
+    "bytes": 1047,
+    "sha256": "d6466412203a4d4110b27099757ab456d8cf83cad96f2a5f80f684a6c558f70e"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/src/game/elapsed-time.ts",
+    "bytes": 344,
+    "sha256": "bc263e9ee435c30d047c49cd1f037d1a9c6df9a171247c83b4fd596edd621f49"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/src/game/game.css",
+    "bytes": 1096,
+    "sha256": "4a2b231f98d0eea90494f9be3ae81674f27e6440a05c02660b6604e463055d82"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/src/game/game.fixture.ts",
+    "bytes": 581,
+    "sha256": "dba19c664d03f4f3bc07a02386a5fb87815c45a1e892511eb9a189f1ed036072"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/src/game/game.test.ts",
+    "bytes": 4642,
+    "sha256": "e469fff7fbae7a6870962dc2091cd4ec585673e63bfd881aefa03ac74d2bc1a0"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/src/game/game.ts",
+    "bytes": 3066,
+    "sha256": "5277f054699081b29374cc444d51849bc30d90b56f1a6f863efdbc05f0013fde"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/src/game/Game.tsx",
+    "bytes": 3230,
+    "sha256": "c45609984bc0774f5c5e5d4b127d5756632144922405971403bdf963b957f8d0"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/src/game/move-cap.test.ts",
+    "bytes": 1509,
+    "sha256": "bd31e2a5e58b23461a0c3bfda4e6520bed7790ce10130749f30486510933a43a"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/src/game/replay-order.test.ts",
+    "bytes": 812,
+    "sha256": "69955ff21a4154c476ddcfb28831aa52b9d7f52308622c0aa1cd17195eeb4f0c"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/src/game/replay.test.ts",
+    "bytes": 4154,
+    "sha256": "a67c6e580b9f271b41e46f50aa3fcfdf40a3002c5792f596968d649fc9ed9ecf"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/src/game/replay.ts",
+    "bytes": 2669,
+    "sha256": "72eff5bdc72a4495a1fb75b969574a5f151a5ea4a61b8ebf51e7bd15f211a304"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/src/game/saved-format.test.ts",
+    "bytes": 1202,
+    "sha256": "680f902a5aca9600a38c6fbb0b8d1462b4297f69f3513a272ded015f6083f293"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/src/game/saved-format.ts",
+    "bytes": 903,
+    "sha256": "0cbcf35232e68e3a50c6ea6b1f6b254a776e28854426b466d222be81d2854fda"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/src/game/selection.ts",
+    "bytes": 404,
+    "sha256": "97fe77db7c2fe61f86c2cbbe8995e23b602d29165b9231db7a108596e9b60d74"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/src/game/session/browser-clock.test.ts",
+    "bytes": 1318,
+    "sha256": "3b413a7c665347b2444a2a6cd9cc65945f05d49379df89d94b2e5d8b0f17ff02"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/src/game/session/browser-clock.ts",
+    "bytes": 539,
+    "sha256": "0db0e1691165d52bae85a9c164d2e3a09fc2d4a8fe90f1a26f994831e18febc7"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/src/game/session/fresh-board.ts",
+    "bytes": 512,
+    "sha256": "0fd5f98325e3c6a00afc37b65d2a27e7ed0f6e45de7a79a1a1fe7ba2a3e9a1f6"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/src/game/session/session.feedback.fixture.json",
+    "bytes": 185,
+    "sha256": "549701223b444918635d259f92469782ae5872df1b2b8cb2ee87c3808b56c5b7"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/src/game/session/session.test.ts",
+    "bytes": 5565,
+    "sha256": "e431e340c34e1b8b5ca4b0f6025aa6e8fa12286c3651e767ea5c7c1e1608e307"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/src/game/session/session.ts",
+    "bytes": 3399,
+    "sha256": "95ebf8f07ec58c85a21693e824a6a24852e0c2a9099a7657f0ffeccb2439c8be"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/src/game/session/storage.test.ts",
+    "bytes": 3399,
+    "sha256": "035ddb5eeecd272ade275a41bbef0363db9f19234351aa3bf80ba55e7c854b8a"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/src/game/session/storage.ts",
+    "bytes": 2210,
+    "sha256": "416ba9ffbcbbfbc3221d927509ff73bba575875fff3bcb77835e291629cdc09a"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/src/game/session/use-game.ts",
+    "bytes": 2932,
+    "sha256": "9e5b37eaac24ad7be5ec6e5be1ce87ab68305000bf181e3eb52088dfa18c1d2c"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/src/game/session/use-saved-preferences.ts",
+    "bytes": 623,
+    "sha256": "8a4165642e4df95f399f51bd101634b1830c23b9a1b33a7dc2888e4406816226"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/src/game/session/use-session-clock.ts",
+    "bytes": 2788,
+    "sha256": "70958f8a7f17b25db743395179219e5ed4bac32880ffd38db6276b6b2c175995"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/src/game/session/use-turn-game.ts",
+    "bytes": 1203,
+    "sha256": "ab0132825f54cc9711558cffce930e0219da6bf0b8593c51ca841d45a924f270"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/src/game/snapshot-selection.test.ts",
+    "bytes": 1612,
+    "sha256": "ea8a457626276b66415efb9fd849b48094f03decfbfd634d7c0e39720a81a67d"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/src/game/snapshot-selection.ts",
+    "bytes": 2149,
+    "sha256": "855d90f9a8eaaf73e1a2c7079b209af0dd4c92d3319b9b3bec385d47a6a7cacf"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/src/game/snapshot.test.ts",
+    "bytes": 6886,
+    "sha256": "ac06662ec5ee952b6aa190e4fd4fb064a5a120afc5dd34d1799c30b15126aa49"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/src/game/snapshot.ts",
+    "bytes": 2778,
+    "sha256": "913eefa580e370e10c69e0591228cf97d11495c31f8dc2c1db1aaae104bf9531"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/src/game/status/GameStatus.tsx",
+    "bytes": 1255,
+    "sha256": "e92662a4c81e8d6744ac6e230cfa7b569fad1d05dec9bdf83d7ef06135dbf5d1"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/src/game/status/status-labels.ts",
+    "bytes": 113,
+    "sha256": "12b321c0669514e06651c2965353f5547733db7b7bf56bf798db985b13e1a7b8"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/src/game/status/status.css",
+    "bytes": 630,
+    "sha256": "40d8df8a544487453eb7fb39c175a3db745fbae93fa64c276d8749eecda914a8"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/src/game/tournament/Bracket.tsx",
+    "bytes": 2492,
+    "sha256": "d8bef16d4e04e4c7759ea82e9b9f64af84e1169b6808285d968f3f6bbeb198f5"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/src/game/tournament/format.test.ts",
+    "bytes": 5041,
+    "sha256": "eb5e08591c25437e118f425e239d066a832e89aa3f41ae85b4f531314f28c6c7"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/src/game/tournament/format.ts",
+    "bytes": 6751,
+    "sha256": "d7ea735db8720ea812a1948de8e67f46f17e032350854b70003ea4df6fc16239"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/src/game/tournament/LeaveDialog.tsx",
+    "bytes": 1508,
+    "sha256": "7e2533be4ecab09d86802bcceefd20fbf26b9cfc928a2b2cced6aac573648f76"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/src/game/tournament/PastTournaments.tsx",
+    "bytes": 1142,
+    "sha256": "56c10eb64c5db13e153e683aae8fa543d14f7e2ec5a0a1f51ef33be75de2e9e4"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/src/game/tournament/records.test.ts",
+    "bytes": 3801,
+    "sha256": "451f3717b33f7aecc62974ee24f09175358cca76b34001c58297949f57a0bd7d"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/src/game/tournament/records.ts",
+    "bytes": 2285,
+    "sha256": "1e86e68de00030ae29e74f310504c3b52fde8aecf27534a54ec8f68baf05e1f5"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/src/game/tournament/rules.test.ts",
+    "bytes": 5177,
+    "sha256": "02c75b6eb803581e3655a783ae15599905822538e0b38ad2261767124d44ba4b"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/src/game/tournament/rules.ts",
+    "bytes": 5866,
+    "sha256": "af314e4bd10e68d3f465b1147d3b18296f736f9921e4138c8a0b9435016a9188"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/src/game/tournament/tournament-labels.ts",
+    "bytes": 804,
+    "sha256": "2ad15f611fafcc7f23439b6d500ca2f9c5eb1dd048241b4bb95a0aa024bea976"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/src/game/tournament/tournament.css",
+    "bytes": 1745,
+    "sha256": "d7405ba8ea42e28d5e5832d41143f79094814d151b087cd9c8133593ed9a9475"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/src/game/tournament/tournament.fixture.ts",
+    "bytes": 1362,
+    "sha256": "ca4b8ba9772c503109870823e6e03a5a4fe76a6f7f7f5eeb1c1b0f8e07fa6487"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/src/game/tournament/Tournament.tsx",
+    "bytes": 3494,
+    "sha256": "ea3088571a4cb411add56b4b7f9a16a21a5b713d3b67b1f91ce05203790af791"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/src/game/tournament/TournamentPlay.tsx",
+    "bytes": 1897,
+    "sha256": "4bd69b712d0eb52716784f9b86ebda71869f0b8be7f6aac8c18e78793fb2e684"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/src/game/tournament/TournamentSetup.tsx",
+    "bytes": 2541,
+    "sha256": "3591509807ea266510b3c3144416d68fc2d1ee77f06337c6bebf72765f903487"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/src/game/tournament/TournamentTools.tsx",
+    "bytes": 1647,
+    "sha256": "c25b7158c8f0dc2e87a71a87c9c4c4f1730d77792c623bdc0bbaa7f3f8410949"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/src/game/tournament/TournamentTurn.tsx",
+    "bytes": 1069,
+    "sha256": "7d7a22c44507ac88f4a44e04e6dbac9de916d1ae0630893ad15deeed510ec4f4"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/src/game/tournament/use-tournament.ts",
+    "bytes": 5774,
+    "sha256": "504eda6e46d405f6412c0ae16e7f194b406bcea2393489234ee5d51ed0b7dfcb"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/src/main.tsx",
+    "bytes": 300,
+    "sha256": "a365b787c8116f6fcccdd6573af202238fdd44d8f2aff1351203761315922e2c"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/tests/accessibility-fixture.ts",
+    "bytes": 1830,
+    "sha256": "e83518f65f2247d374d7da79e1a5e1d6b97f3e47ea32f3ea93bb58cc814c82a9"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/tests/accessibility-tree.ts",
+    "bytes": 2445,
+    "sha256": "320c557f1b4dd64043fe63d214605b2105a3b845410ef65d1e14a8d193da4d72"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/tests/accessibility.e2e.test.ts",
+    "bytes": 7597,
+    "sha256": "fff9a3da0f778471b25c88878b8cd721e790dae28f0c46add25833dceb0252ec"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/tests/accessibility.fixture.json",
+    "bytes": 3278,
+    "sha256": "09600a46b6681089066383b1c8db3e397ecdf1a32222373d8b6b9746267def09"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/tests/all-sizes.e2e.test.ts",
+    "bytes": 1219,
+    "sha256": "e47e6eb4c2bde571bbb24997289b31c200ad4c792baa687bd1058833fdbc2fb7"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/tests/announcements.e2e.test.ts",
+    "bytes": 4026,
+    "sha256": "72986bb12a486e68d5487a996582c3dab78ba0ebabf5f292c70bd0e512d73191"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/tests/art.e2e.test.ts",
+    "bytes": 5693,
+    "sha256": "eaa76b6098f239a09c44c75bea77113c9f956da742928625c5b28c61526ebbb4"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/tests/artifact-server.ts",
+    "bytes": 1070,
+    "sha256": "4f8fcd62d9f682b5838849a96eab901d6c2de6f3af50e68fa0767692e4a4193e"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/tests/browser-environment.e2e.test.ts",
+    "bytes": 2969,
+    "sha256": "98ac12a1181efa70bd6f4106e4ef11b462b89e11699fbd25381626b2bea68dbd"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/tests/browser-test.ts",
+    "bytes": 5101,
+    "sha256": "c03ff60bf5fa94407a94a8e1ca73a65ecb7dcb1dad6c825fa61937b1a4324b54"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/tests/build-output.e2e.test.ts",
+    "bytes": 709,
+    "sha256": "f7e96ec35e06f00cc8b20383889a170f04b480c0356247e74e0e8ec089b74468"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/tests/clock-edges.e2e.test.ts",
+    "bytes": 1280,
+    "sha256": "ceff8f71c8102a201895a319018ff6760c366074ccbaaabaef2f179f97706259"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/tests/control-contract.e2e.test.ts",
+    "bytes": 5979,
+    "sha256": "ca794d449ad1c2bf6cfae4c92331ed20b883bc5642252c819e071e4dbfe3da1f"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/tests/controls.e2e.test.ts",
+    "bytes": 3119,
+    "sha256": "73003810efec81596127e70d19176fdfb1e1d43ef7c74e5d73abbaaee0a09fd9"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/tests/deal-oracle.ts",
+    "bytes": 951,
+    "sha256": "0311eeaac445ebffd0d80b4bddccc3d4b1d7f837e7eb4470e966524cafe72903"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/tests/focus-bounds.ts",
+    "bytes": 2022,
+    "sha256": "3cb4aad33fea7ceb9173035f9b7d661bca8635b93d2524db43f8caa883d027a5"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/tests/focus-entry.e2e.test.ts",
+    "bytes": 3881,
+    "sha256": "86075afe77f047c6d7151274dfbfd604227908e5662a0eb6e28ba231e14962dc"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/tests/fractional-clock.e2e.test.ts",
+    "bytes": 3628,
+    "sha256": "3beefc917e72b821d6ece50bf98a970d59650330b255e3029c509c5fdc793baf"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/tests/game-fixture.ts",
+    "bytes": 2567,
+    "sha256": "5e3a525f0b674ef52ff4de4e138410f958291acc6eaef1ced75285a1fbf23746"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/tests/idle-clock.e2e.test.ts",
+    "bytes": 3111,
+    "sha256": "3b7bca581ab4d4e682ec1b1c62750a9de5427531ca7860807732e62c5f3cdc2e"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/tests/input-contract.e2e.test.ts",
+    "bytes": 933,
+    "sha256": "37248771a49fceab25ec95de8941e9bb0b4aa4f01404dea8df91ed12807977bb"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/tests/keyboard.e2e.test.ts",
+    "bytes": 1722,
+    "sha256": "7881ae04a70c6bcc4262726e46c89567d3c4595db0d15b947bad15da63f358ab"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/tests/layout.e2e.test.ts",
+    "bytes": 3638,
+    "sha256": "b78a037e5a959dac5eb46b6a09479ba15f65b1fc64e41bde60b23bae08fbb30c"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/tests/lifecycle.e2e.test.ts",
+    "bytes": 4483,
+    "sha256": "83b2719b5e44819f6427438326107ed39cecd6e5c9fc55bd762646d1a4f59675"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/tests/matched-mark.e2e.test.ts",
+    "bytes": 3343,
+    "sha256": "e158e5308818b0f529d602299b7bd60e4f4e064ac978ffd7f7d1f40580266d8f"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/tests/motion.e2e.test.ts",
+    "bytes": 1559,
+    "sha256": "829296cd29f4c9c334caf954e2474690ac509597a45a513c9428fd24d508984a"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/tests/persistence-contract.e2e.test.ts",
+    "bytes": 4670,
+    "sha256": "82d467f91113881af0815d3634be43fc4e6660777313e4b4ea3c78ec5c4160c1"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/tests/play.e2e.test.ts",
+    "bytes": 3386,
+    "sha256": "9769d7e876ec55574a0e20781ea32de8a7ea7ff89c0a8798ae68fa46c8f851ce"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/tests/pointer-focus.e2e.test.ts",
+    "bytes": 7283,
+    "sha256": "005d584655a5f5242264e50aa928e78a0047b3c14a869745650f1d2a05848fb2"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/tests/product-contract.e2e.test.ts",
+    "bytes": 4944,
+    "sha256": "b48b923f84111a329ea8ecebc997d018b2e903b508117f3fc863b9657aa0f261"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/tests/readability.ts",
+    "bytes": 1927,
+    "sha256": "dfea814e5025b18c19fdeb5b71a07b0b635ac81ace3347bc94c47ea3bbda5b60"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/tests/saved-bests.e2e.test.ts",
+    "bytes": 2998,
+    "sha256": "323438bec6a703cd99d87559ae7503482067aeb330e602ef0a6d31fb139b55d5"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/tests/scrollbars.e2e.test.ts",
+    "bytes": 1712,
+    "sha256": "13ed62215b445465001692bd700145ade6d4a833ceef3b3b348403654f9aad9b"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/tests/snapshots.e2e.test.ts",
+    "bytes": 4072,
+    "sha256": "7b702a37429078d3503a824f2d649d6e606efb549a4cac832deeafe907e5dceb"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/tests/spacing.e2e.test.ts",
+    "bytes": 2527,
+    "sha256": "affb1ed54673fbf6131253c9b6f1ee98b9b1734c6d690086362417eea73f3521"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/tests/status-controls.e2e.test.ts",
+    "bytes": 3716,
+    "sha256": "3a65f70d143d4df0fa1b3841359ae14ad0462a03b47c9a39428f7764201455ce"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/tests/status-format.fixture.json",
+    "bytes": 210,
+    "sha256": "0b7103ea3d8d75fc515a4c1976d046d3dd522a1e2785afe0ae2ca30f6d5e3232"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/tests/status.e2e.test.ts",
+    "bytes": 1693,
+    "sha256": "ab95d929bbb88e04727f1827cb732d804446111aea1c55301253d5bdb636b769"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/tests/style.e2e.test.ts",
+    "bytes": 3970,
+    "sha256": "9e94c730d324b011caadef4faede644d5f8a7fb68891236283e8efb967969f54"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/tests/timer-lifecycle.e2e.test.ts",
+    "bytes": 3430,
+    "sha256": "a944fac55aa4ed4bd98d14c4108de6c6e5d9f88d68f79d59b6bfaf209cd0e61b"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/tests/touch-scroll.e2e.test.ts",
+    "bytes": 3130,
+    "sha256": "d690f522dae6c80d3dbd7643a52b1024e019bff6130d3c4a534a110daab53ff7"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/tests/tournament-fixture.ts",
+    "bytes": 3101,
+    "sha256": "5ecdea947c2d8e8530ac708f8420c8b32c74d3fe7a55c856ac42dbf1ca3e71de"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/tests/tournament-layout.e2e.test.ts",
+    "bytes": 4186,
+    "sha256": "fc2757d4fe8cfe313a7aa32387253e55b9c53bae57e068a489c08fae6d303d04"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/tests/tournament-play.e2e.test.ts",
+    "bytes": 5721,
+    "sha256": "4c777edd8981a8d237059d2e657898ea9faff09b54d299f487cb18bb41b2b3c3"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/tests/tournament-tools.e2e.test.ts",
+    "bytes": 4979,
+    "sha256": "ef378f9b0a36115cb69a975fec574edda119c2945d8047af3e5c5b2eff29de54"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/tests/ui-snapshot.ts",
+    "bytes": 695,
+    "sha256": "eb551ff43c2d3c844287710b9103f023f3f297841e3c3a22f0bf483174bdbf6d"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/tests/ui.fixture.json",
+    "bytes": 225,
+    "sha256": "2be167d72f3183bb189eb8f37550e823c7b99ac8f58b820290557996395edca3"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/tests/zoom.e2e.test.ts",
+    "bytes": 3457,
+    "sha256": "cd76a24c801d4e5301ae21d5401f2f3e5f27e4b5971b6f91f424e47aef988249"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/tsconfig.app.json",
+    "bytes": 287,
+    "sha256": "ef8147feba45db5b286219a3a1ff496afa93fad3a43dcfd6665f012fc127e6eb"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/tsconfig.base.json",
+    "bytes": 424,
+    "sha256": "9929e25d4aaf686c65f8530eedcbfa96f58df59db44540424b44ccb395e9a923"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/tsconfig.e2e.json",
+    "bytes": 168,
+    "sha256": "1107781734a7d0ae937fe28239684715787ed6cea183d4ddb233997494f8f4e4"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/tsconfig.node.json",
+    "bytes": 308,
+    "sha256": "49b7b4463836bd4eab053da389b4bd8d62e9a3e4df9e585885bfb427a6e54f8e"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/vite.art.config.ts",
+    "bytes": 380,
+    "sha256": "3ed3781e7ea9fa46cf365a78828f56a8cc947f925e61d2522faa2c55c80d6f23"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/vite.config.ts",
+    "bytes": 490,
+    "sha256": "bcffc9651502280102f50840d40e6954bd0f28eaa38d33623b5fb592c99aa001"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/vite.session.config.ts",
+    "bytes": 395,
+    "sha256": "ff123691f9a124985dddc634ba9b14a2d09f9f5c95128b291036620a253cdb34"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "files/vitest.config.ts",
+    "bytes": 144,
+    "sha256": "82c2b20983ff990ae584f1e614d24b01bcda05e1e2910e4f0e49f79655c78905"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "game.html",
+    "bytes": 257850,
+    "sha256": "d65d811f4b54238e6d0bda795d36603382b1e7ba7874bc8f8fefbfddb83e4aba"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "prompt.md",
+    "bytes": 10445,
+    "sha256": "cfb4f198cce5682d590a2294d7ac382dd105a4f9d423a9c244d9280fddc0159c"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "a5111d31e562",
+    "assessmentId": null,
+    "path": "report.md",
+    "bytes": 4426,
+    "sha256": "63a2f45cd44d89deac18bce5553df9e4560682ded112ac0bbd5f31a527124edf"
+  },
+  {
+    "schemaVersion": 2,
     "runId": "2a7b136b7b0d",
     "assessmentId": "5494b823-30d1-43c0-9213-e7271dd1e8c6",
     "path": "brownfield.json",

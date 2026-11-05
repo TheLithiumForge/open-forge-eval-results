@@ -1,0 +1,44 @@
+{
+  "$schema": "https://raw.githubusercontent.com/TheLithiumForge/open-forge/main/schemas/v1/open-forge.lock.schema.json",
+  "schemaVersion": 1,
+  "framework": {
+    "source": {
+      "id": "embedded-framework"
+    },
+    "paths": [
+      ".agents/README.md",
+      ".agents/directives/_directives.md",
+      ".agents/loader.md",
+      ".agents/memory/_memory.md",
+      ".agents/memory/crystallized/_crystallized.md"
+    ],
+    "regions": [
+      {
+        "path": ".agents/directives/_directives.md",
+        "region": "entries"
+      },
+      {
+        "path": ".agents/loader.md",
+        "region": "entries"
+      },
+      {
+        "path": ".agents/memory/_memory.md",
+        "region": "entries"
+      },
+      {
+        "path": ".agents/memory/crystallized/_crystallized.md",
+        "region": "entries"
+      },
+      {
+        "path": "AGENTS.md",
+        "region": "open-forge"
+      },
+      {
+        "path": "CLAUDE.md",
+        "region": "open-forge"
+      }
+    ]
+  },
+  "extensions": [],
+  "libraries": []
+}
