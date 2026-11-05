@@ -14,6 +14,8 @@ const maybeText = nullable(text);
 const choice = object({ tool: { enum: ["claude", "codex", "mock"] }, model: maybeText, effort: maybeText, team: object({ model: maybeText, effort: maybeText }) }, ["team"]);
 const selection = object({ applicable: strings, working: strings, stated: strings });
 const answer = object({ id: text, area: text, question: text, yes: count, no: count, unsure: count, evidence: strings });
+const judgeScore = object({ id: text, headline: text, group: text, title: text, ballots: list({ type: "integer", minimum: 0, maximum: 10 }), evidence: strings });
+const judgeFinding = object({ ballot: count, kind: text, area: text, impact: maybeText, text, citations: strings });
 const assessment = { id: ref("id"), experimentId: ref("id"), createdAt: maybeText,
   versions: object({ checker: maybeText, rubric: maybeText, judge: maybeText, spec: maybeText, specVersion: maybeNumber }, ["spec", "specVersion"]), replacesAssessmentId: maybeText, error: maybeText };
 const tokenTotals = object({ newInput: numeric, cachedInput: numeric, cacheWrite: numeric, output: numeric, reasoning: maybeNumber });
@@ -21,7 +23,7 @@ const thread = object({ id: text, parentId: maybeText, role: { enum: ThreadRoles
 const definitions = {
   reference: object({ commit: text, contentHash: text, specHash: text, specVersion: numeric }),
   id: { type: "string", pattern: "^[A-Za-z0-9][A-Za-z0-9_.-]*$" }, digest: { type: "string", pattern: "^[a-f0-9]{64}$" }, count, number: numeric,
-  relativePath: { type: "string", minLength: 1, pattern: "^(?!/|[A-Za-z]:|.*\\\\|.*(?:^|/)\\.\\.(?:/|$)).+$" }, choice, selection, answer,
+  relativePath: { type: "string", minLength: 1, pattern: "^(?!/|[A-Za-z]:|.*\\\\|.*(?:^|/)\\.\\.(?:/|$)).+$" }, choice, selection, answer, judgeScore, judgeFinding,
   config: object({ layer: { type: "integer", minimum: 1, maximum: 4 }, judges: list(choice), suite: text, runsPerSetup: count, parallelRuns: count, setups: strings, agents: list(choice),
     judge: object({ ...choice.properties, repeats: count }, ["team"]), judging: { enum: ["run", "later"] }, checking: { enum: ["run", "later"] }, packet: text, workMode: { enum: PacketWorkModes },
     chain: object({ id: text, milestone: count, parentBatchId: text }, ["parentBatchId"]), simulatedUser: choice, isolation: { enum: ["docker", "local"] },
