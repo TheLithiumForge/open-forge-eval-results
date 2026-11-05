@@ -1,0 +1,103 @@
+.tournament-screen,
+.tournament-setup,
+.tournament-exchange,
+.tournament-history {
+  display: grid;
+  gap: 16px;
+  min-width: 0;
+}
+.tournament-screen .control,
+.leave-dialog .control {
+  min-width: 44px;
+  max-width: 100%;
+}
+.tournament-screen p {
+  overflow-wrap: anywhere;
+}
+.tournament-screen h3,
+.leave-dialog h2,
+.screen-title {
+  margin: 0 0 12px;
+  font-size: 20px;
+  line-height: 28px;
+  overflow-wrap: anywhere;
+}
+.tournament-field {
+  display: grid;
+  gap: 8px;
+  min-width: 0;
+}
+.tournament-field .control {
+  width: 100%;
+}
+.tournament-names {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
+  gap: 12px;
+}
+.tournament-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.tournament-context {
+  margin-bottom: 12px;
+  overflow-wrap: anywhere;
+}
+.tournament-champion {
+  font-size: 20px;
+  line-height: 28px;
+  color: var(--green);
+  overflow-wrap: anywhere;
+}
+.tournament-exchange,
+.tournament-history {
+  padding: 16px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--panel);
+}
+.tournament-exchange textarea {
+  resize: vertical;
+}
+.tournament-table {
+  min-width: 0;
+  overflow: auto;
+}
+.tournament-table table {
+  width: 100%;
+  min-width: 640px;
+  border-collapse: collapse;
+  background: var(--panel);
+}
+.tournament-table th,
+.tournament-table td[rowspan] {
+  white-space: nowrap;
+}
+.tournament-table caption {
+  text-align: left;
+  font-weight: 700;
+  padding-bottom: 12px;
+}
+.tournament-table th,
+.tournament-table td {
+  text-align: left;
+  padding: 8px;
+  border: 1px solid var(--border);
+  overflow-wrap: anywhere;
+  min-width: 64px;
+}
+.leave-dialog {
+  max-width: calc(100% - 32px);
+  padding: 24px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--panel);
+  color: var(--text);
+}
+.leave-dialog p {
+  margin-bottom: 16px;
+}
+.leave-dialog::backdrop {
+  background: #090b14cc;
+}

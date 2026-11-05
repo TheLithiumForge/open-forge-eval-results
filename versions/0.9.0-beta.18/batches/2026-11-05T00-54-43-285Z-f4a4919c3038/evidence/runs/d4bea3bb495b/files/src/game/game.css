@@ -1,0 +1,70 @@
+:root {
+  font-family: system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  color: #f4f6ff;
+  background: #090b14;
+  color-scheme: dark;
+  --text: #f4f6ff;
+  --secondary: #b8bdd2;
+  --panel: #141827;
+  --back: #1b2034;
+  --face: #111625;
+  --border: #757c9a;
+  --green: #8bea7d;
+  --content-max: 1120px;
+  --page-padding: 16px;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+}
+main {
+  width: 100%;
+  max-width: var(--content-max);
+  margin: 0 auto;
+  padding: var(--page-padding);
+}
+header {
+  margin: 4px 0 12px;
+}
+h1 {
+  font-size: 24px;
+  line-height: 32px;
+  margin: 4px 0;
+}
+.game-heading {
+  margin: 0 0 12px;
+  font-size: 24px;
+  line-height: 32px;
+}
+p {
+  margin: 0;
+}
+.eyebrow {
+  color: var(--secondary);
+  font-size: 14px;
+}
+.intro {
+  font-size: 14px;
+  color: var(--secondary);
+  margin-bottom: 24px;
+}
+.help {
+  color: var(--secondary);
+  font-size: 14px;
+  max-width: 70ch;
+  margin-bottom: 12px;
+}
+:focus-visible {
+  outline: 3px solid #ffffff;
+  outline-offset: 2px;
+}
+.game-result {
+  display: flex;
+  align-items: center;
+  min-height: 56px;
+  margin: 4px 0 8px;
+}

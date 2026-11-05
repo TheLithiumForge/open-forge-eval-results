@@ -1,0 +1,92 @@
+.tournament {
+  display: grid;
+  gap: 16px;
+  min-width: 0;
+}
+.tournament h2,
+.leave-dialog h2 {
+  font-size: 20px;
+  line-height: 28px;
+  margin: 0;
+}
+.tournament h3 {
+  margin: 0;
+}
+.tournament .control,
+.leave-dialog .control {
+  min-width: 44px;
+  max-width: 100%;
+}
+.tournament-setup,
+.tournament-exchange,
+.tournament-field {
+  display: grid;
+  gap: 8px;
+  min-width: 0;
+}
+.tournament-names {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr));
+  gap: 12px;
+}
+.tournament-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.tournament-exchange textarea {
+  width: 100%;
+  resize: vertical;
+}
+.tournament-table-scroll {
+  overflow: auto;
+  max-width: 100%;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+.tournament table {
+  width: 100%;
+  min-width: 640px;
+  border-collapse: collapse;
+  text-align: left;
+}
+.tournament th {
+  white-space: nowrap;
+}
+.tournament caption {
+  text-align: left;
+  font-weight: 600;
+  padding: 12px;
+}
+.tournament th,
+.tournament td {
+  padding: 8px 12px;
+  border-top: 1px solid var(--border);
+  overflow-wrap: anywhere;
+  min-width: 6ch;
+}
+.tournament td:nth-child(4),
+.tournament td:nth-child(5) {
+  font-variant-numeric: tabular-nums;
+}
+.past-tournaments ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 12px;
+}
+.leave-dialog {
+  max-width: min(440px, calc(100% - 32px));
+  padding: 24px;
+  color: var(--text);
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+.leave-dialog p {
+  margin: 16px 0;
+}
+.leave-dialog::backdrop {
+  background: #090b14cc;
+}

@@ -1,0 +1,97 @@
+main h2,
+dialog h2,
+.tournament-history h3 {
+  margin: 16px 0;
+}
+.tournament-header p {
+  overflow-wrap: anywhere;
+}
+.tournament-owner {
+  font-weight: 700;
+  margin: 12px 0;
+}
+.tournament-setup,
+.tournament-exchange,
+.tournament-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.tournament-setup,
+.tournament-exchange,
+.tournament-history {
+  margin-bottom: 24px;
+}
+.tournament-setup > select {
+  align-self: start;
+}
+.tournament-names {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
+  gap: 16px;
+  margin: 8px 0;
+}
+.tournament-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 16px 0;
+}
+.tournament-content .control,
+.tournament-header .control,
+dialog .control {
+  min-width: 44px;
+}
+.tournament-table {
+  overflow: auto;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  margin: 24px 0;
+}
+.tournament-table table {
+  border-collapse: collapse;
+  width: 100%;
+}
+.tournament-table caption {
+  text-align: left;
+  padding: 16px;
+  font-weight: 700;
+}
+.tournament-table th,
+.tournament-table td {
+  text-align: left;
+  padding: 12px;
+  border-top: 1px solid var(--border);
+  overflow-wrap: anywhere;
+  min-width: 100px;
+}
+.tournament-table td:nth-child(3),
+.tournament-table td:nth-child(4) {
+  font-variant-numeric: tabular-nums;
+}
+.tournament-history ul {
+  list-style: none;
+  padding: 0;
+}
+.tournament-history li {
+  margin: 12px 0;
+}
+.tournament-history button {
+  overflow-wrap: anywhere;
+  max-width: 100%;
+  text-align: left;
+}
+.tournament-exchange textarea {
+  resize: vertical;
+  width: 100%;
+}
+dialog {
+  max-width: min(480px, calc(100% - 32px));
+  color: var(--text);
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+dialog::backdrop {
+  background: rgb(0 0 0 / 70%);
+}

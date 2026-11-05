@@ -1,0 +1,128 @@
+.tournament h2,
+.tournament h3,
+.tournament h4,
+.tournament h5 {
+  margin: 0 0 12px;
+  line-height: 1.5;
+}
+.tournament h2 {
+  font-size: 24px;
+}
+.tournament h3 {
+  font-size: 20px;
+}
+.tournament h4,
+.tournament h5 {
+  font-size: 16px;
+}
+.tournament-navigation {
+  margin-bottom: 24px;
+}
+.tournament-setup,
+.tournament-handoff,
+.tournament-json {
+  display: grid;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+.tournament-setup > button,
+.tournament-handoff > button {
+  justify-self: start;
+}
+.tournament-setup > p,
+.tournament-handoff > p {
+  max-width: 70ch;
+}
+.player-inputs {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  max-width: 640px;
+}
+.player-input {
+  display: grid;
+  gap: 4px;
+  overflow-wrap: anywhere;
+}
+.player-input input {
+  width: 100%;
+}
+.now-playing,
+.tournament-champion {
+  color: var(--green);
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+.tournament-bracket,
+.past-tournaments {
+  margin: 24px 0;
+}
+.bracket-rounds {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+  align-items: start;
+  gap: 16px;
+}
+.bracket-round {
+  min-width: 0;
+}
+.bracket-match {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 12px;
+  margin-bottom: 12px;
+  overflow-wrap: anywhere;
+}
+.bracket-match[aria-current='step'] {
+  border-color: var(--green);
+}
+.bracket-match table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  font-size: 14px;
+}
+.bracket-match th,
+.bracket-match td {
+  padding: 4px;
+  text-align: right;
+  vertical-align: top;
+}
+.bracket-match th:first-child {
+  width: 48%;
+  text-align: left;
+}
+.bracket-match td {
+  font-variant-numeric: tabular-nums;
+}
+.bracket-match p {
+  margin-top: 12px;
+  color: var(--green);
+}
+.past-tournaments ul {
+  list-style: none;
+  padding: 0;
+}
+.past-tournaments li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+.past-tournaments span {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.tournament-json textarea {
+  width: 100%;
+  resize: vertical;
+  font: inherit;
+}
+@media (max-width: 599px) {
+  .player-inputs {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

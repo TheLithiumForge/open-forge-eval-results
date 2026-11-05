@@ -1,0 +1,27 @@
+.board-viewport {
+  --card-min: 44px;
+  --card-max: 88px;
+  --card-gap: 6px;
+  --board-padding: 6px;
+  --board-border: 1px;
+  max-height: min(70dvh, 768px);
+  overflow: auto;
+  overscroll-behavior: contain;
+  padding: var(--board-padding);
+  border: var(--board-border) solid var(--border);
+  border-radius: 12px;
+  background: var(--panel);
+  width: fit-content;
+  max-width: 100%;
+}
+.board {
+  display: grid;
+  gap: var(--card-gap);
+  grid-template-columns: repeat(var(--grid-size), minmax(var(--card-min), var(--card-max)));
+  /* The scroll area's content box already leaves room for page and board scrollbars. */
+  width: clamp(
+    calc(var(--grid-size) * var(--card-min) + (var(--grid-size) - 1) * var(--card-gap)),
+    100%,
+    calc(var(--grid-size) * var(--card-max) + (var(--grid-size) - 1) * var(--card-gap))
+  );
+}

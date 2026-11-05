@@ -1,0 +1,117 @@
+.tournament {
+  display: grid;
+  gap: 16px;
+  min-width: 0;
+}
+.tournament h2,
+.tournament h3 {
+  margin: 0;
+}
+.tournament .control,
+.leave-dialog .control {
+  min-width: 44px;
+}
+.tournament-setup,
+.tournament-exchange,
+.past-tournaments {
+  display: grid;
+  gap: 12px;
+}
+.tournament-names {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+  gap: 12px;
+}
+.tournament-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+}
+.tournament-field input,
+.tournament-field select {
+  width: 100%;
+}
+.tournament-field textarea {
+  width: 100%;
+  resize: vertical;
+  overflow-wrap: anywhere;
+}
+.tournament-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 12px 0;
+}
+.tournament-player,
+.tournament-champion {
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+.tournament-champion {
+  color: var(--green);
+  font-size: 20px;
+}
+.tournament-table {
+  max-width: 100%;
+  overflow: auto;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+.tournament-table table {
+  width: 100%;
+  min-width: 560px;
+  border-collapse: collapse;
+}
+.tournament-table caption {
+  padding: 12px;
+  text-align: left;
+  font-weight: 700;
+}
+.tournament-table th,
+.tournament-table td {
+  padding: 12px;
+  text-align: left;
+  border-top: 1px solid var(--border);
+  overflow-wrap: anywhere;
+}
+.tournament-table th {
+  color: var(--secondary);
+  white-space: nowrap;
+}
+.tournament-table td:nth-child(3),
+.tournament-table td:nth-child(4) {
+  white-space: nowrap;
+}
+.past-tournaments ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 12px;
+}
+.past-tournaments button {
+  text-align: left;
+  overflow-wrap: anywhere;
+  max-width: 100%;
+}
+.leave-dialog {
+  max-width: min(440px, calc(100% - 32px));
+  background: var(--panel);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 24px;
+}
+.leave-dialog::backdrop {
+  background: #090b14cc;
+}
+@media (max-width: 599px) {
+  .tournament-actions > button {
+    flex: 1;
+  }
+  .tournament-table th,
+  .tournament-table td {
+    padding: 8px;
+  }
+}

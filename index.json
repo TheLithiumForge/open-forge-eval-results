@@ -514,6 +514,22 @@
       "path": "versions/0.9.0-beta.18/batches/2026-11-05T00-22-36-185Z-7e5f6603df74"
     },
     {
+      "id": "2026-11-05T00-54-43-285Z-f4a4919c3038",
+      "layer": 4,
+      "cliVersion": "0.9.0-beta.18",
+      "createdAt": "2026-11-05T00:54:43.576Z",
+      "implementers": [
+        {
+          "tool": "codex",
+          "model": "gpt-6.1-sol",
+          "effort": "xhigh"
+        }
+      ],
+      "judges": [],
+      "gradingVersions": [],
+      "path": "versions/0.9.0-beta.18/batches/2026-11-05T00-54-43-285Z-f4a4919c3038"
+    },
+    {
       "id": "2026-11-05T00-55-41-126Z-a3928f79b99a",
       "layer": 4,
       "cliVersion": "0.9.0-beta.18",

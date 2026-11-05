@@ -1,0 +1,74 @@
+.tournament {
+  display: grid;
+  gap: 16px;
+  min-width: 0;
+}
+.tournament h2,
+.tournament h3 {
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+.tournament .control,
+.tournament-dialog .control {
+  min-width: 44px;
+  max-width: 100%;
+}
+.tournament-setup,
+.tournament-field,
+.tournament-exchange {
+  display: grid;
+  gap: 8px;
+  min-width: 0;
+}
+.tournament-names {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+  gap: 12px;
+}
+.tournament-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.tournament-table {
+  overflow: auto;
+  max-width: 100%;
+}
+.tournament table {
+  border-collapse: collapse;
+  width: 100%;
+}
+.tournament caption {
+  text-align: left;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.tournament td,
+.tournament th {
+  padding: 8px;
+  text-align: left;
+  border: 1px solid var(--border);
+  overflow-wrap: anywhere;
+  min-width: 72px;
+}
+.tournament-history ul {
+  padding-left: 24px;
+}
+.tournament-history li {
+  margin-top: 8px;
+}
+.tournament-dialog {
+  background: var(--panel);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  max-width: calc(100% - 32px);
+}
+.tournament-dialog::backdrop {
+  background: rgb(0 0 0 / 70%);
+}
+.tournament-dialog h2 {
+  margin: 0 0 16px;
+  font-size: 20px;
+  line-height: 28px;
+}
