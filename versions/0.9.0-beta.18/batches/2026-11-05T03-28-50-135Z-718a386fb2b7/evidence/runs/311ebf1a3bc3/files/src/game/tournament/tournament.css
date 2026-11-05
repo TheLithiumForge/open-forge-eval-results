@@ -1,0 +1,71 @@
+.player-fields {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px;
+  margin: 16px 0;
+}
+.player-fields div,
+.tournament-exchange {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.tournament-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 16px 0;
+}
+.bracket-scroll {
+  max-width: 100%;
+  overflow-x: auto;
+  margin: 24px 0;
+}
+.bracket-scroll table {
+  border-collapse: collapse;
+  min-width: 650px;
+  width: 100%;
+  text-align: left;
+}
+.bracket-scroll caption {
+  text-align: left;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.bracket-scroll th,
+.bracket-scroll td {
+  border-bottom: 1px solid var(--border);
+  padding: 8px;
+  overflow-wrap: anywhere;
+}
+.tournament-exchange {
+  margin: 24px 0;
+}
+.tournament-exchange textarea {
+  width: 100%;
+  resize: vertical;
+}
+.champion {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+.player-fields + .tournament-actions {
+  margin-bottom: 24px;
+}
+main ul {
+  margin: 0 0 16px;
+  padding-left: 24px;
+}
+dialog {
+  color: var(--text);
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 24px;
+}
+dialog::backdrop {
+  background: rgb(0 0 0 / 75%);
+}
+.screen-heading {
+  font-size: 1.2rem;
+}

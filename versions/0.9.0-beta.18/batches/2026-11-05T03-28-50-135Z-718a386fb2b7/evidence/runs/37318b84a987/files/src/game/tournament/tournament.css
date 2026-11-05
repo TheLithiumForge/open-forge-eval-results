@@ -1,0 +1,59 @@
+.tournament-screen h2,
+.tournament-screen h3 {
+  margin: 16px 0;
+}
+.tournament-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 12px 0;
+}
+.tournament-screen .control {
+  min-width: 44px;
+}
+.player-fields {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+  gap: 12px;
+  margin: 16px 0;
+}
+.player-fields label,
+.tournament-json label {
+  display: grid;
+  gap: 4px;
+}
+.tournament-json textarea {
+  width: 100%;
+  min-height: 140px;
+  resize: vertical;
+}
+.table-wrap {
+  overflow-x: auto;
+  margin: 12px 0;
+}
+table {
+  border-collapse: collapse;
+  width: 100%;
+  text-align: left;
+}
+caption {
+  text-align: left;
+  font-weight: bold;
+  padding: 8px 0;
+}
+th,
+td {
+  border-bottom: 1px solid var(--border);
+  padding: 8px;
+  overflow-wrap: anywhere;
+}
+dialog {
+  color: var(--text);
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  max-width: calc(100% - 32px);
+}
+dialog::backdrop {
+  background: #000b;
+}

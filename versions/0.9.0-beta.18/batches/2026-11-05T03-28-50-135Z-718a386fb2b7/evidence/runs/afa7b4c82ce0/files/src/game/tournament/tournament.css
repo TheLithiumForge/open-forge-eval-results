@@ -1,0 +1,66 @@
+.tournament-rule {
+  color: var(--secondary);
+  margin-bottom: 20px;
+}
+.tournament-setup,
+.tournament-json {
+  display: grid;
+  gap: 10px;
+}
+.tournament-setup > select {
+  width: fit-content;
+}
+.player-inputs {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px;
+}
+.player-inputs > div {
+  display: grid;
+  gap: 4px;
+}
+.player-inputs input,
+.tournament-json textarea {
+  width: 100%;
+}
+.tournament-section {
+  margin-top: 28px;
+}
+.tournament-section h2 {
+  font-size: 20px;
+}
+.tournament-section h3 {
+  font-size: 17px;
+}
+.tournament-section ul {
+  padding-left: 20px;
+  display: grid;
+  gap: 8px;
+}
+.bracket {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.match {
+  border: 1px solid var(--border);
+  background: var(--panel);
+  padding: 12px;
+  border-radius: 8px;
+  flex: 1 1 220px;
+}
+.match h4 {
+  margin: 0 0 8px;
+}
+.now-playing,
+.champion {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+.tournament-leave {
+  margin-left: 12px;
+}
+.tournament-json textarea {
+  resize: vertical;
+}

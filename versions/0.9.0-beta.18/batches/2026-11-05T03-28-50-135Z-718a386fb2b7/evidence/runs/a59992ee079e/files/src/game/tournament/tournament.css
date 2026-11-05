@@ -1,0 +1,116 @@
+.tournament-screen > * + * {
+  margin-top: 16px;
+}
+.tournament-screen h2,
+.tournament-screen h3 {
+  font-size: 18px;
+  line-height: 26px;
+  margin-bottom: 8px;
+}
+.tournament-count,
+.tournament-name-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.tournament-count select {
+  width: 120px;
+}
+.tournament-name-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 12px;
+}
+.tournament-name-field input,
+.tournament-exchange textarea {
+  width: 100%;
+}
+.tournament-error {
+  min-height: 24px;
+  color: #ffaaa7;
+}
+.tournament-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 12px 0;
+}
+.tournament-actions > button {
+  flex: 1 1 160px;
+  min-width: 44px;
+}
+.tournament-play > * + * {
+  margin-top: 8px;
+}
+.tournament-now-playing {
+  font-weight: 700;
+}
+.tournament-deal,
+.tournament-match-label {
+  color: var(--secondary);
+  font-size: 14px;
+}
+.tournament-table-scroll {
+  max-width: 100%;
+  overflow-x: auto;
+}
+.tournament-screen table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+.tournament-screen caption {
+  padding: 8px 0;
+  color: var(--secondary);
+  text-align: left;
+}
+.tournament-screen th,
+.tournament-screen td {
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+}
+.tournament-screen th {
+  white-space: nowrap;
+}
+.tournament-screen td:nth-child(3) {
+  font-variant-numeric: tabular-nums;
+}
+.storage-warning {
+  margin-bottom: 8px;
+  color: #ffcf87;
+}
+.tournament-exchange {
+  display: grid;
+  gap: 8px;
+}
+.tournament-exchange textarea {
+  min-width: 0;
+  resize: vertical;
+}
+.tournament-confirmation {
+  width: min(520px, calc(100vw - 32px));
+  padding: 16px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  color: var(--text);
+  background: var(--panel);
+}
+.tournament-confirmation::backdrop {
+  background: rgb(0 0 0 / 70%);
+}
+.tournament-confirmation p {
+  margin-top: 8px;
+}
+@media (max-width: 599px) {
+  .tournament-name-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .tournament-actions > button {
+    flex-basis: 100%;
+  }
+  .tournament-screen table {
+    min-width: 680px;
+  }
+}

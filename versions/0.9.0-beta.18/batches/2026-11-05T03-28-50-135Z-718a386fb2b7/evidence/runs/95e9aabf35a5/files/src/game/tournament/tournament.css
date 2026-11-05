@@ -1,0 +1,67 @@
+.tournament {
+  display: grid;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+.tournament h2,
+.tournament h3,
+.tournament h4 {
+  margin: 0;
+}
+.tournament form,
+.tournament-transfer,
+.player-inputs label {
+  display: grid;
+  gap: 8px;
+}
+.tournament form {
+  justify-items: start;
+}
+.player-inputs {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px;
+  width: 100%;
+}
+.tournament-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.tournament > button,
+.tournament form > button {
+  justify-self: start;
+}
+.tournament ul {
+  display: grid;
+  gap: 8px;
+  padding-left: 24px;
+  margin: 0;
+}
+.now-playing,
+.champion {
+  font-size: 1.2rem;
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+.bracket {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+}
+.bracket section {
+  display: grid;
+  align-content: start;
+  gap: 8px;
+}
+.match {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 12px;
+  background: var(--panel);
+  overflow-wrap: anywhere;
+}
+.tournament-transfer textarea {
+  width: 100%;
+  resize: vertical;
+}

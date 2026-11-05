@@ -1,0 +1,146 @@
+.tournament-screen {
+  display: grid;
+  gap: 24px;
+}
+.tournament-heading-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.tournament-heading-row h2,
+.tournament-screen h3 {
+  margin: 0;
+}
+.tournament-setup,
+.tournament-live,
+.tournament-exchange,
+.past-tournaments {
+  display: grid;
+  gap: 16px;
+}
+.tournament-player-count,
+.tournament-name-field {
+  display: grid;
+  gap: 6px;
+}
+.tournament-player-count {
+  grid-template-columns: auto 72px;
+  align-items: center;
+  justify-content: start;
+  gap: 12px;
+}
+.tournament-player-count .control {
+  min-width: 64px;
+}
+.tournament-names {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin: 0;
+  padding: 16px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+.tournament-names legend {
+  padding: 0 6px;
+}
+.tournament-name-field input {
+  width: 100%;
+}
+.tournament-error,
+.tournament-notice {
+  color: var(--secondary);
+}
+.tournament-round {
+  color: var(--secondary);
+}
+.tournament-champion {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+.past-tournament-list {
+  display: grid;
+  gap: 8px;
+}
+.past-tournament-list details {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 8px 12px;
+  background: var(--panel);
+}
+.past-tournament-list summary {
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+.tournament-table-wrap {
+  max-width: 100%;
+  overflow: auto;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+.tournament-bracket {
+  width: 100%;
+  min-width: 620px;
+  border-collapse: collapse;
+  background: var(--panel);
+}
+.tournament-bracket caption {
+  padding: 8px 12px;
+  color: var(--secondary);
+  text-align: left;
+}
+.tournament-bracket th,
+.tournament-bracket td {
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--border);
+  text-align: left;
+}
+.tournament-bracket thead th {
+  color: var(--secondary);
+  font-weight: 600;
+}
+.tournament-bracket tbody tr:last-child > * {
+  border-bottom: 0;
+}
+.tournament-exchange textarea {
+  display: block;
+  width: 100%;
+  min-height: 160px;
+  resize: vertical;
+}
+.tournament-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.tournament-leave-dialog {
+  width: min(calc(100% - 32px), 440px);
+  padding: 24px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--text);
+  background: var(--panel);
+}
+.tournament-leave-dialog::backdrop {
+  background: rgb(0 0 0 / 70%);
+}
+.tournament-leave-dialog > * + * {
+  margin-top: 16px;
+}
+@media (max-width: 599px) {
+  .tournament-names {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .tournament-actions > button {
+    flex: 1;
+  }
+  .tournament-heading-row > button {
+    width: 100%;
+  }
+}

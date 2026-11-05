@@ -1,0 +1,67 @@
+.tournament section,
+.tournament-setup {
+  margin: 24px 0;
+}
+.tournament h2 {
+  font-size: 20px;
+  line-height: 28px;
+}
+.tournament h3 {
+  font-size: 17px;
+}
+.tournament h4 {
+  margin: 0 0 8px;
+}
+.tournament-setup > label {
+  margin-right: 12px;
+}
+.player-inputs {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px;
+  margin: 16px 0;
+}
+.player-inputs > div {
+  display: grid;
+  gap: 4px;
+}
+.tournament-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 16px 0;
+}
+.now-playing {
+  font-size: 18px;
+  font-weight: 700;
+}
+.bracket {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+.bracket-round {
+  flex: 1 1 220px;
+}
+.bracket-match {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 12px;
+  margin-bottom: 12px;
+  overflow-wrap: anywhere;
+}
+.bracket-match p + p {
+  margin-top: 4px;
+}
+.tournament-transfer label,
+.tournament-transfer textarea {
+  display: block;
+  width: 100%;
+}
+.tournament-transfer textarea {
+  margin-top: 8px;
+  resize: vertical;
+}
+.tournament li {
+  margin: 8px 0;
+}

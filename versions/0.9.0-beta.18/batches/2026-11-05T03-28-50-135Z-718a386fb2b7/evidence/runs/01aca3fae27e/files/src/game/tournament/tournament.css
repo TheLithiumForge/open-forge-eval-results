@@ -1,0 +1,72 @@
+.tournament h2,
+.tournament h3 {
+  margin: 20px 0 12px;
+}
+.tournament p {
+  margin: 8px 0;
+}
+.tournament-form,
+.name-field,
+.exchange {
+  display: grid;
+  gap: 8px;
+}
+.tournament-form {
+  max-width: 32rem;
+  margin-bottom: 24px;
+}
+.tournament .control {
+  min-width: 44px;
+}
+.tournament-form > button {
+  justify-self: start;
+}
+.tournament ul {
+  padding-left: 24px;
+}
+.tournament li {
+  margin: 8px 0;
+}
+.exchange {
+  margin-top: 24px;
+  max-width: 55rem;
+}
+.exchange-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.bracket {
+  overflow-x: auto;
+  margin: 24px 0;
+}
+.bracket table {
+  border-collapse: collapse;
+  width: 100%;
+}
+.bracket caption {
+  text-align: left;
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding-bottom: 8px;
+}
+.bracket th,
+.bracket td {
+  border: 1px solid var(--border);
+  padding: 8px;
+  text-align: left;
+}
+.champion {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+.tournament dialog {
+  color: var(--text);
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px;
+}
+.tournament dialog::backdrop {
+  background: #000b;
+}

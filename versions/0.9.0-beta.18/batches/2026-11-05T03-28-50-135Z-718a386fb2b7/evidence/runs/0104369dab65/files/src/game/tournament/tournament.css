@@ -1,0 +1,78 @@
+.tournament h2,
+.tournament h3 {
+  margin: 20px 0 12px;
+}
+.tournament p {
+  margin: 8px 0;
+}
+.tournament .control {
+  min-width: 44px;
+}
+.tournament-form,
+.exchange {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  margin: 16px 0;
+}
+.name-field {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+.name-field label {
+  min-width: 80px;
+}
+.exchange textarea {
+  width: min(100%, 640px);
+  min-height: 120px;
+}
+.actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.table-scroll {
+  max-width: 100%;
+  overflow-x: auto;
+  margin: 16px 0;
+}
+.tournament table {
+  border-collapse: collapse;
+  text-align: left;
+}
+.tournament caption {
+  text-align: left;
+  font-weight: bold;
+}
+.tournament th,
+.tournament td {
+  border-bottom: 1px solid var(--border);
+  padding: 8px;
+}
+.tournament dialog {
+  color: var(--text);
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+.tournament dialog::backdrop {
+  background: #000a;
+}
+.champion {
+  font-weight: bold;
+}
+
+.tournament .visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}

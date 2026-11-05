@@ -1,0 +1,75 @@
+.tournament-setup,
+.tournament-current,
+.exchange,
+.past {
+  display: grid;
+  gap: 12px;
+  margin: 20px 0;
+}
+.player-fields {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr));
+  gap: 12px;
+}
+.player-fields > div {
+  display: grid;
+  gap: 4px;
+}
+.tournament-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.tournament-current > button {
+  justify-self: start;
+}
+.bracket-scroll {
+  overflow-x: auto;
+  max-width: 100%;
+}
+.bracket-scroll table {
+  border-collapse: collapse;
+  width: 100%;
+  text-align: left;
+}
+.bracket-scroll caption {
+  text-align: left;
+  font-weight: 700;
+  padding: 8px 0;
+}
+.bracket-scroll th,
+.bracket-scroll td {
+  border: 1px solid var(--border);
+  padding: 8px;
+  overflow-wrap: anywhere;
+}
+.exchange textarea {
+  width: 100%;
+  resize: vertical;
+}
+.past details {
+  padding: 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+.past summary {
+  cursor: pointer;
+  min-height: 44px;
+}
+.champion {
+  font-weight: 700;
+  color: var(--green);
+}
+dialog {
+  color: var(--text);
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px;
+}
+dialog::backdrop {
+  background: #000a;
+}
+dialog .tournament-actions {
+  margin-top: 16px;
+}

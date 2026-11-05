@@ -1,0 +1,114 @@
+.tournament-screen h2 {
+  font-size: 22px;
+  line-height: 30px;
+  margin: 0 0 8px;
+}
+.tournament-screen h3 {
+  font-size: 18px;
+  line-height: 26px;
+  margin: 0 0 12px;
+}
+.tournament-setup,
+.tournament-tools,
+.tournament-history {
+  display: grid;
+  gap: 12px;
+  padding: 16px;
+  margin: 16px 0;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--panel);
+}
+.tournament-count,
+.tournament-player-field {
+  display: grid;
+  gap: 6px;
+}
+.tournament-count {
+  grid-template-columns: auto minmax(80px, 120px);
+  align-items: center;
+  margin-bottom: 12px;
+}
+.tournament-players {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+  gap: 12px;
+}
+.tournament-player-field input {
+  width: 100%;
+}
+.tournament-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin: 12px 0;
+}
+.tournament-live-status p {
+  margin: 0;
+}
+.tournament-live-champion {
+  color: var(--green);
+  font-size: 20px;
+  font-weight: 600;
+}
+.tournament-confirmation {
+  max-width: min(440px, calc(100% - 32px));
+  padding: 20px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--panel);
+  color: var(--text);
+}
+.tournament-confirmation::backdrop {
+  background: rgb(0 0 0 / 70%);
+}
+.tournament-stats {
+  margin-top: 12px;
+}
+.tournament-bracket {
+  margin-top: 20px;
+}
+.tournament-match,
+.tournament-history table {
+  width: 100%;
+  margin: 12px 0;
+  border-collapse: collapse;
+  text-align: left;
+}
+.tournament-match caption,
+.tournament-history caption {
+  padding: 8px 0;
+  color: var(--text);
+  font-weight: 600;
+  text-align: left;
+}
+.tournament-match th,
+.tournament-match td,
+.tournament-history th,
+.tournament-history td {
+  padding: 8px;
+  border: 1px solid var(--border);
+  vertical-align: middle;
+}
+.tournament-match td:nth-child(n + 2) {
+  font-variant-numeric: tabular-nums;
+}
+.tournament-tools textarea {
+  width: 100%;
+  min-width: 0;
+  resize: vertical;
+  font-family: ui-monospace, monospace;
+}
+@media (max-width: 599px) {
+  .tournament-actions > button {
+    flex: 1;
+  }
+  .tournament-match th,
+  .tournament-match td,
+  .tournament-history th,
+  .tournament-history td {
+    padding: 6px 4px;
+    overflow-wrap: anywhere;
+  }
+}

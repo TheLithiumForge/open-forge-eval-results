@@ -1,0 +1,213 @@
+.screen-heading {
+  margin: 0 0 12px;
+  font-size: 20px;
+  line-height: 28px;
+}
+.tournament-screen {
+  display: grid;
+  gap: 20px;
+  margin-top: 12px;
+}
+.tournament-header {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: 16px;
+}
+.tournament-header h2 {
+  margin: 0 0 8px;
+  font-size: 20px;
+  line-height: 28px;
+}
+.tournament-header .intro {
+  margin: 0;
+}
+.tournament-setup,
+.tournament-exchange,
+.past-tournaments {
+  display: grid;
+  gap: 12px;
+  padding: 16px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--panel);
+}
+.tournament-setup h3,
+.tournament-exchange h3,
+.past-tournaments h3,
+.tournament-round h3 {
+  margin: 0;
+  font-size: 17px;
+  line-height: 24px;
+}
+.tournament-player-count {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: fit-content;
+}
+.tournament-player-count select {
+  min-width: 88px;
+}
+.tournament-player-fields {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+  gap: 12px;
+}
+.tournament-player-field {
+  display: grid;
+  gap: 6px;
+}
+.tournament-player-field input {
+  width: 100%;
+}
+.tournament-actions,
+.tournament-play-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.tournament-action {
+  width: fit-content;
+}
+.tournament-notice {
+  color: var(--secondary);
+}
+.tournament-exchange textarea {
+  width: 100%;
+  resize: vertical;
+  font-family: ui-monospace, monospace;
+  font-size: 14px;
+  line-height: 20px;
+}
+.tournament-play {
+  display: grid;
+  gap: 12px;
+}
+.tournament-round-label,
+.tournament-current-player {
+  font-weight: 600;
+}
+.tournament-current-player {
+  min-height: 24px;
+}
+.tournament-bracket {
+  display: grid;
+  gap: 16px;
+}
+.tournament-round {
+  display: grid;
+  gap: 8px;
+  min-width: 0;
+}
+.tournament-table-scroll {
+  overflow-x: auto;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+.tournament-table-scroll table {
+  width: 100%;
+  min-width: 620px;
+  border-collapse: collapse;
+  background: var(--panel);
+}
+.tournament-table-scroll caption {
+  padding: 8px 10px;
+  color: var(--secondary);
+  text-align: left;
+}
+.tournament-table-scroll th,
+.tournament-table-scroll td {
+  padding: 9px 10px;
+  border-top: 1px solid var(--border);
+  text-align: left;
+  vertical-align: top;
+}
+.tournament-table-scroll thead th {
+  color: var(--secondary);
+  font-weight: 600;
+}
+.tournament-table-scroll tbody th {
+  min-width: 140px;
+  white-space: normal;
+}
+.tournament-code {
+  display: block;
+  margin-top: 4px;
+  color: var(--secondary);
+  font-size: 12px;
+  font-weight: 400;
+  overflow-wrap: anywhere;
+}
+.tournament-stats {
+  margin: 0;
+}
+.tournament-champion {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  padding: 14px;
+  border: 1px solid var(--green);
+  border-radius: 10px;
+}
+.tournament-champion p {
+  font-weight: 700;
+}
+.tournament-leave-dialog {
+  width: min(480px, calc(100vw - 32px));
+  padding: 20px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  color: var(--text);
+  background: var(--panel);
+}
+.tournament-leave-dialog::backdrop {
+  background: rgb(0 0 0 / 65%);
+}
+.tournament-leave-dialog h2 {
+  margin: 0 0 8px;
+  font-size: 20px;
+  line-height: 28px;
+}
+.tournament-leave-actions {
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 20px;
+}
+.past-tournaments ul {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding-left: 24px;
+}
+.past-tournaments summary {
+  min-height: 44px;
+  padding: 8px 4px;
+  cursor: pointer;
+}
+.past-tournaments time {
+  color: var(--secondary);
+}
+.past-tournaments .tournament-bracket {
+  margin: 8px 0 16px;
+}
+@media (max-width: 599px) {
+  .tournament-header {
+    flex-direction: column;
+  }
+  .tournament-header > .control {
+    width: 100%;
+  }
+  .tournament-actions > button {
+    flex: 1;
+  }
+  .tournament-champion > button {
+    width: 100%;
+  }
+  .tournament-leave-actions > button {
+    flex: 1;
+  }
+}
