@@ -1,0 +1,54 @@
+.round {
+  margin-bottom: 16px;
+}
+.tournament h4 {
+  margin: 0 0 8px;
+  color: var(--secondary);
+  font-size: 14px;
+  line-height: 24px;
+}
+.matches {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.match {
+  padding: 12px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--panel);
+}
+.match[aria-current='step'] {
+  border-color: var(--text);
+}
+.match table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.match caption {
+  padding: 0 0 8px;
+  color: var(--secondary);
+  font-size: 14px;
+  text-align: left;
+}
+.match th,
+.match td {
+  padding: 4px 8px 4px 0;
+  border-bottom: 1px solid var(--border);
+  font-weight: 400;
+  text-align: left;
+  font-variant-numeric: tabular-nums;
+}
+.match thead th {
+  color: var(--secondary);
+  font-size: 14px;
+}
+.match td {
+  white-space: nowrap;
+}
+.winner {
+  margin-top: 8px;
+}

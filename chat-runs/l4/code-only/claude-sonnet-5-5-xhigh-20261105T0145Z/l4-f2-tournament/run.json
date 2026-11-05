@@ -1,0 +1,30 @@
+{
+  "scenario": "code-only",
+  "packet": "l4-f2-tournament",
+  "workMode": "whole-packet",
+  "harness": "cloud chat, one subagent",
+  "model": {
+    "configured": "claude-sonnet-5-5",
+    "lastServed": "claude-sonnet-5-5"
+  },
+  "effort": "xhigh",
+  "openForgeCommit": "7f4406a40504c056e34e8b584cc8bdd1325f21ea",
+  "startedAt": "2026-11-05T01:45:17Z",
+  "finishedAt": "2026-11-05T02:22:37Z",
+  "timeLimitMinutes": 180,
+  "implementer": {
+    "totalTokens": 285321,
+    "toolUses": 29,
+    "durationMs": 933303
+  },
+  "questionsAnswered": 0,
+  "notes": [
+    "The subagent was started in the background, then stopped by the user (task killed) at about 02:06Z after it had already edited files, and resumed with the message 'Please continue with the task where you left off.' The implementer usage figures are from the completion notice after the resume and probably cover only the resumed part, not the first segment.",
+    "finishedAt is the time the save step began, not the exact time the subagent finished; its report arrived before 02:22Z.",
+    "Wall time from start to finish is about 37 minutes, including the pause.",
+    "Effort xhigh was accepted.",
+    "last_served_model was not present in the first get_session call and was claude-sonnet-5-5 in the second.",
+    "The subagent reported running browser tests on Node 22.23.4 and system Chrome 153 instead of the README's Node 26.12.1 and Chromium 156.",
+    "transcripts.tgz was deleted: the sign-in value check matched inside the transcripts (likely the check command's own text), so they were not pushed."
+  ]
+}
