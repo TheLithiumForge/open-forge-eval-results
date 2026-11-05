@@ -1,0 +1,15 @@
+{
+  "scenario": "minimal-scoped",
+  "packet": "l4-f2-tournament",
+  "workMode": "whole-packet",
+  "harness": "cloud chat, one subagent",
+  "model": { "configured": "claude-opus-5-5", "lastServed": "claude-opus-5-5" },
+  "effort": "xhigh",
+  "openForgeCommit": "074abb39519f292440706df7b608d15285079885",
+  "startedAt": "2026-11-05T03:30:20Z",
+  "finishedAt": "2026-11-05T04:04:56Z",
+  "timeLimitMinutes": 180,
+  "implementer": { "totalTokens": 452859, "toolUses": 136, "durationMs": 2045365 },
+  "questionsAnswered": 0,
+  "notes": "Subagent ran in the background despite a foreground request; harness waited for its completion. Finished within the time limit. The add_repo call found Open Forge public and attached nothing, so there was no repository to remove from the session; /home/user/harness was deleted. The report was delivered through the subagent's hand-back message and saved from its transcript."
+}
