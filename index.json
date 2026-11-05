@@ -557,15 +557,7 @@
         }
       ],
       "judges": [],
-      "gradingVersions": [
-        {
-          "spec": "9ca8c9da7e489d88aa1e4a7b3086a2c28dafdb03369ac83f34b83851e00346cb",
-          "specVersion": 2.2,
-          "checker": "beec52149b53b5b11655b7e0b899adbce61619e6533f69789d4323398685237f",
-          "rubric": "d5e9382694e50c797e5ffec94012f44d486d006451e2377d18a5945e75440d9d",
-          "judge": "97fe903f24c39d05fde0a1d5f6e112e1b33f2554ca0acb2113c2fdbf650f5886"
-        }
-      ],
+      "gradingVersions": [],
       "path": "versions/0.9.0-beta.18/batches/2026-11-05T00-54-43-285Z-f4a4919c3038"
     },
     {
@@ -610,15 +602,7 @@
         }
       ],
       "judges": [],
-      "gradingVersions": [
-        {
-          "spec": "9ca8c9da7e489d88aa1e4a7b3086a2c28dafdb03369ac83f34b83851e00346cb",
-          "specVersion": 2.2,
-          "checker": "beec52149b53b5b11655b7e0b899adbce61619e6533f69789d4323398685237f",
-          "rubric": "d5e9382694e50c797e5ffec94012f44d486d006451e2377d18a5945e75440d9d",
-          "judge": "97fe903f24c39d05fde0a1d5f6e112e1b33f2554ca0acb2113c2fdbf650f5886"
-        }
-      ],
+      "gradingVersions": [],
       "path": "versions/0.9.0-beta.18/batches/2026-11-05T01-24-26-000Z-57f4835eda3c"
     },
     {
@@ -634,15 +618,7 @@
         }
       ],
       "judges": [],
-      "gradingVersions": [
-        {
-          "spec": "9ca8c9da7e489d88aa1e4a7b3086a2c28dafdb03369ac83f34b83851e00346cb",
-          "specVersion": 2.2,
-          "checker": "beec52149b53b5b11655b7e0b899adbce61619e6533f69789d4323398685237f",
-          "rubric": "d5e9382694e50c797e5ffec94012f44d486d006451e2377d18a5945e75440d9d",
-          "judge": "97fe903f24c39d05fde0a1d5f6e112e1b33f2554ca0acb2113c2fdbf650f5886"
-        }
-      ],
+      "gradingVersions": [],
       "path": "versions/0.9.0-beta.18/batches/2026-11-05T01-45-17-000Z-e7ff9dac4e25"
     },
     {
@@ -658,15 +634,7 @@
         }
       ],
       "judges": [],
-      "gradingVersions": [
-        {
-          "spec": "9ca8c9da7e489d88aa1e4a7b3086a2c28dafdb03369ac83f34b83851e00346cb",
-          "specVersion": 2.2,
-          "checker": "beec52149b53b5b11655b7e0b899adbce61619e6533f69789d4323398685237f",
-          "rubric": "d5e9382694e50c797e5ffec94012f44d486d006451e2377d18a5945e75440d9d",
-          "judge": "97fe903f24c39d05fde0a1d5f6e112e1b33f2554ca0acb2113c2fdbf650f5886"
-        }
-      ],
+      "gradingVersions": [],
       "path": "versions/0.9.0-beta.18/batches/2026-11-05T03-23-03-882Z-67e1106e4709"
     },
     {
@@ -687,15 +655,7 @@
         }
       ],
       "judges": [],
-      "gradingVersions": [
-        {
-          "spec": "9ca8c9da7e489d88aa1e4a7b3086a2c28dafdb03369ac83f34b83851e00346cb",
-          "specVersion": 2.2,
-          "checker": "beec52149b53b5b11655b7e0b899adbce61619e6533f69789d4323398685237f",
-          "rubric": "d5e9382694e50c797e5ffec94012f44d486d006451e2377d18a5945e75440d9d",
-          "judge": "97fe903f24c39d05fde0a1d5f6e112e1b33f2554ca0acb2113c2fdbf650f5886"
-        }
-      ],
+      "gradingVersions": [],
       "path": "versions/0.9.0-beta.18/batches/2026-11-05T03-23-05-356Z-097a5ce660e9"
     },
     {
@@ -716,15 +676,7 @@
         }
       ],
       "judges": [],
-      "gradingVersions": [
-        {
-          "spec": "9ca8c9da7e489d88aa1e4a7b3086a2c28dafdb03369ac83f34b83851e00346cb",
-          "specVersion": 2.2,
-          "checker": "beec52149b53b5b11655b7e0b899adbce61619e6533f69789d4323398685237f",
-          "rubric": "d5e9382694e50c797e5ffec94012f44d486d006451e2377d18a5945e75440d9d",
-          "judge": "97fe903f24c39d05fde0a1d5f6e112e1b33f2554ca0acb2113c2fdbf650f5886"
-        }
-      ],
+      "gradingVersions": [],
       "path": "versions/0.9.0-beta.18/batches/2026-11-05T03-28-50-135Z-718a386fb2b7"
     }
   ]
