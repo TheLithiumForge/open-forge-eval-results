@@ -22,7 +22,7 @@ const schemas = {
     questions: list(object({ question: text, answer: text })), telemetry: nullable(ref("telemetry")), build: nullable(ref("build")), performance: nullable(ref("performance")), shots: strings }, ["implementer", "reference", "parentRunId"]),
   assessment: { oneOf: [
     object({ ...version, ...commonDefinitions.assessment, kind: { const: "checks" }, runId: ref("id"), outcomes: list(ref("outcome")), selection: ref("selection"), build: nullable(ref("build")), performance: nullable(ref("performance")), shots: strings }),
-    object({ ...version, ...commonDefinitions.assessment, kind: { const: "judge" }, ballots: ref("count"), runId: ref("id"), answers: list(ref("answer")), requestedModel: nullable(choice), reportedModel: nullableText, scores: list(ref("judgeScore")), findings: list(ref("judgeFinding")), summaries: strings }, ["ballots", "scores", "findings", "summaries"]),
+    object({ ...version, ...commonDefinitions.assessment, kind: { const: "judge" }, ballots: ref("count"), runId: ref("id"), answers: list(ref("answer")), requestedModel: nullable(choice), reportedModel: nullableText, scores: list(ref("judgeScore")), findings: list(ref("judgeFinding")), summaries: strings, staleDocs: list(ref("judgeStalePage")) }, ["ballots", "scores", "findings", "summaries", "staleDocs"]),
     object({ ...version, ...commonDefinitions.assessment, kind: { const: "pick" }, left: object({ runId: ref("id"), artifactHash: nullable(digest), side: { const: "left" } }),
       right: object({ runId: ref("id"), artifactHash: nullable(digest), side: { const: "right" } }), winner: { enum: ["left", "right", "tie"] }, revealed: nullable({ type: "boolean" }) }),
   ] },
