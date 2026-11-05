@@ -1,0 +1,29 @@
+{
+  "scenario": "plain-docs",
+  "packet": "l4-f2-tournament",
+  "workMode": "whole-packet",
+  "harness": "cloud chat, one subagent",
+  "model": {
+    "configured": "claude-sonnet-5-5",
+    "lastServed": "claude-sonnet-5-5"
+  },
+  "effort": "xhigh",
+  "openForgeCommit": "7f4406a40504c056e34e8b584cc8bdd1325f21ea",
+  "startedAt": "2026-11-05T01:45:31Z",
+  "finishedAt": "2026-11-05T02:26:51Z",
+  "timeLimitMinutes": 180,
+  "implementer": {
+    "totalTokens": 519055,
+    "toolUses": 75,
+    "durationMs": 1256276
+  },
+  "questionsAnswered": 0,
+  "notes": [
+    "xhigh effort was accepted.",
+    "The run was stopped by the harness on the user's request shortly after it began (the implementer had only started exploring and had made no changes), then resumed by sending the same subagent the single message 'Please continue with the task.' The pause is included in the wall-clock span between startedAt and finishedAt. The implementer's durationMs, tokens and tool uses come from the final task notification and may cover only the resumed segment.",
+    "The implementer finished with a final report, not a question, so no 'no more details' reply was sent.",
+    "The implementer reported running on Node 22 because the sandbox has no Node 24, and that format:check over the whole repo fails on about 100 existing docs files, as it did before the run.",
+    "No checks or judges were run by the harness.",
+    "transcripts.tgz was deleted: the sign-in-value scan matched in the transcripts (likely the pattern text in the harness's own instructions and commands, not checked further), so they are not saved."
+  ]
+}
