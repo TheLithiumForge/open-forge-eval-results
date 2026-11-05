@@ -1,0 +1,22 @@
+{
+  "scenario": "plain-docs",
+  "packet": "l4-f2-tournament",
+  "workMode": "whole-packet",
+  "harness": "cloud chat, one subagent",
+  "model": {
+    "configured": "claude-opus-5-5",
+    "lastServed": "claude-opus-5-5"
+  },
+  "effort": "xhigh",
+  "openForgeCommit": "7f4406a40504c056e34e8b584cc8bdd1325f21ea",
+  "startedAt": "2026-11-05T01:24:33Z",
+  "finishedAt": "2026-11-05T02:14:18Z",
+  "timeLimitMinutes": 180,
+  "implementer": {
+    "totalTokens": 540238,
+    "toolUses": 162,
+    "durationMs": 2971220
+  },
+  "questionsAnswered": 0,
+  "notes": "Subagent finished within the limit with no questions. xhigh effort accepted. The subagent ran in the background despite the foreground request, and the harness waited for its completion notice. add_repo reported open-forge as a public read with nothing attached, so there was no repository to remove from the session. The harness clone and its add_repo checkout path were deleted before the run. The implementer reported running on Node 22.23.4 with Chrome for Testing 153, not the project's named Node 26.12.1 / Chromium 156, and that format:check already failed on docs/ before its changes. Its changes were left uncommitted in the working tree and captured in changes.patch. transcripts.tgz was deleted because the sign-in pattern check matched inside it (the patterns appear in the harness instructions, so this might be a false match), so real token counts come only from the task notice."
+}

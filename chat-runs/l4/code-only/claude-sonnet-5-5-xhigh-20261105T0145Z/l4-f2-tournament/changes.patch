@@ -1,0 +1,2688 @@
+diff --git a/README.md b/README.md
+index 4a20f0e..5835464 100644
+--- a/README.md
++++ b/README.md
+@@ -24,6 +24,18 @@ Use Grid size to choose a board. Reveal two cards with a click, tap, Enter or Sp
+ 
+ Open Reproduce a game to load a board code or export progress. Loading an unfinished snapshot pauses it. Resume returns focus to the remembered card and continues the remaining mismatch interval. A completed snapshot loads as completed without Resume. Elapsed time stops at 359999999ms while play continues. The minutes and seconds display reaches 5999:59. Moves stop at 999999. Matching and victory continue at that count. Saved bests use the same move limit.
+ 
++## Tournament
++
++Select Tournament, next to New Game, for 4 or 8 players who share one device. Choose the count with Players, type each name into Player 1 to Player 8 and select Start tournament. A blank name plays as its own label, such as Player 3, and two names that differ only in letter case are refused.
++
++The tournament is a knockout. In each match both players play the same deal, one after the other. The screen shows Now playing and the deal code, Start turn begins that player's game and Next turn or Next match follows each finished game. Fewer moves win the match. A tie goes to the shorter time, then to the player listed first. The bracket lists every match with its players, their moves and time, and its winner. After the final the screen shows Champion and Back to game. Leave tournament stops a tournament early and saves nothing.
++
++Every match has its own deal and all deals use the grid size of the game the tournament was opened from. Opening Tournament pauses a game in progress. Back to game returns to it with Resume. Tournament games never change the saved bests.
++
++Finished tournaments stay in Past tournaments on the Tournament screen, which keeps the 20 newest in browser storage under `neon-pairs.tournaments.v1`. View bracket opens one of them.
++
++Export tournament puts version 1 JSON in the Tournament JSON box and Load tournament reads that box back. Both are on every Tournament screen. The JSON holds the players and each match's deal and results, and winners follow from the results. A game that is still being played is not part of it, so loading starts the next game of the saved tournament from its beginning. Before a tournament starts, Export saves the players typed so far with fresh deals, and loading it starts that tournament. Loading a finished tournament shows its champion and adds it to Past tournaments. Invalid JSON leaves the screen as it was.
++
+ ## Replay
+ 
+ Run `npm run --silent replay -- PATH` with a version 1 replay JSON file. Valid input prints only its final version 1 snapshot JSON to stdout and exits 0. Invalid input prints nothing to stdout, writes a message to stderr and exits nonzero. The command's silent flag suppresses its npm banner so stdout stays JSON. Other npm commands keep their errors and warnings. Replay timestamps can reach the safe integer limit. Elapsed time uses the same cap as browser play.
+diff --git a/src/game/Game.tsx b/src/game/Game.tsx
+index e965799..3c440c3 100644
+--- a/src/game/Game.tsx
++++ b/src/game/Game.tsx
+@@ -1,8 +1,10 @@
+-import { useRef } from 'react';
++import { useEffect, useRef, useState } from 'react';
+ import { Board } from './board/Board.tsx';
++import { BoardHelp } from './board/BoardHelp.tsx';
+ import { Controls } from './controls/Controls.tsx';
+ import { Reproduction } from './controls/Reproduction.tsx';
+ import { GameStatus } from './status/GameStatus.tsx';
++import { TournamentScreen } from './tournament/TournamentScreen.tsx';
+ import type { BoardFocus } from './board/Board.tsx';
+ import { useGame } from './session/use-game.ts';
+ import './game.css';
+@@ -12,43 +14,69 @@ export function Game() {
+   const { session } = controller;
+   const { game } = session;
+   const board = useRef<BoardFocus>(null);
++  const tournamentButton = useRef<HTMLButtonElement>(null);
++  const [tournament, setTournament] = useState(false);
++  const returning = useRef(false);
+   function resume(): void {
+     board.current?.focusRemembered();
+     controller.resume();
+   }
++  function openTournament(): void {
++    controller.pause();
++    setTournament(true);
++  }
++  function closeTournament(): void {
++    returning.current = true;
++    setTournament(false);
++  }
++  // The Tournament button comes back with the game, and the keyboard continues from it.
++  useEffect(() => {
++    if (tournament || !returning.current) return;
++    returning.current = false;
++    tournamentButton.current?.focus();
++  }, [tournament]);
+   return (
+     <main>
+       <header>
+         <p className="eyebrow">A little focus. A perfect pair.</p>
+         <h1>Neon Pairs</h1>
+       </header>
+-      <p className="intro">Reveal two cards. Match their shape and marker to keep the pair.</p>
+-      <Controls size={game.size} newGame={controller.newGame} restart={controller.restart} />
+-      <GameStatus
+-        game={game}
+-        best={session.preferences.bestMoves[String(game.size)]}
+-        celebration={session.celebration}
+-      />
+-      <p id="board-help" className="help">
+-        Use a pointer or Tab to enter the board. Arrow keys move between cards. Enter or Space
+-        reveals a card.
+-      </p>
+-      <div className="game-result">
+-        <p role="status" aria-live="polite" aria-atomic="true">
+-          <span key={session.announcement}>{session.feedback}</span>
+-        </p>
+-      </div>
+-      <Board key={session.generation} game={game} activate={controller.activate} ref={board} />
+-      <Reproduction
+-        game={game}
+-        generation={session.generation}
+-        exportSnapshot={controller.exportSnapshot}
+-        loadBoard={controller.loadBoard}
+-        loadSnapshot={controller.loadSnapshot}
+-        notice={session.loadNotice}
+-        paused={session.paused}
+-        resume={resume}
+-      />
++      {tournament ? (
++        <TournamentScreen size={game.size} back={closeTournament} />
++      ) : (
++        <>
++          <p className="intro">Reveal two cards. Match their shape and marker to keep the pair.</p>
++          <Controls
++            size={game.size}
++            newGame={controller.newGame}
++            restart={controller.restart}
++            openTournament={openTournament}
++            tournamentButton={tournamentButton}
++          />
++          <GameStatus
++            game={game}
++            best={session.preferences.bestMoves[String(game.size)]}
++            celebration={session.celebration}
++          />
++          <BoardHelp />
++          <div className="game-result">
++            <p role="status" aria-live="polite" aria-atomic="true">
++              <span key={session.announcement}>{session.feedback}</span>
++            </p>
++          </div>
++          <Board key={session.generation} game={game} activate={controller.activate} ref={board} />
++          <Reproduction
++            game={game}
++            generation={session.generation}
++            exportSnapshot={controller.exportSnapshot}
++            loadBoard={controller.loadBoard}
++            loadSnapshot={controller.loadSnapshot}
++            notice={session.loadNotice}
++            paused={session.paused}
++            resume={resume}
++          />
++        </>
++      )}
+     </main>
+   );
+ }
+diff --git a/src/game/board/BoardHelp.tsx b/src/game/board/BoardHelp.tsx
+new file mode 100644
+index 0000000..53b7271
+--- /dev/null
++++ b/src/game/board/BoardHelp.tsx
+@@ -0,0 +1,8 @@
++export function BoardHelp() {
++  return (
++    <p id="board-help" className="help">
++      Use a pointer or Tab to enter the board. Arrow keys move between cards. Enter or Space reveals
++      a card.
++    </p>
++  );
++}
+diff --git a/src/game/controls/Controls.tsx b/src/game/controls/Controls.tsx
+index 1be1bcd..894adcf 100644
+--- a/src/game/controls/Controls.tsx
++++ b/src/game/controls/Controls.tsx
+@@ -1,5 +1,6 @@
+ import { GRID_SIZES } from '../deck.ts';
+ import { DealControl } from './control-labels.ts';
++import type { RefObject } from 'react';
+ import './control.css';
+ import './controls.css';
+ 
+@@ -7,9 +8,17 @@ interface ControlsProps {
+   size: number;
+   newGame(size?: number): void;
+   restart(): void;
++  openTournament(): void;
++  tournamentButton: RefObject<HTMLButtonElement | null>;
+ }
+ 
+-export function Controls({ size, newGame, restart }: ControlsProps) {
++export function Controls({
++  size,
++  newGame,
++  restart,
++  openTournament,
++  tournamentButton,
++}: ControlsProps) {
+   return (
+     <div className="controls">
+       <div className="size-control">
+@@ -30,6 +39,9 @@ export function Controls({ size, newGame, restart }: ControlsProps) {
+       <button type="button" className="control" onClick={() => newGame()}>
+         {DealControl.newGame}
+       </button>
++      <button ref={tournamentButton} type="button" className="control" onClick={openTournament}>
++        {DealControl.tournament}
++      </button>
+       <button type="button" className="control" onClick={restart}>
+         {DealControl.restart}
+       </button>
+diff --git a/src/game/controls/control-labels.ts b/src/game/controls/control-labels.ts
+index c00ef62..3dd83a9 100644
+--- a/src/game/controls/control-labels.ts
++++ b/src/game/controls/control-labels.ts
+@@ -1,4 +1,9 @@
+-export const DealControl = { size: 'Grid size', newGame: 'New Game', restart: 'Restart' } as const;
++export const DealControl = {
++  size: 'Grid size',
++  newGame: 'New Game',
++  tournament: 'Tournament',
++  restart: 'Restart',
++} as const;
+ export const ReproductionControl = {
+   summary: 'Reproduce a game',
+   board: 'Board code',
+diff --git a/src/game/session/session.ts b/src/game/session/session.ts
+index 3252363..f38fc20 100644
+--- a/src/game/session/session.ts
++++ b/src/game/session/session.ts
+@@ -21,6 +21,7 @@ export const SessionNotice = {
+   loadedCompleted: 'Loaded completed snapshot.',
+   invalidBoard: 'Invalid board code.',
+   invalidSnapshot: 'Invalid snapshot.',
++  pausedForTournament: 'Game paused for the tournament. Select Resume to continue.',
+ } as const;
+ 
+ export function initialSession(code: string, preferences: Preferences): Session {
+diff --git a/src/game/session/use-game.ts b/src/game/session/use-game.ts
+index b8bf7cd..2fb68cc 100644
+--- a/src/game/session/use-game.ts
++++ b/src/game/session/use-game.ts
+@@ -1,5 +1,5 @@
+ import { useRef, useState } from 'react';
+-import { createGame } from '../game.ts';
++import { createGame, isWon } from '../game.ts';
+ import { parseBoardCode, isValidSize } from '../deck.ts';
+ import { decodeSnapshot, encodeSnapshot } from '../snapshot.ts';
+ import { freshBoardCode } from './fresh-board.ts';
+@@ -80,6 +80,15 @@ export function useGame() {
+     commit(activateSession(current.current, index));
+   }
+ 
++  // A game in progress waits for Resume while another screen is open, so its clock stands still.
++  function pause(): void {
++    const { game, paused } = current.current;
++    if (paused || !game.started || isWon(game)) return;
++    clock.synchronize();
++    notice(SessionNotice.pausedForTournament);
++    commit({ ...current.current, paused: true });
++  }
++
+   function resume(): void {
+     clock.reset();
+     commit({
+@@ -90,5 +99,15 @@ export function useGame() {
+     });
+   }
+ 
+-  return { session, newGame, restart, loadBoard, loadSnapshot, exportSnapshot, activate, resume };
++  return {
++    session,
++    newGame,
++    restart,
++    loadBoard,
++    loadSnapshot,
++    exportSnapshot,
++    activate,
++    pause,
++    resume,
++  };
+ }
+diff --git a/src/game/tournament/ActiveTournament.tsx b/src/game/tournament/ActiveTournament.tsx
+new file mode 100644
+index 0000000..d22a251
+--- /dev/null
++++ b/src/game/tournament/ActiveTournament.tsx
+@@ -0,0 +1,96 @@
++import { Bracket } from './Bracket.tsx';
++import { TurnBoard } from './TurnBoard.tsx';
++import { championLine, nowPlaying, TournamentControl } from './tournament-labels.ts';
++import { NextStep, nextStep, shownTurn, shownTurnNumber, TurnPhase } from './tournament-session.ts';
++import { champion, matchTitle } from './tournament.ts';
++import type { TournamentSession } from './tournament-session.ts';
++import type { TurnResult } from './tournament.ts';
++import '../controls/control.css';
++import './tournament.css';
++
++interface ActiveTournamentProps {
++  session: TournamentSession;
++  startTurn(): void;
++  finishTurn(result: TurnResult): void;
++  nextTurn(): void;
++  leave(): void;
++  reset(): void;
++  back(): void;
++}
++
++// A tournament in progress or finished. The button for the next step takes focus when it
++// appears, because the one that was pressed is gone.
++export function ActiveTournament({
++  session,
++  startTurn,
++  finishTurn,
++  nextTurn,
++  leave,
++  reset,
++  back,
++}: ActiveTournamentProps) {
++  const { tournament, phase } = session;
++  if (!tournament) return null;
++  const winner = champion(tournament);
++  const turn = shownTurn(session);
++  const step = nextStep(session);
++  return (
++    <>
++      <div className="tournament-status" role="status" aria-live="polite" aria-atomic="true">
++        {winner !== null ? (
++          <p className="champion">{championLine(winner)}</p>
++        ) : (
++          turn && <p id="now-playing">{nowPlaying(turn.player)}</p>
++        )}
++      </div>
++      {winner === null && turn && (
++        <p className="note">
++          {matchTitle(tournament.players.length, turn.match)}. Both players play deal{' '}
++          {turn.boardCode}.
++        </p>
++      )}
++      <div className="tournament-actions">
++        {phase === TurnPhase.ready && winner === null && (
++          <button
++            key="start-turn"
++            type="button"
++            className="control"
++            autoFocus
++            aria-describedby="now-playing"
++            onClick={startTurn}
++          >
++            {TournamentControl.startTurn}
++          </button>
++        )}
++        {step !== NextStep.none && (
++          <button key={step} type="button" className="control" autoFocus onClick={nextTurn}>
++            {step === NextStep.match ? TournamentControl.nextMatch : TournamentControl.nextTurn}
++          </button>
++        )}
++        {winner === null ? (
++          <button type="button" className="control" onClick={leave}>
++            {TournamentControl.leave}
++          </button>
++        ) : (
++          <>
++            <button key="back" type="button" className="control" autoFocus onClick={back}>
++              {TournamentControl.back}
++            </button>
++            <button type="button" className="control" onClick={reset}>
++              {TournamentControl.newTournament}
++            </button>
++          </>
++        )}
++      </div>
++      {winner === null && turn && phase !== TurnPhase.ready && (
++        <TurnBoard
++          key={shownTurnNumber(tournament, phase)}
++          boardCode={turn.boardCode}
++          player={turn.player}
++          finished={finishTurn}
++        />
++      )}
++      <Bracket tournament={tournament} current={winner === null && turn ? turn.match : null} />
++    </>
++  );
++}
+diff --git a/src/game/tournament/Bracket.tsx b/src/game/tournament/Bracket.tsx
+new file mode 100644
+index 0000000..833f52c
+--- /dev/null
++++ b/src/game/tournament/Bracket.tsx
+@@ -0,0 +1,77 @@
++import { formatElapsed } from '../elapsed-time.ts';
++import { TournamentText, winnerLine } from './tournament-labels.ts';
++import { matchPlayers, matchTitle, matchWinner, roundMatches, roundName } from './tournament.ts';
++import type { Tournament } from './tournament.ts';
++import './bracket.css';
++
++interface BracketProps {
++  tournament: Tournament;
++  current: number | null;
++}
++
++interface MatchCardProps {
++  tournament: Tournament;
++  match: number;
++  active: boolean;
++}
++
++function MatchCard({ tournament, match, active }: MatchCardProps) {
++  const turns = tournament.matches[match]?.turns ?? [];
++  const winner = matchWinner(tournament, match);
++  return (
++    <li className="match" aria-current={active ? 'step' : undefined}>
++      <table>
++        <caption>{matchTitle(tournament.players.length, match)}</caption>
++        <thead>
++          <tr>
++            <th scope="col">Player</th>
++            <th scope="col">Moves</th>
++            <th scope="col">Time</th>
++          </tr>
++        </thead>
++        <tbody>
++          {matchPlayers(tournament, match).map((player, slot) => {
++            const turn = turns[slot];
++            return (
++              <tr key={slot}>
++                <th scope="row">{player ?? TournamentText.undecided}</th>
++                <td>{turn ? turn.moves : '-'}</td>
++                <td>{turn ? formatElapsed(turn.elapsedMs) : '-'}</td>
++              </tr>
++            );
++          })}
++        </tbody>
++      </table>
++      <p className="winner">{winnerLine(winner)}</p>
++    </li>
++  );
++}
++
++// Every match with its players, their moves and time, and its winner. Later rounds wait for
++// the winners before them.
++export function Bracket({ tournament, current }: BracketProps) {
++  const count = tournament.players.length;
++  return (
++    <section aria-labelledby="bracket-heading">
++      <h3 id="bracket-heading">{TournamentText.bracket}</h3>
++      {roundMatches(count).map((matches, round) => (
++        <div className="round" key={round}>
++          <h4>
++            {roundName(count, round)}
++            {matches.length > 1 ? 's' : ''}
++          </h4>
++          <ol className="matches">
++            {matches.map((match) => (
++              <MatchCard
++                key={match}
++                tournament={tournament}
++                match={match}
++                active={match === current}
++              />
++            ))}
++          </ol>
++        </div>
++      ))}
++    </section>
++  );
++}
+diff --git a/src/game/tournament/PastTournaments.tsx b/src/game/tournament/PastTournaments.tsx
+new file mode 100644
+index 0000000..891efdb
+--- /dev/null
++++ b/src/game/tournament/PastTournaments.tsx
+@@ -0,0 +1,44 @@
++import { championLine, TournamentControl, TournamentText } from './tournament-labels.ts';
++import { champion, gridSize } from './tournament.ts';
++import type { Tournament } from './tournament.ts';
++import '../controls/control.css';
++import './tournament.css';
++
++interface PastTournamentsProps {
++  past: readonly Tournament[];
++  view(tournament: Tournament): void;
++}
++
++export function PastTournaments({ past, view }: PastTournamentsProps) {
++  return (
++    <section aria-labelledby="past-tournaments-heading">
++      <h3 id="past-tournaments-heading">{TournamentText.past}</h3>
++      {past.length === 0 ? (
++        <p className="note">{TournamentText.noPast}</p>
++      ) : (
++        <ul className="past-list">
++          {past.map((tournament) => {
++            const winner = champion(tournament) ?? '';
++            const size = gridSize(tournament);
++            return (
++              <li key={tournament.matches.map((match) => match.boardCode).join(' ')}>
++                <span className="past-result">{championLine(winner)}</span>
++                <span className="note">
++                  {tournament.players.length} players, {size}x{size}
++                </span>
++                <button
++                  type="button"
++                  className="control"
++                  aria-label={`${TournamentControl.viewBracket}, champion ${winner}`}
++                  onClick={() => view(tournament)}
++                >
++                  {TournamentControl.viewBracket}
++                </button>
++              </li>
++            );
++          })}
++        </ul>
++      )}
++    </section>
++  );
++}
+diff --git a/src/game/tournament/SetupForm.tsx b/src/game/tournament/SetupForm.tsx
+new file mode 100644
+index 0000000..0502bac
+--- /dev/null
++++ b/src/game/tournament/SetupForm.tsx
+@@ -0,0 +1,70 @@
++import { NAME_MAX_CHARACTERS } from './players.ts';
++import { playerLabel, TournamentControl, TournamentText } from './tournament-labels.ts';
++import { PLAYER_COUNTS } from './tournament.ts';
++import type { useSetupDraft } from './use-setup-draft.ts';
++import '../controls/control.css';
++import './tournament.css';
++
++interface SetupFormProps {
++  draft: ReturnType<typeof useSetupDraft>;
++  size: number;
++  start(): void;
++  back(): void;
++}
++
++export function SetupForm({ draft, size, start, back }: SetupFormProps) {
++  return (
++    <form
++      className="tournament-setup"
++      onSubmit={(event) => {
++        event.preventDefault();
++        start();
++      }}
++    >
++      <div className="field">
++        <label htmlFor="tournament-players">{TournamentControl.players}</label>
++        <select
++          id="tournament-players"
++          className="control"
++          value={draft.count}
++          onChange={(event) => draft.setCount(Number(event.currentTarget.value))}
++        >
++          {PLAYER_COUNTS.map((option) => (
++            <option key={option} value={option}>
++              {option}
++            </option>
++          ))}
++        </select>
++      </div>
++      <fieldset>
++        <legend>Player names</legend>
++        {Array.from({ length: draft.count }, (_, position) => (
++          <div className="field" key={position}>
++            <label htmlFor={`tournament-player-${position + 1}`}>{playerLabel(position + 1)}</label>
++            <input
++              id={`tournament-player-${position + 1}`}
++              className="control"
++              value={draft.entries[position] ?? ''}
++              placeholder={playerLabel(position + 1)}
++              maxLength={NAME_MAX_CHARACTERS}
++              autoComplete="off"
++              spellCheck={false}
++              onChange={(event) => draft.setEntry(position, event.currentTarget.value)}
++            />
++          </div>
++        ))}
++      </fieldset>
++      <p className="note">
++        {TournamentText.rules} Deals use the {size}x{size} grid.
++      </p>
++      <div className="tournament-actions">
++        <button type="submit" className="control">
++          {TournamentControl.start}
++        </button>
++        <button type="button" className="control" onClick={back}>
++          {TournamentControl.back}
++        </button>
++      </div>
++    </form>
++  );
++}
+diff --git a/src/game/tournament/TournamentScreen.tsx b/src/game/tournament/TournamentScreen.tsx
+new file mode 100644
+index 0000000..122a058
+--- /dev/null
++++ b/src/game/tournament/TournamentScreen.tsx
+@@ -0,0 +1,61 @@
++import { useEffect, useRef } from 'react';
++import { ActiveTournament } from './ActiveTournament.tsx';
++import { PastTournaments } from './PastTournaments.tsx';
++import { SetupForm } from './SetupForm.tsx';
++import { TransferPanel } from './TransferPanel.tsx';
++import { TournamentControl } from './tournament-labels.ts';
++import { useSetupDraft } from './use-setup-draft.ts';
++import { useTournament } from './use-tournament.ts';
++import './tournament.css';
++
++interface TournamentScreenProps {
++  size: number;
++  back(): void;
++}
++
++// Replaces the game while a tournament is set up, played or looked at. Opening it moves focus to
++// its heading, because the button that opened it is gone.
++export function TournamentScreen({ size, back }: TournamentScreenProps) {
++  const tournament = useTournament(size);
++  const draft = useSetupDraft();
++  const heading = useRef<HTMLHeadingElement>(null);
++  useEffect(() => {
++    heading.current?.focus();
++  }, []);
++  const { session } = tournament;
++  return (
++    <section className="tournament" aria-labelledby="tournament-heading">
++      <h2 id="tournament-heading" ref={heading} tabIndex={-1}>
++        {TournamentControl.heading}
++      </h2>
++      <p className="tournament-notice" role="status" aria-live="polite" aria-atomic="true">
++        {session.notice}
++      </p>
++      {session.tournament ? (
++        <ActiveTournament
++          session={session}
++          startTurn={tournament.startTurn}
++          finishTurn={tournament.finishTurn}
++          nextTurn={tournament.nextTurn}
++          leave={tournament.leave}
++          reset={tournament.reset}
++          back={back}
++        />
++      ) : (
++        <>
++          <SetupForm
++            draft={draft}
++            size={size}
++            start={() => tournament.start(draft.entries, draft.count)}
++            back={back}
++          />
++          <PastTournaments past={tournament.past} view={tournament.viewPast} />
++        </>
++      )}
++      <TransferPanel
++        exportTournament={() => tournament.exportTournament(draft.entries, draft.count)}
++        loadTournament={tournament.loadTournament}
++      />
++    </section>
++  );
++}
+diff --git a/src/game/tournament/TransferPanel.tsx b/src/game/tournament/TransferPanel.tsx
+new file mode 100644
+index 0000000..4591e8c
+--- /dev/null
++++ b/src/game/tournament/TransferPanel.tsx
+@@ -0,0 +1,45 @@
++import { useState } from 'react';
++import { TOURNAMENT_MAX_BYTES } from './tournament-format.ts';
++import { TournamentControl, TournamentText } from './tournament-labels.ts';
++import '../controls/control.css';
++import './tournament.css';
++
++interface TransferPanelProps {
++  exportTournament(): string | null;
++  loadTournament(text: string): void;
++}
++
++// Shown on every tournament screen. The box keeps its text while the tournament changes.
++export function TransferPanel({ exportTournament, loadTournament }: TransferPanelProps) {
++  const [text, setText] = useState('');
++  return (
++    <section className="transfer" aria-labelledby="transfer-heading">
++      <h3 id="transfer-heading">{TournamentText.transfer}</h3>
++      <label htmlFor="tournament-json">{TournamentControl.json}</label>
++      <textarea
++        id="tournament-json"
++        className="control"
++        rows={6}
++        value={text}
++        maxLength={TOURNAMENT_MAX_BYTES}
++        spellCheck={false}
++        onChange={(event) => setText(event.currentTarget.value)}
++      />
++      <div className="tournament-actions">
++        <button
++          type="button"
++          className="control"
++          onClick={() => {
++            const json = exportTournament();
++            if (json !== null) setText(json);
++          }}
++        >
++          {TournamentControl.exportTournament}
++        </button>
++        <button type="button" className="control" onClick={() => loadTournament(text)}>
++          {TournamentControl.loadTournament}
++        </button>
++      </div>
++    </section>
++  );
++}
+diff --git a/src/game/tournament/TurnBoard.tsx b/src/game/tournament/TurnBoard.tsx
+new file mode 100644
+index 0000000..20fdc2d
+--- /dev/null
++++ b/src/game/tournament/TurnBoard.tsx
+@@ -0,0 +1,56 @@
++import { useEffect, useRef } from 'react';
++import { isWon } from '../game.ts';
++import { formatElapsed } from '../elapsed-time.ts';
++import { Board } from '../board/Board.tsx';
++import { BoardHelp } from '../board/BoardHelp.tsx';
++import { StatusLabel } from '../status/status-labels.ts';
++import { useTurnGame } from './use-turn-game.ts';
++import type { BoardFocus } from '../board/Board.tsx';
++import type { TurnResult } from './tournament.ts';
++import '../status/status.css';
++
++interface TurnBoardProps {
++  boardCode: string;
++  player: string;
++  finished(result: TurnResult): void;
++}
++
++// The board of the turn on screen. It stays after the last pair, so both players can see the result.
++export function TurnBoard({ boardCode, player, finished }: TurnBoardProps) {
++  const { session, activate } = useTurnGame(boardCode, finished);
++  const { game } = session;
++  const board = useRef<BoardFocus>(null);
++  useEffect(() => {
++    board.current?.focusRemembered();
++  }, []);
++  return (
++    <>
++      <dl className="stats">
++        <div>
++          <dt>{StatusLabel.moves}</dt> <dd>{game.moves}</dd>
++        </div>
++        <div>
++          <dt>{StatusLabel.pairs}</dt>{' '}
++          <dd>
++            {game.matched.length / 2}/{game.deck.length / 2}
++          </dd>
++        </div>
++        <div>
++          <dt>{StatusLabel.time}</dt> <dd>{formatElapsed(game.elapsedMs)}</dd>
++        </div>
++      </dl>
++      {isWon(game) && (
++        <p className="victory">
++          {player} finished in {game.moves} moves and {formatElapsed(game.elapsedMs)}.
++        </p>
++      )}
++      <BoardHelp />
++      <div className="game-result">
++        <p role="status" aria-live="polite" aria-atomic="true">
++          <span key={session.announcement}>{session.feedback}</span>
++        </p>
++      </div>
++      <Board game={game} activate={activate} ref={board} />
++    </>
++  );
++}
+diff --git a/src/game/tournament/bracket.css b/src/game/tournament/bracket.css
+new file mode 100644
+index 0000000..c2a172e
+--- /dev/null
++++ b/src/game/tournament/bracket.css
+@@ -0,0 +1,54 @@
++.round {
++  margin-bottom: 16px;
++}
++.tournament h4 {
++  margin: 0 0 8px;
++  color: var(--secondary);
++  font-size: 14px;
++  line-height: 24px;
++}
++.matches {
++  display: grid;
++  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
++  gap: 12px;
++  margin: 0;
++  padding: 0;
++  list-style: none;
++}
++.match {
++  padding: 12px;
++  border: 1px solid var(--border);
++  border-radius: 12px;
++  background: var(--panel);
++}
++.match[aria-current='step'] {
++  border-color: var(--text);
++}
++.match table {
++  width: 100%;
++  border-collapse: collapse;
++}
++.match caption {
++  padding: 0 0 8px;
++  color: var(--secondary);
++  font-size: 14px;
++  text-align: left;
++}
++.match th,
++.match td {
++  padding: 4px 8px 4px 0;
++  border-bottom: 1px solid var(--border);
++  font-weight: 400;
++  text-align: left;
++  font-variant-numeric: tabular-nums;
++}
++.match thead th {
++  color: var(--secondary);
++  font-size: 14px;
++}
++.match td {
++  white-space: nowrap;
++}
++.winner {
++  margin-top: 8px;
++}
+diff --git a/src/game/tournament/past-tournaments.test.ts b/src/game/tournament/past-tournaments.test.ts
+new file mode 100644
+index 0000000..d8f047f
+--- /dev/null
++++ b/src/game/tournament/past-tournaments.test.ts
+@@ -0,0 +1,118 @@
++import assert from 'node:assert/strict';
++import { test } from 'vitest';
++import {
++  PAST_TOURNAMENTS_KEY,
++  PAST_TOURNAMENTS_MAX,
++  PAST_TOURNAMENTS_VERSION,
++  readPastTournaments,
++  rememberTournament,
++  writePastTournaments,
++} from './past-tournaments.ts';
++import { savedTournament } from './tournament-format.ts';
++import { createTournament } from './tournament.ts';
++import {
++  dealCodes,
++  FOUR_PLAYERS,
++  firstPlayersWin,
++  newTournament,
++  playTurns,
++  turn,
++} from './tournament.fixture.ts';
++import type { PreferenceStore } from '../session/storage.ts';
++
++function memoryStore(initial = ''): PreferenceStore {
++  const entries = new Map([[PAST_TOURNAMENTS_KEY, initial]]);
++  return {
++    getItem: (key) => entries.get(key) ?? null,
++    setItem: (key, value) => {
++      entries.set(key, value);
++    },
++  };
++}
++
++// Tournaments differ by their deals, so a seed offset makes each one new.
++function finished(offset: number) {
++  const codes = dealCodes(3 + offset).slice(offset);
++  return firstPlayersWin(createTournament(FOUR_PLAYERS, codes));
++}
++
++test('finished tournaments survive storage in the order they were saved', () => {
++  const store = memoryStore();
++  const list = [finished(1), finished(0)];
++  writePastTournaments(store, list);
++  assert.deepEqual(readPastTournaments(store), list);
++});
++
++test('a tournament that is not finished is not read back', () => {
++  const store = memoryStore();
++  writePastTournaments(store, [newTournament(FOUR_PLAYERS), finished(0)]);
++  assert.deepEqual(readPastTournaments(store), [finished(0)]);
++  const partial = playTurns(newTournament(FOUR_PLAYERS), [turn(8), turn(9)]);
++  writePastTournaments(store, [partial]);
++  assert.deepEqual(readPastTournaments(store), []);
++});
++
++test('an entry that no longer reads is dropped and the others stay', () => {
++  const good = savedTournament(finished(0));
++  const text = JSON.stringify({
++    schemaVersion: PAST_TOURNAMENTS_VERSION,
++    tournaments: [{ ...good, version: 99 }, good, 'text', null],
++  });
++  assert.deepEqual(readPastTournaments(memoryStore(text)), [finished(0)]);
++});
++
++for (const [index, text] of [
++  '',
++  '{',
++  'null',
++  '[]',
++  JSON.stringify({ schemaVersion: 2, tournaments: [] }),
++  JSON.stringify({ schemaVersion: PAST_TOURNAMENTS_VERSION }),
++  JSON.stringify({ schemaVersion: PAST_TOURNAMENTS_VERSION, tournaments: {} }),
++].entries())
++  test(`unreadable saved tournaments give an empty list ${index + 1}`, () => {
++    assert.deepEqual(readPastTournaments(memoryStore(text)), []);
++  });
++
++test('the newest tournament comes first and a repeated one keeps its place', () => {
++  const first = finished(0);
++  const second = finished(1);
++  const list = rememberTournament(rememberTournament([], first), second);
++  assert.deepEqual(list, [second, first]);
++  assert.equal(rememberTournament(list, first), list);
++  assert.equal(rememberTournament(list, JSON.parse(JSON.stringify(second))), list);
++});
++
++test('the list keeps the newest tournaments up to its limit', () => {
++  let list: ReturnType<typeof rememberTournament> = [];
++  for (let offset = 0; offset <= PAST_TOURNAMENTS_MAX; offset += 1)
++    list = rememberTournament(list, finished(offset));
++  assert.equal(list.length, PAST_TOURNAMENTS_MAX);
++  assert.deepEqual(list[0], finished(PAST_TOURNAMENTS_MAX));
++  assert.equal(
++    list.some((tournament) => JSON.stringify(tournament) === JSON.stringify(finished(0))),
++    false,
++  );
++  const store = memoryStore();
++  writePastTournaments(store, list);
++  assert.equal(readPastTournaments(store).length, PAST_TOURNAMENTS_MAX);
++});
++
++test('storage failures keep the tournament screen working and touch no other key', () => {
++  const denied: PreferenceStore = {
++    getItem: () => {
++      throw new Error();
++    },
++    setItem: () => {
++      throw new Error();
++    },
++  };
++  assert.deepEqual(readPastTournaments(denied), []);
++  assert.deepEqual(readPastTournaments(null), []);
++  assert.doesNotThrow(() => writePastTournaments(denied, [finished(0)]));
++  assert.doesNotThrow(() => writePastTournaments(null, [finished(0)]));
++  const store = memoryStore();
++  store.setItem('another-application', 'kept');
++  writePastTournaments(store, [finished(0)]);
++  assert.equal(store.getItem('another-application'), 'kept');
++});
+diff --git a/src/game/tournament/past-tournaments.ts b/src/game/tournament/past-tournaments.ts
+new file mode 100644
+index 0000000..f3e72c9
+--- /dev/null
++++ b/src/game/tournament/past-tournaments.ts
+@@ -0,0 +1,59 @@
++import { isJsonObject, parseJson } from '../saved-format.ts';
++import { readTournament, savedTournament } from './tournament-format.ts';
++import { isFinished } from './tournament.ts';
++import type { PreferenceStore } from '../session/storage.ts';
++import type { Tournament } from './tournament.ts';
++
++export const PAST_TOURNAMENTS_KEY = 'neon-pairs.tournaments.v1';
++export const PAST_TOURNAMENTS_VERSION = 1;
++export const PAST_TOURNAMENTS_MAX = 20;
++
++// Only finished tournaments are kept. An entry that no longer reads as one is dropped alone.
++export function readPastTournaments(store: PreferenceStore | null): readonly Tournament[] {
++  try {
++    const text = store?.getItem(PAST_TOURNAMENTS_KEY);
++    const value = text ? parseJson(text) : undefined;
++    if (
++      !isJsonObject(value) ||
++      value.schemaVersion !== PAST_TOURNAMENTS_VERSION ||
++      !Array.isArray(value.tournaments)
++    )
++      return [];
++    return value.tournaments
++      .flatMap((item) => {
++        const tournament = readTournament(item);
++        return tournament && isFinished(tournament) ? [tournament] : [];
++      })
++      .slice(0, PAST_TOURNAMENTS_MAX);
++  } catch {
++    return [];
++  }
++}
++
++export function writePastTournaments(
++  store: PreferenceStore | null,
++  tournaments: readonly Tournament[],
++): void {
++  try {
++    store?.setItem(
++      PAST_TOURNAMENTS_KEY,
++      JSON.stringify({
++        schemaVersion: PAST_TOURNAMENTS_VERSION,
++        tournaments: tournaments.map(savedTournament),
++      }),
++    );
++  } catch {
++    // A blocked browser store doesn't stop the tournament on screen.
++  }
++}
++
++// The newest tournament comes first. One that is already listed keeps its place.
++export function rememberTournament(
++  tournaments: readonly Tournament[],
++  tournament: Tournament,
++): readonly Tournament[] {
++  const saved = JSON.stringify(savedTournament(tournament));
++  if (tournaments.some((past) => JSON.stringify(savedTournament(past)) === saved))
++    return tournaments;
++  return [tournament, ...tournaments].slice(0, PAST_TOURNAMENTS_MAX);
++}
+diff --git a/src/game/tournament/players.test.ts b/src/game/tournament/players.test.ts
+new file mode 100644
+index 0000000..42e7da6
+--- /dev/null
++++ b/src/game/tournament/players.test.ts
+@@ -0,0 +1,49 @@
++import assert from 'node:assert/strict';
++import { test } from 'vitest';
++import {
++  hasDistinctNames,
++  isValidName,
++  NAME_MAX_CHARACTERS,
++  normalizeName,
++  resolvePlayers,
++} from './players.ts';
++
++test('names keep single spaces, lose control characters and stop at the limit', () => {
++  assert.equal(normalizeName('  Ann   Lee \t'), 'Ann Lee');
++  assert.equal(normalizeName('A\u0007nn\nLee'), 'A nn Lee');
++  assert.equal(normalizeName('   '), '');
++  const long = normalizeName('x'.repeat(NAME_MAX_CHARACTERS + 10));
++  assert.equal(long.length, NAME_MAX_CHARACTERS);
++  assert.equal([...normalizeName('\u{1F600}'.repeat(NAME_MAX_CHARACTERS + 1))].length, 24);
++});
++
++test('only a normalized, non-empty name is valid', () => {
++  assert.equal(isValidName('Ann'), true);
++  assert.equal(isValidName(''), false);
++  assert.equal(isValidName(' Ann'), false);
++  assert.equal(isValidName('Ann  Lee'), false);
++  assert.equal(isValidName('x'.repeat(NAME_MAX_CHARACTERS + 1)), false);
++});
++
++test('names that differ only in letter case are not distinct', () => {
++  assert.equal(hasDistinctNames(['Ann', 'Ben']), true);
++  assert.equal(hasDistinctNames(['Ann', 'ann']), false);
++});
++
++test('blank entries play under their own label and duplicates give no players', () => {
++  assert.deepEqual(resolvePlayers(['Ann', '', ' Cy ', ''], 4), [
++    'Ann',
++    'Player 2',
++    'Cy',
++    'Player 4',
++  ]);
++  assert.deepEqual(resolvePlayers(['Ann', 'Ben', 'Cy', 'Dee', 'Eve'], 4), [
++    'Ann',
++    'Ben',
++    'Cy',
++    'Dee',
++  ]);
++  assert.equal(resolvePlayers([], 8)?.length, 8);
++  assert.equal(resolvePlayers(['Ann', 'ANN'], 4), null);
++  assert.equal(resolvePlayers(['Player 2', '', '', ''], 4), null);
++});
+diff --git a/src/game/tournament/players.ts b/src/game/tournament/players.ts
+new file mode 100644
+index 0000000..c3197f3
+--- /dev/null
++++ b/src/game/tournament/players.ts
+@@ -0,0 +1,28 @@
++export const NAME_MAX_CHARACTERS = 24;
++
++// Names keep single spaces and no control characters, so a saved name reads the same everywhere.
++export function normalizeName(raw: string): string {
++  const spaced = raw.replace(/[\p{C}\s]+/gu, ' ').trim();
++  return [...spaced].slice(0, NAME_MAX_CHARACTERS).join('').trim();
++}
++
++export function isValidName(name: string): boolean {
++  return name.length > 0 && name === normalizeName(name);
++}
++
++// Players are told apart by name, so two names that differ only in letter case count as one.
++export function hasDistinctNames(names: readonly string[]): boolean {
++  return new Set(names.map((name) => name.toLowerCase())).size === names.length;
++}
++
++// A blank entry plays under its own label. Duplicate names give no list.
++export function resolvePlayers(
++  entries: readonly string[],
++  count: number,
++): readonly string[] | null {
++  const names = Array.from(
++    { length: count },
++    (_, position) => normalizeName(entries[position] ?? '') || `Player ${position + 1}`,
++  );
++  return hasDistinctNames(names) ? names : null;
++}
+diff --git a/src/game/tournament/tournament-format.test.ts b/src/game/tournament/tournament-format.test.ts
+new file mode 100644
+index 0000000..7d6b2b2
+--- /dev/null
++++ b/src/game/tournament/tournament-format.test.ts
+@@ -0,0 +1,155 @@
++import assert from 'node:assert/strict';
++import { test } from 'vitest';
++import { boardCode } from '../deck.ts';
++import { ELAPSED_MAX_MS, MOVES_MAX } from '../game.ts';
++import {
++  decodeTournament,
++  encodeTournament,
++  readTournament,
++  savedTournament,
++  TOURNAMENT_MAX_BYTES,
++  TOURNAMENT_VERSION,
++} from './tournament-format.ts';
++import {
++  EIGHT_PLAYERS,
++  FOUR_PLAYERS,
++  firstPlayersWin,
++  newTournament,
++  playTurns,
++  turn,
++} from './tournament.fixture.ts';
++
++function saved(overrides: Record<string, unknown> = {}): Record<string, unknown> {
++  return {
++    ...savedTournament(playTurns(newTournament(FOUR_PLAYERS), [turn(8), turn(9)])),
++    ...overrides,
++  };
++}
++
++function match(boardCodeText: unknown, turns: unknown[] = []): Record<string, unknown> {
++  return { boardCode: boardCodeText, turns };
++}
++
++test('unplayed, unfinished and finished tournaments round trip through their JSON', () => {
++  for (const players of [FOUR_PLAYERS, EIGHT_PLAYERS]) {
++    const fresh = newTournament(players);
++    const partial = playTurns(fresh, [turn(8), turn(9), turn(12, 3000)]);
++    for (const tournament of [fresh, partial, firstPlayersWin(fresh)])
++      assert.deepEqual(decodeTournament(encodeTournament(tournament)), tournament);
++  }
++});
++
++test('the saved tournament holds only its version, players and matches', () => {
++  const exported = savedTournament(playTurns(newTournament(FOUR_PLAYERS), [turn(8, 1500)]));
++  assert.deepEqual(Object.keys(exported), ['version', 'players', 'matches']);
++  assert.equal(exported.version, TOURNAMENT_VERSION);
++  assert.deepEqual(exported.matches[0]?.turns, [{ moves: 8, elapsedMs: 1500 }]);
++  assert.deepEqual(Object.keys(exported.matches[0] ?? {}), ['boardCode', 'turns']);
++});
++
++test('limits at their edges are accepted', () => {
++  const edge = saved({
++    matches: [
++      match(boardCode(4, 1), [
++        { moves: 8, elapsedMs: 0 },
++        { moves: MOVES_MAX, elapsedMs: ELAPSED_MAX_MS },
++      ]),
++      match(boardCode(4, 2)),
++      match(boardCode(4, 3)),
++    ],
++  });
++  assert.ok(readTournament(edge));
++});
++
++const IDLE_MATCHES = [match(boardCode(4, 1)), match(boardCode(4, 2)), match(boardCode(4, 3))];
++const FINISHED_TURN = { moves: 8, elapsedMs: 10 };
++const INVALID: readonly [string, Record<string, unknown>][] = [
++  ['another version', { version: TOURNAMENT_VERSION + 1 }],
++  ['an extra field', { extra: true }],
++  ['three players', { players: ['Ann', 'Ben', 'Cy'], matches: IDLE_MATCHES.slice(0, 2) }],
++  ['players that are not a list', { players: 'Ann Ben Cy Dee' }],
++  ['a blank name', { players: ['Ann', '', 'Cy', 'Dee'] }],
++  ['a name that is not text', { players: ['Ann', 2, 'Cy', 'Dee'] }],
++  ['a name with extra spaces', { players: ['Ann ', 'Ben', 'Cy', 'Dee'] }],
++  ['names that repeat', { players: ['Ann', 'Ben', 'cy', 'CY'] }],
++  ['too few matches', { matches: IDLE_MATCHES.slice(0, 2) }],
++  ['matches that are not a list', { matches: {} }],
++  ['an invalid board code', { matches: [match('np1-4-0'), ...IDLE_MATCHES.slice(1)] }],
++  ['a board code that is not text', { matches: [match(4), ...IDLE_MATCHES.slice(1)] }],
++  [
++    'deals on different grids',
++    { matches: [IDLE_MATCHES[0], match(boardCode(6, 1)), IDLE_MATCHES[2]] },
++  ],
++  [
++    'a match with an extra field',
++    { matches: [{ ...IDLE_MATCHES[0], extra: 1 }, ...IDLE_MATCHES.slice(1)] },
++  ],
++  [
++    'three results in a match',
++    {
++      matches: [
++        match(boardCode(4, 1), [FINISHED_TURN, FINISHED_TURN, FINISHED_TURN]),
++        ...IDLE_MATCHES.slice(1),
++      ],
++    },
++  ],
++  [
++    'fewer moves than pairs',
++    { matches: [match(boardCode(4, 1), [{ moves: 7, elapsedMs: 0 }]), ...IDLE_MATCHES.slice(1)] },
++  ],
++  [
++    'more moves than the cap',
++    {
++      matches: [
++        match(boardCode(4, 1), [{ moves: MOVES_MAX + 1, elapsedMs: 0 }]),
++        ...IDLE_MATCHES.slice(1),
++      ],
++    },
++  ],
++  [
++    'a fractional move count',
++    { matches: [match(boardCode(4, 1), [{ moves: 8.5, elapsedMs: 0 }]), ...IDLE_MATCHES.slice(1)] },
++  ],
++  [
++    'negative time',
++    { matches: [match(boardCode(4, 1), [{ moves: 8, elapsedMs: -1 }]), ...IDLE_MATCHES.slice(1)] },
++  ],
++  [
++    'time past the cap',
++    {
++      matches: [
++        match(boardCode(4, 1), [{ moves: 8, elapsedMs: ELAPSED_MAX_MS + 1 }]),
++        ...IDLE_MATCHES.slice(1),
++      ],
++    },
++  ],
++  [
++    'a result with an extra field',
++    {
++      matches: [match(boardCode(4, 1), [{ ...FINISHED_TURN, extra: 1 }]), ...IDLE_MATCHES.slice(1)],
++    },
++  ],
++  [
++    'results after a match that is still waiting',
++    {
++      matches: [
++        match(boardCode(4, 1), [FINISHED_TURN]),
++        match(boardCode(4, 2), [FINISHED_TURN]),
++        IDLE_MATCHES[2],
++      ],
++    },
++  ],
++];
++for (const [name, overrides] of INVALID)
++  test(`a tournament with ${name} is rejected`, () => {
++    assert.equal(readTournament(saved(overrides)), null);
++    assert.equal(decodeTournament(JSON.stringify(saved(overrides))), null);
++  });
++
++test('text that is not a tournament is rejected', () => {
++  for (const text of ['', '{', 'null', '[]', '"Ann"', '{}', '7'])
++    assert.equal(decodeTournament(text), null);
++  const padded = JSON.stringify(saved()) + ' '.repeat(TOURNAMENT_MAX_BYTES);
++  assert.equal(decodeTournament(padded), null);
++  assert.ok(decodeTournament(JSON.stringify(saved()) + ' '));
++});
+diff --git a/src/game/tournament/tournament-format.ts b/src/game/tournament/tournament-format.ts
+new file mode 100644
+index 0000000..2b5449c
+--- /dev/null
++++ b/src/game/tournament/tournament-format.ts
+@@ -0,0 +1,91 @@
++import { parseBoardCode } from '../deck.ts';
++import { ELAPSED_MAX_MS, MOVES_MAX } from '../game.ts';
++import {
++  hasExactKeys,
++  isJsonObject,
++  isNonnegativeSafeInteger,
++  isWithinBytes,
++  parseJson,
++} from '../saved-format.ts';
++import { hasDistinctNames, isValidName } from './players.ts';
++import { isPlayerCount } from './tournament.ts';
++import type { MatchRecord, Tournament, TurnResult } from './tournament.ts';
++
++export const TOURNAMENT_VERSION = 1;
++export const TOURNAMENT_MAX_BYTES = 65_536;
++const TOURNAMENT_KEYS = ['version', 'players', 'matches'];
++const MATCH_KEYS = ['boardCode', 'turns'];
++const TURN_KEYS = ['moves', 'elapsedMs'];
++
++export function savedTournament(tournament: Tournament) {
++  return {
++    version: TOURNAMENT_VERSION,
++    players: [...tournament.players],
++    matches: tournament.matches.map((match) => ({
++      boardCode: match.boardCode,
++      turns: match.turns.map(({ moves, elapsedMs }) => ({ moves, elapsedMs })),
++    })),
++  };
++}
++
++export function encodeTournament(tournament: Tournament): string {
++  return JSON.stringify(savedTournament(tournament), null, 2);
++}
++
++function isPlayerName(value: unknown): value is string {
++  return typeof value === 'string' && isValidName(value);
++}
++
++// A finished game has at least one move for each pair.
++function readTurn(value: unknown, size: number): TurnResult | null {
++  if (!isJsonObject(value) || !hasExactKeys(value, TURN_KEYS)) return null;
++  const { moves, elapsedMs } = value;
++  if (!isNonnegativeSafeInteger(moves) || moves < size ** 2 / 2 || moves > MOVES_MAX) return null;
++  if (!isNonnegativeSafeInteger(elapsedMs) || elapsedMs > ELAPSED_MAX_MS) return null;
++  return { moves, elapsedMs };
++}
++
++function readMatch(value: unknown, size: number): MatchRecord | null {
++  if (!isJsonObject(value) || !hasExactKeys(value, MATCH_KEYS)) return null;
++  const { boardCode, turns } = value;
++  if (typeof boardCode !== 'string' || parseBoardCode(boardCode)?.size !== size) return null;
++  if (!Array.isArray(turns) || turns.length > 2) return null;
++  const results = turns.map((turn) => readTurn(turn, size));
++  return results.every((result): result is TurnResult => result !== null)
++    ? { boardCode, turns: results }
++    : null;
++}
++
++// Every match of a tournament is dealt on the same grid size.
++function dealSize(match: unknown): number | null {
++  if (!isJsonObject(match) || typeof match.boardCode !== 'string') return null;
++  return parseBoardCode(match.boardCode)?.size ?? null;
++}
++
++// Matches play in order, so no match has results after one that still waits for a player.
++function isInPlayOrder(matches: readonly MatchRecord[]): boolean {
++  let waiting = false;
++  for (const match of matches) {
++    if (waiting && match.turns.length > 0) return false;
++    if (match.turns.length < 2) waiting = true;
++  }
++  return true;
++}
++
++export function readTournament(value: unknown): Tournament | null {
++  if (!isJsonObject(value) || !hasExactKeys(value, TOURNAMENT_KEYS)) return null;
++  const { version, players, matches } = value;
++  if (version !== TOURNAMENT_VERSION || !Array.isArray(players) || !Array.isArray(matches))
++    return null;
++  if (!isPlayerCount(players.length) || matches.length !== players.length - 1) return null;
++  if (!players.every(isPlayerName) || !hasDistinctNames(players)) return null;
++  const size = dealSize(matches[0]);
++  if (size === null) return null;
++  const records = matches.map((match) => readMatch(match, size));
++  if (!records.every((record): record is MatchRecord => record !== null)) return null;
++  return isInPlayOrder(records) ? { players, matches: records } : null;
++}
++
++export function decodeTournament(text: string): Tournament | null {
++  return isWithinBytes(text, TOURNAMENT_MAX_BYTES) ? readTournament(parseJson(text)) : null;
++}
+diff --git a/src/game/tournament/tournament-labels.ts b/src/game/tournament/tournament-labels.ts
+new file mode 100644
+index 0000000..f9fc6e1
+--- /dev/null
++++ b/src/game/tournament/tournament-labels.ts
+@@ -0,0 +1,49 @@
++export const TournamentControl = {
++  heading: 'Tournament',
++  players: 'Players',
++  start: 'Start tournament',
++  startTurn: 'Start turn',
++  nextTurn: 'Next turn',
++  nextMatch: 'Next match',
++  leave: 'Leave tournament',
++  back: 'Back to game',
++  newTournament: 'New tournament',
++  json: 'Tournament JSON',
++  exportTournament: 'Export tournament',
++  loadTournament: 'Load tournament',
++  viewBracket: 'View bracket',
++} as const;
++
++export const TournamentText = {
++  bracket: 'Bracket',
++  past: 'Past tournaments',
++  noPast: 'No finished tournaments yet.',
++  transfer: 'Save or load',
++  undecided: 'To be decided',
++  rules:
++    'Both players of a match play the same deal, one after the other. Fewer moves wins. A tie goes to the shorter time, then to the player listed first.',
++} as const;
++
++export const TournamentNotice = {
++  loaded: 'Loaded tournament.',
++  invalid: 'Invalid tournament.',
++  exported: 'Exported tournament.',
++  duplicate: 'Player names must be different.',
++  left: 'Left the tournament.',
++} as const;
++
++export function playerLabel(position: number): string {
++  return `Player ${position}`;
++}
++
++export function nowPlaying(name: string): string {
++  return `Now playing: ${name}`;
++}
++
++export function championLine(name: string): string {
++  return `Champion: ${name}`;
++}
++
++export function winnerLine(name: string | null): string {
++  return `Winner: ${name ?? 'to be decided'}`;
++}
+diff --git a/src/game/tournament/tournament-session.test.ts b/src/game/tournament/tournament-session.test.ts
+new file mode 100644
+index 0000000..d32fbdc
+--- /dev/null
++++ b/src/game/tournament/tournament-session.test.ts
+@@ -0,0 +1,98 @@
++import assert from 'node:assert/strict';
++import { test } from 'vitest';
++import {
++  finishTurn,
++  idleSession,
++  NextStep,
++  nextStep,
++  nextTurn,
++  openSession,
++  shownTurn,
++  startTurn,
++  TurnPhase,
++} from './tournament-session.ts';
++import { champion, isFinished, turnsPlayed } from './tournament.ts';
++import { FOUR_PLAYERS, firstPlayersWin, newTournament, turn } from './tournament.fixture.ts';
++
++test('a new tournament waits for its first player to start', () => {
++  const session = openSession(newTournament(FOUR_PLAYERS), 'Hello.');
++  assert.equal(session.phase, TurnPhase.ready);
++  assert.equal(session.notice, 'Hello.');
++  assert.equal(shownTurn(session)?.player, 'Ann');
++  assert.equal(nextStep(session), NextStep.none);
++  assert.equal(idleSession().tournament, null);
++  assert.equal(shownTurn(idleSession()), null);
++  assert.equal(nextStep(idleSession()), NextStep.none);
++});
++
++test('each game is started, finished and followed by a next turn or a next match', () => {
++  let session = openSession(newTournament(FOUR_PLAYERS));
++  const seen: string[] = [];
++  for (let game = 0; game < 6; game += 1) {
++    assert.equal(session.phase, TurnPhase.ready);
++    seen.push(`${shownTurn(session)?.player} ${session.phase}`);
++    session = startTurn(session);
++    assert.equal(session.phase, TurnPhase.playing);
++    seen.push(`${shownTurn(session)?.player} ${session.phase}`);
++    session = finishTurn(session, turn(game % 2 === 0 ? 8 : 9));
++    assert.equal(turnsPlayed(session.tournament ?? newTournament(FOUR_PLAYERS)), game + 1);
++    seen.push(`${shownTurn(session)?.player} ${session.phase} ${nextStep(session)}`);
++    if (game < 5) session = nextTurn(session);
++  }
++  assert.deepEqual(seen, [
++    'Ann ready',
++    'Ann playing',
++    'Ann done turn',
++    'Ben ready',
++    'Ben playing',
++    'Ben done match',
++    'Cy ready',
++    'Cy playing',
++    'Cy done turn',
++    'Dee ready',
++    'Dee playing',
++    'Dee done match',
++    'Ann ready',
++    'Ann playing',
++    'Ann done turn',
++    'Cy ready',
++    'Cy playing',
++    'Cy done none',
++  ]);
++  assert.equal(session.tournament ? champion(session.tournament) : null, 'Ann');
++});
++
++test('steps out of order change nothing', () => {
++  const ready = openSession(newTournament(FOUR_PLAYERS));
++  assert.equal(finishTurn(ready, turn(8)), ready);
++  assert.equal(nextTurn(ready), ready);
++  const playing = startTurn(ready);
++  assert.equal(startTurn(playing), playing);
++  assert.equal(nextTurn(playing), playing);
++  const done = finishTurn(playing, turn(8));
++  assert.equal(startTurn(done), done);
++  assert.equal(finishTurn(done, turn(8)), done);
++  const idle = idleSession();
++  assert.equal(startTurn(idle), idle);
++  assert.equal(finishTurn(idle, turn(8)), idle);
++  assert.equal(nextTurn(idle), idle);
++});
++
++test('a finished tournament opens on its result and no step goes on from it', () => {
++  const tournament = firstPlayersWin(newTournament(FOUR_PLAYERS));
++  const session = openSession(tournament);
++  assert.equal(isFinished(tournament), true);
++  assert.equal(session.phase, TurnPhase.done);
++  assert.equal(nextStep(session), NextStep.none);
++  assert.equal(startTurn(session), session);
++  assert.equal(nextTurn(session), session);
++  assert.equal(shownTurn(session)?.player, 'Cy');
++});
++
++test('an unfinished tournament that was exported resumes with its next player', () => {
++  const partial = openSession(newTournament(FOUR_PLAYERS));
++  const afterOne = finishTurn(startTurn(partial), turn(8));
++  const resumed = openSession(afterOne.tournament ?? newTournament(FOUR_PLAYERS));
++  assert.equal(resumed.phase, TurnPhase.ready);
++  assert.equal(shownTurn(resumed)?.player, 'Ben');
++});
+diff --git a/src/game/tournament/tournament-session.ts b/src/game/tournament/tournament-session.ts
+new file mode 100644
+index 0000000..9c3d5da
+--- /dev/null
++++ b/src/game/tournament/tournament-session.ts
+@@ -0,0 +1,61 @@
++import { isFinished, recordTurn, turnAt, turnsPlayed } from './tournament.ts';
++import type { Tournament, TurnInfo, TurnResult } from './tournament.ts';
++
++export const TurnPhase = { ready: 'ready', playing: 'playing', done: 'done' } as const;
++type TurnPhaseKind = (typeof TurnPhase)[keyof typeof TurnPhase];
++
++export const NextStep = { turn: 'turn', match: 'match', none: 'none' } as const;
++type NextStepKind = (typeof NextStep)[keyof typeof NextStep];
++
++// Without a tournament the screen shows the setup. With one, the phase says whether the next
++// player has yet to start, is playing, or has just finished a game.
++export interface TournamentSession {
++  readonly tournament: Tournament | null;
++  readonly phase: TurnPhaseKind;
++  readonly notice: string;
++}
++
++export function idleSession(notice = ''): TournamentSession {
++  return { tournament: null, phase: TurnPhase.ready, notice };
++}
++
++// A finished tournament opens on its result. An unfinished one waits for its next player.
++export function openSession(tournament: Tournament, notice = ''): TournamentSession {
++  return { tournament, phase: isFinished(tournament) ? TurnPhase.done : TurnPhase.ready, notice };
++}
++
++export function startTurn(session: TournamentSession): TournamentSession {
++  const { tournament } = session;
++  if (!tournament || session.phase !== TurnPhase.ready || isFinished(tournament)) return session;
++  return { ...session, phase: TurnPhase.playing, notice: '' };
++}
++
++export function finishTurn(session: TournamentSession, result: TurnResult): TournamentSession {
++  const { tournament } = session;
++  if (!tournament || session.phase !== TurnPhase.playing) return session;
++  return { ...session, tournament: recordTurn(tournament, result), phase: TurnPhase.done };
++}
++
++export function nextTurn(session: TournamentSession): TournamentSession {
++  const { tournament } = session;
++  if (!tournament || session.phase !== TurnPhase.done || isFinished(tournament)) return session;
++  return { ...session, phase: TurnPhase.ready };
++}
++
++// The game on screen is the one being played or just finished. Between games it is the next one.
++export function shownTurnNumber(tournament: Tournament, phase: TurnPhaseKind): number {
++  return phase === TurnPhase.done ? turnsPlayed(tournament) - 1 : turnsPlayed(tournament);
++}
++
++export function shownTurn(session: TournamentSession): TurnInfo | null {
++  const { tournament } = session;
++  return tournament ? turnAt(tournament, shownTurnNumber(tournament, session.phase)) : null;
++}
++
++// After a game, the same match goes on with its second player, or the next match begins.
++export function nextStep(session: TournamentSession): NextStepKind {
++  const { tournament } = session;
++  if (!tournament || session.phase !== TurnPhase.done || isFinished(tournament))
++    return NextStep.none;
++  return turnsPlayed(tournament) % 2 === 0 ? NextStep.match : NextStep.turn;
++}
+diff --git a/src/game/tournament/tournament.css b/src/game/tournament/tournament.css
+new file mode 100644
+index 0000000..d3bae68
+--- /dev/null
++++ b/src/game/tournament/tournament.css
+@@ -0,0 +1,98 @@
++.tournament {
++  display: grid;
++  gap: 16px;
++}
++.tournament h2 {
++  margin: 0;
++  font-size: 20px;
++  line-height: 28px;
++}
++.tournament h3 {
++  margin: 0 0 8px;
++  font-size: 16px;
++  line-height: 24px;
++}
++.tournament-notice {
++  min-height: 24px;
++  color: var(--secondary);
++  font-size: 14px;
++}
++.note {
++  color: var(--secondary);
++  font-size: 14px;
++  max-width: 70ch;
++}
++.tournament-setup {
++  display: grid;
++  gap: 12px;
++}
++.tournament-setup fieldset {
++  display: grid;
++  gap: 12px;
++  min-width: 0;
++  margin: 0;
++  padding: 0;
++  border: 0;
++}
++.tournament-setup legend {
++  margin-bottom: 8px;
++  padding: 0;
++}
++.field {
++  display: grid;
++  gap: 6px;
++  max-width: 24rem;
++}
++.tournament-actions {
++  display: flex;
++  flex-wrap: wrap;
++  gap: 12px;
++}
++.tournament-status {
++  min-height: 24px;
++}
++.champion {
++  padding: 12px 16px;
++  border: 1px solid var(--green);
++  border-radius: 8px;
++  color: var(--green);
++  font-size: 20px;
++  line-height: 28px;
++}
++.past-list {
++  display: grid;
++  gap: 8px;
++  margin: 0;
++  padding: 0;
++  list-style: none;
++}
++.past-list li {
++  display: flex;
++  align-items: center;
++  flex-wrap: wrap;
++  gap: 8px 12px;
++  padding: 12px;
++  border: 1px solid var(--border);
++  border-radius: 8px;
++  background: var(--panel);
++}
++.past-result {
++  flex: 1;
++  min-width: 16ch;
++}
++.transfer {
++  display: grid;
++  gap: 8px;
++}
++.transfer textarea {
++  width: 100%;
++  resize: vertical;
++}
++@media (max-width: 599px) {
++  .tournament-actions > button {
++    flex: 1;
++  }
++  .field {
++    max-width: none;
++  }
++}
+diff --git a/src/game/tournament/tournament.fixture.ts b/src/game/tournament/tournament.fixture.ts
+new file mode 100644
+index 0000000..983abe3
+--- /dev/null
++++ b/src/game/tournament/tournament.fixture.ts
+@@ -0,0 +1,29 @@
++import { boardCode } from '../deck.ts';
++import { createTournament, recordTurn } from './tournament.ts';
++import type { Tournament, TurnResult } from './tournament.ts';
++
++export const FOUR_PLAYERS = ['Ann', 'Ben', 'Cy', 'Dee'];
++export const EIGHT_PLAYERS = [...FOUR_PLAYERS, 'Eve', 'Fay', 'Gus', 'Hal'];
++
++// Each match has its own 4x4 deal.
++export function dealCodes(count: number): string[] {
++  return Array.from({ length: count }, (_, index) => boardCode(4, index + 1));
++}
++
++export function newTournament(players: readonly string[]): Tournament {
++  return createTournament(players, dealCodes(players.length - 1));
++}
++
++export function turn(moves: number, elapsedMs = 1000): TurnResult {
++  return { moves, elapsedMs };
++}
++
++export function playTurns(tournament: Tournament, results: readonly TurnResult[]): Tournament {
++  return results.reduce(recordTurn, tournament);
++}
++
++// Every match goes to its first player, who needs 8 moves against 9.
++export function firstPlayersWin(tournament: Tournament): Tournament {
++  const turns = tournament.matches.flatMap(() => [turn(8), turn(9)]);
++  return playTurns(tournament, turns);
++}
+diff --git a/src/game/tournament/tournament.test.ts b/src/game/tournament/tournament.test.ts
+new file mode 100644
+index 0000000..643f43f
+--- /dev/null
++++ b/src/game/tournament/tournament.test.ts
+@@ -0,0 +1,147 @@
++import assert from 'node:assert/strict';
++import { test } from 'vitest';
++import {
++  champion,
++  createTournament,
++  gridSize,
++  isFinished,
++  isPlayerCount,
++  matchPlayers,
++  matchTitle,
++  matchWinner,
++  PLAYER_COUNTS,
++  recordTurn,
++  roundMatches,
++  roundName,
++  turnAt,
++  turnsPlayed,
++} from './tournament.ts';
++import {
++  dealCodes,
++  EIGHT_PLAYERS,
++  FOUR_PLAYERS,
++  firstPlayersWin,
++  newTournament,
++  playTurns,
++  turn,
++} from './tournament.fixture.ts';
++
++test('four and eight are the only player counts', () => {
++  assert.deepEqual(PLAYER_COUNTS, [4, 8]);
++  for (const count of [0, 1, 2, 3, 5, 6, 7, 9, 16]) assert.equal(isPlayerCount(count), false);
++  for (const count of PLAYER_COUNTS) assert.equal(isPlayerCount(count), true);
++});
++
++test('a tournament needs one deal for each of its matches', () => {
++  assert.throws(() => createTournament(['Ann', 'Ben'], dealCodes(1)));
++  assert.throws(() => createTournament(FOUR_PLAYERS, dealCodes(4)));
++  assert.throws(() => createTournament(EIGHT_PLAYERS, dealCodes(3)));
++  assert.equal(newTournament(FOUR_PLAYERS).matches.length, 3);
++  assert.equal(newTournament(EIGHT_PLAYERS).matches.length, 7);
++});
++
++test('rounds run from the first matches to the final and carry their names', () => {
++  assert.deepEqual(roundMatches(4), [[0, 1], [2]]);
++  assert.deepEqual(roundMatches(8), [[0, 1, 2, 3], [4, 5], [6]]);
++  assert.deepEqual(
++    [0, 1].map((round) => roundName(4, round)),
++    ['Semifinal', 'Final'],
++  );
++  assert.deepEqual(
++    [0, 1, 2].map((round) => roundName(8, round)),
++    ['Quarterfinal', 'Semifinal', 'Final'],
++  );
++  assert.deepEqual(
++    [0, 1, 2].map((match) => matchTitle(4, match)),
++    ['Semifinal 1', 'Semifinal 2', 'Final'],
++  );
++  assert.equal(matchTitle(8, 3), 'Quarterfinal 4');
++  assert.equal(matchTitle(8, 5), 'Semifinal 2');
++  assert.equal(matchTitle(8, 6), 'Final');
++});
++
++test('the first round pairs players in the order they were listed', () => {
++  const tournament = newTournament(EIGHT_PLAYERS);
++  assert.deepEqual(matchPlayers(tournament, 0), ['Ann', 'Ben']);
++  assert.deepEqual(matchPlayers(tournament, 3), ['Gus', 'Hal']);
++  assert.deepEqual(matchPlayers(tournament, 4), [null, null]);
++  assert.equal(gridSize(tournament), 4);
++});
++
++test('fewer moves win a match, then less time, then the player listed first', () => {
++  const fewerMoves = playTurns(newTournament(FOUR_PLAYERS), [turn(12, 1000), turn(9, 90_000)]);
++  assert.equal(matchWinner(fewerMoves, 0), 'Ben');
++  const firstFewer = playTurns(newTournament(FOUR_PLAYERS), [turn(9, 90_000), turn(12, 1000)]);
++  assert.equal(matchWinner(firstFewer, 0), 'Ann');
++  const shorter = playTurns(newTournament(FOUR_PLAYERS), [turn(10, 5000), turn(10, 4999)]);
++  assert.equal(matchWinner(shorter, 0), 'Ben');
++  const tied = playTurns(newTournament(FOUR_PLAYERS), [turn(10, 5000), turn(10, 5000)]);
++  assert.equal(matchWinner(tied, 0), 'Ann');
++});
++
++test('a match has no winner until both players have played', () => {
++  const tournament = newTournament(FOUR_PLAYERS);
++  assert.equal(matchWinner(tournament, 0), null);
++  assert.equal(matchWinner(recordTurn(tournament, turn(8)), 0), null);
++  assert.equal(matchWinner(tournament, 99), null);
++});
++
++test('turns run through every match in order and the last one decides the champion', () => {
++  let tournament = newTournament(FOUR_PLAYERS);
++  const order: (string | undefined)[] = [];
++  for (let index = 0; index < 6; index += 1) {
++    const info = turnAt(tournament, index);
++    order.push(info?.player);
++    assert.equal(info?.match, Math.floor(index / 2));
++    assert.equal(info?.boardCode, tournament.matches[Math.floor(index / 2)]?.boardCode);
++    assert.equal(turnsPlayed(tournament), index);
++    assert.equal(isFinished(tournament), false);
++    assert.equal(champion(tournament), null);
++    // Ann, Cy and the winners of the first round each need 8 moves against 9.
++    tournament = recordTurn(tournament, turn(index % 2 === 0 ? 8 : 9));
++  }
++  // The final pairs the winners of both semifinals, which are Ann and Cy.
++  assert.deepEqual(order, ['Ann', 'Ben', 'Cy', 'Dee', 'Ann', 'Cy']);
++  assert.equal(isFinished(tournament), true);
++  assert.equal(champion(tournament), 'Ann');
++  assert.equal(turnAt(tournament, 6), null);
++  assert.equal(turnAt(tournament, -1), null);
++  assert.equal(recordTurn(tournament, turn(8)), tournament);
++});
++
++test('winners move up through all three rounds of an eight player tournament', () => {
++  const tournament = newTournament(EIGHT_PLAYERS);
++  const results = [
++    // Quarterfinals: Ben, Cy, Fay and Hal win.
++    [10, 9],
++    [8, 9],
++    [11, 7],
++    [12, 6],
++    // Semifinals: Ben against Cy and Fay against Hal.
++    [9, 9],
++    [5, 6],
++    // Final: Ben against Fay.
++    [8, 7],
++  ].flat();
++  const played = playTurns(
++    tournament,
++    results.map((moves, index) => turn(moves, index)),
++  );
++  assert.equal(turnsPlayed(played), 14);
++  assert.deepEqual(matchPlayers(played, 4), ['Ben', 'Cy']);
++  assert.deepEqual(matchPlayers(played, 5), ['Fay', 'Hal']);
++  assert.deepEqual(matchPlayers(played, 6), ['Ben', 'Fay']);
++  assert.equal(champion(played), 'Fay');
++});
++
++test('recording a turn leaves the earlier tournament as it was', () => {
++  const tournament = newTournament(FOUR_PLAYERS);
++  const next = recordTurn(tournament, turn(8));
++  assert.equal(turnsPlayed(tournament), 0);
++  assert.equal(turnsPlayed(next), 1);
++  assert.deepEqual(next.matches[0]?.turns, [turn(8)]);
++  assert.equal(
++    firstPlayersWin(tournament).matches.every((match) => match.turns.length === 2),
++    true,
++  );
++});
+diff --git a/src/game/tournament/tournament.ts b/src/game/tournament/tournament.ts
+new file mode 100644
+index 0000000..03ad3a8
+--- /dev/null
++++ b/src/game/tournament/tournament.ts
+@@ -0,0 +1,128 @@
++import { parseBoardCode } from '../deck.ts';
++
++export const PLAYER_COUNTS = [4, 8] as const;
++
++// Round names count back from the final, so four players start at the semifinals.
++const ROUND_NAMES = ['Quarterfinal', 'Semifinal', 'Final'] as const;
++
++export interface TurnResult {
++  readonly moves: number;
++  readonly elapsedMs: number;
++}
++
++export interface MatchRecord {
++  readonly boardCode: string;
++  readonly turns: readonly TurnResult[];
++}
++
++// A tournament is only its players, in bracket order, and the matches played so far. Every match
++// has its own deal. Its two players play that deal one after the other and winners follow from
++// the results, so nothing here can disagree with them.
++export interface Tournament {
++  readonly players: readonly string[];
++  readonly matches: readonly MatchRecord[];
++}
++
++export interface TurnInfo {
++  readonly match: number;
++  readonly player: string;
++  readonly boardCode: string;
++}
++
++// Every match of a tournament is dealt on the same grid.
++export function gridSize(tournament: Tournament): number {
++  return parseBoardCode(tournament.matches[0]?.boardCode ?? '')?.size ?? 0;
++}
++
++export function isPlayerCount(value: number): boolean {
++  return PLAYER_COUNTS.some((count) => count === value);
++}
++
++export function createTournament(
++  players: readonly string[],
++  boardCodes: readonly string[],
++): Tournament {
++  if (!isPlayerCount(players.length) || boardCodes.length !== players.length - 1)
++    throw new Error('A tournament needs 4 or 8 players and one deal for each match.');
++  return { players, matches: boardCodes.map((boardCode) => ({ boardCode, turns: [] })) };
++}
++
++// Matches are numbered round by round. Match 0 pairs the first two players and the last match is
++// the final.
++export function roundMatches(playerCount: number): readonly (readonly number[])[] {
++  const rounds: (readonly number[])[] = [];
++  let first = 0;
++  for (let count = playerCount / 2; count >= 1; count /= 2) {
++    const start = first;
++    rounds.push(Array.from({ length: count }, (_, position) => start + position));
++    first += count;
++  }
++  return rounds;
++}
++
++export function roundName(playerCount: number, round: number): string {
++  const rounds = roundMatches(playerCount).length;
++  return ROUND_NAMES[ROUND_NAMES.length - rounds + round] ?? 'Match';
++}
++
++export function matchTitle(playerCount: number, match: number): string {
++  const rounds = roundMatches(playerCount);
++  const round = rounds.findIndex((matches) => matches.includes(match));
++  const matches = rounds[round] ?? [];
++  const name = roundName(playerCount, round);
++  return matches.length === 1 ? name : `${name} ${matches.indexOf(match) + 1}`;
++}
++
++// Fewer moves win and less time settles a tie. A tie on both goes to the player listed first.
++function isAhead(turn: TurnResult, other: TurnResult): boolean {
++  return turn.moves === other.moves ? turn.elapsedMs < other.elapsedMs : turn.moves < other.moves;
++}
++
++export function matchPlayers(
++  tournament: Tournament,
++  match: number,
++): readonly [string | null, string | null] {
++  const firstRound = tournament.players.length / 2;
++  if (match < firstRound)
++    return [tournament.players[2 * match] ?? null, tournament.players[2 * match + 1] ?? null];
++  const feeder = 2 * (match - firstRound);
++  return [matchWinner(tournament, feeder), matchWinner(tournament, feeder + 1)];
++}
++
++export function matchWinner(tournament: Tournament, match: number): string | null {
++  const [first, second] = tournament.matches[match]?.turns ?? [];
++  if (!first || !second) return null;
++  const [left, right] = matchPlayers(tournament, match);
++  return isAhead(second, first) ? right : left;
++}
++
++export function turnsPlayed(tournament: Tournament): number {
++  return tournament.matches.reduce((total, match) => total + match.turns.length, 0);
++}
++
++export function isFinished(tournament: Tournament): boolean {
++  return turnsPlayed(tournament) === 2 * tournament.matches.length;
++}
++
++export function champion(tournament: Tournament): string | null {
++  return isFinished(tournament) ? matchWinner(tournament, tournament.matches.length - 1) : null;
++}
++
++// Turns run in order, two for each match. Turn 0 belongs to the first player of match 0.
++export function turnAt(tournament: Tournament, turn: number): TurnInfo | null {
++  const match = Math.floor(turn / 2);
++  const record = tournament.matches[match];
++  const player = matchPlayers(tournament, match)[turn % 2];
++  return record && player ? { match, player, boardCode: record.boardCode } : null;
++}
++
++export function recordTurn(tournament: Tournament, result: TurnResult): Tournament {
++  const match = Math.floor(turnsPlayed(tournament) / 2);
++  if (!tournament.matches[match]) return tournament;
++  return {
++    ...tournament,
++    matches: tournament.matches.map((record, position) =>
++      position === match ? { ...record, turns: [...record.turns, result] } : record,
++    ),
++  };
++}
+diff --git a/src/game/tournament/use-setup-draft.ts b/src/game/tournament/use-setup-draft.ts
+new file mode 100644
+index 0000000..fc0516f
+--- /dev/null
++++ b/src/game/tournament/use-setup-draft.ts
+@@ -0,0 +1,17 @@
++import { useState } from 'react';
++import { PLAYER_COUNTS } from './tournament.ts';
++
++const FIRST_COUNT = PLAYER_COUNTS[0];
++const MOST_PLAYERS = Math.max(...PLAYER_COUNTS);
++
++// The typed names stay when the player count changes, and they are what Export saves before a start.
++export function useSetupDraft() {
++  const [count, setCount] = useState<number>(FIRST_COUNT);
++  const [entries, setEntries] = useState<readonly string[]>(() =>
++    Array.from({ length: MOST_PLAYERS }, () => ''),
++  );
++  function setEntry(position: number, value: string): void {
++    setEntries((names) => names.map((name, index) => (index === position ? value : name)));
++  }
++  return { count, entries, setCount, setEntry };
++}
+diff --git a/src/game/tournament/use-tournament.ts b/src/game/tournament/use-tournament.ts
+new file mode 100644
+index 0000000..ec4bee7
+--- /dev/null
++++ b/src/game/tournament/use-tournament.ts
+@@ -0,0 +1,89 @@
++import { useRef, useState } from 'react';
++import { freshBoardCode } from '../session/fresh-board.ts';
++import { browserStore } from '../session/use-saved-preferences.ts';
++import {
++  readPastTournaments,
++  rememberTournament,
++  writePastTournaments,
++} from './past-tournaments.ts';
++import { resolvePlayers } from './players.ts';
++import { decodeTournament, encodeTournament } from './tournament-format.ts';
++import { TournamentNotice } from './tournament-labels.ts';
++import { finishTurn, idleSession, nextTurn, openSession, startTurn } from './tournament-session.ts';
++import { createTournament, isFinished, isPlayerCount } from './tournament.ts';
++import type { TournamentSession } from './tournament-session.ts';
++import type { Tournament, TurnResult } from './tournament.ts';
++
++interface TournamentState {
++  readonly session: TournamentSession;
++  readonly past: readonly Tournament[];
++}
++
++// Keeps the tournament on screen and the finished ones in browser storage. Deals use the grid
++// size of the game the tournament was opened from.
++export function useTournament(size: number) {
++  const [store] = useState(browserStore);
++  const [state, setState] = useState<TournamentState>(() => ({
++    session: idleSession(),
++    past: readPastTournaments(store),
++  }));
++  const current = useRef(state);
++
++  function show(session: TournamentSession): void {
++    const { past } = current.current;
++    const { tournament } = session;
++    const next = tournament && isFinished(tournament) ? rememberTournament(past, tournament) : past;
++    if (next !== past) writePastTournaments(store, next);
++    current.current = { session, past: next };
++    setState(current.current);
++  }
++
++  // The names in a draft come from the setup form. Blank names play under their own label.
++  function draft(entries: readonly string[], count: number): Tournament | null {
++    const players = isPlayerCount(count) ? resolvePlayers(entries, count) : null;
++    if (!players) return null;
++    return createTournament(
++      players,
++      Array.from({ length: count - 1 }, () => freshBoardCode(size)),
++    );
++  }
++
++  function start(entries: readonly string[], count: number): void {
++    const tournament = draft(entries, count);
++    show(tournament ? openSession(tournament) : idleSession(TournamentNotice.duplicate));
++  }
++
++  // Without a tournament, the setup form is exported as the tournament it would start.
++  function exportTournament(entries: readonly string[], count: number): string | null {
++    const tournament = current.current.session.tournament ?? draft(entries, count);
++    if (!tournament) {
++      show(idleSession(TournamentNotice.duplicate));
++      return null;
++    }
++    show({ ...current.current.session, notice: TournamentNotice.exported });
++    return encodeTournament(tournament);
++  }
++
++  function loadTournament(text: string): void {
++    const tournament = decodeTournament(text);
++    show(
++      tournament
++        ? openSession(tournament, TournamentNotice.loaded)
++        : { ...current.current.session, notice: TournamentNotice.invalid },
++    );
++  }
++
++  return {
++    session: state.session,
++    past: state.past,
++    start,
++    exportTournament,
++    loadTournament,
++    startTurn: () => show(startTurn(current.current.session)),
++    finishTurn: (result: TurnResult) => show(finishTurn(current.current.session, result)),
++    nextTurn: () => show(nextTurn(current.current.session)),
++    leave: () => show(idleSession(TournamentNotice.left)),
++    reset: () => show(idleSession()),
++    viewPast: (tournament: Tournament) => show(openSession(tournament)),
++  };
++}
+diff --git a/src/game/tournament/use-turn-game.ts b/src/game/tournament/use-turn-game.ts
+new file mode 100644
+index 0000000..eca0182
+--- /dev/null
++++ b/src/game/tournament/use-turn-game.ts
+@@ -0,0 +1,38 @@
++import { useRef, useState } from 'react';
++import { parseBoardCode } from '../deck.ts';
++import { isWon } from '../game.ts';
++import { activateSession, initialSession } from '../session/session.ts';
++import { DEFAULT_SIZE } from '../session/storage.ts';
++import { useSessionClock } from '../session/use-session-clock.ts';
++import type { Session } from '../session/session.ts';
++import type { TurnResult } from './tournament.ts';
++
++// One player's game of a match deal. It is not the player's own game, so it keeps no best moves.
++export function useTurnGame(boardCode: string, finished: (result: TurnResult) => void) {
++  const [session, setSession] = useState(() =>
++    initialSession(boardCode, {
++      size: parseBoardCode(boardCode)?.size ?? DEFAULT_SIZE,
++      bestMoves: {},
++    }),
++  );
++  const current = useRef(session);
++
++  function commit(next: Session): void {
++    if (next === current.current) return;
++    current.current = next;
++    setSession(next);
++  }
++
++  const clock = useSessionClock(session, current, commit);
++
++  function activate(index: number): void {
++    clock.synchronize();
++    const before = current.current;
++    const next = activateSession(before, index);
++    commit(next);
++    if (isWon(next.game) && !isWon(before.game))
++      finished({ moves: next.game.moves, elapsedMs: Math.floor(next.game.elapsedMs) });
++  }
++
++  return { session, activate };
++}
+diff --git a/tests/accessibility-fixture.ts b/tests/accessibility-fixture.ts
+index 1c4a262..28b8d9a 100644
+--- a/tests/accessibility-fixture.ts
++++ b/tests/accessibility-fixture.ts
+@@ -15,6 +15,7 @@ export async function accessibilityFixture() {
+     !isJsonObject(value.controls) ||
+     typeof value.controls.size !== 'string' ||
+     typeof value.controls.newGame !== 'string' ||
++    typeof value.controls.tournament !== 'string' ||
+     typeof value.controls.restart !== 'string' ||
+     typeof value.controls.summary !== 'string' ||
+     !isStringList(value.closed) ||
+@@ -31,6 +32,7 @@ export async function accessibilityFixture() {
+     controls: {
+       size: value.controls.size,
+       newGame: value.controls.newGame,
++      tournament: value.controls.tournament,
+       restart: value.controls.restart,
+       summary: value.controls.summary,
+     },
+diff --git a/tests/accessibility.e2e.test.ts b/tests/accessibility.e2e.test.ts
+index f1083f8..cd1c3b6 100644
+--- a/tests/accessibility.e2e.test.ts
++++ b/tests/accessibility.e2e.test.ts
+@@ -24,12 +24,18 @@ test(
+       true,
+     );
+     accessibilityNode(controls, 'button', expected.controls.newGame);
++    accessibilityNode(controls, 'button', expected.controls.tournament);
+     await page.keyboard.press('Tab');
+     expect(
+       accessibilityNode(await capture('new-game-control'), 'button', expected.controls.newGame)
+         .properties.focused,
+     ).toBe(true);
+     await page.keyboard.press('Tab');
++    expect(
++      accessibilityNode(await capture('tournament-control'), 'button', expected.controls.tournament)
++        .properties.focused,
++    ).toBe(true);
++    await page.keyboard.press('Tab');
+     await page.keyboard.press('Tab');
+     const closed = await capture('board-entry');
+     for (const name of expected.closed) accessibilityNode(closed, 'button', name);
+@@ -79,6 +85,7 @@ test(
+     await page.keyboard.press('Shift+Tab');
+     await page.keyboard.press('Shift+Tab');
+     await page.keyboard.press('Shift+Tab');
++    await page.keyboard.press('Shift+Tab');
+     await page.keyboard.press('Enter');
+     const reset = await capture('new-game');
+     expect(accessibilityNode(reset, 'button', expected.controls.newGame).properties.focused).toBe(
+diff --git a/tests/accessibility.fixture.json b/tests/accessibility.fixture.json
+index 56b1690..ddc5d5c 100644
+--- a/tests/accessibility.fixture.json
++++ b/tests/accessibility.fixture.json
+@@ -3,6 +3,7 @@
+   "controls": {
+     "size": "Grid size",
+     "newGame": "New Game",
++    "tournament": "Tournament",
+     "restart": "Restart",
+     "summary": "Reproduce a game"
+   },
+diff --git a/tests/spacing-scale.ts b/tests/spacing-scale.ts
+new file mode 100644
+index 0000000..78f9463
+--- /dev/null
++++ b/tests/spacing-scale.ts
+@@ -0,0 +1,27 @@
++import type { Page } from '@playwright/test';
++
++const SCALE_PX = [0, 4, 6, 8, 12, 16, 24, 32];
++
++// Lists each computed margin, padding and gap that is off the scale and isn't auto or normal.
++// Options belong to the native select, so their internals aren't covered.
++export function offScale(page: Page): Promise<string[]> {
++  return page.evaluate((scale) => {
++    const properties = ['top', 'right', 'bottom', 'left'].flatMap((side) => [
++      `margin-${side}`,
++      `padding-${side}`,
++    ]);
++    const found = new Set<string>();
++    for (const element of document.querySelectorAll('body, body *')) {
++      if (element.closest('option, optgroup')) continue;
++      const style = element.computedStyleMap();
++      for (const property of [...properties, 'row-gap', 'column-gap']) {
++        const value = style.get(property)?.toString() ?? '';
++        if (value === 'auto' || value === 'normal' || scale.includes(parseFloat(value))) continue;
++        found.add(
++          `${element.tagName.toLowerCase()}.${element.getAttribute('class') ?? ''} ${property} ${value}`,
++        );
++      }
++    }
++    return [...found];
++  }, SCALE_PX);
++}
+diff --git a/tests/spacing.e2e.test.ts b/tests/spacing.e2e.test.ts
+index 1001ef0..93a63d8 100644
+--- a/tests/spacing.e2e.test.ts
++++ b/tests/spacing.e2e.test.ts
+@@ -4,9 +4,8 @@ import { ReproductionControl } from '../src/game/controls/control-labels.ts';
+ import { SelectionKind } from '../src/game/selection.ts';
+ import { SNAPSHOT_VERSION } from '../src/game/snapshot.ts';
+ import { finishBoard, loadFixedBoard, PHONE } from './game-fixture.ts';
+-import type { Page } from '@playwright/test';
++import { offScale } from './spacing-scale.ts';
+ 
+-const SCALE_PX = [0, 4, 6, 8, 12, 16, 24, 32];
+ const PAUSED = {
+   version: SNAPSHOT_VERSION,
+   boardCode: EXAMPLE_CODE,
+@@ -17,30 +16,6 @@ const PAUSED = {
+   started: true,
+ };
+ 
+-// Lists each computed margin, padding and gap that is off the scale and isn't auto or normal.
+-// Options belong to the native select, so their internals aren't covered.
+-function offScale(page: Page): Promise<string[]> {
+-  return page.evaluate((scale) => {
+-    const properties = ['top', 'right', 'bottom', 'left'].flatMap((side) => [
+-      `margin-${side}`,
+-      `padding-${side}`,
+-    ]);
+-    const found = new Set<string>();
+-    for (const element of document.querySelectorAll('body, body *')) {
+-      if (element.closest('option, optgroup')) continue;
+-      const style = element.computedStyleMap();
+-      for (const property of [...properties, 'row-gap', 'column-gap']) {
+-        const value = style.get(property)?.toString() ?? '';
+-        if (value === 'auto' || value === 'normal' || scale.includes(parseFloat(value))) continue;
+-        found.add(
+-          `${element.tagName.toLowerCase()}.${element.getAttribute('class') ?? ''} ${property} ${value}`,
+-        );
+-      }
+-    }
+-    return [...found];
+-  }, SCALE_PX);
+-}
+-
+ for (const viewport of [PHONE, { width: 1280, height: 800 }])
+   test(`every margin, padding and gap stays on the spacing scale at ${viewport.width}px`, async ({
+     page,
+diff --git a/tests/tournament-fixture.ts b/tests/tournament-fixture.ts
+new file mode 100644
+index 0000000..3bd00e0
+--- /dev/null
++++ b/tests/tournament-fixture.ts
+@@ -0,0 +1,78 @@
++import { expect } from './browser-test.ts';
++import { specDeal } from './deal-oracle.ts';
++import { parseBoardCode } from '../src/game/deck.ts';
++import { DealControl } from '../src/game/controls/control-labels.ts';
++import { playerLabel, TournamentControl } from '../src/game/tournament/tournament-labels.ts';
++import type { Page } from '@playwright/test';
++
++export const NAMES = ['Ann', 'Ben', 'Cy', 'Dee', 'Eve', 'Fay', 'Gus', 'Hal'];
++export const FOUR = NAMES.slice(0, 4);
++
++export function button(page: Page, name: string) {
++  return page.getByRole('button', { name, exact: true });
++}
++
++export async function openTournament(page: Page): Promise<void> {
++  await button(page, DealControl.tournament).click();
++  await expect(
++    page.getByRole('heading', { name: TournamentControl.heading, level: 2 }),
++  ).toBeVisible();
++}
++
++export async function fillPlayers(page: Page, names: readonly string[]): Promise<void> {
++  const players = page.getByLabel(TournamentControl.players, { exact: true });
++  await players.selectOption(String(names.length));
++  for (const [index, name] of names.entries())
++    await page.getByLabel(playerLabel(index + 1), { exact: true }).fill(name);
++}
++
++export async function startTournament(page: Page, names: readonly string[]): Promise<void> {
++  await openTournament(page);
++  await fillPlayers(page, names);
++  await button(page, TournamentControl.start).click();
++}
++
++// The deal both players of the current match play, as the screen names it.
++export async function currentDeal(page: Page): Promise<string> {
++  const text = await page.getByText(/Both players play deal/).textContent();
++  const code = /deal (np1-\d+-\d+)\./.exec(text ?? '')?.[1];
++  if (!code) throw new Error('Expected the deal of the current match.');
++  return code;
++}
++
++// Plays one player's game on the current deal. Each extra move is a mismatch that closes again.
++export async function playTurn(page: Page, extraMoves = 0): Promise<void> {
++  const deal = parseBoardCode(await currentDeal(page));
++  if (!deal) throw new Error('Expected a valid deal.');
++  await button(page, TournamentControl.startTurn).click();
++  const deck = specDeal(deal.size, deal.seed);
++  const cards = page.locator('.card');
++  await expect(cards).toHaveCount(deal.size ** 2);
++  const other = deck.findIndex((face) => face !== deck[0]);
++  for (let miss = 0; miss < extraMoves; miss += 1) {
++    await cards.nth(0).click();
++    await cards.nth(other).click();
++    await expect(page.locator('.card.revealed')).toHaveCount(0);
++  }
++  const places = new Map<number, number[]>();
++  for (const [index, face] of deck.entries())
++    places.set(face, [...(places.get(face) ?? []), index]);
++  for (const pair of places.values()) for (const index of pair) await cards.nth(index).click();
++  // The last game of a tournament leaves for the champion, so the board is not always there to check.
++  const next = button(page, TournamentControl.nextTurn).or(
++    button(page, TournamentControl.nextMatch),
++  );
++  await expect(next.or(page.getByText(/^Champion: /))).toBeVisible();
++}
++
++// Plays a whole match. The first player makes the fewer moves, so the first player wins it.
++export async function playMatch(page: Page, last = false): Promise<void> {
++  await playTurn(page);
++  await button(page, TournamentControl.nextTurn).click();
++  await playTurn(page, 1);
++  if (!last) await button(page, TournamentControl.nextMatch).click();
++}
++
++export function matchRow(page: Page, match: number, row: number) {
++  return page.locator('.match').nth(match).locator('tbody tr').nth(row);
++}
+diff --git a/tests/tournament-transfer.e2e.test.ts b/tests/tournament-transfer.e2e.test.ts
+new file mode 100644
+index 0000000..c85cb74
+--- /dev/null
++++ b/tests/tournament-transfer.e2e.test.ts
+@@ -0,0 +1,123 @@
++import { expect, test } from './browser-test.ts';
++import { ReproductionControl } from '../src/game/controls/control-labels.ts';
++import {
++  championLine,
++  nowPlaying,
++  TournamentControl,
++  TournamentNotice,
++  winnerLine,
++} from '../src/game/tournament/tournament-labels.ts';
++import { decodeTournament } from '../src/game/tournament/tournament-format.ts';
++import { loadFixedBoard, PHONE } from './game-fixture.ts';
++import { offScale } from './spacing-scale.ts';
++import {
++  button,
++  fillPlayers,
++  FOUR,
++  matchRow,
++  NAMES,
++  openTournament,
++  playMatch,
++  playTurn,
++} from './tournament-fixture.ts';
++import type { Page } from '@playwright/test';
++
++async function exportedTournament(page: Page): Promise<string> {
++  await button(page, TournamentControl.exportTournament).click();
++  return page.getByLabel(TournamentControl.json, { exact: true }).inputValue();
++}
++
++async function loadTournament(page: Page, text: string): Promise<void> {
++  await page.getByLabel(TournamentControl.json, { exact: true }).fill(text);
++  await button(page, TournamentControl.loadTournament).click();
++}
++
++test('Export tournament and Load tournament work on every tournament screen', async ({
++  page,
++  gameURL,
++}) => {
++  await page.goto(gameURL);
++  await openTournament(page);
++  await fillPlayers(page, FOUR);
++  const draft = await exportedTournament(page);
++  expect(decodeTournament(draft)?.players).toEqual(FOUR);
++  await expect(page.getByText(TournamentNotice.exported)).toBeVisible();
++  await loadTournament(page, 'not a tournament');
++  await expect(page.getByText(TournamentNotice.invalid)).toBeVisible();
++  await expect(button(page, TournamentControl.start)).toBeVisible();
++
++  await loadTournament(page, draft);
++  await expect(page.getByText(TournamentNotice.loaded)).toBeVisible();
++  await expect(page.getByText(nowPlaying('Ann'), { exact: true })).toBeVisible();
++  await playMatch(page);
++  const midway = await exportedTournament(page);
++  expect(decodeTournament(midway)?.matches[0]?.turns).toHaveLength(2);
++  await playTurn(page);
++  await button(page, TournamentControl.leave).click();
++
++  await loadTournament(page, midway);
++  await expect(page.getByText(nowPlaying('Cy'), { exact: true })).toBeVisible();
++  await expect(matchRow(page, 0, 0).locator('td').first()).toHaveText('8');
++  await expect(page.locator('.card')).toHaveCount(0);
++  await loadTournament(page, '{');
++  await expect(page.getByText(TournamentNotice.invalid)).toBeVisible();
++  await expect(page.getByText(nowPlaying('Cy'), { exact: true })).toBeVisible();
++
++  await playMatch(page);
++  await playMatch(page, true);
++  const finished = await exportedTournament(page);
++  await button(page, TournamentControl.newTournament).click();
++  await loadTournament(page, finished);
++  await expect(page.getByText(championLine('Ann'), { exact: true })).toBeVisible();
++  await expect(page.locator('.match').nth(2)).toContainText(winnerLine('Ann'));
++});
++
++test('opening the tournament pauses a game in progress until Resume', async ({ page }) => {
++  await loadFixedBoard(page);
++  await page.locator('.card').nth(2).click();
++  await openTournament(page);
++  await button(page, TournamentControl.back).click();
++  await expect(page.locator('.load-notice')).toHaveText(
++    'Game paused for the tournament. Select Resume to continue.',
++  );
++  await expect(button(page, ReproductionControl.resume)).toBeVisible();
++  await button(page, ReproductionControl.resume).click();
++  await page.locator('.card').nth(6).click();
++  await expect(page.locator('.card.matched')).toHaveCount(2);
++});
++
++for (const viewport of [PHONE, { width: 1280, height: 800 }])
++  test(`tournament screens fit ${viewport.width}px wide, keep 44px targets and the spacing scale`, async ({
++    page,
++    gameURL,
++  }) => {
++    await page.setViewportSize(viewport);
++    await page.goto(gameURL);
++    await openTournament(page);
++    await fillPlayers(page, NAMES);
++    const checks: [string, () => Promise<void>][] = [
++      ['setup', async () => {}],
++      [
++        'first turn',
++        async () => {
++          await button(page, TournamentControl.start).click();
++        },
++      ],
++      [
++        'board',
++        async () => {
++          await button(page, TournamentControl.startTurn).click();
++        },
++      ],
++    ];
++    for (const [stage, enter] of checks) {
++      await enter();
++      const fit = await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth);
++      expect(fit, `${stage} fits the page width`).toBe(true);
++      expect(await offScale(page), `${stage} spacing`).toEqual([]);
++      for (const control of await page.locator('button, select, input, textarea').all()) {
++        const box = await control.boundingBox();
++        expect(box?.height, stage).toBeGreaterThanOrEqual(44);
++      }
++    }
++  });
+diff --git a/tests/tournament.e2e.test.ts b/tests/tournament.e2e.test.ts
+new file mode 100644
+index 0000000..c4968ab
+--- /dev/null
++++ b/tests/tournament.e2e.test.ts
+@@ -0,0 +1,165 @@
++import { expect, test, TestTimeouts } from './browser-test.ts';
++import {
++  championLine,
++  nowPlaying,
++  TournamentControl,
++  TournamentNotice,
++  TournamentText,
++  winnerLine,
++} from '../src/game/tournament/tournament-labels.ts';
++import { offScale } from './spacing-scale.ts';
++import { DealControl } from '../src/game/controls/control-labels.ts';
++import {
++  button,
++  currentDeal,
++  FOUR,
++  matchRow,
++  NAMES,
++  openTournament,
++  playMatch,
++  playTurn,
++  startTournament,
++} from './tournament-fixture.ts';
++
++test('four players play a knockout on shared deals and the fewest moves win each match', async ({
++  page,
++  gameURL,
++}) => {
++  await page.goto(gameURL);
++  await startTournament(page, FOUR);
++  await expect(page.getByText(nowPlaying('Ann'), { exact: true })).toBeVisible();
++  await expect(button(page, TournamentControl.startTurn)).toBeFocused();
++  await expect(page.locator('.card')).toHaveCount(0);
++  const semifinal = await currentDeal(page);
++
++  await playTurn(page);
++  await expect(button(page, TournamentControl.startTurn)).toHaveCount(0);
++  await expect(button(page, TournamentControl.nextTurn)).toBeFocused();
++  await expect(matchRow(page, 0, 0).locator('td').first()).toHaveText('8');
++  await expect(page.getByText(nowPlaying('Ann'), { exact: true })).toBeVisible();
++  await button(page, TournamentControl.nextTurn).click();
++  await expect(page.getByText(nowPlaying('Ben'), { exact: true })).toBeVisible();
++  expect(await currentDeal(page)).toBe(semifinal);
++  await expect(page.locator('.card')).toHaveCount(0);
++  await playTurn(page, 1);
++  await expect(button(page, TournamentControl.nextTurn)).toHaveCount(0);
++  await expect(matchRow(page, 0, 1).locator('td').first()).toHaveText('9');
++  await expect(page.locator('.match').nth(0)).toContainText(winnerLine('Ann'));
++  await expect(page.locator('.match').nth(2)).toContainText(TournamentText.undecided);
++  await button(page, TournamentControl.nextMatch).click();
++
++  await expect(page.getByText(nowPlaying('Cy'), { exact: true })).toBeVisible();
++  expect(await currentDeal(page)).not.toBe(semifinal);
++  await playTurn(page, 2);
++  await button(page, TournamentControl.nextTurn).click();
++  await playTurn(page);
++  await expect(page.locator('.match').nth(1)).toContainText(winnerLine('Dee'));
++  await button(page, TournamentControl.nextMatch).click();
++
++  await expect(page.getByText(nowPlaying('Ann'), { exact: true })).toBeVisible();
++  await expect(page.locator('.match').nth(2)).toContainText('Dee');
++  await playTurn(page);
++  await button(page, TournamentControl.nextTurn).click();
++  await expect(page.getByText(nowPlaying('Dee'), { exact: true })).toBeVisible();
++  await playTurn(page, 1);
++  await expect(button(page, TournamentControl.nextMatch)).toHaveCount(0);
++  await expect(page.getByText(championLine('Ann'), { exact: true })).toBeVisible();
++  await expect(page.locator('.match').nth(2)).toContainText(winnerLine('Ann'));
++  await expect(button(page, TournamentControl.leave)).toHaveCount(0);
++  await expect(button(page, TournamentControl.back)).toBeFocused();
++
++  await button(page, TournamentControl.back).click();
++  await expect(button(page, DealControl.tournament)).toBeFocused();
++  await expect(page.locator('.card')).toHaveCount(16);
++});
++
++test(
++  'eight players need three rounds and seven matches',
++  async ({ page, gameURL }) => {
++    await page.goto(gameURL);
++    await startTournament(page, NAMES);
++    await expect(page.locator('.match')).toHaveCount(7);
++    await expect(page.getByRole('heading', { name: 'Quarterfinals', level: 4 })).toBeVisible();
++    await expect(page.getByRole('heading', { name: 'Semifinals', level: 4 })).toBeVisible();
++    await expect(page.getByRole('heading', { name: 'Final', level: 4, exact: true })).toBeVisible();
++    for (let match = 0; match < 7; match += 1) await playMatch(page, match === 6);
++    await expect(page.getByText(championLine('Ann'), { exact: true })).toBeVisible();
++    await expect(page.locator('.match').nth(4)).toContainText(winnerLine('Ann'));
++    await expect(page.locator('.match').nth(5)).toContainText(winnerLine('Eve'));
++    await expect(page.locator('.match').nth(6)).toContainText(winnerLine('Ann'));
++  },
++  {},
++  undefined,
++  TestTimeouts.long,
++);
++
++test('Players offers 4 or 8 inputs, blank names play under their label and duplicates are refused', async ({
++  page,
++  gameURL,
++}) => {
++  await page.goto(gameURL);
++  await openTournament(page);
++  const players = page.getByLabel(TournamentControl.players, { exact: true });
++  await expect(players.locator('option')).toHaveText(['4', '8']);
++  await expect(page.getByLabel('Player 4', { exact: true })).toBeVisible();
++  await expect(page.getByLabel('Player 5', { exact: true })).toHaveCount(0);
++  await players.selectOption('8');
++  await expect(page.getByLabel('Player 8', { exact: true })).toBeVisible();
++  await page.getByLabel('Player 2', { exact: true }).fill('Ann');
++  await page.getByLabel('Player 1', { exact: true }).fill('ann');
++  await button(page, TournamentControl.start).click();
++  await expect(page.getByRole('status').first()).toHaveText(TournamentNotice.duplicate);
++  await expect(button(page, TournamentControl.startTurn)).toHaveCount(0);
++  await page.getByLabel('Player 1', { exact: true }).fill('  Zed   Zee ');
++  await page.getByLabel('Player 1', { exact: true }).press('Enter');
++  await expect(page.getByText(nowPlaying('Zed Zee'), { exact: true })).toBeVisible();
++  await expect(page.locator('.match').nth(0)).toContainText('Ann');
++  await expect(page.locator('.match').nth(1)).toContainText('Player 3');
++});
++
++test('finished tournaments stay in the Past tournaments list after a reload', async ({
++  page,
++  gameURL,
++}) => {
++  await page.goto(gameURL);
++  await openTournament(page);
++  await expect(page.getByText(TournamentText.noPast)).toBeVisible();
++  await button(page, TournamentControl.back).click();
++  await startTournament(page, FOUR);
++  await playMatch(page);
++  await playMatch(page);
++  await playMatch(page, true);
++  await expect(page.getByText(championLine('Ann'), { exact: true })).toBeVisible();
++  expect(await offScale(page), 'champion screen spacing').toEqual([]);
++  await button(page, TournamentControl.back).click();
++  await page.reload();
++  await openTournament(page);
++  await expect(page.getByRole('heading', { name: TournamentText.past })).toBeVisible();
++  expect(await offScale(page), 'past tournaments spacing').toEqual([]);
++  await expect(page.locator('.past-list li')).toHaveCount(1);
++  await expect(page.getByText(championLine('Ann'), { exact: true })).toBeVisible();
++  await expect(page.locator('.past-list li')).toContainText('4 players, 4x4');
++  await page.getByRole('button', { name: /View bracket, champion Ann/ }).click();
++  await expect(page.getByText(championLine('Ann'), { exact: true })).toBeVisible();
++  await expect(page.locator('.match')).toHaveCount(3);
++  await button(page, TournamentControl.newTournament).click();
++  await expect(button(page, TournamentControl.start)).toBeVisible();
++  await expect(page.locator('.past-list li')).toHaveCount(1);
++});
++
++test('Leave tournament stops it early and keeps it out of the past list', async ({
++  page,
++  gameURL,
++}) => {
++  await page.goto(gameURL);
++  await startTournament(page, FOUR);
++  await playTurn(page);
++  await button(page, TournamentControl.leave).click();
++  await expect(button(page, TournamentControl.start)).toBeVisible();
++  await expect(page.locator('.card')).toHaveCount(0);
++  await expect(page.getByText(TournamentNotice.left)).toBeVisible();
++  await expect(page.getByText(TournamentText.noPast)).toBeVisible();
++  await page.reload();
++  await openTournament(page);
++  await expect(page.getByText(TournamentText.noPast)).toBeVisible();
++});

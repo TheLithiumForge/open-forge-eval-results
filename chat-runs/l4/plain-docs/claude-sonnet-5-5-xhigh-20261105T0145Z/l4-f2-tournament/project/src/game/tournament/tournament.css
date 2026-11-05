@@ -1,0 +1,126 @@
+.tournament {
+  display: grid;
+  gap: 12px;
+}
+.tournament > * {
+  min-width: 0;
+}
+.tournament .help {
+  margin-bottom: 0;
+}
+/* The result area keeps its height during play, so a result never moves the cards. */
+.tournament .game-result {
+  min-height: 0;
+  margin: 0;
+}
+.tournament .game-result:has(.turn-owner) {
+  min-height: 56px;
+}
+.turn-owner {
+  display: block;
+}
+.setup {
+  display: grid;
+  gap: 12px;
+  max-width: 480px;
+}
+.setup .size-control {
+  justify-content: space-between;
+}
+.field {
+  display: grid;
+  gap: 6px;
+}
+.field input {
+  width: 100%;
+}
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.table-scroll {
+  max-width: 100%;
+  overflow-x: auto;
+}
+.results {
+  width: 100%;
+  border-collapse: collapse;
+}
+.bracket {
+  min-width: 560px;
+}
+.results caption {
+  padding-bottom: 8px;
+  text-align: left;
+}
+.results th,
+.results td {
+  padding: 8px 12px;
+  border: 1px solid var(--border);
+  text-align: left;
+  vertical-align: top;
+  white-space: nowrap;
+}
+.results .name {
+  min-width: 112px;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+.results th {
+  color: var(--secondary);
+  font-size: 14px;
+  font-weight: inherit;
+}
+.results td {
+  font-variant-numeric: tabular-nums;
+}
+.storage-notice {
+  margin-top: 8px;
+  color: var(--secondary);
+  font-size: 14px;
+}
+.exchange {
+  display: grid;
+  gap: 12px;
+}
+.exchange textarea {
+  width: 100%;
+  resize: vertical;
+}
+.exchange .control-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.leave-dialog {
+  max-width: min(480px, calc(100% - 32px));
+  padding: 16px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--panel);
+  color: var(--text);
+}
+.leave-dialog::backdrop {
+  background: rgb(9 11 20 / 80%);
+}
+.leave-dialog h3 {
+  margin: 0 0 8px;
+  font-size: 16px;
+  line-height: 24px;
+}
+.leave-dialog p {
+  margin-bottom: 16px;
+}
+.leave-dialog .control-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+@media (max-width: 599px) {
+  .actions > button,
+  .exchange .control-row > button,
+  .leave-dialog .control-row > button {
+    flex: 1;
+  }
+}

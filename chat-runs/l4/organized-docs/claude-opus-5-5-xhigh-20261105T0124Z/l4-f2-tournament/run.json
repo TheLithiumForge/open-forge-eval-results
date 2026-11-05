@@ -1,0 +1,22 @@
+{
+  "scenario": "organized-docs",
+  "packet": "l4-f2-tournament",
+  "workMode": "whole-packet",
+  "harness": "cloud chat, one subagent",
+  "model": {
+    "configured": "claude-opus-5-5",
+    "lastServed": "claude-opus-5-5"
+  },
+  "effort": "xhigh",
+  "openForgeCommit": "7f4406a40504c056e34e8b584cc8bdd1325f21ea",
+  "startedAt": "2026-11-05T01:24:58Z",
+  "finishedAt": "2026-11-05T02:04:00Z",
+  "timeLimitMinutes": 180,
+  "implementer": {
+    "totalTokens": 515035,
+    "toolUses": 149,
+    "durationMs": 2322797
+  },
+  "questionsAnswered": 0,
+  "notes": "Implementer ran in the background despite a foreground request. xhigh effort accepted. Finished within the time limit. Open Forge was a public anonymous read, so add_repo attached nothing and there was no repository to remove from the session. Implementer reports browser tests ran on Node 22.23.4 and Chrome for Testing 153 instead of the project's Node 26 and Chromium 156. transcripts.tgz deleted because the secret-pattern scan matched inside the transcripts (the harness transcript contains the scan patterns themselves)."
+}

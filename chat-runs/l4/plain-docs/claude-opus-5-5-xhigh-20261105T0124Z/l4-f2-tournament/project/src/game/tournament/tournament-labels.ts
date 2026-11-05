@@ -1,0 +1,30 @@
+export const TournamentControl = {
+  heading: 'Tournament',
+  players: 'Players',
+  player: 'Player',
+  start: 'Start tournament',
+  back: 'Back to game',
+  startTurn: 'Start turn',
+  nextTurn: 'Next turn',
+  nextMatch: 'Next match',
+  leave: 'Leave tournament',
+  keepPlaying: 'Keep playing',
+  confirmLeave: 'Leave',
+  json: 'Tournament JSON',
+  exportJson: 'Export tournament',
+  loadJson: 'Load tournament',
+} as const;
+
+export const TournamentTable = {
+  bracket: 'Bracket',
+  past: 'Past tournaments',
+  seed: 'Seed',
+  player: 'Player',
+  moves: 'Moves',
+  time: 'Time',
+  entrants: 'Entrants',
+  champion: 'Champion',
+  notPlayed: 'Not played',
+  noRecords: 'No finished tournaments yet.',
+  notSaved: "Progress won't be saved on this device.",
+} as const;

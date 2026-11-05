@@ -1,0 +1,98 @@
+.tournament {
+  display: grid;
+  gap: 16px;
+}
+.tournament h2 {
+  margin: 0;
+  font-size: 20px;
+  line-height: 28px;
+}
+.tournament h3 {
+  margin: 0 0 8px;
+  font-size: 16px;
+  line-height: 24px;
+}
+.tournament-notice {
+  min-height: 24px;
+  color: var(--secondary);
+  font-size: 14px;
+}
+.note {
+  color: var(--secondary);
+  font-size: 14px;
+  max-width: 70ch;
+}
+.tournament-setup {
+  display: grid;
+  gap: 12px;
+}
+.tournament-setup fieldset {
+  display: grid;
+  gap: 12px;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+.tournament-setup legend {
+  margin-bottom: 8px;
+  padding: 0;
+}
+.field {
+  display: grid;
+  gap: 6px;
+  max-width: 24rem;
+}
+.tournament-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.tournament-status {
+  min-height: 24px;
+}
+.champion {
+  padding: 12px 16px;
+  border: 1px solid var(--green);
+  border-radius: 8px;
+  color: var(--green);
+  font-size: 20px;
+  line-height: 28px;
+}
+.past-list {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.past-list li {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px 12px;
+  padding: 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--panel);
+}
+.past-result {
+  flex: 1;
+  min-width: 16ch;
+}
+.transfer {
+  display: grid;
+  gap: 8px;
+}
+.transfer textarea {
+  width: 100%;
+  resize: vertical;
+}
+@media (max-width: 599px) {
+  .tournament-actions > button {
+    flex: 1;
+  }
+  .field {
+    max-width: none;
+  }
+}
