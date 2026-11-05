@@ -1,0 +1,24 @@
+dialog {
+  max-width: min(100% - 32px, 480px);
+  padding: 24px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--text);
+  background: var(--panel);
+}
+dialog::backdrop {
+  background: #090b14cc;
+}
+dialog h2 {
+  margin: 0 0 12px;
+  font-size: 20px;
+}
+.leave-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 24px;
+}
+.leave-actions .control {
+  min-width: 44px;
+}

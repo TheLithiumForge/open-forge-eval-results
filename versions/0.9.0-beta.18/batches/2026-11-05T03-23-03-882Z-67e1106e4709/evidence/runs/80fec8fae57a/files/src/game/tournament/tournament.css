@@ -1,0 +1,123 @@
+.tournament-screen {
+  display: grid;
+  gap: 24px;
+  min-width: 0;
+}
+.tournament-screen h2,
+.tournament-screen h3,
+.leave-dialog h2 {
+  margin: 0;
+}
+.tournament-screen h2 {
+  font-size: 24px;
+  line-height: 32px;
+}
+.tournament-screen .control,
+.leave-dialog .control {
+  min-width: 44px;
+}
+.tournament-setup,
+.tournament-exchange,
+.past-tournaments {
+  display: grid;
+  gap: 16px;
+  min-width: 0;
+}
+.tournament-names {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
+  gap: 16px;
+}
+.tournament-field {
+  display: grid;
+  gap: 8px;
+}
+.tournament-field input,
+.tournament-exchange textarea {
+  width: 100%;
+}
+.tournament-exchange textarea {
+  resize: vertical;
+}
+.tournament-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.tournament-player,
+.tournament-champion {
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+.tournament-player {
+  display: block;
+}
+.tournament-champion {
+  color: var(--green);
+  font-size: 24px;
+  line-height: 32px;
+}
+.bracket-scroll {
+  overflow: auto;
+  max-width: 100%;
+}
+.tournament-bracket {
+  width: 100%;
+  min-width: 720px;
+  border-collapse: collapse;
+  background: var(--panel);
+}
+.tournament-bracket th {
+  white-space: nowrap;
+}
+.tournament-bracket caption {
+  text-align: left;
+  font-weight: 700;
+  padding: 0 0 12px;
+}
+.tournament-bracket th,
+.tournament-bracket td {
+  text-align: left;
+  vertical-align: top;
+  padding: 12px;
+  border: 1px solid var(--border);
+  overflow-wrap: anywhere;
+}
+.tournament-bracket small {
+  display: block;
+  color: var(--secondary);
+  white-space: nowrap;
+}
+.past-tournaments ol {
+  display: grid;
+  gap: 12px;
+  margin: 0;
+  padding-left: 24px;
+}
+.leave-dialog {
+  color: var(--text);
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  max-width: calc(100% - 32px);
+  padding: 24px;
+}
+.leave-dialog p {
+  margin: 16px 0;
+}
+.leave-dialog::backdrop {
+  background: #090b14cc;
+}
+.screen-heading {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  margin: 0;
+}
+@media (max-width: 599px) {
+  .tournament-actions > button {
+    flex: 1;
+  }
+}
