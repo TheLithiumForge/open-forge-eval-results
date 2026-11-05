@@ -1,0 +1,22 @@
+{
+  "scenario": "full-core-scoped",
+  "packet": "l4-f2-tournament",
+  "workMode": "whole-packet",
+  "harness": "cloud chat, one subagent",
+  "model": {
+    "configured": "claude-opus-5-5",
+    "lastServed": "claude-opus-5-5"
+  },
+  "effort": "xhigh",
+  "openForgeCommit": "7f4406a40504c056e34e8b584cc8bdd1325f21ea",
+  "startedAt": "2026-11-05T02:19:50Z",
+  "finishedAt": "2026-11-05T02:57:10Z",
+  "timeLimitMinutes": 180,
+  "implementer": {
+    "totalTokens": 514327,
+    "toolUses": 171,
+    "durationMs": 2210059
+  },
+  "questionsAnswered": 0,
+  "notes": "Finished within the time limit. Subagent ran in the background despite the foreground request; the harness waited for its completion notice. last_served_model was absent at the first get_session and claude-opus-5-5 after the run. open-forge is public, so add_repo attached nothing and there was nothing to detach. The harness clone was deleted before the run. report.md is the subagent's hand-back message with the harness indentation removed. transcripts.tgz was deleted because the secret-pattern check matched inside it (the pattern strings appear in the harness transcript itself); token counts come from the subagent's completion notice."
+}
