@@ -1,0 +1,32 @@
+{
+  "scenario": "organized-docs",
+  "packet": "l4-f2-tournament",
+  "workMode": "whole-packet",
+  "harness": "cloud chat, one subagent",
+  "model": {
+    "configured": "claude-sonnet-5-5",
+    "lastServed": "claude-sonnet-5-5"
+  },
+  "effort": "xhigh",
+  "openForgeCommit": "7f4406a40504c056e34e8b584cc8bdd1325f21ea",
+  "startedAt": "2026-11-05T01:45:43Z",
+  "finishedAt": "2026-11-05T02:26:47Z",
+  "timeLimitMinutes": 180,
+  "implementer": {
+    "totalTokens": 526518,
+    "toolUses": 73,
+    "durationMs": 1239684
+  },
+  "questionsAnswered": 0,
+  "notes": [
+    "The subagent ran in the background although it was started in the foreground, so the harness waited for its completion notice.",
+    "xhigh effort was accepted by the Agent call.",
+    "The user asked the harness to stop the subagent shortly after launch and to continue later. The subagent was stopped with TaskStop after it had read docs/README.md and created src/game/tournament/ in the project. It was resumed about 20 minutes later with SendMessage and the neutral text 'Please continue the work where you left off and finish it.' That text was not counted as an answered question.",
+    "The start and end times span the pause, so wall-clock time (about 41 minutes) includes roughly 20 minutes of idle time. The implementer's durationMs, tokens and tool uses come from the final task notification and may cover the resumed segment only; tokens and tool uses of the first segment are in the transcripts.",
+    "The subagent's final report came as a hand-back message; the task notification carried the usage figures.",
+    "The subagent reported that its e2e run used the sandbox Chromium 1243 and Node 22, not the combination named in the project README.",
+    "The add_repo call for open-forge only confirmed anonymous read access and attached nothing, and no tool to detach it exists. The harness clone was deleted before the implementer started.",
+    "The run was not checked, reviewed or judged by the harness.",
+    "The sign-in value check matched in the transcripts, so transcripts.tgz was deleted and is not included. The project, report, run.json and changes.patch were clean."
+  ]
+}
