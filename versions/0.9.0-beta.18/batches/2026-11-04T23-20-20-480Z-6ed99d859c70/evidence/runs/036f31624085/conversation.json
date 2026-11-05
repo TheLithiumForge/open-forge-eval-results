@@ -1,0 +1,42 @@
+{
+  "version": 1,
+  "classifier": "question-topics-v2",
+  "bankHash": "cfaddf84137fd3ae7337c9b4b13457741ac2809c7296e68cd2414c6a119156bd",
+  "requestedModel": {
+    "tool": "codex",
+    "model": "gpt-6-luna",
+    "effort": "max"
+  },
+  "questions": [],
+  "calls": [
+    {
+      "tokens": {
+        "input": 11443,
+        "cachedInput": 7680,
+        "cacheWrite": 0,
+        "output": 36,
+        "reasoning": 26
+      },
+      "model": null,
+      "tools": "restricted",
+      "seconds": 15.902,
+      "reply": "{\"questions\":[]}"
+    }
+  ],
+  "rounds": 0,
+  "questionCount": 0,
+  "repeats": 0,
+  "documented": 0,
+  "unanswered": 0,
+  "error": null,
+  "messages": [
+    {
+      "role": "user",
+      "text": "The best score acts strangely. A worse game can replace it, and a size I've never finished shows 0. Could you fix that and keep the rest working? Please follow the project rules."
+    },
+    {
+      "role": "agent",
+      "text": "Fixed both score issues:\n\n- [storage.ts](/work/src/game/session/storage.ts): a completed game only replaces that size’s best when it uses fewer moves; equal or worse scores leave preferences unchanged.\n- [GameStatus.tsx](/work/src/game/status/GameStatus.tsx): an unset best now displays “none” instead of `0`, using the label in [status-labels.ts](/work/src/game/status/status-labels.ts).\n\nI didn’t run tests."
+    }
+  ]
+}
