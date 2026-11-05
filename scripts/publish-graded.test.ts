@@ -86,3 +86,19 @@ test("grades add new checks of waiting runs, their listed evidence and artifact 
     assert.deepEqual(await copyGraded(staging, join(root, "repository"), [{ batch: "b2", folder: "versions/0.0.0/batches/b2", run: "r1" }]), []);
   } finally { await rm(root, { recursive: true, force: true }); }
 });
+
+test("a run graded after others in its batch carries their evidence, which is left as published", async () => {
+  const root = await mkdtemp(join(tmpdir(), "results-graded-"));
+  try {
+    const batch = "b1", folder = `versions/0.0.0/batches/${batch}`, Published = "published", Changed = "changed";
+    const target = await published(root, batch), staging = join(root, "staging"), artifact = join(staging, gradedArtifact({ batch, run: "r3" }));
+    await mkdir(join(target, "evidence", "assessments", "b1"), { recursive: true });
+    await writeFile(join(target, "evidence", "assessments", "b1", "shot.png"), Published);
+    await uploaded(target, artifact);
+    await writeFile(join(artifact, "assessments", "checks.jsonl"), await readFile(join(target, "assessments", "checks.jsonl"), "utf8") + line(check(batch, "c3", "r3", null)));
+    await mkdir(join(artifact, "evidence", "assessments", "b1"), { recursive: true });
+    await writeFile(join(artifact, "evidence", "assessments", "b1", "shot.png"), Changed);
+    assert.deepEqual(await copyGraded(staging, join(root, "repository"), [{ batch, folder, run: "r3" }]), [`${batch}/r3`]);
+    assert.equal(await readFile(join(target, "evidence", "assessments", "b1", "shot.png"), "utf8"), Published);
+  } finally { await rm(root, { recursive: true, force: true }); }
+});

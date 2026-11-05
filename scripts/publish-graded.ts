@@ -87,6 +87,8 @@ async function runGrades(source: string, target: string, batch: string, run: str
       continue;
     }
     const owner = AssessmentEvidence.exec(file)?.[1];
+    // An artifact starts from the published batch, so it also holds earlier checks' evidence. That's already here, and stays as it is.
+    if (owner !== undefined && known.has(owner)) continue;
     if (owner === undefined || !added.includes(owner)) throw new Error(`A graded batch may not add ${file}.`);
     evidence.push(file);
   }
