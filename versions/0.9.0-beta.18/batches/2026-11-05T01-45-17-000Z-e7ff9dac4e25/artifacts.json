@@ -10582,5 +10582,69 @@
     "path": "shots/phone-4x4.png",
     "bytes": 112056,
     "sha256": "d861aa4e127ec4f42ee46de80768cd567cb6891ac850f7b471a3cc57054d1a8a"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "09d8c475f1ac",
+    "assessmentId": "8139ad5b-68e5-4acc-b0f9-036618cd125a",
+    "path": "brownfield.json",
+    "bytes": 146793,
+    "sha256": "f52af7b9cae2621db2792e0acb136411d4f6d03d7babfee08d80d4d7499a718c"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "09d8c475f1ac",
+    "assessmentId": "8139ad5b-68e5-4acc-b0f9-036618cd125a",
+    "path": "shots/brownfield-checks.json",
+    "bytes": 6851,
+    "sha256": "eabda194439f9889a6ec0586592eb9d206c16cf41f889d2922fce7e80c9be585"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "09d8c475f1ac",
+    "assessmentId": "8139ad5b-68e5-4acc-b0f9-036618cd125a",
+    "path": "shots/desktop-16x16.png",
+    "bytes": 65150,
+    "sha256": "394af5c42f3d3c22eeca78d805b503e4d720b4f9e5301255cd355028d1fdc185"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "09d8c475f1ac",
+    "assessmentId": "8139ad5b-68e5-4acc-b0f9-036618cd125a",
+    "path": "shots/desktop-4x4.png",
+    "bytes": 51061,
+    "sha256": "091caaefbec801c86c446c7b05c92e8b519bed5873a897215847e795b797448a"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "09d8c475f1ac",
+    "assessmentId": "8139ad5b-68e5-4acc-b0f9-036618cd125a",
+    "path": "shots/desktop-win.png",
+    "bytes": 63485,
+    "sha256": "85d47086a6894ce49c1379b5fb95f085c37714243c9b27a9aabe64435de8f18e"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "09d8c475f1ac",
+    "assessmentId": "8139ad5b-68e5-4acc-b0f9-036618cd125a",
+    "path": "shots/face-sheet.png",
+    "bytes": 376213,
+    "sha256": "5ef2ca89c0657d40abc07bbc4164176c2fd41323ce8e1a5a1cefa64502421c68"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "09d8c475f1ac",
+    "assessmentId": "8139ad5b-68e5-4acc-b0f9-036618cd125a",
+    "path": "shots/phone-16x16.png",
+    "bytes": 136133,
+    "sha256": "b28ad1cd462502a9714dba1be5ac627a5d8001124c9417e9c25255d4174a79b7"
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "09d8c475f1ac",
+    "assessmentId": "8139ad5b-68e5-4acc-b0f9-036618cd125a",
+    "path": "shots/phone-4x4.png",
+    "bytes": 109624,
+    "sha256": "2c94efefe1ea541f0dc231d5d685ffbe1889777573af7d8dacafe01db0716f44"
   }
 ]
